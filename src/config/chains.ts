@@ -39,7 +39,7 @@ export const CHAIN_NAMES_MAP = {
 };
 
 export const GAS_PRICE_ADJUSTMENT_MAP = {
-  [ARBITRUM]: "0",
+  [ARBITRUM]: "51000000000",
   [AVALANCHE]: "3000000000", // 3 gwei
 };
 
@@ -89,11 +89,15 @@ const constants = {
     defaultFlagOrdersEnabled: false,
     positionReaderPropsLength: 9,
     v2: true,
-
-    SWAP_ORDER_EXECUTION_GAS_FEE: parseEther("0.0003"),
-    INCREASE_ORDER_EXECUTION_GAS_FEE: parseEther("0.0003"),
+     // TODO 修改手续费
+    SWAP_ORDER_EXECUTION_GAS_FEE: parseEther("0.01"),
+    INCREASE_ORDER_EXECUTION_GAS_FEE: parseEther("0.01"),
     // contract requires that execution fee be strictly greater than instead of gte
-    DECREASE_ORDER_EXECUTION_GAS_FEE: parseEther("0.000300001"),
+    DECREASE_ORDER_EXECUTION_GAS_FEE: parseEther("0.01"),
+    // SWAP_ORDER_EXECUTION_GAS_FEE: parseEther("0.0003"),
+    // INCREASE_ORDER_EXECUTION_GAS_FEE: parseEther("0.0003"),
+    // // contract requires that execution fee be strictly greater than instead of gte
+    // DECREASE_ORDER_EXECUTION_GAS_FEE: parseEther("0.000300001"),
   },
 
   [AVALANCHE]: {
