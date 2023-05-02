@@ -4,10 +4,12 @@ import { getSubgraphUrlKey } from "./localStorage";
 
 const SUBGRAPH_URLS = {
   [ARBITRUM]: {
-    // stats: "https://api.thegraph.com/subgraphs/name/gdev8317/gmx-arbitrum-stats
-    stats: "https://api.thegraph.com/subgraphs/name/gmx-io/gmx-stats",
-    referrals: "https://api.thegraph.com/subgraphs/name/gmx-io/gmx-arbitrum-referrals",
-    nissohVault: "https://api.thegraph.com/subgraphs/name/nissoh/gmx-vault",
+    stats: "https://api.studio.thegraph.com/proxy/45535/test-stats/0.0.1",
+    referrals: "https://api.studio.thegraph.com/query/45535/test-referrals/0.0.1",
+    // // stats: "https://api.thegraph.com/subgraphs/name/gdev8317/gmx-arbitrum-stats
+    // stats: "https://api.thegraph.com/subgraphs/name/gmx-io/gmx-stats",
+    // referrals: "https://api.thegraph.com/subgraphs/name/gmx-io/gmx-arbitrum-referrals",
+    // nissohVault: "https://api.thegraph.com/subgraphs/name/nissoh/gmx-vault",
   },
 
   [AVALANCHE]: {

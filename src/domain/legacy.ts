@@ -464,6 +464,7 @@ export function useHasOutdatedUi() {
 }
 
 export function useGmxPrice(chainId, libraries, active) {
+  console.log(3333, chainId, libraries, active)
   const arbitrumLibrary = libraries && libraries.arbitrum ? libraries.arbitrum : undefined;
   const { data: gmxPriceFromArbitrum, mutate: mutateFromArbitrum } = useGmxPriceFromArbitrum(arbitrumLibrary, active);
   const { data: gmxPriceFromAvalanche, mutate: mutateFromAvalanche } = useGmxPriceFromAvalanche();
@@ -620,6 +621,7 @@ function useGmxPriceFromArbitrum(library, active) {
 
   const vaultAddress = getContract(ARBITRUM, "Vault");
   const ethAddress = getTokenBySymbol(ARBITRUM, "WETH").address;
+  console.log(123123, library, active, ARBITRUM, vaultAddress, ethAddress);
   const { data: ethPrice, mutate: updateEthPrice } = useSWR<BigNumber>(
     [`StakeV2:ethPrice:${active}`, ARBITRUM, vaultAddress, "getMinPrice", ethAddress],
     {

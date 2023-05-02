@@ -10,7 +10,7 @@ export const TESTNET = 97;
 export const ETH_MAINNET = 1;
 export const AVALANCHE = 43114;
 export const AVALANCHE_FUJI = 43113;
-export const ARBITRUM = 42161;
+export const ARBITRUM = 84531;
 export const ARBITRUM_TESTNET = 421611;
 export const FEES_HIGH_BPS = 50;
 
@@ -242,7 +242,8 @@ export function getChainName(chainId: number) {
 }
 
 export function getDefaultArbitrumRpcUrl() {
-  return "https://arb1.arbitrum.io/rpc";
+  return "https://goerli.base.org";
+  // return "https://arb1.arbitrum.io/rpc";
 }
 
 export function getRpcUrl(chainId: number): string | undefined {
@@ -279,7 +280,7 @@ export function getExplorerUrl(chainId) {
   } else if (chainId === ARBITRUM_TESTNET) {
     return "https://testnet.arbiscan.io/";
   } else if (chainId === ARBITRUM) {
-    return "https://arbiscan.io/";
+    return "https://goerli.basescan.org/";
   } else if (chainId === AVALANCHE) {
     return "https://snowtrace.io/";
   } else if (chainId === AVALANCHE_FUJI) {
