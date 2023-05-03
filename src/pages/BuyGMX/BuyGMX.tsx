@@ -47,7 +47,7 @@ export default function BuyGMX() {
         <div className="section-title-block">
           <div className="section-title-content">
             <div className="Page-title">
-              <Trans>Buy on Goerli on {getChainName(chainId)}</Trans>
+              <Trans>Buy GMX on {getChainName(chainId)}</Trans>
             </div>
             <div className="Page-description">
               <Trans>Choose to buy from decentralized or centralized exchanges.</Trans>
@@ -163,12 +163,12 @@ export default function BuyGMX() {
 function DecentralisedExchanges({ chainId, externalLinks }) {
   const isArbitrum = chainId === BASE;
   return (
-    <Card title={t`Buy on Goerli from a Decentralized Exchange`}>
+    <Card title={t`Buy GMX from a Decentralized Exchange`}>
       <div className="App-card-content">
         {isArbitrum ? (
           <div className="exchange-info-group">
             <div className="BuyGMXGLP-description">
-              <Trans>Buy on Goerli from Uniswap (make sure to select Arbitrum):</Trans>
+              <Trans>Buy GMX from Uniswap (make sure to select Arbitrum):</Trans>
             </div>
             <div className="buttons-group col-1">
               <Button
@@ -184,7 +184,7 @@ function DecentralisedExchanges({ chainId, externalLinks }) {
         ) : (
           <div className="exchange-info-group">
             <div className="BuyGMXGLP-description">
-              <Trans>Buy on Goerli from Traderjoe:</Trans>
+              <Trans>Buy GMX from Traderjoe:</Trans>
             </div>
             <div className="buttons-group col-1">
               <Button
@@ -200,7 +200,7 @@ function DecentralisedExchanges({ chainId, externalLinks }) {
         )}
         <div className="exchange-info-group">
           <div className="BuyGMXGLP-description">
-            <Trans>Buy on Goerli using Decentralized Exchange Aggregators:</Trans>
+            <Trans>Buy GMX using Decentralized Exchange Aggregators:</Trans>
           </div>
           <div className="buttons-group">
             {DECENTRALISED_AGGRIGATORS.filter((e) => chainId in e.links).map((exchange) => {
@@ -222,7 +222,7 @@ function DecentralisedExchanges({ chainId, externalLinks }) {
         </div>
         <div className="exchange-info-group">
           <div className="BuyGMXGLP-description">
-            <Trans>Buy on Goerli using any token from any network:</Trans>
+            <Trans>Buy GMX using any token from any network:</Trans>
           </div>
           <div className="buttons-group">
             {GMX_FROM_ANY_NETWORKS.filter((e) => chainId in e.links).map((exchange) => {
@@ -266,11 +266,11 @@ function DecentralisedExchanges({ chainId, externalLinks }) {
 
 function CentralisedExchanges({ chainId }) {
   return (
-    <Card title={t`Buy on Goerli from centralized services`}>
+    <Card title={t`Buy GMX from centralized services`}>
       <div className="App-card-content">
         <div className="exchange-info-group">
           <div className="BuyGMXGLP-description">
-            <Trans>Buy on Goerli from centralized exchanges:</Trans>
+            <Trans>Buy GMX from centralized exchanges:</Trans>
           </div>
           <div className="buttons-group">
             {CENTRALISED_EXCHANGES.filter((e) => chainId in e.links).map((exchange) => {
@@ -293,7 +293,7 @@ function CentralisedExchanges({ chainId }) {
 
         <div className="exchange-info-group">
           <div className="BuyGMXGLP-description">
-            <Trans>Buy on Goerli using FIAT gateways:</Trans>
+            <Trans>Buy GMX using FIAT gateways:</Trans>
           </div>
           <div className="buttons-group col-2">
             {FIAT_GATEWAYS.filter((e) => chainId in e.links).map((exchange) => {
