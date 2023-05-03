@@ -11,7 +11,6 @@ export function useVolumeInfo() {
     async (url) => {
       const res = await fetch(url);
       const json = await res.json();
-      console.log(3333,json);
       return {
         [BASE]: bigNumberify(json[BASE]),
       };

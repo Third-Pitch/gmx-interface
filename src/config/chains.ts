@@ -33,7 +33,7 @@ export const CHAIN_NAMES_MAP = {
   [MAINNET]: "BSC",
   [TESTNET]: "BSC Testnet",
   [ARBITRUM_TESTNET]: "ArbRinkeby",
-  [BASE]: "Base Goerli",
+  [BASE]: "Base",
   [AVALANCHE]: "Avalanche",
   [AVALANCHE_FUJI]: "Avalanche Fuji",
 };

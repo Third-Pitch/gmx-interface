@@ -144,6 +144,7 @@ export function getPositions(
   pendingPositions,
   updatedPositions
 ) {
+  // 9 
   const propsLength = getConstant(chainId, "positionReaderPropsLength");
   const positions = [];
   const positionsMap = {};
@@ -292,12 +293,10 @@ export function getPositions(
     positionsMap[key] = position;
 
     applyPendingChanges(position, pendingPositions);
-
     if (position.size.gt(0) || position.hasPendingChanges) {
       positions.push(position);
     }
   }
-
   return { positions, positionsMap };
 }
 
@@ -467,7 +466,6 @@ export const Exchange = forwardRef((props, ref) => {
   const { data: tokenBalances } = useSWR(active && [active, chainId, readerAddress, "getTokenBalances", account], {
     fetcher: contractFetcher(library, Reader, [tokenAddresses]),
   });
-
   const { data: positionData, error: positionDataError } = useSWR(
     active && [active, chainId, readerAddress, "getPositions", vaultAddress, account],
     {

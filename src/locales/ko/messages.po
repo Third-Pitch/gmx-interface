@@ -110,6 +110,11 @@ msgstr "{0}담보의 USD가치 스냅샷은 해당 포지션이 열려있을 때
 msgid "APR"
 msgstr "APR"
 
+#: src/components/TokenCard/TokenCard.js
+#: src/components/TokenCard/TokenCard.js
+msgid "APR:"
+msgstr "APR:"
+
 #: src/components/Stake/GMXAprTooltip.tsx
 msgid "APRs are updated weekly on Wednesday and will depend on the fees collected for the week."
 msgstr "APR은 매주 수요일에 업데이트되며 한 주 동안 쌓인 수수료에 따라 달라집니다."
@@ -306,11 +311,6 @@ msgstr "{stakingTokenSymbol} 승인중..."
 msgid "Approving..."
 msgstr "승인중..."
 
-#: src/components/TokenCard/TokenCard.js
-#: src/components/TokenCard/TokenCard.js
-msgid "APR:"
-msgstr "APR:"
-
 #: src/components/Exchange/NoLiquidityErrorModal.tsx
 msgid "As there is not enough liquidity in GLP to swap {0} to {swapTokenSymbol}, you can use the option below to do so:"
 msgstr "{0}에서 {swapTokenSymbol}로 교환할 수 있는 유동성이 GLP에 충분하지 않기 때문에, 이하의 옵션을 사용해주세요:"
@@ -422,49 +422,9 @@ msgstr ""
 msgid "Buy GLP"
 msgstr "GLP 구매"
 
-#: src/pages/Stake/StakeV2.js
-msgid "Buy GMX"
-msgstr "GMX 구매"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX from Traderjoe:"
-msgstr ""
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX from Uniswap (make sure to select Arbitrum):"
-msgstr ""
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX from a Decentralized Exchange"
-msgstr ""
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX from centralized exchanges:"
-msgstr ""
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX from centralized services"
-msgstr ""
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX on {0}"
-msgstr ""
-
 #: src/pages/Buy/Buy.js
 msgid "Buy GMX or GLP"
 msgstr "GMX 혹은 GLP 구매"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX using Decentralized Exchange Aggregators:"
-msgstr ""
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX using FIAT gateways:"
-msgstr ""
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX using any token from any network:"
-msgstr ""
 
 #: src/components/Glp/GlpSwap.js
 msgid "Buy failed."
@@ -475,10 +435,45 @@ msgstr "구매 실패"
 msgid "Buy on Base"
 msgstr "에서 구매"
 
-#: src/components/TokenCard/TokenCard.js
-#: src/components/TokenCard/TokenCard.js
-msgid "Buy on Avalanche"
-msgstr "Avalanche에서 구매"
+#: src/pages/Stake/StakeV2.js
+msgid "Buy on Goerli"
+msgstr ""
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy on Goerli from Traderjoe:"
+msgstr ""
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy on Goerli from Uniswap (make sure to select Arbitrum):"
+msgstr ""
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy on Goerli from a Decentralized Exchange"
+msgstr ""
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy on Goerli from centralized exchanges:"
+msgstr ""
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy on Goerli from centralized services"
+msgstr ""
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy on Goerli on {0}"
+msgstr ""
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy on Goerli using Decentralized Exchange Aggregators:"
+msgstr ""
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy on Goerli using FIAT gateways:"
+msgstr ""
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy on Goerli using any token from any network:"
+msgstr ""
 
 #: src/pages/BuyGMX/BuyGMX.tsx
 msgid "Buy or Transfer AVAX to Avalanche"
@@ -1291,7 +1286,6 @@ msgstr "수수료"
 #: src/components/Glp/GlpSwap.js
 #: src/components/Glp/GlpSwap.js
 #: src/pages/Dashboard/DashboardV1.js
-#: src/pages/Dashboard/DashboardV2.js
 msgid "Fees"
 msgstr "수수료"
 
@@ -1815,7 +1809,6 @@ msgstr "로딩중..."
 msgid "Long"
 msgstr "롱"
 
-#: src/pages/Dashboard/DashboardV2.js
 #: src/pages/Dashboard/DashboardV2.js
 msgid "Long Positions"
 msgstr "롱 포지션"
@@ -2778,7 +2771,6 @@ msgid "Short"
 msgstr "숏"
 
 #: src/pages/Dashboard/DashboardV2.js
-#: src/pages/Dashboard/DashboardV2.js
 msgid "Short Positions"
 msgstr "숏 포지션"
 
@@ -2877,13 +2869,11 @@ msgid "Stake submitted! <0>View status.</0>"
 msgstr "스테이킹 제출완료! <0>상태 보기.</0>"
 
 #: src/components/Glp/GlpSwap.js
-#: src/pages/Dashboard/DashboardV2.js
 #: src/pages/Stake/StakeV1.js
 #: src/pages/Stake/StakeV1.js
 #: src/pages/Stake/StakeV1.js
 #: src/pages/Stake/StakeV1.js
 #: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
 #: src/pages/Stake/StakeV2.js
 #: src/pages/Stake/StakeV2.js
 #: src/pages/Stake/StakeV2.js
@@ -3212,7 +3202,6 @@ msgid "Total Assets Staked"
 msgstr "총 스테이킹된 자산"
 
 #: src/pages/Dashboard/DashboardV2.js
-#: src/pages/Dashboard/DashboardV2.js
 msgid "Total Fees"
 msgstr "총 수수료"
 
@@ -3272,7 +3261,6 @@ msgstr "총 유저"
 
 #: src/components/Referrals/AffiliatesStats.js
 #: src/pages/Dashboard/DashboardV2.js
-#: src/pages/Dashboard/DashboardV2.js
 msgid "Total Volume"
 msgstr "총 거래량"
 
@@ -3287,10 +3275,6 @@ msgstr "전체 액티브: {openTotal}, 실행 완료: {executedTotal}, 취소 �
 #: src/pages/Dashboard/DashboardV1.js
 msgid "Total fees earned since {0}: {1} USD<0/>Fee assets: {feeText}"
 msgstr "{0}이후로 얻은 총 수수료: {1} USD<0/>수수료 자산: {feeText}"
-
-#: src/components/StatsTooltip/StatsTooltip.tsx
-msgid "Total:"
-msgstr "총계:"
 
 #: src/components/Header/AppHeaderUser.tsx
 #: src/components/Header/AppHeaderUser.tsx
@@ -3591,7 +3575,6 @@ msgid "View status."
 msgstr "상태 보기."
 
 #: src/pages/Dashboard/DashboardV1.js
-#: src/pages/Dashboard/DashboardV2.js
 msgid "Volume"
 msgstr "거래량"
 
@@ -4047,10 +4030,6 @@ msgstr ""
 #: src/components/Exchange/PositionSeller.js
 msgid "{nativeTokenSymbol} can not be sent to smart contract addresses. Select another token."
 msgstr ""
-
-#: src/components/StatsTooltip/StatsTooltip.tsx
-msgid "{title} on Avalanche:"
-msgstr "Avalanche {title}"
 
 #: src/pages/Dashboard/DashboardV1.js
 msgid "{volumeLabel} Volume"
