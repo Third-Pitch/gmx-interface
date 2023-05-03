@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { Trans, t } from "@lingui/macro";
 import { useWeb3React } from "@web3-react/core";
 
@@ -29,7 +29,7 @@ import {
   getPageTitle,
 } from "lib/legacy";
 import { useGmxPrice, useTotalGmxStaked, useTotalGmxSupply } from "domain/legacy";
-import { ARBITRUM, getChainName, getConstant } from "config/chains";
+import { BASE, getChainName, getConstant } from "config/chains";
 
 import useSWR from "swr";
 
@@ -37,7 +37,6 @@ import { getContract } from "config/contracts";
 
 import "./StakeV2.css";
 import SEO from "components/Common/SEO";
-import StatsTooltip from "components/StatsTooltip/StatsTooltip";
 import StatsTooltipRow from "components/StatsTooltip/StatsTooltipRow";
 import { getServerUrl } from "config/backend";
 import { callContract, contractFetcher } from "lib/contracts";
@@ -113,7 +112,7 @@ function StakeModal(props) {
       failMsg: t`Stake failed.`,
       setPendingTxns,
     })
-      .then(async (res) => {
+      .then(async () => {
         setIsVisible(false);
       })
       .finally(() => {
@@ -247,7 +246,7 @@ function UnstakeModal(props) {
       successMsg: t`Unstake completed!`,
       setPendingTxns,
     })
-      .then(async (res) => {
+      .then(async () => {
         setIsVisible(false);
       })
       .finally(() => {
@@ -394,7 +393,7 @@ function VesterDepositModal(props) {
       successMsg: t`Deposited!`,
       setPendingTxns,
     })
-      .then(async (res) => {
+      .then(async () => {
         setIsVisible(false);
       })
       .finally(() => {
@@ -566,7 +565,7 @@ function VesterWithdrawModal(props) {
       successMsg: t`Withdrawn!`,
       setPendingTxns,
     })
-      .then(async (res) => {
+      .then(async () => {
         setIsVisible(false);
       })
       .finally(() => {
@@ -708,7 +707,7 @@ function CompoundModal(props) {
         setPendingTxns,
       }
     )
-      .then(async (res) => {
+      .then(async () => {
         setIsVisible(false);
       })
       .finally(() => {
@@ -857,7 +856,7 @@ function ClaimModal(props) {
         setPendingTxns,
       }
     )
-      .then(async (res) => {
+      .then(async () => {
         setIsVisible(false);
       })
       .finally(() => {
@@ -1078,9 +1077,9 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
     }
   );
 
-  const { gmxPrice, gmxPriceFromArbitrum, gmxPriceFromAvalanche } = useGmxPrice(
+  const { gmxPrice } = useGmxPrice(
     chainId,
-    { arbitrum: chainId === ARBITRUM ? library : undefined },
+    { arbitrum: chainId === BASE ? library : undefined },
     active
   );
 
@@ -1476,26 +1475,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                   <Trans>Price</Trans>
                 </div>
                 <div>
-                  {!gmxPrice && "..."}
-                  {gmxPrice && (
-                    <Tooltip
-                      position="right-bottom"
-                      className="nowrap"
-                      handle={"$" + formatAmount(gmxPrice, USD_DECIMALS, 2, true)}
-                      renderContent={() => (
-                        <>
-                          <StatsTooltipRow
-                            label={t`Price on Avalanche`}
-                            value={formatAmount(gmxPriceFromAvalanche, USD_DECIMALS, 2, true)}
-                          />
-                          <StatsTooltipRow
-                            label={t`Price on Arbitrum`}
-                            value={formatAmount(gmxPriceFromArbitrum, USD_DECIMALS, 2, true)}
-                          />
-                        </>
-                      )}
-                    />
-                  )}
+                  {gmxPrice ? `$${formatAmount(gmxPrice, USD_DECIMALS, 2, true)}` : "..."}
                 </div>
               </div>
               <div className="App-card-row">
@@ -1610,28 +1590,13 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                 </div>
                 <div>
                   {!totalGmxStaked && "..."}
-                  {totalGmxStaked && (
-                    <Tooltip
-                      position="right-bottom"
-                      className="nowrap"
-                      handle={
-                        formatAmount(totalGmxStaked, 18, 0, true) +
-                        " GMX" +
-                        ` ($${formatAmount(stakedGmxSupplyUsd, USD_DECIMALS, 0, true)})`
-                      }
-                      renderContent={() => (
-                        <StatsTooltip
-                          showDollar={false}
-                          title={t`Staked`}
-                          avaxValue={avaxGmxStaked}
-                          arbitrumValue={arbitrumGmxStaked}
-                          total={totalGmxStaked}
-                          decimalsForConversion={18}
-                          symbol="GMX"
-                        />
-                      )}
-                    />
-                  )}
+                  {
+                    totalGmxStaked && (
+                      formatAmount(totalGmxStaked, 18, 0, true) +
+                      " GMX" +
+                      ` ($${formatAmount(stakedGmxSupplyUsd, USD_DECIMALS, 0, true)})`
+                    )
+                  }
                 </div>
               </div>
               <div className="App-card-row">
@@ -1649,7 +1614,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
               <div className="App-card-divider" />
               <div className="App-card-buttons m-0">
                 <Button variant="semi-clear" to="/buy_gmx">
-                  <Trans>Buy GMX</Trans>
+                  <Trans>Buy on Goerli</Trans>
                 </Button>
                 {active && (
                   <Button variant="semi-clear" onClick={() => showStakeGmxModal()}>

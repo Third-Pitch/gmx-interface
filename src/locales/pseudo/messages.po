@@ -308,7 +308,7 @@ msgstr ""
 
 #: src/components/TokenCard/TokenCard.js
 #: src/components/TokenCard/TokenCard.js
-msgid "Arbitrum APR:"
+msgid "APR:"
 msgstr ""
 
 #: src/components/Exchange/NoLiquidityErrorModal.tsx
@@ -351,11 +351,6 @@ msgstr ""
 
 #: src/components/Glp/GlpSwap.js
 msgid "Available:"
-msgstr ""
-
-#: src/components/TokenCard/TokenCard.js
-#: src/components/TokenCard/TokenCard.js
-msgid "Avalanche APR:"
 msgstr ""
 
 #: src/components/Exchange/SwapBox.js
@@ -477,7 +472,7 @@ msgstr ""
 
 #: src/components/TokenCard/TokenCard.js
 #: src/components/TokenCard/TokenCard.js
-msgid "Buy on Arbitrum"
+msgid "Buy on Base"
 msgstr ""
 
 #: src/components/TokenCard/TokenCard.js
@@ -2441,16 +2436,6 @@ msgstr ""
 msgid "Price is below Mark Price"
 msgstr ""
 
-#: src/pages/Dashboard/DashboardV2.js
-#: src/pages/Stake/StakeV2.js
-msgid "Price on Arbitrum"
-msgstr ""
-
-#: src/pages/Dashboard/DashboardV2.js
-#: src/pages/Stake/StakeV2.js
-msgid "Price on Avalanche"
-msgstr ""
-
 #: src/pages/Actions/Actions.js
 msgid "Profit"
 msgstr ""
@@ -4055,10 +4040,6 @@ msgstr ""
 
 #: src/components/Exchange/PositionSeller.js
 msgid "{nativeTokenSymbol} can not be sent to smart contract addresses. Select another token."
-msgstr ""
-
-#: src/components/StatsTooltip/StatsTooltip.tsx
-msgid "{title} on Arbitrum:"
 msgstr ""
 
 #: src/components/StatsTooltip/StatsTooltip.tsx

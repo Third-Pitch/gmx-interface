@@ -1,8 +1,8 @@
-import { ARBITRUM, AVALANCHE } from "config/chains";
+import { BASE, AVALANCHE } from "config/chains";
 import { TOKENS_BY_SYMBOL_MAP } from "./tokens";
 
 const oneInchTokensMap = {
-  [ARBITRUM]: {
+  [BASE]: {
     BTC: "WBTC",
   },
   [AVALANCHE]: {
@@ -25,7 +25,7 @@ export function get1InchSwapUrl(chainId: number, from?: string, to?: string) {
 }
 
 export function getLeaderboardLink(chainId) {
-  if (chainId === ARBITRUM) {
+  if (chainId === BASE) {
     return "https://www.gmx.house/arbitrum/leaderboard";
   }
   if (chainId === AVALANCHE) {

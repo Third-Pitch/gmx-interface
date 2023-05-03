@@ -22,7 +22,7 @@ import avaxIcon from "img/ic_avalanche_96.svg";
 import TokenCard from "components/TokenCard/TokenCard";
 import { Trans } from "@lingui/macro";
 import { HeaderLink } from "components/Header/HeaderLink";
-import { ARBITRUM, AVALANCHE } from "config/chains";
+import { BASE, AVALANCHE } from "config/chains";
 import { getServerUrl } from "config/backend";
 import { bigNumberify, formatAmount, numberWithCommas } from "lib/numbers";
 
@@ -56,12 +56,12 @@ export default function Home({ showRedirectModal, redirectPopupTimestamp }) {
 
   // ARBITRUM
 
-  const arbitrumPositionStatsUrl = getServerUrl(ARBITRUM, "/position_stats");
+  const arbitrumPositionStatsUrl = getServerUrl(BASE, "/position_stats");
   const { data: arbitrumPositionStats } = useSWR([arbitrumPositionStatsUrl], {
     fetcher: (...args) => fetch(...args).then((res) => res.json()),
   });
 
-  const arbitrumTotalVolumeUrl = getServerUrl(ARBITRUM, "/total_volume");
+  const arbitrumTotalVolumeUrl = getServerUrl(BASE, "/total_volume");
   const { data: arbitrumTotalVolume } = useSWR([arbitrumTotalVolumeUrl], {
     fetcher: (...args) => fetch(...args).then((res) => res.json()),
   });
@@ -111,7 +111,7 @@ export default function Home({ showRedirectModal, redirectPopupTimestamp }) {
   }
 
   // user stat
-  const arbitrumUserStats = useUserStat(ARBITRUM);
+  const arbitrumUserStats = useUserStat(BASE);
   const avalancheUserStats = useUserStat(AVALANCHE);
   let totalUsers = 0;
 

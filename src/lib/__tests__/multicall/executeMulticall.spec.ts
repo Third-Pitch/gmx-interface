@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import Token from "abis/Token.json";
 import * as MulticallLib from "ethereum-multicall";
 import * as rpcLib from "lib/rpc";
-import { ARBITRUM, AVALANCHE, FALLBACK_PROVIDERS } from "config/chains";
+import { BASE, AVALANCHE, FALLBACK_PROVIDERS } from "config/chains";
 import { executeMulticall, MAX_TIMEOUT } from "lib/multicall/utils";
 import { generateTestingUtils } from "eth-testing";
 import { sleep } from "lib/sleep";
@@ -16,7 +16,7 @@ import { JsonRpcProvider } from "@ethersproject/providers";
 import { testHook } from "lib/testUtils";
 import { MulticallRequestConfig, MulticallResult } from "lib/multicall";
 
-const chainId = ARBITRUM;
+const chainId = BASE;
 
 const MulticallSpy = jest.spyOn(MulticallLib, "Multicall");
 
@@ -123,7 +123,7 @@ describe("executeMulticall", () => {
       },
     }));
 
-    ethTesting.mockConnectedWallet([ethers.Wallet.createRandom().address], { chainId: ARBITRUM });
+    ethTesting.mockConnectedWallet([ethers.Wallet.createRandom().address], { chainId: BASE });
 
     let result;
 
@@ -157,7 +157,7 @@ describe("executeMulticall", () => {
 
   it("should use requested chainId if chainId in the wallet is different", async () => {
     const walletChainId = AVALANCHE;
-    const requestChainId = ARBITRUM;
+    const requestChainId = BASE;
 
     let usedChainId;
     let result;

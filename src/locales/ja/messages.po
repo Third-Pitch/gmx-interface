@@ -308,7 +308,7 @@ msgstr "承認中"
 
 #: src/components/TokenCard/TokenCard.js
 #: src/components/TokenCard/TokenCard.js
-msgid "Arbitrum APR:"
+msgid "APR:"
 msgstr "ArbitrumのAPR(実質年利)"
 
 #: src/components/Exchange/NoLiquidityErrorModal.tsx
@@ -352,11 +352,6 @@ msgstr "選択されたネットワークにて利用可能"
 #: src/components/Glp/GlpSwap.js
 msgid "Available:"
 msgstr "利用可能"
-
-#: src/components/TokenCard/TokenCard.js
-#: src/components/TokenCard/TokenCard.js
-msgid "Avalanche APR:"
-msgstr "AvalancheでのAPR(実質年利)"
 
 #: src/components/Exchange/SwapBox.js
 msgid "Balance"
@@ -477,8 +472,8 @@ msgstr "購入できませんでした。"
 
 #: src/components/TokenCard/TokenCard.js
 #: src/components/TokenCard/TokenCard.js
-msgid "Buy on Arbitrum"
-msgstr "Arbitrumで購入"
+msgid "Buy on Base"
+msgstr "購入"
 
 #: src/components/TokenCard/TokenCard.js
 #: src/components/TokenCard/TokenCard.js
@@ -2444,16 +2439,6 @@ msgstr "価格がマーク価格を上回っています"
 msgid "Price is below Mark Price"
 msgstr "価格がマーク価格を下回っています"
 
-#: src/pages/Dashboard/DashboardV2.js
-#: src/pages/Stake/StakeV2.js
-msgid "Price on Arbitrum"
-msgstr "Arbitrum上の価格"
-
-#: src/pages/Dashboard/DashboardV2.js
-#: src/pages/Stake/StakeV2.js
-msgid "Price on Avalanche"
-msgstr "Avalanche上の価格"
-
 #: src/pages/Actions/Actions.js
 msgid "Profit"
 msgstr "利益"
@@ -4062,10 +4047,6 @@ msgstr ""
 #: src/components/Exchange/PositionSeller.js
 msgid "{nativeTokenSymbol} can not be sent to smart contract addresses. Select another token."
 msgstr ""
-
-#: src/components/StatsTooltip/StatsTooltip.tsx
-msgid "{title} on Arbitrum:"
-msgstr "Arbitrum上の{title}"
 
 #: src/components/StatsTooltip/StatsTooltip.tsx
 msgid "{title} on Avalanche:"

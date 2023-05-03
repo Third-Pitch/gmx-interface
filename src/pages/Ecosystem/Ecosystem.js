@@ -7,17 +7,17 @@ import { getPageTitle } from "lib/legacy";
 
 import "./Ecosystem.css";
 import ExternalLink from "components/ExternalLink/ExternalLink";
-import { ARBITRUM, AVALANCHE } from "config/chains";
+import { BASE, AVALANCHE } from "config/chains";
 import { t } from "@lingui/macro";
 import { getIcon } from "config/icons";
 
 const NETWORK_ICONS = {
-  [ARBITRUM]: getIcon(ARBITRUM, "network"),
+  [BASE]: getIcon(BASE, "network"),
   [AVALANCHE]: getIcon(AVALANCHE, "network"),
 };
 
 const NETWORK_ICON_ALTS = {
-  [ARBITRUM]: "Arbitrum Icon",
+  [BASE]: "Arbitrum Icon",
   [AVALANCHE]: "Avalanche Icon",
 };
 
@@ -28,28 +28,28 @@ export default function Ecosystem() {
       link: "https://gov.gmx.io/",
       linkLabel: "gov.gmx.io",
       about: t`GMX Governance Page`,
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "GMX Stats",
       link: "https://stats.gmx.io/",
       linkLabel: "stats.gmx.io",
       about: t`GMX Stats Page`,
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "GMX Proposals",
       link: "https://snapshot.org/#/gmx.eth",
       linkLabel: "snapshot.org",
       about: t`GMX Proposals Voting page`,
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "GMX Announcements",
       link: "https://t.me/GMX_Announcements",
       linkLabel: "t.me",
       about: t`GMX Announcements and Updates`,
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
   ];
 
@@ -61,7 +61,7 @@ export default function Ecosystem() {
       about: t`GMX Blueberry NFTs`,
       creatorLabel: "@xm92boi",
       creatorLink: "https://t.me/xm92boi",
-      chainIds: [ARBITRUM],
+      chainIds: [BASE],
     },
     {
       title: "GMX Leaderboard",
@@ -70,7 +70,7 @@ export default function Ecosystem() {
       about: t`Leaderboard for GMX traders`,
       creatorLabel: "@Itburnz",
       creatorLink: "https://t.me/Itburnz",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "GMX Positions Bot",
@@ -79,7 +79,7 @@ export default function Ecosystem() {
       about: t`Telegram bot for GMX position updates`,
       creatorLabel: "@zhongfu",
       creatorLink: "https://t.me/zhongfu",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "Blueberry Pulse",
@@ -88,7 +88,7 @@ export default function Ecosystem() {
       about: t`GMX Weekly Updates`,
       creatorLabel: "@puroscohiba",
       creatorLink: "https://t.me/puroscohiba",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "DegenClip",
@@ -97,7 +97,7 @@ export default function Ecosystem() {
       about: t`Community curated tweet collection`,
       creatorLabel: "@ox21l",
       creatorLink: "https://t.me/ox21l",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "GMX Yield Simulator",
@@ -106,7 +106,7 @@ export default function Ecosystem() {
       about: t`Yield simulator for GMX`,
       creatorLabel: "@kyzoeth",
       creatorLink: "https://twitter.com/kyzoeth",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "GMX Returns Calculator",
@@ -115,7 +115,7 @@ export default function Ecosystem() {
       about: t`Returns calculator for GMX and GLP`,
       creatorLabel: "@AStoicTrader1",
       creatorLink: "https://twitter.com/AStoicTrader1",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "GMX Trading Stats",
@@ -124,7 +124,7 @@ export default function Ecosystem() {
       about: t`Telegram bot for Open Interest on GMX`,
       creatorLabel: "@SniperMonke01",
       creatorLink: "https://twitter.com/SniperMonke01",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "GMX Staking Bot",
@@ -133,7 +133,7 @@ export default function Ecosystem() {
       about: t`GMX staking rewards updates and insights`,
       creatorLabel: "@GMX_Staking_bot",
       creatorLink: "https://twitter.com/GMX_Staking_bot",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "GMX Staking Calculator",
@@ -142,7 +142,7 @@ export default function Ecosystem() {
       about: t`GMX staking calculator`,
       creatorLabel: "@n1njawtf",
       creatorLink: "https://t.me/n1njawtf",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "GMX Hedging Simulator",
@@ -151,7 +151,7 @@ export default function Ecosystem() {
       about: t`Simulate your hedge strategy`,
       creatorLabel: "@kyzoeth",
       creatorLink: "https://twitter.com/kyzoeth",
-      chainIds: [ARBITRUM],
+      chainIds: [BASE],
     },
     {
       title: "GMX Swaps",
@@ -160,7 +160,7 @@ export default function Ecosystem() {
       about: t`Telegram bot for GMX Swaps monitoring`,
       creatorLabel: "@snipermonke01",
       creatorLink: "https://twitter.com/snipermonke01",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "GMX Position Calculator",
@@ -169,7 +169,7 @@ export default function Ecosystem() {
       about: t`Spreadsheet for position calculations`,
       creatorLabel: "@barryfried1",
       creatorLink: "https://twitter.com/barryfried1",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
   ];
 
@@ -181,7 +181,7 @@ export default function Ecosystem() {
       about: t`Dashboard for GMX referral stats`,
       creatorLabel: "@kyzoeth",
       creatorLink: "https://twitter.com/kyzoeth",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "GMX Terminal",
@@ -190,7 +190,7 @@ export default function Ecosystem() {
       about: t`GMX explorer for stats and traders`,
       creatorLabel: "@vipineth",
       creatorLink: "https://t.me/vipineth",
-      chainIds: [ARBITRUM],
+      chainIds: [BASE],
     },
     {
       title: "GMX Analytics",
@@ -199,7 +199,7 @@ export default function Ecosystem() {
       about: t`Financial reports and protocol analytics`,
       creatorLabel: "@CryptoMessiah",
       creatorLink: "https://t.me/LarpCapital",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "TokenTerminal",
@@ -208,7 +208,7 @@ export default function Ecosystem() {
       about: t`GMX fundamentals`,
       creatorLabel: "@tokenterminal",
       creatorLink: "https://twitter.com/tokenterminal",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "CryptoFees",
@@ -217,7 +217,7 @@ export default function Ecosystem() {
       about: t`Fees generated by GMX`,
       creatorLabel: "@CryptoFeesInfo",
       creatorLink: "https://twitter.com/CryptoFeesInfo",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "Shogun Dashboard (Dune Arbitrum)",
@@ -226,7 +226,7 @@ export default function Ecosystem() {
       about: t`Protocol analytics`,
       creatorLabel: "@JamesCliffyz",
       creatorLink: "https://twitter.com/JamesCliffyz",
-      chainIds: [ARBITRUM],
+      chainIds: [BASE],
     },
     {
       title: "Shogun Dashboard (Dune Avalanche)",
@@ -244,7 +244,7 @@ export default function Ecosystem() {
       about: t`GMX Perpetuals Data`,
       creatorLabel: "@laevitas1",
       creatorLink: "https://twitter.com/laevitas1",
-      chainIds: [ARBITRUM],
+      chainIds: [BASE],
     },
     {
       title: "GMX Blueberry Leaderboard",
@@ -253,7 +253,7 @@ export default function Ecosystem() {
       about: t`GBC NFTs APR tracker and rewards`,
       creatorLabel: "@kyzoeth",
       creatorLink: "https://twitter.com/kyzoeth",
-      chainIds: [ARBITRUM],
+      chainIds: [BASE],
     },
     {
       title: "GMX Open Trades Ranking and Stats",
@@ -262,7 +262,7 @@ export default function Ecosystem() {
       about: t`Open trades ranking and stats`,
       creatorLabel: "@hansolar21",
       creatorLink: "https://twitter.com/hansolar21",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "GMX Everything Dashboard",
@@ -271,7 +271,7 @@ export default function Ecosystem() {
       about: t`Overall protocol analytics`,
       creatorLabel: "@gmxtrader",
       creatorLink: "https://twitter.com/gmxtrader",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
   ];
 
@@ -283,7 +283,7 @@ export default function Ecosystem() {
       about: t`DeFi Portfolio Tracker`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/GMX_IO/status/1439711532884152324",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "Defi Llama",
@@ -292,7 +292,7 @@ export default function Ecosystem() {
       about: t`Decentralized Finance Dashboard`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/GMX_IO/status/1438124768033660938",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "Dopex",
@@ -301,7 +301,7 @@ export default function Ecosystem() {
       about: t`Decentralized Options Protocol`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/GMX_IO/status/1482445801523716099",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "Rook",
@@ -310,7 +310,7 @@ export default function Ecosystem() {
       about: t`MEV Optimizer`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/Rook/status/1509613786600116251",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "Jones DAO",
@@ -319,7 +319,7 @@ export default function Ecosystem() {
       about: t`Decentralized Options Strategies`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/GMX_IO/status/1482788805635678212",
-      chainIds: [ARBITRUM],
+      chainIds: [BASE],
     },
     {
       title: "Yield Yak Optimizer",
@@ -337,7 +337,7 @@ export default function Ecosystem() {
       about: t`Structured Products`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/VovoFinance/status/1531517177790345217",
-      chainIds: [ARBITRUM],
+      chainIds: [BASE],
     },
     {
       title: "Stabilize Protocol",
@@ -346,7 +346,7 @@ export default function Ecosystem() {
       about: t`Yield Vaults`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/StabilizePro/status/1532348674986082306",
-      chainIds: [ARBITRUM],
+      chainIds: [BASE],
     },
     {
       title: "DODO",
@@ -355,7 +355,7 @@ export default function Ecosystem() {
       about: t`Decentralized Trading Protocol`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/GMX_IO/status/1438899138549145605",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "Open Ocean",
@@ -364,7 +364,7 @@ export default function Ecosystem() {
       about: t`DEX Aggregator`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/GMX_IO/status/1495780826016989191",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "Paraswap",
@@ -373,7 +373,7 @@ export default function Ecosystem() {
       about: t`DEX Aggregator`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/paraswap/status/1546869879336222728",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "1inch",
@@ -382,7 +382,7 @@ export default function Ecosystem() {
       about: t`DEX Aggregator`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/GMX_IO/status/1522247451410845696",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
     {
       title: "Firebird Finance",
@@ -409,7 +409,7 @@ export default function Ecosystem() {
       about: t`GLP autocompounding vaults`,
       announcementLabel: "medium.com",
       announcementLink: "https://medium.com/@plutusdao.io/product-release-plutus-vaults-d0b0252cdf03",
-      chainIds: [ARBITRUM],
+      chainIds: [BASE],
     },
     {
       title: "Beefy.com",
@@ -418,7 +418,7 @@ export default function Ecosystem() {
       about: t`GLP and GMX autocompounding vaults`,
       announcementLabel: "beefy.com",
       announcementLink: "https://beefy.com/articles/earn-glp-with-beefy-s-new-glp-strategy-and-vaults/",
-      chainIds: [ARBITRUM, AVALANCHE],
+      chainIds: [BASE, AVALANCHE],
     },
   ];
 

@@ -10,22 +10,22 @@ export const TESTNET = 97;
 export const ETH_MAINNET = 1;
 export const AVALANCHE = 43114;
 export const AVALANCHE_FUJI = 43113;
-export const ARBITRUM = 84531;
+export const BASE = 84531;
 export const ARBITRUM_TESTNET = 421611;
 export const FEES_HIGH_BPS = 50;
 
 // TODO take it from web3
-export const DEFAULT_CHAIN_ID = ARBITRUM;
+export const DEFAULT_CHAIN_ID = BASE;
 export const CHAIN_ID = DEFAULT_CHAIN_ID;
 
-export const SUPPORTED_CHAIN_IDS = [ARBITRUM, AVALANCHE];
+export const SUPPORTED_CHAIN_IDS = [BASE, AVALANCHE];
 
 if (isDevelopment()) {
   SUPPORTED_CHAIN_IDS.push(ARBITRUM_TESTNET, AVALANCHE_FUJI);
 }
 
 export const IS_NETWORK_DISABLED = {
-  [ARBITRUM]: false,
+  [BASE]: false,
   [AVALANCHE]: false,
 };
 
@@ -33,13 +33,13 @@ export const CHAIN_NAMES_MAP = {
   [MAINNET]: "BSC",
   [TESTNET]: "BSC Testnet",
   [ARBITRUM_TESTNET]: "ArbRinkeby",
-  [ARBITRUM]: "Arbitrum",
+  [BASE]: "Base Goerli",
   [AVALANCHE]: "Avalanche",
   [AVALANCHE_FUJI]: "Avalanche Fuji",
 };
 
 export const GAS_PRICE_ADJUSTMENT_MAP = {
-  [ARBITRUM]: "51000000000",
+  [BASE]: "51000000000",
   [AVALANCHE]: "3000000000", // 3 gwei
 };
 
@@ -48,7 +48,7 @@ export const MAX_GAS_PRICE_MAP = {
 };
 
 export const HIGH_EXECUTION_FEES_MAP = {
-  [ARBITRUM]: 3, // 3 USD
+  [BASE]: 3, // 3 USD
   [AVALANCHE]: 3, // 3 USD
 };
 
@@ -82,7 +82,7 @@ const constants = {
     DECREASE_ORDER_EXECUTION_GAS_FEE: parseEther("0.000300001"),
   },
 
-  [ARBITRUM]: {
+  [BASE]: {
     nativeTokenSymbol: "ETH",
     wrappedTokenSymbol: "WETH",
     defaultCollateralSymbol: "USDC",
@@ -149,14 +149,14 @@ export const RPC_PROVIDERS = {
     "https://bsc-dataseed4.binance.org",
   ],
   [TESTNET]: ["https://data-seed-prebsc-1-s1.binance.org:8545/"],
-  [ARBITRUM]: [getDefaultArbitrumRpcUrl()],
+  [BASE]: [getDefaultArbitrumRpcUrl()],
   [ARBITRUM_TESTNET]: ["https://rinkeby.arbitrum.io/rpc"],
   [AVALANCHE]: ["https://api.avax.network/ext/bc/C/rpc"],
   [AVALANCHE_FUJI]: ["https://api.avax-test.network/ext/bc/C/rpc"],
 };
 
 export const FALLBACK_PROVIDERS = {
-  [ARBITRUM]: [getAlchemyHttpUrl()],
+  [BASE]: [getAlchemyHttpUrl()],
   [AVALANCHE]: ["https://avax-mainnet.gateway.pokt.network/v1/lb/626f37766c499d003aada23b"],
 };
 
@@ -194,16 +194,16 @@ export const NETWORK_METADATA: { [chainId: number]: NetworkMetadata } = {
     rpcUrls: RPC_PROVIDERS[ARBITRUM_TESTNET],
     blockExplorerUrls: ["https://rinkeby-explorer.arbitrum.io/"],
   },
-  [ARBITRUM]: {
-    chainId: "0x" + ARBITRUM.toString(16),
-    chainName: "Arbitrum",
+  [BASE]: {
+    chainId: "0x" + BASE.toString(16),
+    chainName: "Base Goerli",
     nativeCurrency: {
       name: "ETH",
       symbol: "ETH",
       decimals: 18,
     },
-    rpcUrls: RPC_PROVIDERS[ARBITRUM],
-    blockExplorerUrls: [getExplorerUrl(ARBITRUM)],
+    rpcUrls: RPC_PROVIDERS[BASE],
+    blockExplorerUrls: [getExplorerUrl(BASE)],
   },
   [AVALANCHE]: {
     chainId: "0x" + AVALANCHE.toString(16),
@@ -283,7 +283,7 @@ export function getExplorerUrl(chainId) {
     return "https://testnet.bscscan.com/";
   } else if (chainId === ARBITRUM_TESTNET) {
     return "https://testnet.arbiscan.io/";
-  } else if (chainId === ARBITRUM) {
+  } else if (chainId === BASE) {
     return "https://goerli.basescan.org/";
   } else if (chainId === AVALANCHE) {
     return "https://snowtrace.io/";

@@ -1,4 +1,4 @@
-import { ARBITRUM, ARBITRUM_TESTNET, AVALANCHE, MAINNET } from "./chains";
+import { BASE, ARBITRUM_TESTNET, AVALANCHE, MAINNET } from "./chains";
 
 // export const GMX_STATS_API_URL = "https://stats.gmx.io/api";
 export const GMX_STATS_API_URL = "http://192.168.1.90:3113/api";
@@ -8,7 +8,7 @@ const BACKEND_URLS = {
 
   [MAINNET]: "https://gambit-server-staging.uc.r.appspot.com",
   [ARBITRUM_TESTNET]: "https://gambit-server-devnet.uc.r.appspot.com",
-  [ARBITRUM]: "https://gmx-server-mainnet.uw.r.appspot.com",
+  [BASE]: "https://gmx-server-mainnet.uw.r.appspot.com",
   [AVALANCHE]: "https://gmx-avax-server.uc.r.appspot.com",
 };
 

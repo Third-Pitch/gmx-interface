@@ -308,8 +308,8 @@ msgstr "核准中"
 
 #: src/components/TokenCard/TokenCard.js
 #: src/components/TokenCard/TokenCard.js
-msgid "Arbitrum APR:"
-msgstr "Arbitrum年利率"
+msgid "APR:"
+msgstr "年利率"
 
 #: src/components/Exchange/NoLiquidityErrorModal.tsx
 msgid "As there is not enough liquidity in GLP to swap {0} to {swapTokenSymbol}, you can use the option below to do so:"
@@ -352,11 +352,6 @@ msgstr "可在您的首选网络上使用"
 #: src/components/Glp/GlpSwap.js
 msgid "Available:"
 msgstr "可用的"
-
-#: src/components/TokenCard/TokenCard.js
-#: src/components/TokenCard/TokenCard.js
-msgid "Avalanche APR:"
-msgstr "Avalanche年利率"
 
 #: src/components/Exchange/SwapBox.js
 msgid "Balance"
@@ -477,8 +472,8 @@ msgstr "买入失败"
 
 #: src/components/TokenCard/TokenCard.js
 #: src/components/TokenCard/TokenCard.js
-msgid "Buy on Arbitrum"
-msgstr "在Arbitrum上购买"
+msgid "Buy on Base"
+msgstr "购买"
 
 #: src/components/TokenCard/TokenCard.js
 #: src/components/TokenCard/TokenCard.js
@@ -2444,16 +2439,6 @@ msgstr "价格高于标价"
 msgid "Price is below Mark Price"
 msgstr "价格低于标价"
 
-#: src/pages/Dashboard/DashboardV2.js
-#: src/pages/Stake/StakeV2.js
-msgid "Price on Arbitrum"
-msgstr "Arbitrum上的价格"
-
-#: src/pages/Dashboard/DashboardV2.js
-#: src/pages/Stake/StakeV2.js
-msgid "Price on Avalanche"
-msgstr "Avalanche上的价格"
-
 #: src/pages/Actions/Actions.js
 msgid "Profit"
 msgstr "盈利"
@@ -4065,10 +4050,6 @@ msgstr ""
 #: src/components/Exchange/PositionSeller.js
 msgid "{nativeTokenSymbol} can not be sent to smart contract addresses. Select another token."
 msgstr ""
-
-#: src/components/StatsTooltip/StatsTooltip.tsx
-msgid "{title} on Arbitrum:"
-msgstr "{title} 在 Arbitrum上:"
 
 #: src/components/StatsTooltip/StatsTooltip.tsx
 msgid "{title} on Avalanche:"

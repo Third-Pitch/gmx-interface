@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { InjectedConnector } from "@web3-react/injected-connector";
 import {
-  ARBITRUM,
+  BASE,
   ARBITRUM_TESTNET,
   AVALANCHE,
   AVALANCHE_FUJI,
@@ -94,7 +94,7 @@ export const getWalletConnectConnector = () => {
   return new WalletConnectConnector({
     rpc: {
       [AVALANCHE]: getRpcUrl(AVALANCHE)!,
-      [ARBITRUM]: getRpcUrl(ARBITRUM)!,
+      [BASE]: getRpcUrl(BASE)!,
       [ARBITRUM_TESTNET]: getRpcUrl(ARBITRUM_TESTNET)!,
       [AVALANCHE_FUJI]: getRpcUrl(AVALANCHE_FUJI)!,
     },

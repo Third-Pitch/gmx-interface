@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import { getContract } from "./contracts";
-import { ARBITRUM, ARBITRUM_TESTNET, AVALANCHE, AVALANCHE_FUJI, MAINNET, TESTNET } from "./chains";
+import { BASE, ARBITRUM_TESTNET, AVALANCHE, AVALANCHE_FUJI, MAINNET, TESTNET } from "./chains";
 import { Token } from "domain/tokens";
 
 export const TOKENS: { [chainId: number]: Token[] } = {
@@ -171,7 +171,7 @@ export const TOKENS: { [chainId: number]: Token[] } = {
       imageUrl: "https://assets.coingecko.com/coins/images/325/small/Tether-logo.png",
     },
   ],
-  [ARBITRUM]: [
+  [BASE]: [
     {
       name: "Ethereum",
       symbol: "ETH",
@@ -340,24 +340,24 @@ export const TOKENS: { [chainId: number]: Token[] } = {
 };
 
 export const ADDITIONAL_TOKENS: { [chainId: number]: Token[] } = {
-  [ARBITRUM]: [
+  [BASE]: [
     {
       name: "GMX",
       symbol: "GMX",
-      address: getContract(ARBITRUM, "GMX"),
+      address: getContract(BASE, "GMX"),
       decimals: 18,
       imageUrl: "https://assets.coingecko.com/coins/images/18323/small/arbit.png?1631532468",
     },
     {
       name: "Escrowed GMX",
       symbol: "esGMX",
-      address: getContract(ARBITRUM, "ES_GMX"),
+      address: getContract(BASE, "ES_GMX"),
       decimals: 18,
     },
     {
       name: "GMX LP",
       symbol: "GLP",
-      address: getContract(ARBITRUM, "GLP"),
+      address: getContract(BASE, "GLP"),
       decimals: 18,
       imageUrl: "https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
     },
@@ -379,7 +379,7 @@ export const ADDITIONAL_TOKENS: { [chainId: number]: Token[] } = {
     {
       name: "GMX LP",
       symbol: "GLP",
-      address: getContract(ARBITRUM, "GLP"),
+      address: getContract(BASE, "GLP"),
       decimals: 18,
       imageUrl: "https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
     },
@@ -387,20 +387,20 @@ export const ADDITIONAL_TOKENS: { [chainId: number]: Token[] } = {
 };
 
 export const PLATFORM_TOKENS: { [chainId: number]: { [symbol: string]: Token } } = {
-  [ARBITRUM]: {
+  [BASE]: {
     // arbitrum
     GMX: {
       name: "GMX",
       symbol: "GMX",
       decimals: 18,
-      address: getContract(ARBITRUM, "GMX"),
+      address: getContract(BASE, "GMX"),
       imageUrl: "https://assets.coingecko.com/coins/images/18323/small/arbit.png?1631532468",
     },
     GLP: {
       name: "GMX LP",
       symbol: "GLP",
       decimals: 18,
-      address: getContract(ARBITRUM, "StakedGlpTracker"), // address of fsGLP token because user only holds fsGLP
+      address: getContract(BASE, "StakedGlpTracker"), // address of fsGLP token because user only holds fsGLP
       imageUrl: "https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
     },
   },
@@ -433,7 +433,7 @@ export const ICONLINKS = {
       arbitrum: "https://testnet.arbiscan.io/token/0xb4f81Fa74e06b5f762A104e47276BA9b2929cb27",
     },
   },
-  [ARBITRUM]: {
+  [BASE]: {
     GMX: {
       coingecko: "https://www.coingecko.com/en/coins/gmx",
       arbitrum: "https://arbiscan.io/address/0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a",
@@ -558,7 +558,7 @@ export const TOKENS_BY_SYMBOL_MAP: { [chainId: number]: { [symbol: string]: Toke
 export const WRAPPED_TOKENS_MAP: { [chainId: number]: Token } = {};
 export const NATIVE_TOKENS_MAP: { [chainId: number]: Token } = {};
 
-const CHAIN_IDS = [MAINNET, TESTNET, ARBITRUM, ARBITRUM_TESTNET, AVALANCHE, AVALANCHE_FUJI];
+const CHAIN_IDS = [MAINNET, TESTNET, BASE, ARBITRUM_TESTNET, AVALANCHE, AVALANCHE_FUJI];
 
 for (let j = 0; j < CHAIN_IDS.length; j++) {
   const chainId = CHAIN_IDS[j];
@@ -641,7 +641,7 @@ export function getNormalizedTokenSymbol(tokenSymbol) {
 }
 
 const AVAILABLE_CHART_TOKENS = {
-  [ARBITRUM]: ["ETH", "BTC", "LINK", "UNI"],
+  [BASE]: ["ETH", "BTC", "LINK", "UNI"],
   [AVALANCHE]: ["AVAX", "ETH", "BTC"],
 };
 

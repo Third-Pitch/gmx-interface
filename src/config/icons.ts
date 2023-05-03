@@ -1,4 +1,4 @@
-import { ARBITRUM, ARBITRUM_TESTNET, AVALANCHE, AVALANCHE_FUJI } from "config/chains";
+import { BASE, ARBITRUM_TESTNET, AVALANCHE, AVALANCHE_FUJI } from "config/chains";
 import arbitrum from "img/ic_arbitrum_24.svg";
 import avalanche from "img/ic_avalanche_24.svg";
 import avalancheTestnet from "img/ic_avalanche_testnet_24.svg";
@@ -11,7 +11,7 @@ import glpArbitrum from "img/ic_glp_arbitrum.svg";
 import glpAvax from "img/ic_glp_avax.svg";
 
 const ICONS = {
-  [ARBITRUM]: {
+  [BASE]: {
     network: arbitrum,
     gmx: gmxArbitrum,
     glp: glpArbitrum,

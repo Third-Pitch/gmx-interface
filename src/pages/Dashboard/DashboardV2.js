@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useWeb3React } from "@web3-react/core";
 import { Trans, t } from "@lingui/macro";
@@ -34,9 +34,8 @@ import AssetDropdown from "./AssetDropdown";
 import ExternalLink from "components/ExternalLink/ExternalLink";
 import SEO from "components/Common/SEO";
 import { useTotalVolume, useVolumeInfo, useFeesSummary } from "domain/stats";
-import StatsTooltip from "components/StatsTooltip/StatsTooltip";
 import StatsTooltipRow from "components/StatsTooltip/StatsTooltipRow";
-import { ARBITRUM, AVALANCHE, getChainName } from "config/chains";
+import { BASE, AVALANCHE, getChainName } from "config/chains";
 import { getServerUrl } from "config/backend";
 import { contractFetcher } from "lib/contracts";
 import { useInfoTokens } from "domain/tokens";
@@ -45,7 +44,7 @@ import { bigNumberify, expandDecimals, formatAmount, formatKeyAmount, numberWith
 import { useChainId } from "lib/chains";
 import { formatDate } from "lib/dates";
 import { getIcons } from "config/icons";
-const ACTIVE_CHAIN_IDS = [ARBITRUM, AVALANCHE];
+const ACTIVE_CHAIN_IDS = [BASE, AVALANCHE];
 
 const { AddressZero } = ethers.constants;
 
@@ -147,7 +146,7 @@ export default function DashboardV2() {
   );
 
   const { infoTokens } = useInfoTokens(library, chainId, active, undefined, undefined);
-  const { infoTokens: infoTokensArbitrum } = useInfoTokens(null, ARBITRUM, active, undefined, undefined);
+  const { infoTokens: infoTokensArbitrum } = useInfoTokens(null, BASE, active, undefined, undefined);
   const { infoTokens: infoTokensAvax } = useInfoTokens(null, AVALANCHE, active, undefined, undefined);
 
   const { data: currentFees } = useSWR(
@@ -172,7 +171,7 @@ export default function DashboardV2() {
               const feeUSD = getCurrentFeesUsd(
                 getWhitelistedTokenAddresses(ACTIVE_CHAIN_IDS[i]),
                 cv,
-                ACTIVE_CHAIN_IDS[i] === ARBITRUM ? infoTokensArbitrum : infoTokensAvax
+                ACTIVE_CHAIN_IDS[i] === BASE ? infoTokensArbitrum : infoTokensAvax
               );
               acc[ACTIVE_CHAIN_IDS[i]] = feeUSD;
               acc.total = acc.total.add(feeUSD);
@@ -212,7 +211,7 @@ export default function DashboardV2() {
 
   const { gmxPrice, gmxPriceFromArbitrum, gmxPriceFromAvalanche } = useGmxPrice(
     chainId,
-    { arbitrum: chainId === ARBITRUM ? library : undefined },
+    { arbitrum: chainId === BASE ? library : undefined },
     active
   );
 
@@ -476,7 +475,7 @@ export default function DashboardV2() {
               <Trans>
                 {chainName} Total Stats start from {totalStatsStartDate}.<br /> For detailed stats:
               </Trans>{" "}
-              {chainId === ARBITRUM && <ExternalLink href="https://stats.gmx.io">https://stats.gmx.io</ExternalLink>}
+              {chainId === BASE && <ExternalLink href="https://stats.gmx.io">https://stats.gmx.io</ExternalLink>}
               {chainId === AVALANCHE && (
                 <ExternalLink href="https://stats.gmx.io/avalanche">https://stats.gmx.io/avalanche</ExternalLink>
               )}
@@ -530,19 +529,7 @@ export default function DashboardV2() {
                     <Trans>24h Volume</Trans>
                   </div>
                   <div>
-                    <TooltipComponent
-                      position="right-bottom"
-                      className="nowrap"
-                      handle={`$${formatAmount(currentVolumeInfo?.[chainId], USD_DECIMALS, 0, true)}`}
-                      renderContent={() => (
-                        <StatsTooltip
-                          title={t`Volume`}
-                          arbitrumValue={currentVolumeInfo?.[ARBITRUM]}
-                          avaxValue={currentVolumeInfo?.[AVALANCHE]}
-                          total={currentVolumeInfo?.total}
-                        />
-                      )}
-                    />
+                    ${formatAmount(currentVolumeInfo?.[chainId], USD_DECIMALS, 0, true)}
                   </div>
                 </div>
                 <div className="App-card-row">
@@ -550,24 +537,14 @@ export default function DashboardV2() {
                     <Trans>Long Positions</Trans>
                   </div>
                   <div>
-                    <TooltipComponent
-                      position="right-bottom"
-                      className="nowrap"
-                      handle={`$${formatAmount(
+                    {
+                      `$${formatAmount(
                         positionStatsInfo?.[chainId]?.totalLongPositionSizes,
                         USD_DECIMALS,
                         0,
                         true
-                      )}`}
-                      renderContent={() => (
-                        <StatsTooltip
-                          title={t`Long Positions`}
-                          arbitrumValue={positionStatsInfo?.[ARBITRUM].totalLongPositionSizes}
-                          avaxValue={positionStatsInfo?.[AVALANCHE].totalLongPositionSizes}
-                          total={positionStatsInfo?.totalLongPositionSizes}
-                        />
-                      )}
-                    />
+                      )}`
+                    }
                   </div>
                 </div>
                 <div className="App-card-row">
@@ -575,24 +552,12 @@ export default function DashboardV2() {
                     <Trans>Short Positions</Trans>
                   </div>
                   <div>
-                    <TooltipComponent
-                      position="right-bottom"
-                      className="nowrap"
-                      handle={`$${formatAmount(
-                        positionStatsInfo?.[chainId]?.totalShortPositionSizes,
-                        USD_DECIMALS,
-                        0,
-                        true
-                      )}`}
-                      renderContent={() => (
-                        <StatsTooltip
-                          title={t`Short Positions`}
-                          arbitrumValue={positionStatsInfo?.[ARBITRUM].totalShortPositionSizes}
-                          avaxValue={positionStatsInfo?.[AVALANCHE].totalShortPositionSizes}
-                          total={positionStatsInfo?.totalShortPositionSizes}
-                        />
-                      )}
-                    />
+                    {`$${formatAmount(
+                      positionStatsInfo?.[chainId]?.totalShortPositionSizes,
+                      USD_DECIMALS,
+                      0,
+                      true
+                    )}`}
                   </div>
                 </div>
                 {feesSummary?.lastUpdatedAt ? (
@@ -601,19 +566,7 @@ export default function DashboardV2() {
                       <Trans>Fees since</Trans> {formatDate(feesSummary.lastUpdatedAt)}
                     </div>
                     <div>
-                      <TooltipComponent
-                        position="right-bottom"
-                        className="nowrap"
-                        handle={`$${formatAmount(currentFees?.[chainId], USD_DECIMALS, 2, true)}`}
-                        renderContent={() => (
-                          <StatsTooltip
-                            title={t`Fees`}
-                            arbitrumValue={currentFees?.[ARBITRUM]}
-                            avaxValue={currentFees?.[AVALANCHE]}
-                            total={currentFees?.total}
-                          />
-                        )}
-                      />
+                      {`$${formatAmount(currentFees?.[chainId], USD_DECIMALS, 2, true)}`}
                     </div>
                   </div>
                 ) : null}
@@ -630,20 +583,7 @@ export default function DashboardV2() {
                     <Trans>Total Fees</Trans>
                   </div>
                   <div>
-                    <TooltipComponent
-                      position="right-bottom"
-                      className="nowrap"
-                      handle={`$${numberWithCommas(totalFees?.[chainId])}`}
-                      renderContent={() => (
-                        <StatsTooltip
-                          title={t`Total Fees`}
-                          arbitrumValue={totalFees?.[ARBITRUM]}
-                          avaxValue={totalFees?.[AVALANCHE]}
-                          total={totalFees?.total}
-                          decimalsForConversion={0}
-                        />
-                      )}
-                    />
+                    {`$${numberWithCommas(totalFees?.[chainId])}`}
                   </div>
                 </div>
                 <div className="App-card-row">
@@ -651,19 +591,7 @@ export default function DashboardV2() {
                     <Trans>Total Volume</Trans>
                   </div>
                   <div>
-                    <TooltipComponent
-                      position="right-bottom"
-                      className="nowrap"
-                      handle={`$${formatAmount(totalVolume?.[chainId], USD_DECIMALS, 0, true)}`}
-                      renderContent={() => (
-                        <StatsTooltip
-                          title={t`Total Volume`}
-                          arbitrumValue={totalVolume?.[ARBITRUM]}
-                          avaxValue={totalVolume?.[AVALANCHE]}
-                          total={totalVolume?.total}
-                        />
-                      )}
-                    />
+                    {`$${formatAmount(totalVolume?.[chainId], USD_DECIMALS, 0, true)}`}
                   </div>
                 </div>
                 <div className="App-card-row">
@@ -708,28 +636,7 @@ export default function DashboardV2() {
                         <Trans>Price</Trans>
                       </div>
                       <div>
-                        {!gmxPrice && "..."}
-                        {gmxPrice && (
-                          <TooltipComponent
-                            position="right-bottom"
-                            className="nowrap"
-                            handle={"$" + formatAmount(gmxPrice, USD_DECIMALS, 2, true)}
-                            renderContent={() => (
-                              <>
-                                <StatsTooltipRow
-                                  label={t`Price on Arbitrum`}
-                                  value={formatAmount(gmxPriceFromArbitrum, USD_DECIMALS, 2, true)}
-                                  showDollar={true}
-                                />
-                                <StatsTooltipRow
-                                  label={t`Price on Avalanche`}
-                                  value={formatAmount(gmxPriceFromAvalanche, USD_DECIMALS, 2, true)}
-                                  showDollar={true}
-                                />
-                              </>
-                            )}
-                          />
-                        )}
+                        {gmxPrice ? `$${formatAmount(gmxPrice, USD_DECIMALS, 2, true)}` : "..."}
                       </div>
                     </div>
                     <div className="App-card-row">
@@ -743,21 +650,7 @@ export default function DashboardV2() {
                         <Trans>Total Staked</Trans>
                       </div>
                       <div>
-                        <TooltipComponent
-                          position="right-bottom"
-                          className="nowrap"
-                          handle={`$${formatAmount(stakedGmxSupplyUsd, USD_DECIMALS, 0, true)}`}
-                          renderContent={() => (
-                            <StatsTooltip
-                              title={t`Staked`}
-                              arbitrumValue={arbitrumStakedGmx}
-                              avaxValue={avaxStakedGmx}
-                              total={totalStakedGmx}
-                              decimalsForConversion={GMX_DECIMALS}
-                              showDollar={false}
-                            />
-                          )}
-                        />
+                        {`$${formatAmount(stakedGmxSupplyUsd, USD_DECIMALS, 0, true)}`}
                       </div>
                     </div>
                     <div className="App-card-row">

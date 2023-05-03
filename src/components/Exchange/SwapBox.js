@@ -42,7 +42,7 @@ import {
   USDG_DECIMALS,
   MAX_ALLOWED_LEVERAGE,
 } from "lib/legacy";
-import { ARBITRUM, getChainName, getConstant, IS_NETWORK_DISABLED, isSupportedChain } from "config/chains";
+import { BASE, getChainName, getConstant, IS_NETWORK_DISABLED, isSupportedChain } from "config/chains";
 import * as Api from "domain/legacy";
 import { getContract } from "config/contracts";
 
@@ -1555,7 +1555,7 @@ export default function SwapBox(props) {
       successMsg,
       // for Arbitrum, sometimes the successMsg shows after the position has already been executed
       // hide the success message for Arbitrum as a workaround
-      hideSuccessMsg: chainId === ARBITRUM,
+      hideSuccessMsg: chainId === BASE,
     })
       .then(async () => {
         setIsConfirming(false);

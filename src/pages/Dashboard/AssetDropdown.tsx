@@ -12,11 +12,11 @@ import { ICONLINKS, PLATFORM_TOKENS } from "config/tokens";
 import { addTokenToMetamask } from "lib/wallets";
 import { useChainId } from "lib/chains";
 import { Token } from "domain/tokens";
-import { ARBITRUM, AVALANCHE } from "config/chains";
+import { BASE, AVALANCHE } from "config/chains";
 import { getIcon } from "config/icons";
 
 const avalancheIcon = getIcon(AVALANCHE, "network");
-const arbitrumIcon = getIcon(ARBITRUM, "network");
+const arbitrumIcon = getIcon(BASE, "network");
 
 type Props = {
   assetSymbol: string;

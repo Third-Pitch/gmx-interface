@@ -17,7 +17,7 @@ import arbitrumIcon from "img/ic_arbitrum_96.svg";
 import avaIcon from "img/ic_avalanche_96.svg";
 
 import { Trans, t } from "@lingui/macro";
-import { ARBITRUM, AVALANCHE } from "config/chains";
+import { BASE, AVALANCHE } from "config/chains";
 import { callContract, contractFetcher } from "lib/contracts";
 import { bigNumberify, formatAmount, formatAmountFree, parseValue } from "lib/numbers";
 import { useChainId } from "lib/chains";
@@ -133,7 +133,7 @@ export default function ClaimEsGmx({ setPendingTxns }) {
   const [isClaiming, setIsClaiming] = useState(false);
   const [value, setValue] = useState("");
 
-  const isArbitrum = chainId === ARBITRUM;
+  const isArbitrum = chainId === BASE;
 
   const esGmxIouAddress = getContract(chainId, "ES_GMX_IOU");
 
@@ -150,16 +150,16 @@ export default function ClaimEsGmx({ setPendingTxns }) {
     }
   );
 
-  const arbRewardReaderAddress = getContract(ARBITRUM, "RewardReader");
+  const arbRewardReaderAddress = getContract(BASE, "RewardReader");
   const avaxRewardReaderAddress = getContract(AVALANCHE, "RewardReader");
 
-  const arbVesterAdddresses = [getContract(ARBITRUM, "GmxVester"), getContract(ARBITRUM, "GlpVester")];
+  const arbVesterAdddresses = [getContract(BASE, "GmxVester"), getContract(BASE, "GlpVester")];
   const avaxVesterAdddresses = [getContract(AVALANCHE, "GmxVester"), getContract(AVALANCHE, "GlpVester")];
 
   const { data: arbVestingInfo } = useSWR(
     [
       `StakeV2:vestingInfo:${active}`,
-      ARBITRUM,
+      BASE,
       arbRewardReaderAddress,
       "getVestingInfoV2",
       account || PLACEHOLDER_ACCOUNT,
