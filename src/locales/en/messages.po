@@ -110,6 +110,11 @@ msgstr "A snapshot of the USD value of your {0} collateral is taken when the pos
 msgid "APR"
 msgstr "APR"
 
+#: src/components/TokenCard/TokenCard.js
+#: src/components/TokenCard/TokenCard.js
+msgid "APR:"
+msgstr "APR:"
+
 #: src/components/Stake/GMXAprTooltip.tsx
 msgid "APRs are updated weekly on Wednesday and will depend on the fees collected for the week."
 msgstr "APRs are updated weekly on Wednesday and will depend on the fees collected for the week."
@@ -306,11 +311,6 @@ msgstr "Approving {stakingTokenSymbol}..."
 msgid "Approving..."
 msgstr "Approving..."
 
-#: src/components/TokenCard/TokenCard.js
-#: src/components/TokenCard/TokenCard.js
-msgid "Arbitrum APR:"
-msgstr "Arbitrum APR:"
-
 #: src/components/Exchange/NoLiquidityErrorModal.tsx
 msgid "As there is not enough liquidity in GLP to swap {0} to {swapTokenSymbol}, you can use the option below to do so:"
 msgstr "As there is not enough liquidity in GLP to swap {0} to {swapTokenSymbol}, you can use the option below to do so:"
@@ -352,11 +352,6 @@ msgstr "Available on your preferred network"
 #: src/components/Glp/GlpSwap.js
 msgid "Available:"
 msgstr "Available:"
-
-#: src/components/TokenCard/TokenCard.js
-#: src/components/TokenCard/TokenCard.js
-msgid "Avalanche APR:"
-msgstr "Avalanche APR:"
 
 #: src/components/Exchange/SwapBox.js
 msgid "Balance"
@@ -427,49 +422,9 @@ msgstr "Buy ETH directly to Arbitrum or transfer it there."
 msgid "Buy GLP"
 msgstr "Buy GLP"
 
-#: src/pages/Stake/StakeV2.js
-msgid "Buy GMX"
-msgstr "Buy GMX"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX from Traderjoe:"
-msgstr "Buy GMX from Traderjoe:"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX from Uniswap (make sure to select Arbitrum):"
-msgstr "Buy GMX from Uniswap (make sure to select Arbitrum):"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX from a Decentralized Exchange"
-msgstr "Buy GMX from a Decentralized Exchange"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX from centralized exchanges:"
-msgstr "Buy GMX from centralized exchanges:"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX from centralized services"
-msgstr "Buy GMX from centralized services"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX on {0}"
-msgstr "Buy GMX on {0}"
-
 #: src/pages/Buy/Buy.js
 msgid "Buy GMX or GLP"
 msgstr "Buy GMX or GLP"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX using Decentralized Exchange Aggregators:"
-msgstr "Buy GMX using Decentralized Exchange Aggregators:"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX using FIAT gateways:"
-msgstr "Buy GMX using FIAT gateways:"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX using any token from any network:"
-msgstr "Buy GMX using any token from any network:"
 
 #: src/components/Glp/GlpSwap.js
 msgid "Buy failed."
@@ -477,13 +432,48 @@ msgstr "Buy failed."
 
 #: src/components/TokenCard/TokenCard.js
 #: src/components/TokenCard/TokenCard.js
-msgid "Buy on Arbitrum"
-msgstr "Buy on Arbitrum"
+msgid "Buy on Base"
+msgstr "Buy on Base"
 
-#: src/components/TokenCard/TokenCard.js
-#: src/components/TokenCard/TokenCard.js
-msgid "Buy on Avalanche"
-msgstr "Buy on Avalanche"
+#: src/pages/Stake/StakeV2.js
+msgid "Buy on Goerli"
+msgstr "Buy on Goerli"
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy on Goerli from Traderjoe:"
+msgstr "Buy on Goerli from Traderjoe:"
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy on Goerli from Uniswap (make sure to select Arbitrum):"
+msgstr "Buy on Goerli from Uniswap (make sure to select Arbitrum):"
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy on Goerli from a Decentralized Exchange"
+msgstr "Buy on Goerli from a Decentralized Exchange"
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy on Goerli from centralized exchanges:"
+msgstr "Buy on Goerli from centralized exchanges:"
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy on Goerli from centralized services"
+msgstr "Buy on Goerli from centralized services"
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy on Goerli on {0}"
+msgstr "Buy on Goerli on {0}"
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy on Goerli using Decentralized Exchange Aggregators:"
+msgstr "Buy on Goerli using Decentralized Exchange Aggregators:"
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy on Goerli using FIAT gateways:"
+msgstr "Buy on Goerli using FIAT gateways:"
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy on Goerli using any token from any network:"
+msgstr "Buy on Goerli using any token from any network:"
 
 #: src/pages/BuyGMX/BuyGMX.tsx
 msgid "Buy or Transfer AVAX to Avalanche"
@@ -1296,7 +1286,6 @@ msgstr "FEES"
 #: src/components/Glp/GlpSwap.js
 #: src/components/Glp/GlpSwap.js
 #: src/pages/Dashboard/DashboardV1.js
-#: src/pages/Dashboard/DashboardV2.js
 msgid "Fees"
 msgstr "Fees"
 
@@ -1820,7 +1809,6 @@ msgstr "Loading..."
 msgid "Long"
 msgstr "Long"
 
-#: src/pages/Dashboard/DashboardV2.js
 #: src/pages/Dashboard/DashboardV2.js
 msgid "Long Positions"
 msgstr "Long Positions"
@@ -2444,16 +2432,6 @@ msgstr "Price is above Mark Price"
 msgid "Price is below Mark Price"
 msgstr "Price is below Mark Price"
 
-#: src/pages/Dashboard/DashboardV2.js
-#: src/pages/Stake/StakeV2.js
-msgid "Price on Arbitrum"
-msgstr "Price on Arbitrum"
-
-#: src/pages/Dashboard/DashboardV2.js
-#: src/pages/Stake/StakeV2.js
-msgid "Price on Avalanche"
-msgstr "Price on Avalanche"
-
 #: src/pages/Actions/Actions.js
 msgid "Profit"
 msgstr "Profit"
@@ -2793,7 +2771,6 @@ msgid "Short"
 msgstr "Short"
 
 #: src/pages/Dashboard/DashboardV2.js
-#: src/pages/Dashboard/DashboardV2.js
 msgid "Short Positions"
 msgstr "Short Positions"
 
@@ -2892,13 +2869,11 @@ msgid "Stake submitted! <0>View status.</0>"
 msgstr "Stake submitted! <0>View status.</0>"
 
 #: src/components/Glp/GlpSwap.js
-#: src/pages/Dashboard/DashboardV2.js
 #: src/pages/Stake/StakeV1.js
 #: src/pages/Stake/StakeV1.js
 #: src/pages/Stake/StakeV1.js
 #: src/pages/Stake/StakeV1.js
 #: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
 #: src/pages/Stake/StakeV2.js
 #: src/pages/Stake/StakeV2.js
 #: src/pages/Stake/StakeV2.js
@@ -3227,7 +3202,6 @@ msgid "Total Assets Staked"
 msgstr "Total Assets Staked"
 
 #: src/pages/Dashboard/DashboardV2.js
-#: src/pages/Dashboard/DashboardV2.js
 msgid "Total Fees"
 msgstr "Total Fees"
 
@@ -3287,7 +3261,6 @@ msgstr "Total Users"
 
 #: src/components/Referrals/AffiliatesStats.js
 #: src/pages/Dashboard/DashboardV2.js
-#: src/pages/Dashboard/DashboardV2.js
 msgid "Total Volume"
 msgstr "Total Volume"
 
@@ -3302,10 +3275,6 @@ msgstr "Total active: {openTotal}, executed: {executedTotal}, cancelled: {cancel
 #: src/pages/Dashboard/DashboardV1.js
 msgid "Total fees earned since {0}: {1} USD<0/>Fee assets: {feeText}"
 msgstr "Total fees earned since {0}: {1} USD<0/>Fee assets: {feeText}"
-
-#: src/components/StatsTooltip/StatsTooltip.tsx
-msgid "Total:"
-msgstr "Total:"
 
 #: src/components/Header/AppHeaderUser.tsx
 #: src/components/Header/AppHeaderUser.tsx
@@ -3606,7 +3575,6 @@ msgid "View status."
 msgstr "View status."
 
 #: src/pages/Dashboard/DashboardV1.js
-#: src/pages/Dashboard/DashboardV2.js
 msgid "Volume"
 msgstr "Volume"
 
@@ -4068,14 +4036,6 @@ msgstr "{nativeTokenSymbol} Total APR"
 #: src/components/Exchange/PositionSeller.js
 msgid "{nativeTokenSymbol} can not be sent to smart contract addresses. Select another token."
 msgstr "{nativeTokenSymbol} can not be sent to smart contract addresses. Select another token."
-
-#: src/components/StatsTooltip/StatsTooltip.tsx
-msgid "{title} on Arbitrum:"
-msgstr "{title} on Arbitrum:"
-
-#: src/components/StatsTooltip/StatsTooltip.tsx
-msgid "{title} on Avalanche:"
-msgstr "{title} on Avalanche:"
 
 #: src/pages/Dashboard/DashboardV1.js
 msgid "{volumeLabel} Volume"
