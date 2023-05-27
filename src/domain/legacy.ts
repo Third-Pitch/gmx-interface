@@ -475,7 +475,7 @@ export function useEddxPrice(_, libraries, active) {
 
 // use only the supply endpoint on arbitrum, it includes the supply on avalanche
 export function useTotalEddxSupply() {
-  const eddxSupplyUrlArbitrum = getServerUrl(BASE, "/gmx_supply");
+  const eddxSupplyUrlArbitrum = getServerUrl(BASE, "/eddx_supply");
 
   const { data: eddxSupply, mutate: updateEddxSupply } = useSWR([eddxSupplyUrlArbitrum], {
     // @ts-ignore

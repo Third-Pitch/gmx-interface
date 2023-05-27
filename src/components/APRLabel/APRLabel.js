@@ -126,7 +126,7 @@ export default function APRLabel({ chainId, label }) {
 
   const { eddxPrice } = useEddxPrice(chainId, {}, active);
 
-  const eddxSupplyUrl = getServerUrl(chainId, "/gmx_supply");
+  const eddxSupplyUrl = getServerUrl(chainId, "/eddx_supply");
   const { data: eddxSupply } = useSWR([eddxSupplyUrl], {
     fetcher: (...args) => fetch(...args).then((res) => res.text()),
   });
