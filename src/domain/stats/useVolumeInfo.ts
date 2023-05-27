@@ -1,10 +1,10 @@
-import { GMX_STATS_API_URL } from "config/backend";
+import { EDDX_STATS_API_URL } from "config/backend";
 import { BASE, AVALANCHE } from "config/chains";
 import { bigNumberify } from "lib/numbers";
 import useSWR from "swr";
 
 export function useVolumeInfo() {
-  const url = `${GMX_STATS_API_URL}/volume/24h`;
+  const url = `${EDDX_STATS_API_URL}/volume/24h`;
 
   const { data } = useSWR(
     url,

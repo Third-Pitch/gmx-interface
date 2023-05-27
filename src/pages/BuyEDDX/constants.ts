@@ -1,8 +1,8 @@
 import { BASE, AVALANCHE } from "config/chains";
 import { getContract } from "config/contracts";
 
-const ARBITRUM_GMX = getContract(BASE, "GMX").toLowerCase();
-const AVALANCHE_GMX = getContract(AVALANCHE, "GMX").toLowerCase();
+const ARBITRUM_EDDX = getContract(BASE, "EDDX").toLowerCase();
+const AVALANCHE_EDDX = getContract(AVALANCHE, "EDDX").toLowerCase();
 
 type Exchange = {
   name: string;
@@ -13,14 +13,14 @@ type Exchange = {
 export const EXTERNAL_LINKS = {
   [BASE]: {
     networkWebsite: "https://arbitrum.io/",
-    buyGmx: {
-      uniswap: `https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=${ARBITRUM_GMX}`,
+    buyEddx: {
+      uniswap: `https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=${ARBITRUM_EDDX}`,
     },
   },
   [AVALANCHE]: {
     networkWebsite: "https://www.avax.network/",
-    buyGmx: {
-      traderjoe: `https://traderjoexyz.com/trade?outputCurrency=${AVALANCHE_GMX}`,
+    buyEddx: {
+      traderjoe: `https://traderjoexyz.com/trade?outputCurrency=${AVALANCHE_EDDX}`,
     },
   },
 };
@@ -38,8 +38,8 @@ export const FIAT_GATEWAYS: Exchange[] = [
     name: "Banxa",
     icon: "ic_banxa.svg",
     links: {
-      [BASE]: "https://gmx.banxa.com/?coinType=GMX&fiatType=USD&fiatAmount=500&blockchain=arbitrum",
-      [AVALANCHE]: "https://gmx.banxa.com/?coinType=GMX&fiatType=USD&fiatAmount=500&blockchain=avalanche",
+      [BASE]: "https://eddx.banxa.com/?coinType=EDDX&fiatType=USD&fiatAmount=500&blockchain=arbitrum",
+      [AVALANCHE]: "https://eddx.banxa.com/?coinType=EDDX&fiatType=USD&fiatAmount=500&blockchain=avalanche",
     },
   },
   {
@@ -47,26 +47,26 @@ export const FIAT_GATEWAYS: Exchange[] = [
     icon: "ic_tansak.svg",
     links: {
       [BASE]:
-        "https://global.transak.com/?apiKey=28a15a9b-d94e-4944-99cc-6aa35b45cc74&networks=arbitrum&defaultCryptoCurrency=GMX&isAutoFillUserData=true&hideMenu=true&isFeeCalculationHidden=true",
+        "https://global.transak.com/?apiKey=28a15a9b-d94e-4944-99cc-6aa35b45cc74&networks=arbitrum&defaultCryptoCurrency=EDDX&isAutoFillUserData=true&hideMenu=true&isFeeCalculationHidden=true",
     },
   },
 ];
 
-export const GMX_FROM_ANY_NETWORKS: Exchange[] = [
+export const EDDX_FROM_ANY_NETWORKS: Exchange[] = [
   {
     name: "Bungee",
     icon: "ic_bungee.png",
     links: {
-      [BASE]: `https://multitx.bungee.exchange/?toChainId=42161&toTokenAddress=${ARBITRUM_GMX}`,
-      [AVALANCHE]: `https://multitx.bungee.exchange/?toChainId=43114&toTokenAddress=${AVALANCHE_GMX}`,
+      [BASE]: `https://multitx.bungee.exchange/?toChainId=42161&toTokenAddress=${ARBITRUM_EDDX}`,
+      [AVALANCHE]: `https://multitx.bungee.exchange/?toChainId=43114&toTokenAddress=${AVALANCHE_EDDX}`,
     },
   },
   {
     name: "O3",
     icon: "ic_o3.png",
     links: {
-      [BASE]: `https://o3swap.com/swap?dst_chain=42161&dst_token_hash=${ARBITRUM_GMX}`,
-      [AVALANCHE]: `https://o3swap.com/swap?dst_chain=43114&dst_token_hash=${AVALANCHE_GMX}`,
+      [BASE]: `https://o3swap.com/swap?dst_chain=42161&dst_token_hash=${ARBITRUM_EDDX}`,
+      [AVALANCHE]: `https://o3swap.com/swap?dst_chain=43114&dst_token_hash=${AVALANCHE_EDDX}`,
     },
   },
 ];
@@ -94,8 +94,8 @@ export const BUY_NATIVE_TOKENS: Exchange[] = [
     name: "Banxa",
     icon: "ic_banxa.svg",
     links: {
-      [BASE]: "https://gmx.banxa.com/?coinType=ETH&fiatType=USD&fiatAmount=500&blockchain=arbitrum",
-      [AVALANCHE]: "https://gmx.banxa.com/?coinType=AVAX&fiatType=USD&fiatAmount=500&blockchain=avalanche",
+      [BASE]: "https://eddx.banxa.com/?coinType=ETH&fiatType=USD&fiatAmount=500&blockchain=arbitrum",
+      [AVALANCHE]: "https://eddx.banxa.com/?coinType=AVAX&fiatType=USD&fiatAmount=500&blockchain=avalanche",
     },
   },
   {
@@ -186,32 +186,32 @@ export const CENTRALISED_EXCHANGES: Exchange[] = [
     name: "Binance",
     icon: "ic_binance.svg",
     links: {
-      [BASE]: "https://www.binance.com/en/trade/GMX_USDT",
-      [AVALANCHE]: "https://www.binance.com/en/trade/GMX_USDT",
+      [BASE]: "https://www.binance.com/en/trade/EDDX_USDT",
+      [AVALANCHE]: "https://www.binance.com/en/trade/EDDX_USDT",
     },
   },
   {
     name: "Bybit",
     icon: "ic_bybit.svg",
     links: {
-      [BASE]: "https://www.bybit.com/en-US/trade/spot/GMX/USDT",
-      [AVALANCHE]: "https://www.bybit.com/en-US/trade/spot/GMX/USDT",
+      [BASE]: "https://www.bybit.com/en-US/trade/spot/EDDX/USDT",
+      [AVALANCHE]: "https://www.bybit.com/en-US/trade/spot/EDDX/USDT",
     },
   },
   {
     name: "Kucoin",
     icon: "ic_kucoin.svg",
     links: {
-      [BASE]: "https://www.kucoin.com/trade/GMX-USDT",
-      [AVALANCHE]: "https://www.kucoin.com/trade/GMX-USDT",
+      [BASE]: "https://www.kucoin.com/trade/EDDX-USDT",
+      [AVALANCHE]: "https://www.kucoin.com/trade/EDDX-USDT",
     },
   },
   {
     name: "Huobi",
     icon: "ic_huobi.svg",
     links: {
-      [BASE]: "https://www.huobi.com/en-us/exchange/gmx_usdt/",
-      [AVALANCHE]: "https://www.huobi.com/en-us/exchange/gmx_usdt/",
+      [BASE]: "https://www.huobi.com/en-us/exchange/eddx_usdt/",
+      [AVALANCHE]: "https://www.huobi.com/en-us/exchange/eddx_usdt/",
     },
   },
 ];
@@ -221,48 +221,48 @@ export const DECENTRALISED_AGGRIGATORS: Exchange[] = [
     name: "1inch",
     icon: "ic_1inch.svg",
     links: {
-      [BASE]: "https://app.1inch.io/#/42161/unified/swap/ETH/GMX",
-      [AVALANCHE]: "https://app.1inch.io/#/43114/unified/swap/AVAX/GMX",
+      [BASE]: "https://app.1inch.io/#/42161/unified/swap/ETH/EDDX",
+      [AVALANCHE]: "https://app.1inch.io/#/43114/unified/swap/AVAX/EDDX",
     },
   },
   {
     name: "Matcha",
     icon: "ic_matcha.png",
     links: {
-      [BASE]: `https://www.matcha.xyz/markets/42161/${ARBITRUM_GMX}`,
-      [AVALANCHE]: `https://www.matcha.xyz/markets/43114/${AVALANCHE_GMX}`,
+      [BASE]: `https://www.matcha.xyz/markets/42161/${ARBITRUM_EDDX}`,
+      [AVALANCHE]: `https://www.matcha.xyz/markets/43114/${AVALANCHE_EDDX}`,
     },
   },
   {
     name: "Paraswap",
     icon: "ic_paraswap.svg",
     links: {
-      [BASE]: `https://app.paraswap.io/#/${ARBITRUM_GMX}?network=arbitrum`,
-      [AVALANCHE]: `https://app.paraswap.io/#/${AVALANCHE_GMX}?network=avalanche`,
+      [BASE]: `https://app.paraswap.io/#/${ARBITRUM_EDDX}?network=arbitrum`,
+      [AVALANCHE]: `https://app.paraswap.io/#/${AVALANCHE_EDDX}?network=avalanche`,
     },
   },
   {
     name: "KyberSwap",
     icon: "ic_kyberswap.svg",
     links: {
-      [BASE]: "https://kyberswap.com/swap/arbitrum/eth-to-gmx",
-      [AVALANCHE]: "https://kyberswap.com/swap/avalanche/avax-to-gmx",
+      [BASE]: "https://kyberswap.com/swap/arbitrum/eth-to-eddx",
+      [AVALANCHE]: "https://kyberswap.com/swap/avalanche/avax-to-eddx",
     },
   },
   {
     name: "OpenOcean",
     icon: "ic_openocean.svg",
     links: {
-      [BASE]: "https://app.openocean.finance/CLASSIC#/ARBITRUM/ETH/GMX",
-      [AVALANCHE]: "https://app.openocean.finance/CLASSIC#/AVAX/AVAX/GMX",
+      [BASE]: "https://app.openocean.finance/CLASSIC#/ARBITRUM/ETH/EDDX",
+      [AVALANCHE]: "https://app.openocean.finance/CLASSIC#/AVAX/AVAX/EDDX",
     },
   },
   {
     name: "DODO",
     icon: "ic_dodo.svg",
     links: {
-      [BASE]: `https://app.dodoex.io/?from=ETH&to=${ARBITRUM_GMX}&network=arbitrum`,
-      [AVALANCHE]: `https://app.dodoex.io/?from=AVAX&to=${AVALANCHE_GMX}&network=avalanche`,
+      [BASE]: `https://app.dodoex.io/?from=ETH&to=${ARBITRUM_EDDX}&network=arbitrum`,
+      [AVALANCHE]: `https://app.dodoex.io/?from=AVAX&to=${AVALANCHE_EDDX}&network=avalanche`,
     },
   },
   {
@@ -274,7 +274,7 @@ export const DECENTRALISED_AGGRIGATORS: Exchange[] = [
     name: "Yieldyak",
     icon: "ic_yield_yak.png",
     links: {
-      [AVALANCHE]: `https://yieldyak.com/swap?outputCurrency=${AVALANCHE_GMX}`,
+      [AVALANCHE]: `https://yieldyak.com/swap?outputCurrency=${AVALANCHE_EDDX}`,
     },
   },
   {
@@ -289,8 +289,8 @@ export const DECENTRALISED_AGGRIGATORS: Exchange[] = [
     name: "Odos",
     icon: "ic_odos.png",
     links: {
-      [BASE]: "https://app.odos.xyz/swap/42161/ETH/GMX",
-      [AVALANCHE]: "https://app.odos.xyz/swap/43114/AVAX/GMX",
+      [BASE]: "https://app.odos.xyz/swap/42161/ETH/EDDX",
+      [AVALANCHE]: "https://app.odos.xyz/swap/43114/AVAX/EDDX",
     },
   },
 ];

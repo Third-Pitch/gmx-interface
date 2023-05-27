@@ -13,11 +13,11 @@ import Vester from "abis/Vester.json";
 import RewardRouter from "abis/RewardRouter.json";
 import RewardReader from "abis/RewardReader.json";
 import Token from "abis/Token.json";
-import GlpManager from "abis/GlpManager.json";
+import ElpManager from "abis/ElpManager.json";
 
 import { ethers } from "ethers";
 import {
-  GLP_DECIMALS,
+  ELP_DECIMALS,
   USD_DECIMALS,
   BASIS_POINTS_DIVISOR,
   PLACEHOLDER_ACCOUNT,
@@ -28,7 +28,7 @@ import {
   getProcessedData,
   getPageTitle,
 } from "lib/legacy";
-import { useGmxPrice, useTotalGmxStaked, useTotalGmxSupply } from "domain/legacy";
+import { useEddxPrice, useTotalEddxStaked, useTotalEddxSupply } from "domain/legacy";
 import { BASE, getChainName, getConstant } from "config/chains";
 
 import useSWR from "swr";
@@ -46,7 +46,7 @@ import { approveTokens } from "domain/tokens";
 import { bigNumberify, expandDecimals, formatAmount, formatAmountFree, formatKeyAmount, parseValue } from "lib/numbers";
 import { useChainId } from "lib/chains";
 import ExternalLink from "components/ExternalLink/ExternalLink";
-import GMXAprTooltip from "components/Stake/GMXAprTooltip";
+import EDDXAprTooltip from "components/Stake/EDDXAprTooltip";
 import Button from "components/Button/Button";
 
 const { AddressZero } = ethers.constants;
@@ -203,7 +203,7 @@ function UnstakeModal(props) {
     unstakeMethodName,
     multiplierPointsAmount,
     reservedAmount,
-    bonusGmxInFeeGmx,
+    bonusEddxInFeeEddx,
     setPendingTxns,
   } = props;
   const [isUnstaking, setIsUnstaking] = useState(false);
@@ -216,16 +216,16 @@ function UnstakeModal(props) {
     multiplierPointsAmount.gt(0) &&
     amount &&
     amount.gt(0) &&
-    bonusGmxInFeeGmx &&
-    bonusGmxInFeeGmx.gt(0)
+    bonusEddxInFeeEddx &&
+    bonusEddxInFeeEddx.gt(0)
   ) {
-    burnAmount = multiplierPointsAmount.mul(amount).div(bonusGmxInFeeGmx);
+    burnAmount = multiplierPointsAmount.mul(amount).div(bonusEddxInFeeEddx);
   }
 
   const shouldShowReductionAmount = true;
   let rewardReductionBasisPoints;
-  if (burnAmount && bonusGmxInFeeGmx) {
-    rewardReductionBasisPoints = burnAmount.mul(BASIS_POINTS_DIVISOR).div(bonusGmxInFeeGmx);
+  if (burnAmount && bonusEddxInFeeEddx) {
+    rewardReductionBasisPoints = burnAmount.mul(BASIS_POINTS_DIVISOR).div(bonusEddxInFeeEddx);
   }
 
   const getError = () => {
@@ -312,7 +312,7 @@ function UnstakeModal(props) {
           <div className="Modal-note">
             <Trans>
               Unstaking will burn&nbsp;
-              <ExternalLink className="display-inline" href="https://gmxio.gitbook.io/gmx/rewards">
+              <ExternalLink className="display-inline" href="https://eddxio.gitbook.io/eddx/rewards">
                 {formatAmount(burnAmount, 18, 4, true)} Multiplier Points
               </ExternalLink>
               .&nbsp;
@@ -451,7 +451,7 @@ function VesterDepositModal(props) {
                   onChange={(e) => setValue(e.target.value)}
                 />
               </div>
-              <div className="PositionEditor-token-symbol">esGMX</div>
+              <div className="PositionEditor-token-symbol">esEDDX</div>
             </div>
           </div>
           <div className="VesterDepositModal-info-rows">
@@ -459,7 +459,7 @@ function VesterDepositModal(props) {
               <div className="Exchange-info-label">
                 <Trans>Wallet</Trans>
               </div>
-              <div className="align-right">{formatAmount(balance, 18, 2, true)} esGMX</div>
+              <div className="align-right">{formatAmount(balance, 18, 2, true)} esEDDX</div>
             </div>
             <div className="Exchange-info-row">
               <div className="Exchange-info-label">
@@ -483,12 +483,12 @@ function VesterDepositModal(props) {
                         <StatsTooltipRow
                           showDollar={false}
                           label={t`Deposited`}
-                          value={`${formatAmount(vestedAmount, 18, 2, true)} esGMX`}
+                          value={`${formatAmount(vestedAmount, 18, 2, true)} esEDDX`}
                         />
                         <StatsTooltipRow
                           showDollar={false}
                           label={t`Max Capacity`}
-                          value={`${formatAmount(maxVestableAmount, 18, 2, true)} esGMX`}
+                          value={`${formatAmount(maxVestableAmount, 18, 2, true)} esEDDX`}
                         />
                       </div>
                     );
@@ -529,7 +529,7 @@ function VesterDepositModal(props) {
                             <br />
                             <Trans>
                               You need a total of at least {formatAmount(nextReserveAmount, 18, 2, true)}{" "}
-                              {stakeTokenLabel} to vest {formatAmount(amount, 18, 2, true)} esGMX.
+                              {stakeTokenLabel} to vest {formatAmount(amount, 18, 2, true)} esEDDX.
                             </Trans>
                           </>
                         )}
@@ -581,10 +581,10 @@ function VesterWithdrawModal(props) {
             This will withdraw and unreserve all tokens as well as pause vesting.
             <br />
             <br />
-            esGMX tokens that have been converted to GMX will remain as GMX tokens.
+            esEDDX tokens that have been converted to EDDX will remain as EDDX tokens.
             <br />
             <br />
-            To claim GMX tokens without withdrawing, use the "Claim" button under the Total Rewards section.
+            To claim EDDX tokens without withdrawing, use the "Claim" button under the Total Rewards section.
             <br />
             <br />
           </div>
@@ -615,20 +615,20 @@ function CompoundModal(props) {
     wrappedTokenSymbol,
   } = props;
   const [isCompounding, setIsCompounding] = useState(false);
-  const [shouldClaimGmx, setShouldClaimGmx] = useLocalStorageSerializeKey(
-    [chainId, "StakeV2-compound-should-claim-gmx"],
+  const [shouldClaimEddx, setShouldClaimEddx] = useLocalStorageSerializeKey(
+    [chainId, "StakeV2-compound-should-claim-eddx"],
     true
   );
-  const [shouldStakeGmx, setShouldStakeGmx] = useLocalStorageSerializeKey(
-    [chainId, "StakeV2-compound-should-stake-gmx"],
+  const [shouldStakeEddx, setShouldStakeEddx] = useLocalStorageSerializeKey(
+    [chainId, "StakeV2-compound-should-stake-eddx"],
     true
   );
-  const [shouldClaimEsGmx, setShouldClaimEsGmx] = useLocalStorageSerializeKey(
-    [chainId, "StakeV2-compound-should-claim-es-gmx"],
+  const [shouldClaimEsEddx, setShouldClaimEsEddx] = useLocalStorageSerializeKey(
+    [chainId, "StakeV2-compound-should-claim-es-eddx"],
     true
   );
-  const [shouldStakeEsGmx, setShouldStakeEsGmx] = useLocalStorageSerializeKey(
-    [chainId, "StakeV2-compound-should-stake-es-gmx"],
+  const [shouldStakeEsEddx, setShouldStakeEsEddx] = useLocalStorageSerializeKey(
+    [chainId, "StakeV2-compound-should-stake-es-eddx"],
     true
   );
   const [shouldStakeMultiplierPoints, setShouldStakeMultiplierPoints] = useState(true);
@@ -641,19 +641,19 @@ function CompoundModal(props) {
     true
   );
 
-  const gmxAddress = getContract(chainId, "GMX");
-  const stakedGmxTrackerAddress = getContract(chainId, "StakedGmxTracker");
+  const eddxAddress = getContract(chainId, "EDDX");
+  const stakedEddxTrackerAddress = getContract(chainId, "StakedEddxTracker");
 
   const [isApproving, setIsApproving] = useState(false);
 
   const { data: tokenAllowance } = useSWR(
-    active && [active, chainId, gmxAddress, "allowance", account, stakedGmxTrackerAddress],
+    active && [active, chainId, eddxAddress, "allowance", account, stakedEddxTrackerAddress],
     {
       fetcher: contractFetcher(library, Token),
     }
   );
 
-  const needApproval = shouldStakeGmx && tokenAllowance && totalVesterRewards && totalVesterRewards.gt(tokenAllowance);
+  const needApproval = shouldStakeEddx && tokenAllowance && totalVesterRewards && totalVesterRewards.gt(tokenAllowance);
 
   const isPrimaryEnabled = () => {
     return !isCompounding && !isApproving && !isCompounding;
@@ -661,10 +661,10 @@ function CompoundModal(props) {
 
   const getPrimaryText = () => {
     if (isApproving) {
-      return t`Approving GMX...`;
+      return t`Approving EDDX...`;
     }
     if (needApproval) {
-      return t`Approve GMX`;
+      return t`Approve EDDX`;
     }
     if (isCompounding) {
       return t`Compounding...`;
@@ -677,8 +677,8 @@ function CompoundModal(props) {
       approveTokens({
         setIsApproving,
         library,
-        tokenAddress: gmxAddress,
-        spender: stakedGmxTrackerAddress,
+        tokenAddress: eddxAddress,
+        spender: stakedEddxTrackerAddress,
         chainId,
       });
       return;
@@ -692,10 +692,10 @@ function CompoundModal(props) {
       contract,
       "handleRewards",
       [
-        shouldClaimGmx || shouldStakeGmx,
-        shouldStakeGmx,
-        shouldClaimEsGmx || shouldStakeEsGmx,
-        shouldStakeEsGmx,
+        shouldClaimEddx || shouldStakeEddx,
+        shouldStakeEddx,
+        shouldClaimEsEddx || shouldStakeEsEddx,
+        shouldStakeEsEddx,
         shouldStakeMultiplierPoints,
         shouldClaimWeth || shouldConvertWeth,
         shouldConvertWeth,
@@ -715,18 +715,18 @@ function CompoundModal(props) {
       });
   };
 
-  const toggleShouldStakeGmx = (value) => {
+  const toggleShouldStakeEddx = (value) => {
     if (value) {
-      setShouldClaimGmx(true);
+      setShouldClaimEddx(true);
     }
-    setShouldStakeGmx(value);
+    setShouldStakeEddx(value);
   };
 
-  const toggleShouldStakeEsGmx = (value) => {
+  const toggleShouldStakeEsEddx = (value) => {
     if (value) {
-      setShouldClaimEsGmx(true);
+      setShouldClaimEsEddx(true);
     }
-    setShouldStakeEsGmx(value);
+    setShouldStakeEsEddx(value);
   };
 
   const toggleConvertWeth = (value) => {
@@ -750,23 +750,23 @@ function CompoundModal(props) {
             </Checkbox>
           </div>
           <div>
-            <Checkbox isChecked={shouldClaimGmx} setIsChecked={setShouldClaimGmx} disabled={shouldStakeGmx}>
-              <Trans>Claim GMX Rewards</Trans>
+            <Checkbox isChecked={shouldClaimEddx} setIsChecked={setShouldClaimEddx} disabled={shouldStakeEddx}>
+              <Trans>Claim EDDX Rewards</Trans>
             </Checkbox>
           </div>
           <div>
-            <Checkbox isChecked={shouldStakeGmx} setIsChecked={toggleShouldStakeGmx}>
-              <Trans>Stake GMX Rewards</Trans>
+            <Checkbox isChecked={shouldStakeEddx} setIsChecked={toggleShouldStakeEddx}>
+              <Trans>Stake EDDX Rewards</Trans>
             </Checkbox>
           </div>
           <div>
-            <Checkbox isChecked={shouldClaimEsGmx} setIsChecked={setShouldClaimEsGmx} disabled={shouldStakeEsGmx}>
-              <Trans>Claim esGMX Rewards</Trans>
+            <Checkbox isChecked={shouldClaimEsEddx} setIsChecked={setShouldClaimEsEddx} disabled={shouldStakeEsEddx}>
+              <Trans>Claim esEDDX Rewards</Trans>
             </Checkbox>
           </div>
           <div>
-            <Checkbox isChecked={shouldStakeEsGmx} setIsChecked={toggleShouldStakeEsGmx}>
-              <Trans>Stake esGMX Rewards</Trans>
+            <Checkbox isChecked={shouldStakeEsEddx} setIsChecked={toggleShouldStakeEsEddx}>
+              <Trans>Stake esEDDX Rewards</Trans>
             </Checkbox>
           </div>
           <div>
@@ -804,12 +804,12 @@ function ClaimModal(props) {
     wrappedTokenSymbol,
   } = props;
   const [isClaiming, setIsClaiming] = useState(false);
-  const [shouldClaimGmx, setShouldClaimGmx] = useLocalStorageSerializeKey(
-    [chainId, "StakeV2-claim-should-claim-gmx"],
+  const [shouldClaimEddx, setShouldClaimEddx] = useLocalStorageSerializeKey(
+    [chainId, "StakeV2-claim-should-claim-eddx"],
     true
   );
-  const [shouldClaimEsGmx, setShouldClaimEsGmx] = useLocalStorageSerializeKey(
-    [chainId, "StakeV2-claim-should-claim-es-gmx"],
+  const [shouldClaimEsEddx, setShouldClaimEsEddx] = useLocalStorageSerializeKey(
+    [chainId, "StakeV2-claim-should-claim-es-eddx"],
     true
   );
   const [shouldClaimWeth, setShouldClaimWeth] = useLocalStorageSerializeKey(
@@ -841,10 +841,10 @@ function ClaimModal(props) {
       contract,
       "handleRewards",
       [
-        shouldClaimGmx,
-        false, // shouldStakeGmx
-        shouldClaimEsGmx,
-        false, // shouldStakeEsGmx
+        shouldClaimEddx,
+        false, // shouldStakeEddx
+        shouldClaimEsEddx,
+        false, // shouldStakeEsEddx
         false, // shouldStakeMultiplierPoints
         shouldClaimWeth,
         shouldConvertWeth,
@@ -876,13 +876,13 @@ function ClaimModal(props) {
       <Modal isVisible={isVisible} setIsVisible={setIsVisible} label={t`Claim Rewards`}>
         <div className="CompoundModal-menu">
           <div>
-            <Checkbox isChecked={shouldClaimGmx} setIsChecked={setShouldClaimGmx}>
-              <Trans>Claim GMX Rewards</Trans>
+            <Checkbox isChecked={shouldClaimEddx} setIsChecked={setShouldClaimEddx}>
+              <Trans>Claim EDDX Rewards</Trans>
             </Checkbox>
           </div>
           <div>
-            <Checkbox isChecked={shouldClaimEsGmx} setIsChecked={setShouldClaimEsGmx}>
-              <Trans>Claim esGMX Rewards</Trans>
+            <Checkbox isChecked={shouldClaimEsEddx} setIsChecked={setShouldClaimEsEddx}>
+              <Trans>Claim esEDDX Rewards</Trans>
             </Checkbox>
           </div>
           <div>
@@ -960,56 +960,56 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
 
   const vaultAddress = getContract(chainId, "Vault");
   const nativeTokenAddress = getContract(chainId, "NATIVE_TOKEN");
-  const gmxAddress = getContract(chainId, "GMX");
-  const esGmxAddress = getContract(chainId, "ES_GMX");
-  const bnGmxAddress = getContract(chainId, "BN_GMX");
-  const glpAddress = getContract(chainId, "GLP");
+  const eddxAddress = getContract(chainId, "EDDX");
+  const esEddxAddress = getContract(chainId, "ES_EDDX");
+  const bnEddxAddress = getContract(chainId, "BN_EDDX");
+  const elpAddress = getContract(chainId, "ELP");
 
-  const stakedGmxTrackerAddress = getContract(chainId, "StakedGmxTracker");
-  const bonusGmxTrackerAddress = getContract(chainId, "BonusGmxTracker");
-  const feeGmxTrackerAddress = getContract(chainId, "FeeGmxTracker");
+  const stakedEddxTrackerAddress = getContract(chainId, "StakedEddxTracker");
+  const bonusEddxTrackerAddress = getContract(chainId, "BonusEddxTracker");
+  const feeEddxTrackerAddress = getContract(chainId, "FeeEddxTracker");
 
-  const stakedGlpTrackerAddress = getContract(chainId, "StakedGlpTracker");
-  const feeGlpTrackerAddress = getContract(chainId, "FeeGlpTracker");
+  const stakedElpTrackerAddress = getContract(chainId, "StakedElpTracker");
+  const feeElpTrackerAddress = getContract(chainId, "FeeElpTracker");
 
-  const glpManagerAddress = getContract(chainId, "GlpManager");
+  const elpManagerAddress = getContract(chainId, "ElpManager");
 
-  const stakedGmxDistributorAddress = getContract(chainId, "StakedGmxDistributor");
-  const stakedGlpDistributorAddress = getContract(chainId, "StakedGlpDistributor");
+  const stakedEddxDistributorAddress = getContract(chainId, "StakedEddxDistributor");
+  const stakedElpDistributorAddress = getContract(chainId, "StakedElpDistributor");
 
-  const gmxVesterAddress = getContract(chainId, "GmxVester");
-  const glpVesterAddress = getContract(chainId, "GlpVester");
+  const eddxVesterAddress = getContract(chainId, "EddxVester");
+  const elpVesterAddress = getContract(chainId, "ElpVester");
 
-  const vesterAddresses = [gmxVesterAddress, glpVesterAddress];
+  const vesterAddresses = [eddxVesterAddress, elpVesterAddress];
 
-  const excludedEsGmxAccounts = [stakedGmxDistributorAddress, stakedGlpDistributorAddress];
+  const excludedEsEddxAccounts = [stakedEddxDistributorAddress, stakedElpDistributorAddress];
 
   const nativeTokenSymbol = getConstant(chainId, "nativeTokenSymbol");
   const wrappedTokenSymbol = getConstant(chainId, "wrappedTokenSymbol");
 
-  const walletTokens = [gmxAddress, esGmxAddress, glpAddress, stakedGmxTrackerAddress];
+  const walletTokens = [eddxAddress, esEddxAddress, elpAddress, stakedEddxTrackerAddress];
   const depositTokens = [
-    gmxAddress,
-    esGmxAddress,
-    stakedGmxTrackerAddress,
-    bonusGmxTrackerAddress,
-    bnGmxAddress,
-    glpAddress,
+    eddxAddress,
+    esEddxAddress,
+    stakedEddxTrackerAddress,
+    bonusEddxTrackerAddress,
+    bnEddxAddress,
+    elpAddress,
   ];
   const rewardTrackersForDepositBalances = [
-    stakedGmxTrackerAddress,
-    stakedGmxTrackerAddress,
-    bonusGmxTrackerAddress,
-    feeGmxTrackerAddress,
-    feeGmxTrackerAddress,
-    feeGlpTrackerAddress,
+    stakedEddxTrackerAddress,
+    stakedEddxTrackerAddress,
+    bonusEddxTrackerAddress,
+    feeEddxTrackerAddress,
+    feeEddxTrackerAddress,
+    feeElpTrackerAddress,
   ];
   const rewardTrackersForStakingInfo = [
-    stakedGmxTrackerAddress,
-    bonusGmxTrackerAddress,
-    feeGmxTrackerAddress,
-    stakedGlpTrackerAddress,
-    feeGlpTrackerAddress,
+    stakedEddxTrackerAddress,
+    bonusEddxTrackerAddress,
+    feeEddxTrackerAddress,
+    stakedElpTrackerAddress,
+    feeElpTrackerAddress,
   ];
 
   const { data: walletBalances } = useSWR(
@@ -1045,15 +1045,15 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
     }
   );
 
-  const { data: stakedGmxSupply } = useSWR(
-    [`StakeV2:stakedGmxSupply:${active}`, chainId, gmxAddress, "balanceOf", stakedGmxTrackerAddress],
+  const { data: stakedEddxSupply } = useSWR(
+    [`StakeV2:stakedEddxSupply:${active}`, chainId, eddxAddress, "balanceOf", stakedEddxTrackerAddress],
     {
       fetcher: contractFetcher(library, Token),
     }
   );
 
-  const { data: aums } = useSWR([`StakeV2:getAums:${active}`, chainId, glpManagerAddress, "getAums"], {
-    fetcher: contractFetcher(library, GlpManager),
+  const { data: aums } = useSWR([`StakeV2:getAums:${active}`, chainId, elpManagerAddress, "getAums"], {
+    fetcher: contractFetcher(library, ElpManager),
   });
 
   const { data: nativeTokenPrice } = useSWR(
@@ -1063,10 +1063,10 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
     }
   );
 
-  const { data: esGmxSupply } = useSWR(
-    [`StakeV2:esGmxSupply:${active}`, chainId, readerAddress, "getTokenSupply", esGmxAddress],
+  const { data: esEddxSupply } = useSWR(
+    [`StakeV2:esEddxSupply:${active}`, chainId, readerAddress, "getTokenSupply", esEddxAddress],
     {
-      fetcher: contractFetcher(library, ReaderV2, [excludedEsGmxAccounts]),
+      fetcher: contractFetcher(library, ReaderV2, [excludedEsEddxAccounts]),
     }
   );
 
@@ -1077,26 +1077,26 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
     }
   );
 
-  const { gmxPrice } = useGmxPrice(
+  const { eddxPrice } = useEddxPrice(
     chainId,
     { arbitrum: chainId === BASE ? library : undefined },
     active
   );
 
-  let { total: totalGmxSupply } = useTotalGmxSupply();
+  let { total: totalEddxSupply } = useTotalEddxSupply();
 
-  let { avax: avaxGmxStaked, arbitrum: arbitrumGmxStaked, total: totalGmxStaked } = useTotalGmxStaked();
+  let { avax: avaxEddxStaked, arbitrum: arbitrumEddxStaked, total: totalEddxStaked } = useTotalEddxStaked();
 
-  const gmxSupplyUrl = getServerUrl(chainId, "/gmx_supply");
-  const { data: gmxSupply } = useSWR([gmxSupplyUrl], {
+  const eddxSupplyUrl = getServerUrl(chainId, "/gmx_supply");
+  const { data: eddxSupply } = useSWR([eddxSupplyUrl], {
     fetcher: (...args) => fetch(...args).then((res) => res.text()),
   });
 
-  const isGmxTransferEnabled = true;
+  const isEddxTransferEnabled = true;
 
-  let esGmxSupplyUsd;
-  if (esGmxSupply && gmxPrice) {
-    esGmxSupplyUsd = esGmxSupply.mul(gmxPrice).div(expandDecimals(1, 18));
+  let esEddxSupplyUsd;
+  if (esEddxSupply && eddxPrice) {
+    esEddxSupplyUsd = esEddxSupply.mul(eddxPrice).div(expandDecimals(1, 18));
   }
 
   let aum;
@@ -1117,190 +1117,190 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
     vestingData,
     aum,
     nativeTokenPrice,
-    stakedGmxSupply,
-    gmxPrice,
-    gmxSupply
+    stakedEddxSupply,
+    eddxPrice,
+    eddxSupply
   );
 
   let hasMultiplierPoints = false;
   let multiplierPointsAmount;
-  if (processedData && processedData.bonusGmxTrackerRewards && processedData.bnGmxInFeeGmx) {
-    multiplierPointsAmount = processedData.bonusGmxTrackerRewards.add(processedData.bnGmxInFeeGmx);
+  if (processedData && processedData.bonusEddxTrackerRewards && processedData.bnEddxInFeeEddx) {
+    multiplierPointsAmount = processedData.bonusEddxTrackerRewards.add(processedData.bnEddxInFeeEddx);
     if (multiplierPointsAmount.gt(0)) {
       hasMultiplierPoints = true;
     }
   }
   let totalRewardTokens;
-  if (processedData && processedData.bnGmxInFeeGmx && processedData.bonusGmxInFeeGmx) {
-    totalRewardTokens = processedData.bnGmxInFeeGmx.add(processedData.bonusGmxInFeeGmx);
+  if (processedData && processedData.bnEddxInFeeEddx && processedData.bonusEddxInFeeEddx) {
+    totalRewardTokens = processedData.bnEddxInFeeEddx.add(processedData.bonusEddxInFeeEddx);
   }
 
-  let totalRewardTokensAndGlp;
-  if (totalRewardTokens && processedData && processedData.glpBalance) {
-    totalRewardTokensAndGlp = totalRewardTokens.add(processedData.glpBalance);
+  let totalRewardTokensAndElp;
+  if (totalRewardTokens && processedData && processedData.elpBalance) {
+    totalRewardTokensAndElp = totalRewardTokens.add(processedData.elpBalance);
   }
 
-  const bonusGmxInFeeGmx = processedData ? processedData.bonusGmxInFeeGmx : undefined;
+  const bonusEddxInFeeEddx = processedData ? processedData.bonusEddxInFeeEddx : undefined;
 
-  let stakedGmxSupplyUsd;
-  if (!totalGmxStaked.isZero() && gmxPrice) {
-    stakedGmxSupplyUsd = totalGmxStaked.mul(gmxPrice).div(expandDecimals(1, 18));
+  let stakedEddxSupplyUsd;
+  if (!totalEddxStaked.isZero() && eddxPrice) {
+    stakedEddxSupplyUsd = totalEddxStaked.mul(eddxPrice).div(expandDecimals(1, 18));
   }
 
   let totalSupplyUsd;
-  if (totalGmxSupply && !totalGmxSupply.isZero() && gmxPrice) {
-    totalSupplyUsd = totalGmxSupply.mul(gmxPrice).div(expandDecimals(1, 18));
+  if (totalEddxSupply && !totalEddxSupply.isZero() && eddxPrice) {
+    totalSupplyUsd = totalEddxSupply.mul(eddxPrice).div(expandDecimals(1, 18));
   }
 
-  let maxUnstakeableGmx = bigNumberify(0);
+  let maxUnstakeableEddx = bigNumberify(0);
   if (
     totalRewardTokens &&
     vestingData &&
-    vestingData.gmxVesterPairAmount &&
+    vestingData.eddxVesterPairAmount &&
     multiplierPointsAmount &&
-    processedData.bonusGmxInFeeGmx
+    processedData.bonusEddxInFeeEddx
   ) {
-    const availableTokens = totalRewardTokens.sub(vestingData.gmxVesterPairAmount);
-    const stakedTokens = processedData.bonusGmxInFeeGmx;
+    const availableTokens = totalRewardTokens.sub(vestingData.eddxVesterPairAmount);
+    const stakedTokens = processedData.bonusEddxInFeeEddx;
     const divisor = multiplierPointsAmount.add(stakedTokens);
     if (divisor.gt(0)) {
-      maxUnstakeableGmx = availableTokens.mul(stakedTokens).div(divisor);
+      maxUnstakeableEddx = availableTokens.mul(stakedTokens).div(divisor);
     }
   }
 
-  const showStakeGmxModal = () => {
-    if (!isGmxTransferEnabled) {
-      helperToast.error(t`GMX transfers not yet enabled`);
+  const showStakeEddxModal = () => {
+    if (!isEddxTransferEnabled) {
+      helperToast.error(t`EDDX transfers not yet enabled`);
       return;
     }
 
     setIsStakeModalVisible(true);
-    setStakeModalTitle(t`Stake GMX`);
-    setStakeModalMaxAmount(processedData.gmxBalance);
+    setStakeModalTitle(t`Stake EDDX`);
+    setStakeModalMaxAmount(processedData.eddxBalance);
     setStakeValue("");
-    setStakingTokenSymbol("GMX");
-    setStakingTokenAddress(gmxAddress);
-    setStakingFarmAddress(stakedGmxTrackerAddress);
-    setStakeMethodName("stakeGmx");
+    setStakingTokenSymbol("EDDX");
+    setStakingTokenAddress(eddxAddress);
+    setStakingFarmAddress(stakedEddxTrackerAddress);
+    setStakeMethodName("stakeEddx");
   };
 
-  const showStakeEsGmxModal = () => {
+  const showStakeEsEddxModal = () => {
     setIsStakeModalVisible(true);
-    setStakeModalTitle(t`Stake esGMX`);
-    setStakeModalMaxAmount(processedData.esGmxBalance);
+    setStakeModalTitle(t`Stake esEDDX`);
+    setStakeModalMaxAmount(processedData.esEddxBalance);
     setStakeValue("");
-    setStakingTokenSymbol("esGMX");
-    setStakingTokenAddress(esGmxAddress);
+    setStakingTokenSymbol("esEDDX");
+    setStakingTokenAddress(esEddxAddress);
     setStakingFarmAddress(AddressZero);
-    setStakeMethodName("stakeEsGmx");
+    setStakeMethodName("stakeEsEddx");
   };
 
-  const showGmxVesterDepositModal = () => {
-    let remainingVestableAmount = vestingData.gmxVester.maxVestableAmount.sub(vestingData.gmxVester.vestedAmount);
-    if (processedData.esGmxBalance.lt(remainingVestableAmount)) {
-      remainingVestableAmount = processedData.esGmxBalance;
+  const showEddxVesterDepositModal = () => {
+    let remainingVestableAmount = vestingData.eddxVester.maxVestableAmount.sub(vestingData.eddxVester.vestedAmount);
+    if (processedData.esEddxBalance.lt(remainingVestableAmount)) {
+      remainingVestableAmount = processedData.esEddxBalance;
     }
 
     setIsVesterDepositModalVisible(true);
-    setVesterDepositTitle(t`GMX Vault`);
-    setVesterDepositStakeTokenLabel("staked GMX + esGMX + Multiplier Points");
+    setVesterDepositTitle(t`EDDX Vault`);
+    setVesterDepositStakeTokenLabel("staked EDDX + esEDDX + Multiplier Points");
     setVesterDepositMaxAmount(remainingVestableAmount);
-    setVesterDepositBalance(processedData.esGmxBalance);
-    setVesterDepositEscrowedBalance(vestingData.gmxVester.escrowedBalance);
-    setVesterDepositVestedAmount(vestingData.gmxVester.vestedAmount);
-    setVesterDepositMaxVestableAmount(vestingData.gmxVester.maxVestableAmount);
-    setVesterDepositAverageStakedAmount(vestingData.gmxVester.averageStakedAmount);
-    setVesterDepositReserveAmount(vestingData.gmxVester.pairAmount);
+    setVesterDepositBalance(processedData.esEddxBalance);
+    setVesterDepositEscrowedBalance(vestingData.eddxVester.escrowedBalance);
+    setVesterDepositVestedAmount(vestingData.eddxVester.vestedAmount);
+    setVesterDepositMaxVestableAmount(vestingData.eddxVester.maxVestableAmount);
+    setVesterDepositAverageStakedAmount(vestingData.eddxVester.averageStakedAmount);
+    setVesterDepositReserveAmount(vestingData.eddxVester.pairAmount);
     setVesterDepositMaxReserveAmount(totalRewardTokens);
     setVesterDepositValue("");
-    setVesterDepositAddress(gmxVesterAddress);
+    setVesterDepositAddress(eddxVesterAddress);
   };
 
-  const showGlpVesterDepositModal = () => {
-    let remainingVestableAmount = vestingData.glpVester.maxVestableAmount.sub(vestingData.glpVester.vestedAmount);
-    if (processedData.esGmxBalance.lt(remainingVestableAmount)) {
-      remainingVestableAmount = processedData.esGmxBalance;
+  const showElpVesterDepositModal = () => {
+    let remainingVestableAmount = vestingData.elpVester.maxVestableAmount.sub(vestingData.elpVester.vestedAmount);
+    if (processedData.esEddxBalance.lt(remainingVestableAmount)) {
+      remainingVestableAmount = processedData.esEddxBalance;
     }
 
     setIsVesterDepositModalVisible(true);
-    setVesterDepositTitle(t`GLP Vault`);
-    setVesterDepositStakeTokenLabel("staked GLP");
+    setVesterDepositTitle(t`ELP Vault`);
+    setVesterDepositStakeTokenLabel("staked ELP");
     setVesterDepositMaxAmount(remainingVestableAmount);
-    setVesterDepositBalance(processedData.esGmxBalance);
-    setVesterDepositEscrowedBalance(vestingData.glpVester.escrowedBalance);
-    setVesterDepositVestedAmount(vestingData.glpVester.vestedAmount);
-    setVesterDepositMaxVestableAmount(vestingData.glpVester.maxVestableAmount);
-    setVesterDepositAverageStakedAmount(vestingData.glpVester.averageStakedAmount);
-    setVesterDepositReserveAmount(vestingData.glpVester.pairAmount);
-    setVesterDepositMaxReserveAmount(processedData.glpBalance);
+    setVesterDepositBalance(processedData.esEddxBalance);
+    setVesterDepositEscrowedBalance(vestingData.elpVester.escrowedBalance);
+    setVesterDepositVestedAmount(vestingData.elpVester.vestedAmount);
+    setVesterDepositMaxVestableAmount(vestingData.elpVester.maxVestableAmount);
+    setVesterDepositAverageStakedAmount(vestingData.elpVester.averageStakedAmount);
+    setVesterDepositReserveAmount(vestingData.elpVester.pairAmount);
+    setVesterDepositMaxReserveAmount(processedData.elpBalance);
     setVesterDepositValue("");
-    setVesterDepositAddress(glpVesterAddress);
+    setVesterDepositAddress(elpVesterAddress);
   };
 
-  const showGmxVesterWithdrawModal = () => {
-    if (!vestingData || !vestingData.gmxVesterVestedAmount || vestingData.gmxVesterVestedAmount.eq(0)) {
+  const showEddxVesterWithdrawModal = () => {
+    if (!vestingData || !vestingData.eddxVesterVestedAmount || vestingData.eddxVesterVestedAmount.eq(0)) {
       helperToast.error(t`You have not deposited any tokens for vesting.`);
       return;
     }
 
     setIsVesterWithdrawModalVisible(true);
-    setVesterWithdrawTitle(t`Withdraw from GMX Vault`);
-    setVesterWithdrawAddress(gmxVesterAddress);
+    setVesterWithdrawTitle(t`Withdraw from EDDX Vault`);
+    setVesterWithdrawAddress(eddxVesterAddress);
   };
 
-  const showGlpVesterWithdrawModal = () => {
-    if (!vestingData || !vestingData.glpVesterVestedAmount || vestingData.glpVesterVestedAmount.eq(0)) {
+  const showElpVesterWithdrawModal = () => {
+    if (!vestingData || !vestingData.elpVesterVestedAmount || vestingData.elpVesterVestedAmount.eq(0)) {
       helperToast.error(t`You have not deposited any tokens for vesting.`);
       return;
     }
 
     setIsVesterWithdrawModalVisible(true);
-    setVesterWithdrawTitle(t`Withdraw from GLP Vault`);
-    setVesterWithdrawAddress(glpVesterAddress);
+    setVesterWithdrawTitle(t`Withdraw from ELP Vault`);
+    setVesterWithdrawAddress(elpVesterAddress);
   };
 
-  const showUnstakeGmxModal = () => {
-    if (!isGmxTransferEnabled) {
-      helperToast.error(t`GMX transfers not yet enabled`);
+  const showUnstakeEddxModal = () => {
+    if (!isEddxTransferEnabled) {
+      helperToast.error(t`EDDX transfers not yet enabled`);
       return;
     }
     setIsUnstakeModalVisible(true);
-    setUnstakeModalTitle(t`Unstake GMX`);
-    let maxAmount = processedData.gmxInStakedGmx;
+    setUnstakeModalTitle(t`Unstake EDDX`);
+    let maxAmount = processedData.eddxInStakedEddx;
     if (
-      processedData.gmxInStakedGmx &&
+      processedData.eddxInStakedEddx &&
       vestingData &&
-      vestingData.gmxVesterPairAmount.gt(0) &&
-      maxUnstakeableGmx &&
-      maxUnstakeableGmx.lt(processedData.gmxInStakedGmx)
+      vestingData.eddxVesterPairAmount.gt(0) &&
+      maxUnstakeableEddx &&
+      maxUnstakeableEddx.lt(processedData.eddxInStakedEddx)
     ) {
-      maxAmount = maxUnstakeableGmx;
+      maxAmount = maxUnstakeableEddx;
     }
     setUnstakeModalMaxAmount(maxAmount);
-    setUnstakeModalReservedAmount(vestingData.gmxVesterPairAmount);
+    setUnstakeModalReservedAmount(vestingData.eddxVesterPairAmount);
     setUnstakeValue("");
-    setUnstakingTokenSymbol("GMX");
-    setUnstakeMethodName("unstakeGmx");
+    setUnstakingTokenSymbol("EDDX");
+    setUnstakeMethodName("unstakeEddx");
   };
 
-  const showUnstakeEsGmxModal = () => {
+  const showUnstakeEsEddxModal = () => {
     setIsUnstakeModalVisible(true);
-    setUnstakeModalTitle(t`Unstake esGMX`);
-    let maxAmount = processedData.esGmxInStakedGmx;
+    setUnstakeModalTitle(t`Unstake esEDDX`);
+    let maxAmount = processedData.esEddxInStakedEddx;
     if (
-      processedData.esGmxInStakedGmx &&
+      processedData.esEddxInStakedEddx &&
       vestingData &&
-      vestingData.gmxVesterPairAmount.gt(0) &&
-      maxUnstakeableGmx &&
-      maxUnstakeableGmx.lt(processedData.esGmxInStakedGmx)
+      vestingData.eddxVesterPairAmount.gt(0) &&
+      maxUnstakeableEddx &&
+      maxUnstakeableEddx.lt(processedData.esEddxInStakedEddx)
     ) {
-      maxAmount = maxUnstakeableGmx;
+      maxAmount = maxUnstakeableEddx;
     }
     setUnstakeModalMaxAmount(maxAmount);
-    setUnstakeModalReservedAmount(vestingData.gmxVesterPairAmount);
+    setUnstakeModalReservedAmount(vestingData.eddxVesterPairAmount);
     setUnstakeValue("");
-    setUnstakingTokenSymbol("esGMX");
-    setUnstakeMethodName("unstakeEsGmx");
+    setUnstakingTokenSymbol("esEDDX");
+    setUnstakeMethodName("unstakeEsEddx");
   };
 
   const renderMultiplierPointsLabel = useCallback(() => {
@@ -1316,7 +1316,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
           return (
             <Trans>
               Boost your rewards with Multiplier Points.&nbsp;
-              <ExternalLink href="https://gmxio.gitbook.io/gmx/rewards#multiplier-points">More info</ExternalLink>.
+              <ExternalLink href="https://eddxio.gitbook.io/eddx/rewards#multiplier-points">More info</ExternalLink>.
             </Trans>
           );
         }}
@@ -1325,28 +1325,28 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
   }, []);
 
   let earnMsg;
-  if (totalRewardTokensAndGlp && totalRewardTokensAndGlp.gt(0)) {
-    let gmxAmountStr;
-    if (processedData.gmxInStakedGmx && processedData.gmxInStakedGmx.gt(0)) {
-      gmxAmountStr = formatAmount(processedData.gmxInStakedGmx, 18, 2, true) + " GMX";
+  if (totalRewardTokensAndElp && totalRewardTokensAndElp.gt(0)) {
+    let eddxAmountStr;
+    if (processedData.eddxInStakedEddx && processedData.eddxInStakedEddx.gt(0)) {
+      eddxAmountStr = formatAmount(processedData.eddxInStakedEddx, 18, 2, true) + " EDDX";
     }
-    let esGmxAmountStr;
-    if (processedData.esGmxInStakedGmx && processedData.esGmxInStakedGmx.gt(0)) {
-      esGmxAmountStr = formatAmount(processedData.esGmxInStakedGmx, 18, 2, true) + " esGMX";
+    let esEddxAmountStr;
+    if (processedData.esEddxInStakedEddx && processedData.esEddxInStakedEddx.gt(0)) {
+      esEddxAmountStr = formatAmount(processedData.esEddxInStakedEddx, 18, 2, true) + " esEDDX";
     }
     let mpAmountStr;
-    if (processedData.bonusGmxInFeeGmx && processedData.bnGmxInFeeGmx.gt(0)) {
-      mpAmountStr = formatAmount(processedData.bnGmxInFeeGmx, 18, 2, true) + " MP";
+    if (processedData.bonusEddxInFeeEddx && processedData.bnEddxInFeeEddx.gt(0)) {
+      mpAmountStr = formatAmount(processedData.bnEddxInFeeEddx, 18, 2, true) + " MP";
     }
-    let glpStr;
-    if (processedData.glpBalance && processedData.glpBalance.gt(0)) {
-      glpStr = formatAmount(processedData.glpBalance, 18, 2, true) + " GLP";
+    let elpStr;
+    if (processedData.elpBalance && processedData.elpBalance.gt(0)) {
+      elpStr = formatAmount(processedData.elpBalance, 18, 2, true) + " ELP";
     }
-    const amountStr = [gmxAmountStr, esGmxAmountStr, mpAmountStr, glpStr].filter((s) => s).join(", ");
+    const amountStr = [eddxAmountStr, esEddxAmountStr, mpAmountStr, elpStr].filter((s) => s).join(", ");
     earnMsg = (
       <div>
         <Trans>
-          You are earning {nativeTokenSymbol} rewards with {formatAmount(totalRewardTokensAndGlp, 18, 2, true)} tokens.
+          You are earning {nativeTokenSymbol} rewards with {formatAmount(totalRewardTokensAndElp, 18, 2, true)} tokens.
           <br />
           Tokens: {amountStr}.
         </Trans>
@@ -1392,7 +1392,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
         rewardRouterAddress={rewardRouterAddress}
         unstakeMethodName={unstakeMethodName}
         multiplierPointsAmount={multiplierPointsAmount}
-        bonusGmxInFeeGmx={bonusGmxInFeeGmx}
+        bonusEddxInFeeEddx={bonusEddxInFeeEddx}
       />
       <VesterDepositModal
         isVisible={isVesterDepositModalVisible}
@@ -1457,8 +1457,8 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
           </div>
           <div className="Page-description">
             <Trans>
-              Stake <ExternalLink href="https://gmxio.gitbook.io/gmx/tokenomics">GMX</ExternalLink> and{" "}
-              <ExternalLink href="https://gmxio.gitbook.io/gmx/glp">GLP</ExternalLink> to earn rewards.
+              Stake <ExternalLink href="https://eddxio.gitbook.io/eddx/tokenomics">EDDX</ExternalLink> and{" "}
+              <ExternalLink href="https://eddxio.gitbook.io/eddx/elp">ELP</ExternalLink> to earn rewards.
             </Trans>
           </div>
           {earnMsg && <div className="Page-description">{earnMsg}</div>}
@@ -1466,8 +1466,8 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
       </div>
       <div className="StakeV2-content">
         <div className="StakeV2-cards">
-          <div className="App-card StakeV2-gmx-card">
-            <div className="App-card-title">GMX</div>
+          <div className="App-card StakeV2-eddx-card">
+            <div className="App-card-title">EDDX</div>
             <div className="App-card-divider"></div>
             <div className="App-card-content">
               <div className="App-card-row">
@@ -1475,7 +1475,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                   <Trans>Price</Trans>
                 </div>
                 <div>
-                  {gmxPrice ? `$${formatAmount(gmxPrice, USD_DECIMALS, 2, true)}` : "..."}
+                  {eddxPrice ? `$${formatAmount(eddxPrice, USD_DECIMALS, 2, true)}` : "..."}
                 </div>
               </div>
               <div className="App-card-row">
@@ -1483,8 +1483,8 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                   <Trans>Wallet</Trans>
                 </div>
                 <div>
-                  {formatKeyAmount(processedData, "gmxBalance", 18, 2, true)} GMX ($
-                  {formatKeyAmount(processedData, "gmxBalanceUsd", USD_DECIMALS, 2, true)})
+                  {formatKeyAmount(processedData, "eddxBalance", 18, 2, true)} EDDX ($
+                  {formatKeyAmount(processedData, "eddxBalanceUsd", USD_DECIMALS, 2, true)})
                 </div>
               </div>
               <div className="App-card-row">
@@ -1492,8 +1492,8 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                   <Trans>Staked</Trans>
                 </div>
                 <div>
-                  {formatKeyAmount(processedData, "gmxInStakedGmx", 18, 2, true)} GMX ($
-                  {formatKeyAmount(processedData, "gmxInStakedGmxUsd", USD_DECIMALS, 2, true)})
+                  {formatKeyAmount(processedData, "eddxInStakedEddx", 18, 2, true)} EDDX ($
+                  {formatKeyAmount(processedData, "eddxInStakedEddxUsd", USD_DECIMALS, 2, true)})
                 </div>
               </div>
               <div className="App-card-divider"></div>
@@ -1503,10 +1503,10 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                 </div>
                 <div>
                   <Tooltip
-                    handle={`${formatKeyAmount(processedData, "gmxAprTotalWithBoost", 2, 2, true)}%`}
+                    handle={`${formatKeyAmount(processedData, "eddxAprTotalWithBoost", 2, 2, true)}%`}
                     position="right-bottom"
                     renderContent={() => (
-                      <GMXAprTooltip processedData={processedData} nativeTokenSymbol={nativeTokenSymbol} />
+                      <EDDXAprTooltip processedData={processedData} nativeTokenSymbol={nativeTokenSymbol} />
                     )}
                   />
                 </div>
@@ -1517,7 +1517,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                 </div>
                 <div>
                   <Tooltip
-                    handle={`$${formatKeyAmount(processedData, "totalGmxRewardsUsd", USD_DECIMALS, 2, true)}`}
+                    handle={`$${formatKeyAmount(processedData, "totalEddxRewardsUsd", USD_DECIMALS, 2, true)}`}
                     position="right-bottom"
                     renderContent={() => {
                       return (
@@ -1526,22 +1526,22 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                             label={`${nativeTokenSymbol} (${wrappedTokenSymbol})`}
                             value={`${formatKeyAmount(
                               processedData,
-                              "feeGmxTrackerRewards",
+                              "feeEddxTrackerRewards",
                               18,
                               4
-                            )} ($${formatKeyAmount(processedData, "feeGmxTrackerRewardsUsd", USD_DECIMALS, 2, true)})`}
+                            )} ($${formatKeyAmount(processedData, "feeEddxTrackerRewardsUsd", USD_DECIMALS, 2, true)})`}
                             showDollar={false}
                           />
                           <StatsTooltipRow
-                            label="Escrowed GMX"
+                            label="Escrowed EDDX"
                             value={`${formatKeyAmount(
                               processedData,
-                              "stakedGmxTrackerRewards",
+                              "stakedEddxTrackerRewards",
                               18,
                               4
                             )} ($${formatKeyAmount(
                               processedData,
-                              "stakedGmxTrackerRewardsUsd",
+                              "stakedEddxTrackerRewardsUsd",
                               USD_DECIMALS,
                               2,
                               true
@@ -1572,7 +1572,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                           <Trans>
                             You are earning {formatAmount(processedData.boostBasisPoints, 2, 2, false)}% more{" "}
                             {nativeTokenSymbol} rewards using{" "}
-                            {formatAmount(processedData.bnGmxInFeeGmx, 18, 4, 2, true)} Staked Multiplier Points.
+                            {formatAmount(processedData.bnEddxInFeeEddx, 18, 4, 2, true)} Staked Multiplier Points.
                           </Trans>
                           <br />
                           <br />
@@ -1589,12 +1589,12 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                   <Trans>Total Staked</Trans>
                 </div>
                 <div>
-                  {!totalGmxStaked && "..."}
+                  {!totalEddxStaked && "..."}
                   {
-                    totalGmxStaked && (
-                      formatAmount(totalGmxStaked, 18, 0, true) +
-                      " GMX" +
-                      ` ($${formatAmount(stakedGmxSupplyUsd, USD_DECIMALS, 0, true)})`
+                    totalEddxStaked && (
+                      formatAmount(totalEddxStaked, 18, 0, true) +
+                      " EDDX" +
+                      ` ($${formatAmount(stakedEddxSupplyUsd, USD_DECIMALS, 0, true)})`
                     )
                   }
                 </div>
@@ -1603,26 +1603,26 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                 <div className="label">
                   <Trans>Total Supply</Trans>
                 </div>
-                {!totalGmxSupply && "..."}
-                {totalGmxSupply && (
+                {!totalEddxSupply && "..."}
+                {totalEddxSupply && (
                   <div>
-                    {formatAmount(totalGmxSupply, 18, 0, true)} GMX ($
+                    {formatAmount(totalEddxSupply, 18, 0, true)} EDDX ($
                     {formatAmount(totalSupplyUsd, USD_DECIMALS, 0, true)})
                   </div>
                 )}
               </div>
               <div className="App-card-divider" />
               <div className="App-card-buttons m-0">
-                <Button variant="semi-clear" to="/buy_gmx">
+                <Button variant="semi-clear" to="/buy_eddx">
                   <Trans>Buy on Goerli</Trans>
                 </Button>
                 {active && (
-                  <Button variant="semi-clear" onClick={() => showStakeGmxModal()}>
+                  <Button variant="semi-clear" onClick={() => showStakeEddxModal()}>
                     <Trans>Stake</Trans>
                   </Button>
                 )}
                 {active && (
-                  <Button variant="semi-clear" onClick={() => showUnstakeGmxModal()}>
+                  <Button variant="semi-clear" onClick={() => showUnstakeEddxModal()}>
                     <Trans>Unstake</Trans>
                   </Button>
                 )}
@@ -1650,7 +1650,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                 </div>
               </div>
               <div className="App-card-row">
-                <div className="label">GMX</div>
+                <div className="label">EDDX</div>
                 <div>
                   {formatKeyAmount(processedData, "totalVesterRewards", 18, 4, true)} ($
                   {formatKeyAmount(processedData, "totalVesterRewardsUsd", USD_DECIMALS, 2, true)})
@@ -1658,24 +1658,24 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
               </div>
               <div className="App-card-row">
                 <div className="label">
-                  <Trans>Escrowed GMX</Trans>
+                  <Trans>Escrowed EDDX</Trans>
                 </div>
                 <div>
-                  {formatKeyAmount(processedData, "totalEsGmxRewards", 18, 4, true)} ($
-                  {formatKeyAmount(processedData, "totalEsGmxRewardsUsd", USD_DECIMALS, 2, true)})
+                  {formatKeyAmount(processedData, "totalEsEddxRewards", 18, 4, true)} ($
+                  {formatKeyAmount(processedData, "totalEsEddxRewardsUsd", USD_DECIMALS, 2, true)})
                 </div>
               </div>
               <div className="App-card-row">
                 <div className="label">
                   <Trans>Multiplier Points</Trans>
                 </div>
-                <div>{formatKeyAmount(processedData, "bonusGmxTrackerRewards", 18, 4, true)}</div>
+                <div>{formatKeyAmount(processedData, "bonusEddxTrackerRewards", 18, 4, true)}</div>
               </div>
               <div className="App-card-row">
                 <div className="label">
                   <Trans>Staked Multiplier Points</Trans>
                 </div>
-                <div>{formatKeyAmount(processedData, "bnGmxInFeeGmx", 18, 4, true)}</div>
+                <div>{formatKeyAmount(processedData, "bnEddxInFeeEddx", 18, 4, true)}</div>
               </div>
               <div className="App-card-row">
                 <div className="label">
@@ -1706,22 +1706,22 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
             </div>
           </div>
           <div className="App-card">
-            <div className="App-card-title">GLP ({chainName})</div>
+            <div className="App-card-title">ELP ({chainName})</div>
             <div className="App-card-divider"></div>
             <div className="App-card-content">
               <div className="App-card-row">
                 <div className="label">
                   <Trans>Price</Trans>
                 </div>
-                <div>${formatKeyAmount(processedData, "glpPrice", USD_DECIMALS, 3, true)}</div>
+                <div>${formatKeyAmount(processedData, "elpPrice", USD_DECIMALS, 3, true)}</div>
               </div>
               <div className="App-card-row">
                 <div className="label">
                   <Trans>Wallet</Trans>
                 </div>
                 <div>
-                  {formatKeyAmount(processedData, "glpBalance", GLP_DECIMALS, 2, true)} GLP ($
-                  {formatKeyAmount(processedData, "glpBalanceUsd", USD_DECIMALS, 2, true)})
+                  {formatKeyAmount(processedData, "elpBalance", ELP_DECIMALS, 2, true)} ELP ($
+                  {formatKeyAmount(processedData, "elpBalanceUsd", USD_DECIMALS, 2, true)})
                 </div>
               </div>
               <div className="App-card-row">
@@ -1729,8 +1729,8 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                   <Trans>Staked</Trans>
                 </div>
                 <div>
-                  {formatKeyAmount(processedData, "glpBalance", GLP_DECIMALS, 2, true)} GLP ($
-                  {formatKeyAmount(processedData, "glpBalanceUsd", USD_DECIMALS, 2, true)})
+                  {formatKeyAmount(processedData, "elpBalance", ELP_DECIMALS, 2, true)} ELP ($
+                  {formatKeyAmount(processedData, "elpBalanceUsd", USD_DECIMALS, 2, true)})
                 </div>
               </div>
               <div className="App-card-divider"></div>
@@ -1740,21 +1740,21 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                 </div>
                 <div>
                   <Tooltip
-                    handle={`${formatKeyAmount(processedData, "glpAprTotal", 2, 2, true)}%`}
+                    handle={`${formatKeyAmount(processedData, "elpAprTotal", 2, 2, true)}%`}
                     position="right-bottom"
                     renderContent={() => {
                       return (
                         <>
                           <StatsTooltipRow
                             label={`${nativeTokenSymbol} (${wrappedTokenSymbol}) APR`}
-                            value={`${formatKeyAmount(processedData, "glpAprForNativeToken", 2, 2, true)}%`}
+                            value={`${formatKeyAmount(processedData, "elpAprForNativeToken", 2, 2, true)}%`}
                             showDollar={false}
                           />
 
-                          {processedData?.glpAprForEsGmx.gt(0) && (
+                          {processedData?.elpAprForEsEddx.gt(0) && (
                             <StatsTooltipRow
-                              label="Escrowed GMX APR"
-                              value={`${formatKeyAmount(processedData, "glpAprForEsGmx", 2, 2, true)}%`}
+                              label="Escrowed EDDX APR"
+                              value={`${formatKeyAmount(processedData, "elpAprForEsEddx", 2, 2, true)}%`}
                               showDollar={false}
                             />
                           )}
@@ -1765,8 +1765,8 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                             APRs are updated weekly on Wednesday and will depend on the fees collected for the week.{" "}
                             <br />
                             <br />
-                            Historical GLP APRs can be checked in this{" "}
-                            <ExternalLink href="https://dune.com/saulius/gmx-analytics">
+                            Historical ELP APRs can be checked in this{" "}
+                            <ExternalLink href="https://dune.com/saulius/eddx-analytics">
                               community dashboard
                             </ExternalLink>
                             .
@@ -1783,7 +1783,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                 </div>
                 <div>
                   <Tooltip
-                    handle={`$${formatKeyAmount(processedData, "totalGlpRewardsUsd", USD_DECIMALS, 2, true)}`}
+                    handle={`$${formatKeyAmount(processedData, "totalElpRewardsUsd", USD_DECIMALS, 2, true)}`}
                     position="right-bottom"
                     renderContent={() => {
                       return (
@@ -1792,22 +1792,22 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                             label={`${nativeTokenSymbol} (${wrappedTokenSymbol})`}
                             value={`${formatKeyAmount(
                               processedData,
-                              "feeGlpTrackerRewards",
+                              "feeElpTrackerRewards",
                               18,
                               4
-                            )} ($${formatKeyAmount(processedData, "feeGlpTrackerRewardsUsd", USD_DECIMALS, 2, true)})`}
+                            )} ($${formatKeyAmount(processedData, "feeElpTrackerRewardsUsd", USD_DECIMALS, 2, true)})`}
                             showDollar={false}
                           />
                           <StatsTooltipRow
-                            label="Escrowed GMX"
+                            label="Escrowed EDDX"
                             value={`${formatKeyAmount(
                               processedData,
-                              "stakedGlpTrackerRewards",
+                              "stakedElpTrackerRewards",
                               18,
                               4
                             )} ($${formatKeyAmount(
                               processedData,
-                              "stakedGlpTrackerRewardsUsd",
+                              "stakedElpTrackerRewardsUsd",
                               USD_DECIMALS,
                               2,
                               true
@@ -1826,8 +1826,8 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                   <Trans>Total Staked</Trans>
                 </div>
                 <div>
-                  {formatKeyAmount(processedData, "glpSupply", 18, 2, true)} GLP ($
-                  {formatKeyAmount(processedData, "glpSupplyUsd", USD_DECIMALS, 2, true)})
+                  {formatKeyAmount(processedData, "elpSupply", 18, 2, true)} ELP ($
+                  {formatKeyAmount(processedData, "elpSupplyUsd", USD_DECIMALS, 2, true)})
                 </div>
               </div>
               <div className="App-card-row">
@@ -1835,17 +1835,17 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                   <Trans>Total Supply</Trans>
                 </div>
                 <div>
-                  {formatKeyAmount(processedData, "glpSupply", 18, 2, true)} GLP ($
-                  {formatKeyAmount(processedData, "glpSupplyUsd", USD_DECIMALS, 2, true)})
+                  {formatKeyAmount(processedData, "elpSupply", 18, 2, true)} ELP ($
+                  {formatKeyAmount(processedData, "elpSupplyUsd", USD_DECIMALS, 2, true)})
                 </div>
               </div>
               <div className="App-card-divider"></div>
               <div className="App-card-buttons m-0">
-                <Button variant="semi-clear" to="/buy_glp">
-                  <Trans>Buy GLP</Trans>
+                <Button variant="semi-clear" to="/buy_elp">
+                  <Trans>Buy ELP</Trans>
                 </Button>
-                <Button variant="semi-clear" to="/buy_glp#redeem">
-                  <Trans>Sell GLP</Trans>
+                <Button variant="semi-clear" to="/buy_elp#redeem">
+                  <Trans>Sell ELP</Trans>
                 </Button>
                 {hasInsurance && (
                   <Button
@@ -1860,7 +1860,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
           </div>
           <div className="App-card">
             <div className="App-card-title">
-              <Trans>Escrowed GMX</Trans>
+              <Trans>Escrowed EDDX</Trans>
             </div>
             <div className="App-card-divider"></div>
             <div className="App-card-content">
@@ -1868,15 +1868,15 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                 <div className="label">
                   <Trans>Price</Trans>
                 </div>
-                <div>${formatAmount(gmxPrice, USD_DECIMALS, 2, true)}</div>
+                <div>${formatAmount(eddxPrice, USD_DECIMALS, 2, true)}</div>
               </div>
               <div className="App-card-row">
                 <div className="label">
                   <Trans>Wallet</Trans>
                 </div>
                 <div>
-                  {formatKeyAmount(processedData, "esGmxBalance", 18, 2, true)} esGMX ($
-                  {formatKeyAmount(processedData, "esGmxBalanceUsd", USD_DECIMALS, 2, true)})
+                  {formatKeyAmount(processedData, "esEddxBalance", 18, 2, true)} esEDDX ($
+                  {formatKeyAmount(processedData, "esEddxBalanceUsd", USD_DECIMALS, 2, true)})
                 </div>
               </div>
               <div className="App-card-row">
@@ -1884,8 +1884,8 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                   <Trans>Staked</Trans>
                 </div>
                 <div>
-                  {formatKeyAmount(processedData, "esGmxInStakedGmx", 18, 2, true)} esGMX ($
-                  {formatKeyAmount(processedData, "esGmxInStakedGmxUsd", USD_DECIMALS, 2, true)})
+                  {formatKeyAmount(processedData, "esEddxInStakedEddx", 18, 2, true)} esEDDX ($
+                  {formatKeyAmount(processedData, "esEddxInStakedEddxUsd", USD_DECIMALS, 2, true)})
                 </div>
               </div>
               <div className="App-card-divider"></div>
@@ -1895,10 +1895,10 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                 </div>
                 <div>
                   <Tooltip
-                    handle={`${formatKeyAmount(processedData, "gmxAprTotalWithBoost", 2, 2, true)}%`}
+                    handle={`${formatKeyAmount(processedData, "eddxAprTotalWithBoost", 2, 2, true)}%`}
                     position="right-bottom"
                     renderContent={() => (
-                      <GMXAprTooltip processedData={processedData} nativeTokenSymbol={nativeTokenSymbol} />
+                      <EDDXAprTooltip processedData={processedData} nativeTokenSymbol={nativeTokenSymbol} />
                     )}
                   />
                 </div>
@@ -1913,8 +1913,8 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                   <Trans>Total Staked</Trans>
                 </div>
                 <div>
-                  {formatKeyAmount(processedData, "stakedEsGmxSupply", 18, 0, true)} esGMX ($
-                  {formatKeyAmount(processedData, "stakedEsGmxSupplyUsd", USD_DECIMALS, 0, true)})
+                  {formatKeyAmount(processedData, "stakedEsEddxSupply", 18, 0, true)} esEDDX ($
+                  {formatKeyAmount(processedData, "stakedEsEddxSupplyUsd", USD_DECIMALS, 0, true)})
                 </div>
               </div>
               <div className="App-card-row">
@@ -1922,19 +1922,19 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                   <Trans>Total Supply</Trans>
                 </div>
                 <div>
-                  {formatAmount(esGmxSupply, 18, 0, true)} esGMX (${formatAmount(esGmxSupplyUsd, USD_DECIMALS, 0, true)}
+                  {formatAmount(esEddxSupply, 18, 0, true)} esEDDX (${formatAmount(esEddxSupplyUsd, USD_DECIMALS, 0, true)}
                   )
                 </div>
               </div>
               <div className="App-card-divider"></div>
               <div className="App-card-buttons m-0">
                 {active && (
-                  <Button variant="semi-clear" onClick={() => showStakeEsGmxModal()}>
+                  <Button variant="semi-clear" onClick={() => showStakeEsEddxModal()}>
                     <Trans>Stake</Trans>
                   </Button>
                 )}
                 {active && (
-                  <Button variant="semi-clear" onClick={() => showUnstakeEsGmxModal()}>
+                  <Button variant="semi-clear" onClick={() => showUnstakeEsEddxModal()}>
                     <Trans>Unstake</Trans>
                   </Button>
                 )}
@@ -1956,19 +1956,19 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
           </div>
           <div className="Page-description">
             <Trans>
-              Convert esGMX tokens to GMX tokens.
+              Convert esEDDX tokens to EDDX tokens.
               <br />
               Please read the{" "}
-              <ExternalLink href="https://gmxio.gitbook.io/gmx/rewards#vesting">vesting details</ExternalLink> before
+              <ExternalLink href="https://eddxio.gitbook.io/eddx/rewards#vesting">vesting details</ExternalLink> before
               using the vaults.
             </Trans>
           </div>
         </div>
         <div>
           <div className="StakeV2-cards">
-            <div className="App-card StakeV2-gmx-card">
+            <div className="App-card StakeV2-eddx-card">
               <div className="App-card-title">
-                <Trans>GMX Vault</Trans>
+                <Trans>EDDX Vault</Trans>
               </div>
               <div className="App-card-divider"></div>
               <div className="App-card-content">
@@ -1985,19 +1985,19 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                           <>
                             <StatsTooltipRow
                               showDollar={false}
-                              label="GMX"
-                              value={formatAmount(processedData.gmxInStakedGmx, 18, 2, true)}
+                              label="EDDX"
+                              value={formatAmount(processedData.eddxInStakedEddx, 18, 2, true)}
                             />
 
                             <StatsTooltipRow
                               showDollar={false}
-                              label="esGMX"
-                              value={formatAmount(processedData.esGmxInStakedGmx, 18, 2, true)}
+                              label="esEDDX"
+                              value={formatAmount(processedData.esEddxInStakedEddx, 18, 2, true)}
                             />
                             <StatsTooltipRow
                               showDollar={false}
                               label="Multiplier Points"
-                              value={formatAmount(processedData.bnGmxInFeeGmx, 18, 2, true)}
+                              value={formatAmount(processedData.bnEddxInFeeEddx, 18, 2, true)}
                             />
                           </>
                         );
@@ -2010,7 +2010,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                     <Trans>Reserved for Vesting</Trans>
                   </div>
                   <div>
-                    {formatKeyAmount(vestingData, "gmxVesterPairAmount", 18, 2, true)} /{" "}
+                    {formatKeyAmount(vestingData, "eddxVesterPairAmount", 18, 2, true)} /{" "}
                     {formatAmount(totalRewardTokens, 18, 2, true)}
                   </div>
                 </div>
@@ -2020,9 +2020,9 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                   </div>
                   <div>
                     <Tooltip
-                      handle={`${formatKeyAmount(vestingData, "gmxVesterClaimSum", 18, 4, true)} / ${formatKeyAmount(
+                      handle={`${formatKeyAmount(vestingData, "eddxVesterClaimSum", 18, 4, true)} / ${formatKeyAmount(
                         vestingData,
-                        "gmxVesterVestedAmount",
+                        "eddxVesterVestedAmount",
                         18,
                         4,
                         true
@@ -2032,9 +2032,9 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                         return (
                           <div>
                             <Trans>
-                              {formatKeyAmount(vestingData, "gmxVesterClaimSum", 18, 4, true)} tokens have been
-                              converted to GMX from the{" "}
-                              {formatKeyAmount(vestingData, "gmxVesterVestedAmount", 18, 4, true)} esGMX deposited for
+                              {formatKeyAmount(vestingData, "eddxVesterClaimSum", 18, 4, true)} tokens have been
+                              converted to EDDX from the{" "}
+                              {formatKeyAmount(vestingData, "eddxVesterVestedAmount", 18, 4, true)} esEDDX deposited for
                               vesting.
                             </Trans>
                           </div>
@@ -2049,11 +2049,11 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                   </div>
                   <div>
                     <Tooltip
-                      handle={`${formatKeyAmount(vestingData, "gmxVesterClaimable", 18, 4, true)} GMX`}
+                      handle={`${formatKeyAmount(vestingData, "eddxVesterClaimable", 18, 4, true)} EDDX`}
                       position="right-bottom"
                       renderContent={() => (
                         <Trans>
-                          {formatKeyAmount(vestingData, "gmxVesterClaimable", 18, 4, true)} GMX tokens can be claimed,
+                          {formatKeyAmount(vestingData, "eddxVesterClaimable", 18, 4, true)} EDDX tokens can be claimed,
                           use the options under the Total Rewards section to claim them.
                         </Trans>
                       )}
@@ -2068,21 +2068,21 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                     </Button>
                   )}
                   {active && (
-                    <Button variant="semi-clear" onClick={() => showGmxVesterDepositModal()}>
+                    <Button variant="semi-clear" onClick={() => showEddxVesterDepositModal()}>
                       <Trans>Deposit</Trans>
                     </Button>
                   )}
                   {active && (
-                    <Button variant="semi-clear" onClick={() => showGmxVesterWithdrawModal()}>
+                    <Button variant="semi-clear" onClick={() => showEddxVesterWithdrawModal()}>
                       <Trans>Withdraw</Trans>
                     </Button>
                   )}
                 </div>
               </div>
             </div>
-            <div className="App-card StakeV2-gmx-card">
+            <div className="App-card StakeV2-eddx-card">
               <div className="App-card-title">
-                <Trans>GLP Vault</Trans>
+                <Trans>ELP Vault</Trans>
               </div>
               <div className="App-card-divider"></div>
               <div className="App-card-content">
@@ -2090,15 +2090,15 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                   <div className="label">
                     <Trans>Staked Tokens</Trans>
                   </div>
-                  <div>{formatAmount(processedData.glpBalance, 18, 2, true)} GLP</div>
+                  <div>{formatAmount(processedData.elpBalance, 18, 2, true)} ELP</div>
                 </div>
                 <div className="App-card-row">
                   <div className="label">
                     <Trans>Reserved for Vesting</Trans>
                   </div>
                   <div>
-                    {formatKeyAmount(vestingData, "glpVesterPairAmount", 18, 2, true)} /{" "}
-                    {formatAmount(processedData.glpBalance, 18, 2, true)}
+                    {formatKeyAmount(vestingData, "elpVesterPairAmount", 18, 2, true)} /{" "}
+                    {formatAmount(processedData.elpBalance, 18, 2, true)}
                   </div>
                 </div>
                 <div className="App-card-row">
@@ -2107,9 +2107,9 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                   </div>
                   <div>
                     <Tooltip
-                      handle={`${formatKeyAmount(vestingData, "glpVesterClaimSum", 18, 4, true)} / ${formatKeyAmount(
+                      handle={`${formatKeyAmount(vestingData, "elpVesterClaimSum", 18, 4, true)} / ${formatKeyAmount(
                         vestingData,
-                        "glpVesterVestedAmount",
+                        "elpVesterVestedAmount",
                         18,
                         4,
                         true
@@ -2119,9 +2119,9 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                         return (
                           <div>
                             <Trans>
-                              {formatKeyAmount(vestingData, "glpVesterClaimSum", 18, 4, true)} tokens have been
-                              converted to GMX from the{" "}
-                              {formatKeyAmount(vestingData, "glpVesterVestedAmount", 18, 4, true)} esGMX deposited for
+                              {formatKeyAmount(vestingData, "elpVesterClaimSum", 18, 4, true)} tokens have been
+                              converted to EDDX from the{" "}
+                              {formatKeyAmount(vestingData, "elpVesterVestedAmount", 18, 4, true)} esEDDX deposited for
                               vesting.
                             </Trans>
                           </div>
@@ -2136,11 +2136,11 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                   </div>
                   <div>
                     <Tooltip
-                      handle={`${formatKeyAmount(vestingData, "glpVesterClaimable", 18, 4, true)} GMX`}
+                      handle={`${formatKeyAmount(vestingData, "elpVesterClaimable", 18, 4, true)} EDDX`}
                       position="right-bottom"
                       renderContent={() => (
                         <Trans>
-                          {formatKeyAmount(vestingData, "glpVesterClaimable", 18, 4, true)} GMX tokens can be claimed,
+                          {formatKeyAmount(vestingData, "elpVesterClaimable", 18, 4, true)} EDDX tokens can be claimed,
                           use the options under the Total Rewards section to claim them.
                         </Trans>
                       )}
@@ -2155,12 +2155,12 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                     </Button>
                   )}
                   {active && (
-                    <Button variant="semi-clear" onClick={() => showGlpVesterDepositModal()}>
+                    <Button variant="semi-clear" onClick={() => showElpVesterDepositModal()}>
                       <Trans>Deposit</Trans>
                     </Button>
                   )}
                   {active && (
-                    <Button variant="semi-clear" onClick={() => showGlpVesterWithdrawModal()}>
+                    <Button variant="semi-clear" onClick={() => showElpVesterWithdrawModal()}>
                       <Trans>Withdraw</Trans>
                     </Button>
                   )}

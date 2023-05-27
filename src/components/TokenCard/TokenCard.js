@@ -14,8 +14,8 @@ import { useChainId } from "lib/chains";
 import ExternalLink from "components/ExternalLink/ExternalLink";
 import { getIcon } from "config/icons";
 
-const glpIcon = getIcon("common", "glp");
-const gmxIcon = getIcon("common", "gmx");
+const elpIcon = getIcon("common", "elp");
+const eddxIcon = getIcon("common", "eddx");
 
 export default function TokenCard({ showRedirectModal, redirectPopupTimestamp }) {
   const isHome = isHomeSite();
@@ -63,22 +63,22 @@ export default function TokenCard({ showRedirectModal, redirectPopupTimestamp })
     <div className="Home-token-card-options">
       <div className="Home-token-card-option">
         <div className="Home-token-card-option-icon">
-          <img src={gmxIcon} width="40" alt="GMX Icons" /> GMX
+          <img src={eddxIcon} width="40" alt="EDDX Icons" /> EDDX
         </div>
         <div className="Home-token-card-option-info">
           <div className="Home-token-card-option-title">
-            <Trans>GMX is the utility and governance token. Accrues 30% of the platform's generated fees.</Trans>
+            <Trans>EDDX is the utility and governance token. Accrues 30% of the platform's generated fees.</Trans>
           </div>
           <div className="Home-token-card-option-apr">
-            <Trans>APR:</Trans> <APRLabel chainId={BASE} label="gmxAprTotal" />,{" "}
+            <Trans>APR:</Trans> <APRLabel chainId={BASE} label="eddxAprTotal" />,{" "}
           </div>
           <div className="Home-token-card-option-action">
             <div className="buy">
-              <BuyLink to="/buy_gmx" className="default-btn" network={BASE}>
+              <BuyLink to="/buy_eddx" className="default-btn" network={BASE}>
                 <Trans>Buy on Base</Trans>
               </BuyLink>
             </div>
-            <ExternalLink href="https://gmxio.gitbook.io/gmx/tokenomics" className="default-btn read-more">
+            <ExternalLink href="https://eddxio.gitbook.io/eddx/tokenomics" className="default-btn read-more">
               <Trans>Read more</Trans>
             </ExternalLink>
           </div>
@@ -86,23 +86,23 @@ export default function TokenCard({ showRedirectModal, redirectPopupTimestamp })
       </div>
       <div className="Home-token-card-option">
         <div className="Home-token-card-option-icon">
-          <img src={glpIcon} width="40" alt="GLP Icon" /> GLP
+          <img src={elpIcon} width="40" alt="ELP Icon" /> ELP
         </div>
         <div className="Home-token-card-option-info">
           <div className="Home-token-card-option-title">
-            <Trans>GLP is the liquidity provider token. Accrues 70% of the platform's generated fees.</Trans>
+            <Trans>ELP is the liquidity provider token. Accrues 70% of the platform's generated fees.</Trans>
           </div>
           <div className="Home-token-card-option-apr">
-            <Trans>APR:</Trans> <APRLabel chainId={BASE} label="glpAprTotal" key="ARBITRUM" />,{" "}
+            <Trans>APR:</Trans> <APRLabel chainId={BASE} label="elpAprTotal" key="ARBITRUM" />,{" "}
           </div>
           <div className="Home-token-card-option-action">
             <div className="buy">
-              <BuyLink to="/buy_glp" className="default-btn" network={BASE}>
+              <BuyLink to="/buy_elp" className="default-btn" network={BASE}>
                 <Trans>Buy on Base</Trans>
               </BuyLink>
             </div>
             <a
-              href="https://gmxio.gitbook.io/gmx/glp"
+              href="https://eddxio.gitbook.io/eddx/elp"
               target="_blank"
               rel="noreferrer"
               className="default-btn read-more"

@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
-import GlpSwap from "components/Glp/GlpSwap";
+import ElpSwap from "components/Elp/ElpSwap";
 import Footer from "components/Footer/Footer";
-import "./BuyGlp.css";
+import "./BuyElp.css";
 
 import { Trans } from "@lingui/macro";
 import { getNativeToken } from "config/tokens";
 import { useChainId } from "lib/chains";
 import ExternalLink from "components/ExternalLink/ExternalLink";
 
-export default function BuyGlp(props) {
+export default function BuyElp(props) {
   const { chainId } = useChainId();
   const history = useHistory();
   const [isBuying, setIsBuying] = useState(true);
@@ -27,11 +27,11 @@ export default function BuyGlp(props) {
       <div className="section-title-block">
         <div className="section-title-content">
           <div className="Page-title">
-            <Trans>Buy / Sell GLP</Trans>
+            <Trans>Buy / Sell ELP</Trans>
           </div>
           <div className="Page-description">
             <Trans>
-              Purchase <ExternalLink href="https://gmxio.gitbook.io/gmx/glp">GLP tokens</ExternalLink> to earn{" "}
+              Purchase <ExternalLink href="https://eddxio.gitbook.io/eddx/elp">ELP tokens</ExternalLink> to earn{" "}
               {nativeTokenSymbol} fees from swaps and leverages trading.
             </Trans>
             <br />
@@ -41,7 +41,7 @@ export default function BuyGlp(props) {
           </div>
         </div>
       </div>
-      <GlpSwap {...props} isBuying={isBuying} setIsBuying={setIsBuying} />
+      <ElpSwap {...props} isBuying={isBuying} setIsBuying={setIsBuying} />
       <Footer />
     </div>
   );

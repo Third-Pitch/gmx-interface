@@ -3,7 +3,7 @@ import { BigNumber } from "ethers";
 import { ethers } from "ethers";
 import Modal from "../Modal/Modal";
 import { get1InchSwapUrl } from "config/links";
-import { getLowestFeeTokenForBuyGlp, InfoTokens, Token } from "domain/tokens";
+import { getLowestFeeTokenForBuyElp, InfoTokens, Token } from "domain/tokens";
 import { getNativeToken } from "config/tokens";
 import { t, Trans } from "@lingui/macro";
 import ExternalLink from "components/ExternalLink/ExternalLink";
@@ -15,10 +15,10 @@ type Props = {
   isVisible: boolean;
   setIsVisible: () => void;
   chainId: number;
-  glpAmount: BigNumber;
+  elpAmount: BigNumber;
   usdgSupply: BigNumber;
   totalTokenWeights: BigNumber;
-  glpPrice: BigNumber;
+  elpPrice: BigNumber;
   swapUsdMin: BigNumber;
   infoTokens: InfoTokens;
 };
@@ -28,10 +28,10 @@ export default function SwapErrorModal({
   isVisible,
   setIsVisible,
   chainId,
-  glpAmount,
+  elpAmount,
   usdgSupply,
   totalTokenWeights,
-  glpPrice,
+  elpPrice,
   infoTokens,
   swapUsdMin,
 }: Props) {
@@ -39,10 +39,10 @@ export default function SwapErrorModal({
     { token: Token; fees: number; amountLeftToDeposit: BigNumber } | undefined
   >();
   useEffect(() => {
-    const lowestFeeTokenInfo = getLowestFeeTokenForBuyGlp(
+    const lowestFeeTokenInfo = getLowestFeeTokenForBuyElp(
       chainId,
-      glpAmount,
-      glpPrice,
+      elpAmount,
+      elpPrice,
       usdgSupply,
       totalTokenWeights,
       infoTokens,
@@ -50,7 +50,7 @@ export default function SwapErrorModal({
       swapUsdMin
     );
     setLowestFeeToken(lowestFeeTokenInfo);
-  }, [chainId, glpAmount, glpPrice, usdgSupply, totalTokenWeights, infoTokens, swapUsdMin, swapToken.address]);
+  }, [chainId, elpAmount, elpPrice, usdgSupply, totalTokenWeights, infoTokens, swapUsdMin, swapToken.address]);
 
   const label = t`${swapToken?.symbol} Capacity Reached`;
 
@@ -81,7 +81,7 @@ export default function SwapErrorModal({
   return (
     <Modal isVisible={isVisible} setIsVisible={setIsVisible} label={label} className="Error-modal">
       <Trans>
-        <p>The pool's capacity has been reached for {swapToken.symbol}. Please use another token to buy GLP.</p>
+        <p>The pool's capacity has been reached for {swapToken.symbol}. Please use another token to buy ELP.</p>
         <p>Check the "Save on Fees" section for tokens with the lowest fees.</p>
       </Trans>
       <p>

@@ -17,16 +17,16 @@ export const homeEventsData: EventData[] = [];
 
 export const appEventsData: EventData[] = [
   // {
-  //   id: "glp-manager-updates",
-  //   title: "GLP Manager Updates",
+  //   id: "elp-manager-updates",
+  //   title: "ELP Manager Updates",
   //   isActive: true,
   //   validTill: "18 Dec 2022, 12:00",
   //   bodyText:
-  //     "The GLP Manager address has been updated based on the linked post, existing users will need to approve the new GLP Manager to buy GLP tokens.",
+  //     "The ELP Manager address has been updated based on the linked post, existing users will need to approve the new ELP Manager to buy ELP tokens.",
   //   buttons: [
   //     {
   //       text: "Read More",
-  //       link: "https://medium.com/@gmx.io/gmx-deployment-updates-nov-2022-16572314874d",
+  //       link: "https://medium.com/@eddx.io/eddx-deployment-updates-nov-2022-16572314874d",
   //       newTab: true,
   //     },
   //   ],

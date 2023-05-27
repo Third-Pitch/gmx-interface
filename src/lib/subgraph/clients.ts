@@ -10,7 +10,7 @@ export const nissohGraphClient = createClient(BASE, "nissohVault");
 export const avalancheGraphClient = createClient(AVALANCHE, "stats");
 export const avalancheReferralsGraphClient = createClient(AVALANCHE, "referrals");
 
-export function getGmxGraphClient(chainId: number) {
+export function getEddxGraphClient(chainId: number) {
   if (chainId === BASE) {
     return arbitrumGraphClient;
   } else if (chainId === AVALANCHE) {

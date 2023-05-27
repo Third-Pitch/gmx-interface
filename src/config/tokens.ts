@@ -342,46 +342,46 @@ export const TOKENS: { [chainId: number]: Token[] } = {
 export const ADDITIONAL_TOKENS: { [chainId: number]: Token[] } = {
   [BASE]: [
     {
-      name: "GMX",
-      symbol: "GMX",
-      address: getContract(BASE, "GMX"),
+      name: "EDDX",
+      symbol: "EDDX",
+      address: getContract(BASE, "EDDX"),
       decimals: 18,
       imageUrl: "https://assets.coingecko.com/coins/images/18323/small/arbit.png?1631532468",
     },
     {
-      name: "Escrowed GMX",
-      symbol: "esGMX",
-      address: getContract(BASE, "ES_GMX"),
+      name: "Escrowed EDDX",
+      symbol: "esEDDX",
+      address: getContract(BASE, "ES_EDDX"),
       decimals: 18,
     },
     {
-      name: "GMX LP",
-      symbol: "GLP",
-      address: getContract(BASE, "GLP"),
+      name: "EDDX LP",
+      symbol: "ELP",
+      address: getContract(BASE, "ELP"),
       decimals: 18,
-      imageUrl: "https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
+      imageUrl: "https://github.com/eddx-io/eddx-assets/blob/main/EDDX-Assets/PNG/ELP_LOGO%20ONLY.png?raw=true",
     },
   ],
   [AVALANCHE]: [
     {
-      name: "GMX",
-      symbol: "GMX",
-      address: getContract(AVALANCHE, "GMX"),
+      name: "EDDX",
+      symbol: "EDDX",
+      address: getContract(AVALANCHE, "EDDX"),
       decimals: 18,
       imageUrl: "https://assets.coingecko.com/coins/images/18323/small/arbit.png?1631532468",
     },
     {
-      name: "Escrowed GMX",
-      symbol: "esGMX",
-      address: getContract(AVALANCHE, "ES_GMX"),
+      name: "Escrowed EDDX",
+      symbol: "esEDDX",
+      address: getContract(AVALANCHE, "ES_EDDX"),
       decimals: 18,
     },
     {
-      name: "GMX LP",
-      symbol: "GLP",
-      address: getContract(BASE, "GLP"),
+      name: "EDDX LP",
+      symbol: "ELP",
+      address: getContract(BASE, "ELP"),
       decimals: 18,
-      imageUrl: "https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
+      imageUrl: "https://github.com/eddx-io/eddx-assets/blob/main/EDDX-Assets/PNG/ELP_LOGO%20ONLY.png?raw=true",
     },
   ],
 };
@@ -389,58 +389,58 @@ export const ADDITIONAL_TOKENS: { [chainId: number]: Token[] } = {
 export const PLATFORM_TOKENS: { [chainId: number]: { [symbol: string]: Token } } = {
   [BASE]: {
     // arbitrum
-    GMX: {
-      name: "GMX",
-      symbol: "GMX",
+    EDDX: {
+      name: "EDDX",
+      symbol: "EDDX",
       decimals: 18,
-      address: getContract(BASE, "GMX"),
+      address: getContract(BASE, "EDDX"),
       imageUrl: "https://assets.coingecko.com/coins/images/18323/small/arbit.png?1631532468",
     },
-    GLP: {
-      name: "GMX LP",
-      symbol: "GLP",
+    ELP: {
+      name: "EDDX LP",
+      symbol: "ELP",
       decimals: 18,
-      address: getContract(BASE, "StakedGlpTracker"), // address of fsGLP token because user only holds fsGLP
-      imageUrl: "https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
+      address: getContract(BASE, "StakedElpTracker"), // address of fsELP token because user only holds fsELP
+      imageUrl: "https://github.com/eddx-io/eddx-assets/blob/main/EDDX-Assets/PNG/ELP_LOGO%20ONLY.png?raw=true",
     },
   },
   [AVALANCHE]: {
     // avalanche
-    GMX: {
-      name: "GMX",
-      symbol: "GMX",
+    EDDX: {
+      name: "EDDX",
+      symbol: "EDDX",
       decimals: 18,
-      address: getContract(AVALANCHE, "GMX"),
+      address: getContract(AVALANCHE, "EDDX"),
       imageUrl: "https://assets.coingecko.com/coins/images/18323/small/arbit.png?1631532468",
     },
-    GLP: {
-      name: "GMX LP",
-      symbol: "GLP",
+    ELP: {
+      name: "EDDX LP",
+      symbol: "ELP",
       decimals: 18,
-      address: getContract(AVALANCHE, "StakedGlpTracker"), // address of fsGLP token because user only holds fsGLP
-      imageUrl: "https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
+      address: getContract(AVALANCHE, "StakedElpTracker"), // address of fsELP token because user only holds fsELP
+      imageUrl: "https://github.com/eddx-io/eddx-assets/blob/main/EDDX-Assets/PNG/ELP_LOGO%20ONLY.png?raw=true",
     },
   },
 };
 
 export const ICONLINKS = {
   [ARBITRUM_TESTNET]: {
-    GMX: {
-      coingecko: "https://www.coingecko.com/en/coins/gmx",
+    EDDX: {
+      coingecko: "https://www.coingecko.com/en/coins/eddx",
       arbitrum: "https://arbiscan.io/address/0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a",
     },
-    GLP: {
+    ELP: {
       arbitrum: "https://testnet.arbiscan.io/token/0xb4f81Fa74e06b5f762A104e47276BA9b2929cb27",
     },
   },
   [BASE]: {
-    GMX: {
-      coingecko: "https://www.coingecko.com/en/coins/gmx",
+    EDDX: {
+      coingecko: "https://www.coingecko.com/en/coins/eddx",
       arbitrum: "https://arbiscan.io/address/0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a",
     },
-    GLP: {
+    ELP: {
       arbitrum: "https://arbiscan.io/token/0x1aDDD80E6039594eE970E5872D247bf0414C8903",
-      reserves: "https://portfolio.nansen.ai/dashboard/gmx?chain=ARBITRUM",
+      reserves: "https://portfolio.nansen.ai/dashboard/eddx?chain=ARBITRUM",
     },
     ETH: {
       coingecko: "https://www.coingecko.com/en/coins/ethereum",
@@ -479,13 +479,13 @@ export const ICONLINKS = {
     },
   },
   [AVALANCHE]:  {
-    GMX: {
-      coingecko: "https://www.coingecko.com/en/coins/gmx",
+    EDDX: {
+      coingecko: "https://www.coingecko.com/en/coins/eddx",
       arbitrum: "https://arbiscan.io/address/0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a",
     },
-    GLP: {
+    ELP: {
       arbitrum: "https://arbiscan.io/token/0x1aDDD80E6039594eE970E5872D247bf0414C8903",
-      reserves: "https://portfolio.nansen.ai/dashboard/gmx?chain=ARBITRUM",
+      reserves: "https://portfolio.nansen.ai/dashboard/eddx?chain=ARBITRUM",
     },
     ETH: {
       coingecko: "https://www.coingecko.com/en/coins/ethereum",
@@ -538,7 +538,7 @@ export const ICONLINKS = {
   },
 };
 
-export const GLP_POOL_COLORS = {
+export const ELP_POOL_COLORS = {
   ETH: "#6062a6",
   BTC: "#F7931A",
   WBTC: "#F7931A",

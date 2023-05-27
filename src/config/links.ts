@@ -26,10 +26,10 @@ export function get1InchSwapUrl(chainId: number, from?: string, to?: string) {
 
 export function getLeaderboardLink(chainId) {
   if (chainId === BASE) {
-    return "https://www.gmx.house/arbitrum/leaderboard";
+    return "https://www.eddx.house/arbitrum/leaderboard";
   }
   if (chainId === AVALANCHE) {
-    return "https://www.gmx.house/avalanche/leaderboard";
+    return "https://www.eddx.house/avalanche/leaderboard";
   }
-  return "https://www.gmx.house";
+  return "https://www.eddx.house";
 }

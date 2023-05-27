@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import Footer from "components/Footer/Footer";
-import "./BuyGMX.css";
+import "./BuyEDDX.css";
 import { useWeb3React } from "@web3-react/core";
 import { Trans, t } from "@lingui/macro";
 import Button from "components/Button/Button";
@@ -20,11 +20,11 @@ import {
   DECENTRALISED_AGGRIGATORS,
   EXTERNAL_LINKS,
   FIAT_GATEWAYS,
-  GMX_FROM_ANY_NETWORKS,
+  EDDX_FROM_ANY_NETWORKS,
   TRANSFER_EXCHANGES,
 } from "./constants";
 
-export default function BuyGMX() {
+export default function BuyEDDX() {
   const { chainId } = useChainId();
   const isArbitrum = chainId === BASE;
   const { active } = useWeb3React();
@@ -42,18 +42,18 @@ export default function BuyGMX() {
   );
 
   return (
-    <div className="BuyGMXGLP default-container page-layout">
-      <div className="BuyGMXGLP-container">
+    <div className="BuyEDDXELP default-container page-layout">
+      <div className="BuyEDDXELP-container">
         <div className="section-title-block">
           <div className="section-title-content">
             <div className="Page-title">
-              <Trans>Buy GMX on {getChainName(chainId)}</Trans>
+              <Trans>Buy EDDX on {getChainName(chainId)}</Trans>
             </div>
             <div className="Page-description">
               <Trans>Choose to buy from decentralized or centralized exchanges.</Trans>
               <br />
               <Trans>
-                To purchase GMX on the {isArbitrum ? "Avalanche" : "Arbitrum"} blockchain, please{" "}
+                To purchase EDDX on the {isArbitrum ? "Avalanche" : "Arbitrum"} blockchain, please{" "}
                 <span onClick={() => onNetworkSelect(isArbitrum ? AVALANCHE : BASE)}>change your network</span>.
               </Trans>
             </div>
@@ -91,7 +91,7 @@ export default function BuyGMX() {
         <div className="cards-row">
           <Card title={t`Buy ${nativeTokenSymbol}`}>
             <div className="App-card-content">
-              <div className="BuyGMXGLP-description">
+              <div className="BuyEDDXELP-description">
                 {isArbitrum ? (
                   <Trans>
                     You can buy ETH directly on{" "}
@@ -126,11 +126,11 @@ export default function BuyGMX() {
           <Card title={t`Transfer ${nativeTokenSymbol}`}>
             <div className="App-card-content">
               {isArbitrum ? (
-                <div className="BuyGMXGLP-description">
+                <div className="BuyEDDXELP-description">
                   <Trans>You can transfer ETH from other networks to Arbitrum using any of the below options:</Trans>
                 </div>
               ) : (
-                <div className="BuyGMXGLP-description">
+                <div className="BuyEDDXELP-description">
                   <Trans>You can transfer AVAX from other networks to Avalanche using any of the below options:</Trans>
                 </div>
               )}
@@ -163,18 +163,18 @@ export default function BuyGMX() {
 function DecentralisedExchanges({ chainId, externalLinks }) {
   const isArbitrum = chainId === BASE;
   return (
-    <Card title={t`Buy GMX from a Decentralized Exchange`}>
+    <Card title={t`Buy EDDX from a Decentralized Exchange`}>
       <div className="App-card-content">
         {isArbitrum ? (
           <div className="exchange-info-group">
-            <div className="BuyGMXGLP-description">
-              <Trans>Buy GMX from Uniswap (make sure to select Arbitrum):</Trans>
+            <div className="BuyEDDXELP-description">
+              <Trans>Buy EDDX from Uniswap (make sure to select Arbitrum):</Trans>
             </div>
             <div className="buttons-group col-1">
               <Button
                 variant="clear"
                 imgInfo={{ src: uniswapArbitrumIcon, alt: "Uniswap" }}
-                to={externalLinks.buyGmx.uniswap}
+                to={externalLinks.buyEddx.uniswap}
                 newTab
               >
                 Uniswap
@@ -183,13 +183,13 @@ function DecentralisedExchanges({ chainId, externalLinks }) {
           </div>
         ) : (
           <div className="exchange-info-group">
-            <div className="BuyGMXGLP-description">
-              <Trans>Buy GMX from Traderjoe:</Trans>
+            <div className="BuyEDDXELP-description">
+              <Trans>Buy EDDX from Traderjoe:</Trans>
             </div>
             <div className="buttons-group col-1">
               <Button
                 variant="clear"
-                to={externalLinks.buyGmx.traderjoe}
+                to={externalLinks.buyEddx.traderjoe}
                 imgInfo={{ src: traderjoeIcon, alt: "Traderjoe" }}
                 newTab
               >
@@ -199,8 +199,8 @@ function DecentralisedExchanges({ chainId, externalLinks }) {
           </div>
         )}
         <div className="exchange-info-group">
-          <div className="BuyGMXGLP-description">
-            <Trans>Buy GMX using Decentralized Exchange Aggregators:</Trans>
+          <div className="BuyEDDXELP-description">
+            <Trans>Buy EDDX using Decentralized Exchange Aggregators:</Trans>
           </div>
           <div className="buttons-group">
             {DECENTRALISED_AGGRIGATORS.filter((e) => chainId in e.links).map((exchange) => {
@@ -221,11 +221,11 @@ function DecentralisedExchanges({ chainId, externalLinks }) {
           </div>
         </div>
         <div className="exchange-info-group">
-          <div className="BuyGMXGLP-description">
-            <Trans>Buy GMX using any token from any network:</Trans>
+          <div className="BuyEDDXELP-description">
+            <Trans>Buy EDDX using any token from any network:</Trans>
           </div>
           <div className="buttons-group">
-            {GMX_FROM_ANY_NETWORKS.filter((e) => chainId in e.links).map((exchange) => {
+            {EDDX_FROM_ANY_NETWORKS.filter((e) => chainId in e.links).map((exchange) => {
               const icon = importImage(exchange.icon) || "";
               const link = exchange.links[chainId];
               return (
@@ -244,13 +244,13 @@ function DecentralisedExchanges({ chainId, externalLinks }) {
         </div>
         {isArbitrum && (
           <div className="exchange-info-group">
-            <div className="BuyGMXGLP-description">
-              <Trans>GMX bonds can be bought on Bond Protocol with a discount and a small vesting period:</Trans>
+            <div className="BuyEDDXELP-description">
+              <Trans>EDDX bonds can be bought on Bond Protocol with a discount and a small vesting period:</Trans>
             </div>
             <div className="buttons-group col-1">
               <Button
                 variant="clear"
-                to={"https://app.bondprotocol.finance/#/issuers/GMX"}
+                to={"https://app.bondprotocol.finance/#/issuers/EDDX"}
                 imgInfo={{ src: bondProtocolIcon, alt: "Bond Protocol" }}
                 newTab
               >
@@ -266,11 +266,11 @@ function DecentralisedExchanges({ chainId, externalLinks }) {
 
 function CentralisedExchanges({ chainId }) {
   return (
-    <Card title={t`Buy GMX from centralized services`}>
+    <Card title={t`Buy EDDX from centralized services`}>
       <div className="App-card-content">
         <div className="exchange-info-group">
-          <div className="BuyGMXGLP-description">
-            <Trans>Buy GMX from centralized exchanges:</Trans>
+          <div className="BuyEDDXELP-description">
+            <Trans>Buy EDDX from centralized exchanges:</Trans>
           </div>
           <div className="buttons-group">
             {CENTRALISED_EXCHANGES.filter((e) => chainId in e.links).map((exchange) => {
@@ -292,8 +292,8 @@ function CentralisedExchanges({ chainId }) {
         </div>
 
         <div className="exchange-info-group">
-          <div className="BuyGMXGLP-description">
-            <Trans>Buy GMX using FIAT gateways:</Trans>
+          <div className="BuyEDDXELP-description">
+            <Trans>Buy EDDX using FIAT gateways:</Trans>
           </div>
           <div className="buttons-group col-2">
             {FIAT_GATEWAYS.filter((e) => chainId in e.links).map((exchange) => {

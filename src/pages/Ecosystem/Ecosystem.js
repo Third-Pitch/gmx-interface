@@ -22,61 +22,61 @@ const NETWORK_ICON_ALTS = {
 };
 
 export default function Ecosystem() {
-  const gmxPages = [
+  const eddxPages = [
     {
-      title: "GMX Governance",
-      link: "https://gov.gmx.io/",
-      linkLabel: "gov.gmx.io",
-      about: t`GMX Governance Page`,
+      title: "EDDX Governance",
+      link: "https://gov.eddx.io/",
+      linkLabel: "gov.eddx.io",
+      about: t`EDDX Governance Page`,
       chainIds: [BASE, AVALANCHE],
     },
     {
-      title: "GMX Stats",
-      link: "https://stats.gmx.io/",
-      linkLabel: "stats.gmx.io",
-      about: t`GMX Stats Page`,
+      title: "EDDX Stats",
+      link: "https://stats.eddx.io/",
+      linkLabel: "stats.eddx.io",
+      about: t`EDDX Stats Page`,
       chainIds: [BASE, AVALANCHE],
     },
     {
-      title: "GMX Proposals",
-      link: "https://snapshot.org/#/gmx.eth",
+      title: "EDDX Proposals",
+      link: "https://snapshot.org/#/eddx.eth",
       linkLabel: "snapshot.org",
-      about: t`GMX Proposals Voting page`,
+      about: t`EDDX Proposals Voting page`,
       chainIds: [BASE, AVALANCHE],
     },
     {
-      title: "GMX Announcements",
-      link: "https://t.me/GMX_Announcements",
+      title: "EDDX Announcements",
+      link: "https://t.me/EDDX_Announcements",
       linkLabel: "t.me",
-      about: t`GMX Announcements and Updates`,
+      about: t`EDDX Announcements and Updates`,
       chainIds: [BASE, AVALANCHE],
     },
   ];
 
   const communityProjects = [
     {
-      title: "GMX Blueberry Club",
+      title: "EDDX Blueberry Club",
       link: "https://www.blueberry.club/",
       linkLabel: "blueberry.club",
-      about: t`GMX Blueberry NFTs`,
+      about: t`EDDX Blueberry NFTs`,
       creatorLabel: "@xm92boi",
       creatorLink: "https://t.me/xm92boi",
       chainIds: [BASE],
     },
     {
-      title: "GMX Leaderboard",
-      link: "https://www.gmx.house/",
-      linkLabel: "gmx.house",
-      about: t`Leaderboard for GMX traders`,
+      title: "EDDX Leaderboard",
+      link: "https://www.eddx.house/",
+      linkLabel: "eddx.house",
+      about: t`Leaderboard for EDDX traders`,
       creatorLabel: "@Itburnz",
       creatorLink: "https://t.me/Itburnz",
       chainIds: [BASE, AVALANCHE],
     },
     {
-      title: "GMX Positions Bot",
-      link: "https://t.me/GMXPositions",
+      title: "EDDX Positions Bot",
+      link: "https://t.me/EDDXPositions",
       linkLabel: "t.me",
-      about: t`Telegram bot for GMX position updates`,
+      about: t`Telegram bot for EDDX position updates`,
       creatorLabel: "@zhongfu",
       creatorLink: "https://t.me/zhongfu",
       chainIds: [BASE, AVALANCHE],
@@ -85,14 +85,14 @@ export default function Ecosystem() {
       title: "Blueberry Pulse",
       link: "https://blueberrypulse.substack.com/",
       linkLabel: "substack.com",
-      about: t`GMX Weekly Updates`,
+      about: t`EDDX Weekly Updates`,
       creatorLabel: "@puroscohiba",
       creatorLink: "https://t.me/puroscohiba",
       chainIds: [BASE, AVALANCHE],
     },
     {
       title: "DegenClip",
-      link: "https://degenclip.com/gmx",
+      link: "https://degenclip.com/eddx",
       linkLabel: "degenclip.com",
       about: t`Community curated tweet collection`,
       creatorLabel: "@ox21l",
@@ -100,70 +100,70 @@ export default function Ecosystem() {
       chainIds: [BASE, AVALANCHE],
     },
     {
-      title: "GMX Yield Simulator",
-      link: "https://gmx.defisims.com/",
+      title: "EDDX Yield Simulator",
+      link: "https://eddx.defisims.com/",
       linkLabel: "defisims.com",
-      about: t`Yield simulator for GMX`,
+      about: t`Yield simulator for EDDX`,
       creatorLabel: "@kyzoeth",
       creatorLink: "https://twitter.com/kyzoeth",
       chainIds: [BASE, AVALANCHE],
     },
     {
-      title: "GMX Returns Calculator",
+      title: "EDDX Returns Calculator",
       link: "https://docs.google.com/spreadsheets/u/4/d/1mQZlztz_NpTg5qQiYIzc_Ls1OTLfMOUtmEQN-WW8jj4/copy",
       linkLabel: "docs.google.com",
-      about: t`Returns calculator for GMX and GLP`,
+      about: t`Returns calculator for EDDX and ELP`,
       creatorLabel: "@AStoicTrader1",
       creatorLink: "https://twitter.com/AStoicTrader1",
       chainIds: [BASE, AVALANCHE],
     },
     {
-      title: "GMX Trading Stats",
-      link: "https://t.me/GMXTradingStats",
+      title: "EDDX Trading Stats",
+      link: "https://t.me/EDDXTradingStats",
       linkLabel: "t.me",
-      about: t`Telegram bot for Open Interest on GMX`,
+      about: t`Telegram bot for Open Interest on EDDX`,
       creatorLabel: "@SniperMonke01",
       creatorLink: "https://twitter.com/SniperMonke01",
       chainIds: [BASE, AVALANCHE],
     },
     {
-      title: "GMX Staking Bot",
-      link: "https://t.me/GMX_Staking_bot",
+      title: "EDDX Staking Bot",
+      link: "https://t.me/EDDX_Staking_bot",
       linkLabel: "t.me",
-      about: t`GMX staking rewards updates and insights`,
-      creatorLabel: "@GMX_Staking_bot",
-      creatorLink: "https://twitter.com/GMX_Staking_bot",
+      about: t`EDDX staking rewards updates and insights`,
+      creatorLabel: "@EDDX_Staking_bot",
+      creatorLink: "https://twitter.com/EDDX_Staking_bot",
       chainIds: [BASE, AVALANCHE],
     },
     {
-      title: "GMX Staking Calculator",
-      link: "https://gmxstaking.com",
-      linkLabel: "gmxstaking.com",
-      about: t`GMX staking calculator`,
+      title: "EDDX Staking Calculator",
+      link: "https://eddxstaking.com",
+      linkLabel: "eddxstaking.com",
+      about: t`EDDX staking calculator`,
       creatorLabel: "@n1njawtf",
       creatorLink: "https://t.me/n1njawtf",
       chainIds: [BASE, AVALANCHE],
     },
     {
-      title: "GMX Hedging Simulator",
-      link: "https://www.gmxhedge.com/",
-      linkLabel: "gmxhedge.com",
+      title: "EDDX Hedging Simulator",
+      link: "https://www.eddxhedge.com/",
+      linkLabel: "eddxhedge.com",
       about: t`Simulate your hedge strategy`,
       creatorLabel: "@kyzoeth",
       creatorLink: "https://twitter.com/kyzoeth",
       chainIds: [BASE],
     },
     {
-      title: "GMX Swaps",
-      link: "https://t.me/GMXSwaps",
+      title: "EDDX Swaps",
+      link: "https://t.me/EDDXSwaps",
       linkLabel: "t.me",
-      about: t`Telegram bot for GMX Swaps monitoring`,
+      about: t`Telegram bot for EDDX Swaps monitoring`,
       creatorLabel: "@snipermonke01",
       creatorLink: "https://twitter.com/snipermonke01",
       chainIds: [BASE, AVALANCHE],
     },
     {
-      title: "GMX Position Calculator",
+      title: "EDDX Position Calculator",
       link: "https://docs.google.com/spreadsheets/d/1OKCeRGU7l-xGx33-siBw_l8x7vP97y4KKKjA2x5LqhQ/edit#gid=0",
       linkLabel: "docs.google.com",
       about: t`Spreadsheet for position calculations`,
@@ -175,27 +175,27 @@ export default function Ecosystem() {
 
   const dashboardProjects = [
     {
-      title: "GMX Referrals Dashboard",
-      link: "https://www.gmxreferrals.com/",
-      linkLabel: "gmxreferrals.com",
-      about: t`Dashboard for GMX referral stats`,
+      title: "EDDX Referrals Dashboard",
+      link: "https://www.eddxreferrals.com/",
+      linkLabel: "eddxreferrals.com",
+      about: t`Dashboard for EDDX referral stats`,
       creatorLabel: "@kyzoeth",
       creatorLink: "https://twitter.com/kyzoeth",
       chainIds: [BASE, AVALANCHE],
     },
     {
-      title: "GMX Terminal",
-      link: "https://gmxterminal.com",
-      linkLabel: "gmxterminal.com",
-      about: t`GMX explorer for stats and traders`,
+      title: "EDDX Terminal",
+      link: "https://eddxterminal.com",
+      linkLabel: "eddxterminal.com",
+      about: t`EDDX explorer for stats and traders`,
       creatorLabel: "@vipineth",
       creatorLink: "https://t.me/vipineth",
       chainIds: [BASE],
     },
     {
-      title: "GMX Analytics",
-      link: "https://gmxstats.com/",
-      linkLabel: "gmxstats.com",
+      title: "EDDX Analytics",
+      link: "https://eddxstats.com/",
+      linkLabel: "eddxstats.com",
       about: t`Financial reports and protocol analytics`,
       creatorLabel: "@CryptoMessiah",
       creatorLink: "https://t.me/LarpCapital",
@@ -203,9 +203,9 @@ export default function Ecosystem() {
     },
     {
       title: "TokenTerminal",
-      link: "https://tokenterminal.com/terminal/projects/gmx",
+      link: "https://tokenterminal.com/terminal/projects/eddx",
       linkLabel: "tokenterminal.com",
-      about: t`GMX fundamentals`,
+      about: t`EDDX fundamentals`,
       creatorLabel: "@tokenterminal",
       creatorLink: "https://twitter.com/tokenterminal",
       chainIds: [BASE, AVALANCHE],
@@ -214,14 +214,14 @@ export default function Ecosystem() {
       title: "CryptoFees",
       link: "https://cryptofees.info",
       linkLabel: "cryptofees.info",
-      about: t`Fees generated by GMX`,
+      about: t`Fees generated by EDDX`,
       creatorLabel: "@CryptoFeesInfo",
       creatorLink: "https://twitter.com/CryptoFeesInfo",
       chainIds: [BASE, AVALANCHE],
     },
     {
       title: "Shogun Dashboard (Dune Arbitrum)",
-      link: "https://dune.com/shogun/gmx-analytics-arbitrum",
+      link: "https://dune.com/shogun/eddx-analytics-arbitrum",
       linkLabel: "dune.com",
       about: t`Protocol analytics`,
       creatorLabel: "@JamesCliffyz",
@@ -230,7 +230,7 @@ export default function Ecosystem() {
     },
     {
       title: "Shogun Dashboard (Dune Avalanche)",
-      link: "https://dune.com/shogun/gmx-analytics-avalanche",
+      link: "https://dune.com/shogun/eddx-analytics-avalanche",
       linkLabel: "dune.com",
       about: t`Protocol analytics`,
       creatorLabel: "@JamesCliffyz",
@@ -238,16 +238,16 @@ export default function Ecosystem() {
       chainIds: [AVALANCHE],
     },
     {
-      title: "GMX Perpetuals Data",
-      link: "https://app.laevitas.ch/altsderivs/GMX/perpetualswaps",
+      title: "EDDX Perpetuals Data",
+      link: "https://app.laevitas.ch/altsderivs/EDDX/perpetualswaps",
       linkLabel: "laevitas.ch",
-      about: t`GMX Perpetuals Data`,
+      about: t`EDDX Perpetuals Data`,
       creatorLabel: "@laevitas1",
       creatorLink: "https://twitter.com/laevitas1",
       chainIds: [BASE],
     },
     {
-      title: "GMX Blueberry Leaderboard",
+      title: "EDDX Blueberry Leaderboard",
       link: "https://www.blueberryboard.com",
       linkLabel: "blueberryboard.com",
       about: t`GBC NFTs APR tracker and rewards`,
@@ -256,8 +256,8 @@ export default function Ecosystem() {
       chainIds: [BASE],
     },
     {
-      title: "GMX Open Trades Ranking and Stats",
-      link: "https://dune.com/HanSolar/gmx-open-trade-ranking-and-stats",
+      title: "EDDX Open Trades Ranking and Stats",
+      link: "https://dune.com/HanSolar/eddx-open-trade-ranking-and-stats",
       linkLabel: "dune.com",
       about: t`Open trades ranking and stats`,
       creatorLabel: "@hansolar21",
@@ -265,12 +265,12 @@ export default function Ecosystem() {
       chainIds: [BASE, AVALANCHE],
     },
     {
-      title: "GMX Everything Dashboard",
-      link: "https://dune.com/gmxtrader/gmx-dashboard-insights",
+      title: "EDDX Everything Dashboard",
+      link: "https://dune.com/eddxtrader/eddx-dashboard-insights",
       linkLabel: "dune.com",
       about: t`Overall protocol analytics`,
-      creatorLabel: "@gmxtrader",
-      creatorLink: "https://twitter.com/gmxtrader",
+      creatorLabel: "@eddxtrader",
+      creatorLink: "https://twitter.com/eddxtrader",
       chainIds: [BASE, AVALANCHE],
     },
   ];
@@ -282,7 +282,7 @@ export default function Ecosystem() {
       linkLabe: "debank.com",
       about: t`DeFi Portfolio Tracker`,
       announcementLabel: "twitter.com",
-      announcementLink: "https://twitter.com/GMX_IO/status/1439711532884152324",
+      announcementLink: "https://twitter.com/EDDX_IO/status/1439711532884152324",
       chainIds: [BASE, AVALANCHE],
     },
     {
@@ -291,7 +291,7 @@ export default function Ecosystem() {
       linkLabel: "defillama.com",
       about: t`Decentralized Finance Dashboard`,
       announcementLabel: "twitter.com",
-      announcementLink: "https://twitter.com/GMX_IO/status/1438124768033660938",
+      announcementLink: "https://twitter.com/EDDX_IO/status/1438124768033660938",
       chainIds: [BASE, AVALANCHE],
     },
     {
@@ -300,7 +300,7 @@ export default function Ecosystem() {
       linkLabel: "dopex.io",
       about: t`Decentralized Options Protocol`,
       announcementLabel: "twitter.com",
-      announcementLink: "https://twitter.com/GMX_IO/status/1482445801523716099",
+      announcementLink: "https://twitter.com/EDDX_IO/status/1482445801523716099",
       chainIds: [BASE, AVALANCHE],
     },
     {
@@ -318,7 +318,7 @@ export default function Ecosystem() {
       linkLabel: "jonesdao.io",
       about: t`Decentralized Options Strategies`,
       announcementLabel: "twitter.com",
-      announcementLink: "https://twitter.com/GMX_IO/status/1482788805635678212",
+      announcementLink: "https://twitter.com/EDDX_IO/status/1482788805635678212",
       chainIds: [BASE],
     },
     {
@@ -327,7 +327,7 @@ export default function Ecosystem() {
       linkLabel: "yieldyak.com",
       about: t`Yield Optimizer on Avalanche`,
       announcementLabel: "twitter.com",
-      announcementLink: "https://twitter.com/GMX_IO/status/1484601407378378754",
+      announcementLink: "https://twitter.com/EDDX_IO/status/1484601407378378754",
       chainIds: [AVALANCHE],
     },
     {
@@ -354,7 +354,7 @@ export default function Ecosystem() {
       linkLabel: "dodoex.io",
       about: t`Decentralized Trading Protocol`,
       announcementLabel: "twitter.com",
-      announcementLink: "https://twitter.com/GMX_IO/status/1438899138549145605",
+      announcementLink: "https://twitter.com/EDDX_IO/status/1438899138549145605",
       chainIds: [BASE, AVALANCHE],
     },
     {
@@ -363,7 +363,7 @@ export default function Ecosystem() {
       linkLabel: "openocean.finance",
       about: t`DEX Aggregator`,
       announcementLabel: "twitter.com",
-      announcementLink: "https://twitter.com/GMX_IO/status/1495780826016989191",
+      announcementLink: "https://twitter.com/EDDX_IO/status/1495780826016989191",
       chainIds: [BASE, AVALANCHE],
     },
     {
@@ -381,7 +381,7 @@ export default function Ecosystem() {
       linkLabel: "1inch.io",
       about: t`DEX Aggregator`,
       announcementLabel: "twitter.com",
-      announcementLink: "https://twitter.com/GMX_IO/status/1522247451410845696",
+      announcementLink: "https://twitter.com/EDDX_IO/status/1522247451410845696",
       chainIds: [BASE, AVALANCHE],
     },
     {
@@ -406,7 +406,7 @@ export default function Ecosystem() {
       title: "Plutus",
       link: "https://plutusdao.io/vaults",
       linkLabel: "plutusdao.io",
-      about: t`GLP autocompounding vaults`,
+      about: t`ELP autocompounding vaults`,
       announcementLabel: "medium.com",
       announcementLink: "https://medium.com/@plutusdao.io/product-release-plutus-vaults-d0b0252cdf03",
       chainIds: [BASE],
@@ -415,37 +415,37 @@ export default function Ecosystem() {
       title: "Beefy.com",
       link: "https://app.beefy.com/",
       linkLabel: "beefy.com",
-      about: t`GLP and GMX autocompounding vaults`,
+      about: t`ELP and EDDX autocompounding vaults`,
       announcementLabel: "beefy.com",
-      announcementLink: "https://beefy.com/articles/earn-glp-with-beefy-s-new-glp-strategy-and-vaults/",
+      announcementLink: "https://beefy.com/articles/earn-elp-with-beefy-s-new-elp-strategy-and-vaults/",
       chainIds: [BASE, AVALANCHE],
     },
   ];
 
   const telegramGroups = [
     {
-      title: "GMX",
-      link: "https://t.me/GMX_IO",
+      title: "EDDX",
+      link: "https://t.me/EDDX_IO",
       linkLabel: "t.me",
       about: t`Telegram Group`,
     },
     {
-      title: "GMX (Chinese)",
-      link: "https://t.me/gmxch",
+      title: "EDDX (Chinese)",
+      link: "https://t.me/eddxch",
       linkLabel: "t.me",
       about: t`Telegram Group (Chinese)`,
     },
     {
-      title: "GMX (Portuguese)",
-      link: "https://t.me/GMX_Portuguese",
+      title: "EDDX (Portuguese)",
+      link: "https://t.me/EDDX_Portuguese",
       linkLabel: "t.me",
       about: t`Telegram Group (Portuguese)`,
     },
     {
-      title: "GMX Trading Chat",
+      title: "EDDX Trading Chat",
       link: "https://t.me/gambittradingchat",
       linkLabel: "t.me",
-      about: t`GMX community discussion`,
+      about: t`EDDX community discussion`,
     },
   ];
 
@@ -457,15 +457,15 @@ export default function Ecosystem() {
             <div className="section-title-icon" />
             <div className="section-title-content">
               <div className="Page-title">
-                <Trans>GMX Pages</Trans>
+                <Trans>EDDX Pages</Trans>
               </div>
               <div className="Page-description">
-                <Trans>GMX ecosystem pages.</Trans>
+                <Trans>EDDX ecosystem pages.</Trans>
               </div>
             </div>
           </div>
           <div className="DashboardV2-projects">
-            {gmxPages.map((item) => {
+            {eddxPages.map((item) => {
               const linkLabel = item.linkLabel ? item.linkLabel : item.link;
               return (
                 <div className="App-card" key={item.title}>
@@ -504,7 +504,7 @@ export default function Ecosystem() {
             </div>
             <div className="Page-description">
               <Trans>
-                Projects developed by the GMX community. <br />
+                Projects developed by the EDDX community. <br />
                 Please exercise caution when interacting with any app, apps are fully maintained by community
                 developers.
               </Trans>
@@ -557,7 +557,7 @@ export default function Ecosystem() {
               <Trans>Dashboards</Trans>
             </div>
             <div className="Page-description">
-              <Trans>GMX dashboards and analytics.</Trans>
+              <Trans>EDDX dashboards and analytics.</Trans>
             </div>
           </div>
           <div className="DashboardV2-projects">
@@ -608,7 +608,7 @@ export default function Ecosystem() {
               <Trans>Partnerships and Integrations</Trans>
             </div>
             <div className="Page-description">
-              <Trans>Projects integrated with GMX.</Trans>
+              <Trans>Projects integrated with EDDX.</Trans>
             </div>
           </div>
           <div className="DashboardV2-projects">

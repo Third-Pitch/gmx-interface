@@ -2303,7 +2303,7 @@ export default function SwapBox(props) {
                 trigger orders. <br />
                 <br />
                 For screenshots and more information, please see the{" "}
-                <ExternalLink href="https://gmxio.gitbook.io/gmx/trading#stop-loss-take-profit-orders">
+                <ExternalLink href="https://eddxio.gitbook.io/eddx/trading#stop-loss-take-profit-orders">
                   docs
                 </ExternalLink>
                 .
@@ -2400,7 +2400,7 @@ export default function SwapBox(props) {
                         top right of the page after connecting your wallet.
                         <br />
                         <br />
-                        <ExternalLink href="https://gmxio.gitbook.io/gmx/trading#opening-a-position">
+                        <ExternalLink href="https://eddxio.gitbook.io/eddx/trading#opening-a-position">
                           More Info
                         </ExternalLink>
                       </Trans>
@@ -2429,7 +2429,7 @@ export default function SwapBox(props) {
                         This exit price will change with the price of the asset.
                         <br />
                         <br />
-                        <ExternalLink href="https://gmxio.gitbook.io/gmx/trading#opening-a-position">
+                        <ExternalLink href="https://eddxio.gitbook.io/eddx/trading#opening-a-position">
                           More Info
                         </ExternalLink>
                       </Trans>
@@ -2467,7 +2467,7 @@ export default function SwapBox(props) {
                         </div>
                       )}
                       <br />
-                      <ExternalLink href="https://gmxio.gitbook.io/gmx/trading#opening-a-position">
+                      <ExternalLink href="https://eddxio.gitbook.io/eddx/trading#opening-a-position">
                         <Trans>More Info</Trans>
                       </ExternalLink>
                     </div>

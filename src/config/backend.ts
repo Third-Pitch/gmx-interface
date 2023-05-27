@@ -1,7 +1,7 @@
 import { BASE, ARBITRUM_TESTNET, AVALANCHE, MAINNET } from "./chains";
 
 // export const GMX_STATS_API_URL = "https://stats.gmx.io/api";
-export const GMX_STATS_API_URL = "http://192.168.1.92:3113/api";
+export const EDDX_STATS_API_URL = "http://192.168.1.92:3113/api";
 
 const BACKEND_URLS = {
   default: "https://gmx-server-mainnet.uw.r.appspot.com",
