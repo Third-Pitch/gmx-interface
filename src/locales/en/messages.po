@@ -422,9 +422,45 @@ msgstr "Buy ETH directly to Arbitrum or transfer it there."
 msgid "Buy GLP"
 msgstr "Buy GLP"
 
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy GMX from Traderjoe:"
+msgstr "Buy GMX from Traderjoe:"
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy GMX from Uniswap (make sure to select Arbitrum):"
+msgstr "Buy GMX from Uniswap (make sure to select Arbitrum):"
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy GMX from a Decentralized Exchange"
+msgstr "Buy GMX from a Decentralized Exchange"
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy GMX from centralized exchanges:"
+msgstr "Buy GMX from centralized exchanges:"
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy GMX from centralized services"
+msgstr "Buy GMX from centralized services"
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy GMX on {0}"
+msgstr "Buy GMX on {0}"
+
 #: src/pages/Buy/Buy.js
 msgid "Buy GMX or GLP"
 msgstr "Buy GMX or GLP"
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy GMX using Decentralized Exchange Aggregators:"
+msgstr "Buy GMX using Decentralized Exchange Aggregators:"
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy GMX using FIAT gateways:"
+msgstr "Buy GMX using FIAT gateways:"
+
+#: src/pages/BuyGMX/BuyGMX.tsx
+msgid "Buy GMX using any token from any network:"
+msgstr "Buy GMX using any token from any network:"
 
 #: src/components/Glp/GlpSwap.js
 msgid "Buy failed."
@@ -438,42 +474,6 @@ msgstr "Buy on Base"
 #: src/pages/Stake/StakeV2.js
 msgid "Buy on Goerli"
 msgstr "Buy on Goerli"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy on Goerli from Traderjoe:"
-msgstr "Buy on Goerli from Traderjoe:"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy on Goerli from Uniswap (make sure to select Arbitrum):"
-msgstr "Buy on Goerli from Uniswap (make sure to select Arbitrum):"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy on Goerli from a Decentralized Exchange"
-msgstr "Buy on Goerli from a Decentralized Exchange"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy on Goerli from centralized exchanges:"
-msgstr "Buy on Goerli from centralized exchanges:"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy on Goerli from centralized services"
-msgstr "Buy on Goerli from centralized services"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy on Goerli on {0}"
-msgstr "Buy on Goerli on {0}"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy on Goerli using Decentralized Exchange Aggregators:"
-msgstr "Buy on Goerli using Decentralized Exchange Aggregators:"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy on Goerli using FIAT gateways:"
-msgstr "Buy on Goerli using FIAT gateways:"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy on Goerli using any token from any network:"
-msgstr "Buy on Goerli using any token from any network:"
 
 #: src/pages/BuyGMX/BuyGMX.tsx
 msgid "Buy or Transfer AVAX to Avalanche"

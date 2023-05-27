@@ -422,23 +422,6 @@ msgstr ""
 msgid "Buy GLP"
 msgstr "GLP 구매"
 
-#: src/pages/Buy/Buy.js
-msgid "Buy GMX or GLP"
-msgstr "GMX 혹은 GLP 구매"
-
-#: src/components/Glp/GlpSwap.js
-msgid "Buy failed."
-msgstr "구매 실패"
-
-#: src/components/TokenCard/TokenCard.js
-#: src/components/TokenCard/TokenCard.js
-msgid "Buy on Base"
-msgstr "에서 구매"
-
-#: src/pages/Stake/StakeV2.js
-msgid "Buy on Goerli"
-msgstr ""
-
 #: src/pages/BuyGMX/BuyGMX.tsx
 msgid "Buy GMX from Traderjoe:"
 msgstr ""
@@ -463,6 +446,10 @@ msgstr ""
 msgid "Buy GMX on {0}"
 msgstr ""
 
+#: src/pages/Buy/Buy.js
+msgid "Buy GMX or GLP"
+msgstr "GMX 혹은 GLP 구매"
+
 #: src/pages/BuyGMX/BuyGMX.tsx
 msgid "Buy GMX using Decentralized Exchange Aggregators:"
 msgstr ""
@@ -473,6 +460,19 @@ msgstr ""
 
 #: src/pages/BuyGMX/BuyGMX.tsx
 msgid "Buy GMX using any token from any network:"
+msgstr ""
+
+#: src/components/Glp/GlpSwap.js
+msgid "Buy failed."
+msgstr "구매 실패"
+
+#: src/components/TokenCard/TokenCard.js
+#: src/components/TokenCard/TokenCard.js
+msgid "Buy on Base"
+msgstr "에서 구매"
+
+#: src/pages/Stake/StakeV2.js
+msgid "Buy on Goerli"
 msgstr ""
 
 #: src/pages/BuyGMX/BuyGMX.tsx
