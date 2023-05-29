@@ -9,7 +9,7 @@ import Footer from "components/Footer/Footer";
 
 import Vault from "abis/Vault.json";
 import ReaderV2 from "abis/ReaderV2.json";
-import Vester from "abis/Vester.json";
+import Vester from "abis/VesterV2.json";
 import RewardRouter from "abis/RewardRouter.json";
 import RewardReader from "abis/RewardReader.json";
 import Token from "abis/Token.json";

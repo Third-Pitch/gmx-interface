@@ -2,7 +2,7 @@ import useSWR from "swr";
 import { arrayURLFetcher } from "lib/legacy";
 import { BASE, AVALANCHE } from "config/chains";
 import { getServerUrl } from "config/backend";
-const ACTIVE_CHAIN_IDS = [BASE, AVALANCHE];
+const ACTIVE_CHAIN_IDS = [BASE];
 
 export function useFeesSummary() {
   const { data: feesSummary } = useSWR(

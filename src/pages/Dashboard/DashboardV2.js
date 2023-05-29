@@ -583,7 +583,7 @@ export default function DashboardV2() {
                     <Trans>Total Fees</Trans>
                   </div>
                   <div>
-                    {`$${numberWithCommas(totalFees?.[chainId])}`}
+                    {`$${formatAmount(totalFees?.[chainId],30,0,true)}`}
                   </div>
                 </div>
                 <div className="App-card-row">
