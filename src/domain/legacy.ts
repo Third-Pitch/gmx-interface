@@ -489,28 +489,15 @@ export function useTotalEddxSupply() {
 }
 
 export function useTotalEddxStaked() {
-  const stakedEddxTrackerAddressArbitrum = getContract(BASE, "StakedEddxTracker");
-  const stakedEddxTrackerAddressAvax = getContract(AVALANCHE, "StakedEddxTracker");
+  const stakedEddxTrackerAddress = getContract(BASE, "StakedEddxTracker");
   let totalStakedEddx = useRef(bigNumberify(0));
-  const { data: stakedEddxSupplyArbitrum, mutate: updateStakedEddxSupplyArbitrum } = useSWR<BigNumber>(
+  const { data: stakedEddxSupply, mutate: updateStakedEddxSupply } = useSWR<BigNumber>(
     [
       `StakeV2:stakedEddxSupply:${BASE}`,
       BASE,
       getContract(BASE, "EDDX"),
       "balanceOf",
-      stakedEddxTrackerAddressArbitrum,
-    ],
-    {
-      fetcher: contractFetcher(undefined, Token),
-    }
-  );
-  const { data: stakedEddxSupplyAvax, mutate: updateStakedEddxSupplyAvax } = useSWR<BigNumber>(
-    [
-      `StakeV2:stakedEddxSupply:${AVALANCHE}`,
-      AVALANCHE,
-      getContract(AVALANCHE, "EDDX"),
-      "balanceOf",
-      stakedEddxTrackerAddressAvax,
+      stakedEddxTrackerAddress,
     ],
     {
       fetcher: contractFetcher(undefined, Token),
@@ -518,18 +505,15 @@ export function useTotalEddxStaked() {
   );
 
   const mutate = useCallback(() => {
-    updateStakedEddxSupplyArbitrum();
-    updateStakedEddxSupplyAvax();
-  }, [updateStakedEddxSupplyArbitrum, updateStakedEddxSupplyAvax]);
+    updateStakedEddxSupply();
+  }, [updateStakedEddxSupply]);
 
-  if (stakedEddxSupplyArbitrum && stakedEddxSupplyAvax) {
-    let total = bigNumberify(stakedEddxSupplyArbitrum)!.add(stakedEddxSupplyAvax);
+  if (stakedEddxSupply) {
+    let total = bigNumberify(stakedEddxSupply);
     totalStakedEddx.current = total;
   }
 
   return {
-    avax: stakedEddxSupplyAvax,
-    arbitrum: stakedEddxSupplyArbitrum,
     total: totalStakedEddx.current,
     mutate,
   };

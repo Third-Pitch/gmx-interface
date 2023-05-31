@@ -217,7 +217,7 @@ export default function DashboardV2() {
 
   let { total: totalEddxInLiquidity } = useTotalEddxInLiquidity(chainId, active);
 
-  let { avax: avaxStakedEddx, arbitrum: arbitrumStakedEddx, total: totalStakedEddx } = useTotalEddxStaked();
+  let { total: totalStakedEddx } = useTotalEddxStaked();
 
   let eddxMarketCap;
   if (eddxPrice && totalEddxSupply) {
@@ -251,9 +251,9 @@ export default function DashboardV2() {
     tvl = elpMarketCap.add(eddxPrice.mul(totalStakedEddx).div(expandDecimals(1, EDDX_DECIMALS)));
   }
 
-  const ethFloorPriceFund = expandDecimals(350 + 148 + 384, 18);
-  const elpFloorPriceFund = expandDecimals(660001, 18);
-  const usdcFloorPriceFund = expandDecimals(784598 + 200000, 30);
+  const ethFloorPriceFund = expandDecimals(0, 18);
+  const elpFloorPriceFund = expandDecimals(0, 18);
+  const usdcFloorPriceFund = expandDecimals(0, 30);
 
   let totalFloorPriceFundUsd;
 

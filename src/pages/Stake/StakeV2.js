@@ -1085,7 +1085,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
 
   let { total: totalEddxSupply } = useTotalEddxSupply();
 
-  let { avax: avaxEddxStaked, arbitrum: arbitrumEddxStaked, total: totalEddxStaked } = useTotalEddxStaked();
+  let { total: totalEddxStaked } = useTotalEddxStaked();
 
   const eddxSupplyUrl = getServerUrl(chainId, "/eddx_supply");
   const { data: eddxSupply } = useSWR([eddxSupplyUrl], {
@@ -1142,7 +1142,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
 
   const bonusEddxInFeeEddx = processedData ? processedData.bonusEddxInFeeEddx : undefined;
 
-  let stakedEddxSupplyUsd;
+  let stakedEddxSupplyUsd = 0;
   if (!totalEddxStaked.isZero() && eddxPrice) {
     stakedEddxSupplyUsd = totalEddxStaked.mul(eddxPrice).div(expandDecimals(1, 18));
   }
