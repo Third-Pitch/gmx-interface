@@ -386,8 +386,8 @@ function VesterDepositModal(props) {
   const onClickPrimary = () => {
     setIsDepositing(true);
     const contract = new ethers.Contract(vesterAddress, Vester.abi, library.getSigner());
-// todo 修改页面，增加vest的月份参数
-    const months = 0;
+// todo 修改页面，增加vest的月份参数，值范围>=0 <=12
+    const months = 1;
     callContract(chainId, contract, "deposit", [amount,months], {
       sentMsg: t`Deposit submitted!`,
       failMsg: t`Deposit failed!`,
