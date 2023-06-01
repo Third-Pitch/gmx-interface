@@ -1707,7 +1707,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
             </div>
           </div>
           <div className="App-card">
-            <div className="App-card-title">ELP ({chainName})</div>
+            <div className="App-card-title">ELP</div>
             <div className="App-card-divider"></div>
             <div className="App-card-content">
               <div className="App-card-row">
