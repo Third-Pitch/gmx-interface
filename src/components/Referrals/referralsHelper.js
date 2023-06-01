@@ -23,33 +23,22 @@ export function isRecentReferralCodeNotExpired(referralCodeInfo) {
 
 export async function getReferralCodeTakenStatus(account, referralCode, chainId) {
   const referralCodeBytes32 = encodeReferralCode(referralCode);
-  const [ownerArbitrum, ownerAvax] = await Promise.all([
+  const [ownerBase] = await Promise.all([
     getReferralCodeOwner(BASE, referralCodeBytes32),
-    getReferralCodeOwner(AVALANCHE, referralCodeBytes32),
   ]);
 
-  const takenOnArb =
-    !isAddressZero(ownerArbitrum) && (ownerArbitrum !== account || (ownerArbitrum === account && chainId === BASE));
-  const takenOnAvax =
-    !isAddressZero(ownerAvax) && (ownerAvax !== account || (ownerAvax === account && chainId === AVALANCHE));
+  const takenOnBase =
+    !isAddressZero(ownerBase) && (ownerBase !== account || (ownerBase === account && chainId === BASE));
 
   const referralCodeTakenInfo = {
-    [BASE]: takenOnArb,
-    [AVALANCHE]: takenOnAvax,
-    both: takenOnArb && takenOnAvax,
-    ownerArbitrum,
-    ownerAvax,
+    [BASE]: takenOnBase,
   };
 
-  if (referralCodeTakenInfo.both) {
-    return { status: "all", info: referralCodeTakenInfo };
-  }
+
   if (referralCodeTakenInfo[chainId]) {
     return { status: "current", info: referralCodeTakenInfo };
   }
-  if (chainId === AVALANCHE ? referralCodeTakenInfo[BASE] : referralCodeTakenInfo[AVALANCHE]) {
-    return { status: "other", info: referralCodeTakenInfo };
-  }
+
   return { status: "none", info: referralCodeTakenInfo };
 }
 

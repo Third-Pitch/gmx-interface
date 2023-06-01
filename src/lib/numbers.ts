@@ -1,4 +1,5 @@
 import { BigNumber, BigNumberish, ethers } from "ethers";
+import {BigNumber as BN} from "bignumber.js";
 
 export function bigNumberify(n: BigNumberish) {
   try {
@@ -70,6 +71,7 @@ export const formatAmount = (
   if (displayDecimals === undefined) {
     displayDecimals = 4;
   }
+  amount = new BN(amount.toString()).toFixed()
   let amountStr = ethers.utils.formatUnits(amount, tokenDecimals);
   amountStr = limitDecimals(amountStr, displayDecimals);
   if (displayDecimals !== 0) {

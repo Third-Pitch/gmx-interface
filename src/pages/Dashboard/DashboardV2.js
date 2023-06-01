@@ -208,8 +208,8 @@ export default function DashboardV2() {
       },
       { total: 0 }
     );
-
-  const { eddxPrice, eddxPriceFromArbitrum, eddxPriceFromAvalanche } = useEddxPrice(
+console.log((totalFees?.[chainId]).toString(10))
+  const { eddxPrice } = useEddxPrice(
     chainId,
     { arbitrum: chainId === BASE ? library : undefined },
     active
