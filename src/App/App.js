@@ -118,17 +118,14 @@ const Zoom = cssTransition({
   duration: 200,
 });
 
-const arbWsProvider = new ethers.providers.WebSocketProvider(getAlchemyWsUrl());
-
-const avaxWsProvider = new ethers.providers.JsonRpcProvider("https://api.avax.network/ext/bc/C/rpc");
-avaxWsProvider.pollingInterval = 2000;
+const baseWsProvider = new ethers.providers.WebSocketProvider(getAlchemyWsUrl());
 
 function getWsProvider(active, chainId) {
   if (!active) {
     return;
   }
   if (chainId === BASE) {
-    return arbWsProvider;
+    return baseWsProvider;
   }
 
 }

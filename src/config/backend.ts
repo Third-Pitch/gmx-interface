@@ -1,14 +1,14 @@
 import { BASE } from "./chains";
 
 // export const GMX_STATS_API_URL = "https://stats.gmx.io/api";
-export const EDDX_STATS_API_URL = "http://127.0.0.1:3113/api";
+export const EDDX_STATS_API_URL = "http://192.168.1.117:3113/api";
 
 const BACKEND_URLS = {
-  default: "http://127.0.0.1:3123/api",
+  default: "http://192.168.1.117:3123/api",
 
   // [MAINNET]: "https://gambit-server-staging.uc.r.appspot.com",
   // [ARBITRUM_TESTNET]: "https://gambit-server-devnet.uc.r.appspot.com",
-  [BASE]: "http://127.0.0.1:3123/api",
+  [BASE]: "http://192.168.1.117:3123/api",
   // [AVALANCHE]: "https://gmx-avax-server.uc.r.appspot.com",
 };
 

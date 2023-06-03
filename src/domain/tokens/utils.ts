@@ -15,6 +15,7 @@ import { getVisibleTokens, getWhitelistedTokens } from "config/tokens";
 import { getExplorerUrl } from "config/chains";
 import { InfoTokens, Token, TokenInfo } from "./types";
 import { bigNumberify, expandDecimals } from "lib/numbers";
+import { getAddress } from "ethers/lib/utils";
 
 const { AddressZero } = ethers.constants;
 
@@ -115,7 +116,7 @@ export function getTokenInfo(
     return infoTokens[AddressZero];
   }
 
-  return infoTokens[tokenAddress];
+  return infoTokens[getAddress(tokenAddress)];
 }
 
 export function getLowestFeeTokenForBuyElp(

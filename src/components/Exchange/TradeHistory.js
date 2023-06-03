@@ -153,7 +153,7 @@ export default function TradeHistory(props) {
         if (!token) {
           return defaultMsg;
         }
-        return t`Swap ${formatAmount(params.tokenAmount, token.decimals, 4, true)} ${token.symbol} for ${formatAmount(
+        return t`Swap ${formatAmount(params.amount, token.decimals, 4, true)} ${token.symbol} for ${formatAmount(
           params.usdgAmount,
           18,
           4,
@@ -304,9 +304,8 @@ export default function TradeHistory(props) {
           return defaultMsg;
         }
         if (bigNumberify(params.sizeDelta).eq(0)) {
-          return t`Deposit ${formatAmount(params.collateralDelta, USD_DECIMALS, 2, true)} USD into ${
-            indexToken.symbol
-          } ${longOrShortText}`;
+          return t`Deposit ${formatAmount(params.collateralDelta, USD_DECIMALS, 2, true)} USD into ${indexToken.symbol
+            } ${longOrShortText}`;
         }
         return t`Increase ${indexToken.symbol} ${longOrShortText}, +${formatAmount(
           params.sizeDelta,
@@ -326,9 +325,8 @@ export default function TradeHistory(props) {
           return defaultMsg;
         }
         if (bigNumberify(params.sizeDelta).eq(0)) {
-          return t`Withdraw ${formatAmount(params.collateralDelta, USD_DECIMALS, 2, true)} USD from ${
-            indexToken.symbol
-          } ${longOrShortText}`;
+          return t`Withdraw ${formatAmount(params.collateralDelta, USD_DECIMALS, 2, true)} USD from ${indexToken.symbol
+            } ${longOrShortText}`;
         }
         const isLiquidation = params.flags?.isLiquidation;
         const liquidationData = getLiquidationData(liquidationsDataMap, params.key, tradeData.timestamp);
@@ -480,7 +478,7 @@ export default function TradeHistory(props) {
       {tradesWithMessages.length > 0 &&
         tradesWithMessages.map((trade, index) => {
           const tradeData = trade.data;
-          const txUrl = getExplorerUrl(chainId) + "tx/" + tradeData.txhash;
+          const txUrl = getExplorerUrl(chainId) + "tx/" + tradeData.txHash;
 
           let msg = getMsg(trade);
 
