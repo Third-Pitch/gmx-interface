@@ -1,4 +1,4 @@
-import { BASE, ARBITRUM_TESTNET, AVALANCHE, MAINNET } from "./chains";
+import { BASE } from "./chains";
 
 // export const GMX_STATS_API_URL = "https://stats.gmx.io/api";
 export const EDDX_STATS_API_URL = "http://127.0.0.1:3113/api";

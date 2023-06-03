@@ -1,131 +1,9 @@
 import { ethers } from "ethers";
 import { getContract } from "./contracts";
-import { BASE, ARBITRUM_TESTNET, AVALANCHE, AVALANCHE_FUJI, MAINNET, TESTNET } from "./chains";
+import { BASE, ARBITRUM_TESTNET, AVALANCHE, AVALANCHE_FUJI } from "./chains";
 import { Token } from "domain/tokens";
 
 export const TOKENS: { [chainId: number]: Token[] } = {
-  [MAINNET]: [
-    {
-      name: "Bitcoin (BTCB)",
-      symbol: "BTC",
-      decimals: 18,
-      address: "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
-      coingeckoUrl: "https://www.coingecko.com/en/coins/binance-bitcoin",
-      imageUrl: "https://assets.coingecko.com/coins/images/14108/small/Binance-bitcoin.png",
-    },
-    {
-      name: "Ethereum",
-      symbol: "ETH",
-      decimals: 18,
-      address: "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
-      coingeckoUrl: "https://www.coingecko.com/en/coins/ethereum",
-      imageUrl: "https://assets.coingecko.com/coins/images/279/small/ethereum.png",
-    },
-    {
-      name: "Binance Coin",
-      symbol: "BNB",
-      decimals: 18,
-      address: ethers.constants.AddressZero,
-      coingeckoUrl: "https://www.coingecko.com/en/coins/binance-coin",
-      imageUrl: "https://assets.coingecko.com/coins/images/825/small/binance-coin-logo.png",
-      isNative: true,
-    },
-    {
-      name: "Wrapped Binance Coin",
-      symbol: "WBNB",
-      decimals: 18,
-      address: getContract(MAINNET, "NATIVE_TOKEN"),
-      isWrapped: true,
-      coingeckoUrl: "https://www.coingecko.com/en/coins/binance-coin",
-      imageUrl: "https://assets.coingecko.com/coins/images/825/small/binance-coin-logo.png",
-      baseSymbol: "BNB",
-    },
-    {
-      name: "USD Gambit",
-      symbol: "USDG",
-      decimals: 18,
-      address: getContract(MAINNET, "USDG"),
-      isUsdg: true,
-      coingeckoUrl: "https://www.coingecko.com/en/coins/usd-gambit",
-      imageUrl: "https://assets.coingecko.com/coins/images/15886/small/usdg-02.png",
-    },
-    {
-      name: "Binance USD",
-      symbol: "BUSD",
-      decimals: 18,
-      address: "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
-      isStable: true,
-      coingeckoUrl: "https://www.coingecko.com/en/coins/binance-usd",
-      imageUrl: "https://assets.coingecko.com/coins/images/9576/small/BUSD.png",
-    },
-    {
-      name: "USD Coin",
-      symbol: "USDC",
-      decimals: 18,
-      address: "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
-      isStable: true,
-      coingeckoUrl: "https://www.coingecko.com/en/coins/usd-coin",
-      imageUrl: "https://assets.coingecko.com/coins/images/6319/small/USD_Coin_icon.png",
-    },
-    {
-      name: "Tether",
-      symbol: "USDT",
-      decimals: 18,
-      address: "0x55d398326f99059fF775485246999027B3197955",
-      isStable: true,
-      coingeckoUrl: "https://www.coingecko.com/en/coins/tether",
-      imageUrl: "https://assets.coingecko.com/coins/images/325/small/Tether-logo.png",
-    },
-  ],
-  [TESTNET]: [
-    {
-      name: "Bitcoin (BTCB)",
-      symbol: "BTC",
-      decimals: 8,
-      address: "0xb19C12715134bee7c4b1Ca593ee9E430dABe7b56",
-      imageUrl: "https://assets.coingecko.com/coins/images/26115/thumb/btcb.png?1655921693",
-    },
-    {
-      name: "Ethereum",
-      symbol: "ETH",
-      decimals: 18,
-      address: "0x1958f7C067226c7C8Ac310Dc994D0cebAbfb2B02",
-      imageUrl: "https://assets.coingecko.com/coins/images/279/small/ethereum.png?1595348880",
-    },
-    {
-      name: "Binance Coin",
-      symbol: "BNB",
-      decimals: 18,
-      address: ethers.constants.AddressZero,
-      isNative: true,
-      imageUrl: "https://assets.coingecko.com/coins/images/825/small/binance-coin-logo.png",
-    },
-    {
-      name: "Wrapped Binance Coin",
-      symbol: "WBNB",
-      decimals: 18,
-      address: "0x612777Eea37a44F7a95E3B101C39e1E2695fa6C2",
-      isWrapped: true,
-      baseSymbol: "BNB",
-      imageUrl: "https://assets.coingecko.com/coins/images/825/small/binance-coin-logo.png",
-    },
-    {
-      name: "USD Gambit",
-      symbol: "USDG",
-      decimals: 18,
-      address: getContract(TESTNET, "USDG"),
-      isUsdg: true,
-      imageUrl: "https://assets.coingecko.com/coins/images/15886/small/usdg-02.png",
-    },
-    {
-      name: "Binance USD",
-      symbol: "BUSD",
-      decimals: 18,
-      address: "0x3F223C4E5ac67099CB695834b20cCd5E5D5AA9Ef",
-      isStable: true,
-      imageUrl: "https://assets.coingecko.com/coins/images/9576/small/BUSD.png",
-    },
-  ],
   [ARBITRUM_TESTNET]: [
     {
       name: "Bitcoin",
@@ -465,7 +343,7 @@ export const ICONLINKS = {
       arbitrum: "https://arbiscan.io/address/0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
     },
   },
-  [AVALANCHE]:  {
+  [AVALANCHE]: {
     EDDX: {
       coingecko: "https://www.coingecko.com/en/coins/eddx",
       arbitrum: "https://arbiscan.io/address/0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a",
@@ -545,7 +423,7 @@ export const TOKENS_BY_SYMBOL_MAP: { [chainId: number]: { [symbol: string]: Toke
 export const WRAPPED_TOKENS_MAP: { [chainId: number]: Token } = {};
 export const NATIVE_TOKENS_MAP: { [chainId: number]: Token } = {};
 
-const CHAIN_IDS = [MAINNET, TESTNET, BASE, ARBITRUM_TESTNET, AVALANCHE, AVALANCHE_FUJI];
+const CHAIN_IDS = [BASE, ARBITRUM_TESTNET, AVALANCHE, AVALANCHE_FUJI];
 
 for (let j = 0; j < CHAIN_IDS.length; j++) {
   const chainId = CHAIN_IDS[j];

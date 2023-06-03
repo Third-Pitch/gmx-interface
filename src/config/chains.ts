@@ -5,8 +5,6 @@ import { isDevelopment } from "./env";
 
 const { parseEther } = ethers.utils;
 
-export const MAINNET = 56;
-export const TESTNET = 97;
 export const ETH_MAINNET = 1;
 export const AVALANCHE = 43114;
 export const AVALANCHE_FUJI = 43113;
@@ -30,8 +28,6 @@ export const IS_NETWORK_DISABLED = {
 };
 
 export const CHAIN_NAMES_MAP = {
-  [MAINNET]: "BSC",
-  [TESTNET]: "BSC Testnet",
   [ARBITRUM_TESTNET]: "ArbRinkeby",
   [BASE]: "Base",
   [AVALANCHE]: "Avalanche",
@@ -53,21 +49,6 @@ export const HIGH_EXECUTION_FEES_MAP = {
 };
 
 const constants = {
-  [MAINNET]: {
-    nativeTokenSymbol: "BNB",
-    defaultCollateralSymbol: "BUSD",
-    defaultFlagOrdersEnabled: false,
-    positionReaderPropsLength: 8,
-    v2: false,
-  },
-
-  [TESTNET]: {
-    nativeTokenSymbol: "BNB",
-    defaultCollateralSymbol: "BUSD",
-    defaultFlagOrdersEnabled: true,
-    positionReaderPropsLength: 8,
-    v2: false,
-  },
 
   [ARBITRUM_TESTNET]: {
     nativeTokenSymbol: "ETH",
@@ -89,7 +70,7 @@ const constants = {
     defaultFlagOrdersEnabled: false,
     positionReaderPropsLength: 9,
     v2: true,
-     // TODO 修改手续费
+    // TODO 修改手续费
     SWAP_ORDER_EXECUTION_GAS_FEE: parseEther("0.01"),
     INCREASE_ORDER_EXECUTION_GAS_FEE: parseEther("0.01"),
     // contract requires that execution fee be strictly greater than instead of gte
@@ -133,22 +114,6 @@ const ALCHEMY_WHITELISTED_DOMAINS = ["eddx.io", "app.eddx.io"];
 
 export const RPC_PROVIDERS = {
   [ETH_MAINNET]: ["https://rpc.ankr.com/eth"],
-  [MAINNET]: [
-    "https://bsc-dataseed.binance.org",
-    "https://bsc-dataseed1.defibit.io",
-    "https://bsc-dataseed1.ninicoin.io",
-    "https://bsc-dataseed2.defibit.io",
-    "https://bsc-dataseed3.defibit.io",
-    "https://bsc-dataseed4.defibit.io",
-    "https://bsc-dataseed2.ninicoin.io",
-    "https://bsc-dataseed3.ninicoin.io",
-    "https://bsc-dataseed4.ninicoin.io",
-    "https://bsc-dataseed1.binance.org",
-    "https://bsc-dataseed2.binance.org",
-    "https://bsc-dataseed3.binance.org",
-    "https://bsc-dataseed4.binance.org",
-  ],
-  [TESTNET]: ["https://data-seed-prebsc-1-s1.binance.org:8545/"],
   [BASE]: [getDefaultArbitrumRpcUrl()],
   [ARBITRUM_TESTNET]: ["https://rinkeby.arbitrum.io/rpc"],
   [AVALANCHE]: ["https://api.avax.network/ext/bc/C/rpc"],
@@ -161,28 +126,7 @@ export const FALLBACK_PROVIDERS = {
 };
 
 export const NETWORK_METADATA: { [chainId: number]: NetworkMetadata } = {
-  [MAINNET]: {
-    chainId: "0x" + MAINNET.toString(16),
-    chainName: "BSC",
-    nativeCurrency: {
-      name: "BNB",
-      symbol: "BNB",
-      decimals: 18,
-    },
-    rpcUrls: RPC_PROVIDERS[MAINNET],
-    blockExplorerUrls: ["https://bscscan.com"],
-  },
-  [TESTNET]: {
-    chainId: "0x" + TESTNET.toString(16),
-    chainName: "BSC Testnet",
-    nativeCurrency: {
-      name: "BNB",
-      symbol: "BNB",
-      decimals: 18,
-    },
-    rpcUrls: RPC_PROVIDERS[TESTNET],
-    blockExplorerUrls: ["https://testnet.bscscan.com/"],
-  },
+
   [ARBITRUM_TESTNET]: {
     chainId: "0x" + ARBITRUM_TESTNET.toString(16),
     chainName: "Arbitrum Testnet",
@@ -277,10 +221,6 @@ export function getExplorerUrl(chainId) {
     return "https://ropsten.etherscan.io/";
   } else if (chainId === 42) {
     return "https://kovan.etherscan.io/";
-  } else if (chainId === MAINNET) {
-    return "https://bscscan.com/";
-  } else if (chainId === TESTNET) {
-    return "https://testnet.bscscan.com/";
   } else if (chainId === ARBITRUM_TESTNET) {
     return "https://testnet.arbiscan.io/";
   } else if (chainId === BASE) {

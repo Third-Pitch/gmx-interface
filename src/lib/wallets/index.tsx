@@ -8,7 +8,6 @@ import {
   DEFAULT_CHAIN_ID,
   getChainName,
   getRpcUrl,
-  MAINNET,
   NETWORK_METADATA,
   SUPPORTED_CHAIN_IDS,
 } from "config/chains";
@@ -225,10 +224,6 @@ export function useInactiveListener(suppress = false) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active, error, suppress, activate]);
 }
-
-export const addBscNetwork = async () => {
-  return addNetwork(NETWORK_METADATA[MAINNET]);
-};
 
 export const addNetwork = async (metadata: NetworkMetadata) => {
   await window.ethereum.request({ method: "wallet_addEthereumChain", params: [metadata] }).catch();
