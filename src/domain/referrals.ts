@@ -15,14 +15,13 @@ import { REFERRAL_CODE_KEY } from "config/localStorage";
 import { getProvider } from "lib/rpc";
 import { bigNumberify } from "lib/numbers";
 
-const ACTIVE_CHAINS = [BASE];
 const DISTRIBUTION_TYPE_REBATES = "1";
 const DISTRIBUTION_TYPE_DISCOUNT = "2";
 
 function getGraphClient(chainId) {
   if (chainId === BASE) {
     return arbitrumReferralsGraphClient;
-  } 
+  }
   throw new Error(`Unsupported chain ${chainId}`);
 }
 
@@ -91,30 +90,24 @@ export function useUserCodesOnAllChain(account) {
   `;
   useEffect(() => {
     async function main() {
-      const [arbitrumCodes, avalancheCodes] = await Promise.all(
-        ACTIVE_CHAINS.map((chainId) => {
-          return getGraphClient(chainId)
-            .query({ query, variables: { account: (account || "").toLowerCase() } })
-            .then(({ data }) => {
-              return data.referralCodes.map((c) => c.code);
-            });
+      const arbitrumCodes = await arbitrumReferralsGraphClient
+        .query({ query, variables: { account: (account || "").toLowerCase() } })
+        .then(({ data }) => {
+          return data.referralCodes.map((c) => c.code);
         })
-      );
       // TODO 这里可能是写反了
-      const [codeOwnersOnAvax = []] = await Promise.all([
-        getCodeOwnersData(BASE, account, avalancheCodes),
-      ]);
+      const codeOwners = await getCodeOwnersData(BASE, account, arbitrumCodes);
 
       setData({
-        [BASE]: codeOwnersOnAvax.reduce((acc, cv) => {
+        [BASE]: (codeOwners || []).reduce((acc, cv) => {
           acc[cv.code] = cv;
           return acc;
         }, {} as any),
 
       });
     }
-
-    main();
+    if (account)
+      main();
   }, [account, query]);
   return data;
 }
@@ -262,13 +255,13 @@ export function useReferralsData(chainId, account) {
           codes: res.data.referralCodes.map((e) => decodeReferralCode(e.code)),
           referralTotalStats: res.data.referralTotalStats
             ? {
-                volume: bigNumberify(res.data.referralTotalStats.volume),
-                discountUsd: bigNumberify(res.data.referralTotalStats.discountUsd),
-              }
+              volume: bigNumberify(res.data.referralTotalStats.volume),
+              discountUsd: bigNumberify(res.data.referralTotalStats.discountUsd),
+            }
             : {
-                volume: bigNumberify(0),
-                discountUsd: bigNumberify(0),
-              },
+              volume: bigNumberify(0),
+              discountUsd: bigNumberify(0),
+            },
         });
       })
       // eslint-disable-next-line no-console
