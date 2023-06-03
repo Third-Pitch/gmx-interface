@@ -7,6 +7,7 @@ const { parseEther } = ethers.utils;
 
 export const ETH_MAINNET = 1;
 export const BASE = 84531;
+
 export const FEES_HIGH_BPS = 50;
 
 // TODO take it from web3

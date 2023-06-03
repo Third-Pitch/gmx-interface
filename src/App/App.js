@@ -6,7 +6,7 @@ import { Web3Provider } from "@ethersproject/providers";
 import useScrollToTop from "lib/useScrollToTop";
 
 import { Switch, Route, HashRouter as Router, Redirect, useLocation, useHistory } from "react-router-dom";
-
+import Stake from "pages/Stake/Stake";
 import {
   DEFAULT_SLIPPAGE_AMOUNT,
   BASIS_POINTS_DIVISOR,
@@ -483,9 +483,9 @@ function FullApp() {
               <Route exact path="/stats">
                 <Stats />
               </Route>
-              {/* <Route exact path="/earn">
+              <Route exact path="/earn">
                 <Stake setPendingTxns={setPendingTxns} connectWallet={connectWallet} />
-              </Route> */}
+              </Route>
               <Route exact path="/buy">
                 <Buy
                   savedSlippageAmount={savedSlippageAmount}
