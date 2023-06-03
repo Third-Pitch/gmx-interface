@@ -1,8 +1,7 @@
-import { BASE, AVALANCHE } from "config/chains";
+import { BASE } from "config/chains";
 import { getContract } from "config/contracts";
 
 const ARBITRUM_EDDX = getContract(BASE, "EDDX").toLowerCase();
-const AVALANCHE_EDDX = getContract(AVALANCHE, "EDDX").toLowerCase();
 
 type Exchange = {
   name: string;
@@ -17,12 +16,6 @@ export const EXTERNAL_LINKS = {
       uniswap: `https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=${ARBITRUM_EDDX}`,
     },
   },
-  [AVALANCHE]: {
-    networkWebsite: "https://www.avax.network/",
-    buyEddx: {
-      traderjoe: `https://traderjoexyz.com/trade?outputCurrency=${AVALANCHE_EDDX}`,
-    },
-  },
 };
 
 export const FIAT_GATEWAYS: Exchange[] = [
@@ -31,7 +24,6 @@ export const FIAT_GATEWAYS: Exchange[] = [
     icon: "ic_binance.svg",
     links: {
       [BASE]: "https://www.binancecnt.com/en/buy-sell-crypto",
-      [AVALANCHE]: "https://www.binancecnt.com/en/buy-sell-crypto",
     },
   },
   {
@@ -39,7 +31,6 @@ export const FIAT_GATEWAYS: Exchange[] = [
     icon: "ic_banxa.svg",
     links: {
       [BASE]: "https://eddx.banxa.com/?coinType=EDDX&fiatType=USD&fiatAmount=500&blockchain=arbitrum",
-      [AVALANCHE]: "https://eddx.banxa.com/?coinType=EDDX&fiatType=USD&fiatAmount=500&blockchain=avalanche",
     },
   },
   {
@@ -58,7 +49,6 @@ export const EDDX_FROM_ANY_NETWORKS: Exchange[] = [
     icon: "ic_bungee.png",
     links: {
       [BASE]: `https://multitx.bungee.exchange/?toChainId=42161&toTokenAddress=${ARBITRUM_EDDX}`,
-      [AVALANCHE]: `https://multitx.bungee.exchange/?toChainId=43114&toTokenAddress=${AVALANCHE_EDDX}`,
     },
   },
   {
@@ -66,7 +56,6 @@ export const EDDX_FROM_ANY_NETWORKS: Exchange[] = [
     icon: "ic_o3.png",
     links: {
       [BASE]: `https://o3swap.com/swap?dst_chain=42161&dst_token_hash=${ARBITRUM_EDDX}`,
-      [AVALANCHE]: `https://o3swap.com/swap?dst_chain=43114&dst_token_hash=${AVALANCHE_EDDX}`,
     },
   },
 ];
@@ -77,7 +66,6 @@ export const BUY_NATIVE_TOKENS: Exchange[] = [
     icon: "ic_bungee.png",
     links: {
       [BASE]: `https://multitx.bungee.exchange/?fromChainId=1&fromTokenAddress=0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&toChainId=42161&toTokenAddress=0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee `,
-      [AVALANCHE]: `https://multitx.bungee.exchange/?fromChainId=1&fromTokenAddress=0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&toChainId=43114&toTokenAddress=0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee`,
     },
   },
   {
@@ -86,8 +74,6 @@ export const BUY_NATIVE_TOKENS: Exchange[] = [
     links: {
       [BASE]:
         "https://o3swap.com/swap?src_chain=1&dst_chain=42161&dst_token_hash=0x0000000000000000000000000000000000000000",
-      [AVALANCHE]:
-        "https://o3swap.com/swap?src_chain=1&dst_chain=43114&dst_token_hash=0x0000000000000000000000000000000000000000",
     },
   },
   {
@@ -95,7 +81,6 @@ export const BUY_NATIVE_TOKENS: Exchange[] = [
     icon: "ic_banxa.svg",
     links: {
       [BASE]: "https://eddx.banxa.com/?coinType=ETH&fiatType=USD&fiatAmount=500&blockchain=arbitrum",
-      [AVALANCHE]: "https://eddx.banxa.com/?coinType=AVAX&fiatType=USD&fiatAmount=500&blockchain=avalanche",
     },
   },
   {
@@ -104,8 +89,6 @@ export const BUY_NATIVE_TOKENS: Exchange[] = [
     links: {
       [BASE]:
         "https://global.transak.com/?apiKey=28a15a9b-d94e-4944-99cc-6aa35b45cc74&networks=arbitrum&isAutoFillUserData=true&hideMenu=true&isFeeCalculationHidden=true",
-      [AVALANCHE]:
-        "https://global.transak.com/?apiKey=28a15a9b-d94e-4944-99cc-6aa35b45cc74&networks=avaxcchain&defaultCryptoCurrency=AVAX&isAutoFillUserData=true&hideMenu=true&isFeeCalculationHidden=true",
     },
   },
 ];
@@ -116,7 +99,6 @@ export const TRANSFER_EXCHANGES: Exchange[] = [
     icon: "ic_binance.svg",
     links: {
       [BASE]: "https://www.binance.com/en/trade/",
-      [AVALANCHE]: "https://www.binance.com/en/trade/",
     },
   },
   {
@@ -124,7 +106,6 @@ export const TRANSFER_EXCHANGES: Exchange[] = [
     icon: "ic_synapse.svg",
     links: {
       [BASE]: "https://synapseprotocol.com/?inputCurrency=ETH&outputCurrency=ETH&outputChain=42161",
-      [AVALANCHE]: "https://synapseprotocol.com/",
     },
   },
   {
@@ -138,7 +119,6 @@ export const TRANSFER_EXCHANGES: Exchange[] = [
     name: "Avalanche",
     icon: "ic_avax_30.svg",
     links: {
-      [AVALANCHE]: "https://bridge.avax.network/",
     },
   },
   {
@@ -152,8 +132,6 @@ export const TRANSFER_EXCHANGES: Exchange[] = [
     links: {
       [BASE]:
         "https://multitx.bungee.exchange/?fromChainId=1&fromTokenAddress=0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&toChainId=42161&toTokenAddress=0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
-      [AVALANCHE]:
-        "https://multitx.bungee.exchange/?fromChainId=1&fromTokenAddress=0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&toChainId=43114&toTokenAddress=0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
     },
   },
   {
@@ -161,7 +139,6 @@ export const TRANSFER_EXCHANGES: Exchange[] = [
     icon: "ic_multichain.svg",
     links: {
       [BASE]: "https://app.multichain.org/#/router",
-      [AVALANCHE]: "https://app.multichain.org/#/router",
     },
   },
   {
@@ -170,8 +147,6 @@ export const TRANSFER_EXCHANGES: Exchange[] = [
     links: {
       [BASE]:
         "https://o3swap.com/swap?src_chain=1&dst_chain=42161&dst_token_hash=0x0000000000000000000000000000000000000000",
-      [AVALANCHE]:
-        "https://o3swap.com/swap?src_chain=1&dst_chain=43114&dst_token_hash=0x0000000000000000000000000000000000000000",
     },
   },
   {
@@ -187,7 +162,6 @@ export const CENTRALISED_EXCHANGES: Exchange[] = [
     icon: "ic_binance.svg",
     links: {
       [BASE]: "https://www.binance.com/en/trade/EDDX_USDT",
-      [AVALANCHE]: "https://www.binance.com/en/trade/EDDX_USDT",
     },
   },
   {
@@ -195,7 +169,6 @@ export const CENTRALISED_EXCHANGES: Exchange[] = [
     icon: "ic_bybit.svg",
     links: {
       [BASE]: "https://www.bybit.com/en-US/trade/spot/EDDX/USDT",
-      [AVALANCHE]: "https://www.bybit.com/en-US/trade/spot/EDDX/USDT",
     },
   },
   {
@@ -203,7 +176,6 @@ export const CENTRALISED_EXCHANGES: Exchange[] = [
     icon: "ic_kucoin.svg",
     links: {
       [BASE]: "https://www.kucoin.com/trade/EDDX-USDT",
-      [AVALANCHE]: "https://www.kucoin.com/trade/EDDX-USDT",
     },
   },
   {
@@ -211,7 +183,6 @@ export const CENTRALISED_EXCHANGES: Exchange[] = [
     icon: "ic_huobi.svg",
     links: {
       [BASE]: "https://www.huobi.com/en-us/exchange/eddx_usdt/",
-      [AVALANCHE]: "https://www.huobi.com/en-us/exchange/eddx_usdt/",
     },
   },
 ];
@@ -222,7 +193,6 @@ export const DECENTRALISED_AGGRIGATORS: Exchange[] = [
     icon: "ic_1inch.svg",
     links: {
       [BASE]: "https://app.1inch.io/#/42161/unified/swap/ETH/EDDX",
-      [AVALANCHE]: "https://app.1inch.io/#/43114/unified/swap/AVAX/EDDX",
     },
   },
   {
@@ -230,7 +200,6 @@ export const DECENTRALISED_AGGRIGATORS: Exchange[] = [
     icon: "ic_matcha.png",
     links: {
       [BASE]: `https://www.matcha.xyz/markets/42161/${ARBITRUM_EDDX}`,
-      [AVALANCHE]: `https://www.matcha.xyz/markets/43114/${AVALANCHE_EDDX}`,
     },
   },
   {
@@ -238,7 +207,6 @@ export const DECENTRALISED_AGGRIGATORS: Exchange[] = [
     icon: "ic_paraswap.svg",
     links: {
       [BASE]: `https://app.paraswap.io/#/${ARBITRUM_EDDX}?network=arbitrum`,
-      [AVALANCHE]: `https://app.paraswap.io/#/${AVALANCHE_EDDX}?network=avalanche`,
     },
   },
   {
@@ -246,7 +214,6 @@ export const DECENTRALISED_AGGRIGATORS: Exchange[] = [
     icon: "ic_kyberswap.svg",
     links: {
       [BASE]: "https://kyberswap.com/swap/arbitrum/eth-to-eddx",
-      [AVALANCHE]: "https://kyberswap.com/swap/avalanche/avax-to-eddx",
     },
   },
   {
@@ -254,7 +221,6 @@ export const DECENTRALISED_AGGRIGATORS: Exchange[] = [
     icon: "ic_openocean.svg",
     links: {
       [BASE]: "https://app.openocean.finance/CLASSIC#/ARBITRUM/ETH/EDDX",
-      [AVALANCHE]: "https://app.openocean.finance/CLASSIC#/AVAX/AVAX/EDDX",
     },
   },
   {
@@ -262,7 +228,6 @@ export const DECENTRALISED_AGGRIGATORS: Exchange[] = [
     icon: "ic_dodo.svg",
     links: {
       [BASE]: `https://app.dodoex.io/?from=ETH&to=${ARBITRUM_EDDX}&network=arbitrum`,
-      [AVALANCHE]: `https://app.dodoex.io/?from=AVAX&to=${AVALANCHE_EDDX}&network=avalanche`,
     },
   },
   {
@@ -274,7 +239,6 @@ export const DECENTRALISED_AGGRIGATORS: Exchange[] = [
     name: "Yieldyak",
     icon: "ic_yield_yak.png",
     links: {
-      [AVALANCHE]: `https://yieldyak.com/swap?outputCurrency=${AVALANCHE_EDDX}`,
     },
   },
   {
@@ -282,7 +246,6 @@ export const DECENTRALISED_AGGRIGATORS: Exchange[] = [
     icon: "ic_firebird.png",
     links: {
       [BASE]: "https://app.firebird.finance/swap",
-      [AVALANCHE]: "https://app.firebird.finance/swap",
     },
   },
   {
@@ -290,7 +253,6 @@ export const DECENTRALISED_AGGRIGATORS: Exchange[] = [
     icon: "ic_odos.png",
     links: {
       [BASE]: "https://app.odos.xyz/swap/42161/ETH/EDDX",
-      [AVALANCHE]: "https://app.odos.xyz/swap/43114/AVAX/EDDX",
     },
   },
 ];

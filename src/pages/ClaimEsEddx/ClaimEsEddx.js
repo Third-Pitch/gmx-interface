@@ -17,7 +17,7 @@ import arbitrumIcon from "img/ic_arbitrum_96.svg";
 import avaIcon from "img/ic_avalanche_96.svg";
 
 import { Trans, t } from "@lingui/macro";
-import { BASE, AVALANCHE } from "config/chains";
+import { BASE } from "config/chains";
 import { callContract, contractFetcher } from "lib/contracts";
 import { bigNumberify, formatAmount, formatAmountFree, parseValue } from "lib/numbers";
 import { useChainId } from "lib/chains";
@@ -151,10 +151,8 @@ export default function ClaimEsEddx({ setPendingTxns }) {
   );
 
   const arbRewardReaderAddress = getContract(BASE, "RewardReader");
-  const avaxRewardReaderAddress = getContract(AVALANCHE, "RewardReader");
 
   const arbVesterAdddresses = [getContract(BASE, "EddxVester"), getContract(BASE, "ElpVester")];
-  const avaxVesterAdddresses = [getContract(AVALANCHE, "EddxVester"), getContract(AVALANCHE, "ElpVester")];
 
   const { data: arbVestingInfo } = useSWR(
     [
@@ -169,21 +167,9 @@ export default function ClaimEsEddx({ setPendingTxns }) {
     }
   );
 
-  const { data: avaxVestingInfo } = useSWR(
-    [
-      `StakeV2:vestingInfo:${active}`,
-      AVALANCHE,
-      avaxRewardReaderAddress,
-      "getVestingInfoV2",
-      account || PLACEHOLDER_ACCOUNT,
-    ],
-    {
-      fetcher: contractFetcher(undefined, RewardReader, [avaxVesterAdddresses]),
-    }
-  );
+
 
   const arbVestingData = getVestingDataV2(arbVestingInfo);
-  const avaxVestingData = getVestingDataV2(avaxVestingInfo);
 
   let amount = parseValue(value, 18);
 
@@ -228,33 +214,7 @@ export default function ClaimEsEddx({ setPendingTxns }) {
     stakingToken = "ELP";
   }
 
-  if (selectedOption === VEST_WITH_EDDX_AVAX && avaxVestingData) {
-    const result = getVestingValues({
-      minRatio: bigNumberify(4),
-      amount,
-      vestingDataItem: avaxVestingData.eddxVester,
-    });
-
-    if (result) {
-      ({ maxVestableAmount, currentRatio, nextMaxVestableEsEddx, nextRatio, initialStakingAmount, nextStakingAmount } =
-        result);
-    }
-  }
-
-  if (selectedOption === VEST_WITH_ELP_AVAX && avaxVestingData) {
-    const result = getVestingValues({
-      minRatio: bigNumberify(320),
-      amount,
-      vestingDataItem: avaxVestingData.elpVester,
-    });
-
-    if (result) {
-      ({ maxVestableAmount, currentRatio, nextMaxVestableEsEddx, nextRatio, initialStakingAmount, nextStakingAmount } =
-        result);
-    }
-
-    stakingToken = "ELP";
-  }
+ 
 
   const getError = () => {
     if (!active) {

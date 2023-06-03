@@ -6,7 +6,6 @@ import { isDevelopment } from "./env";
 const { parseEther } = ethers.utils;
 
 export const ETH_MAINNET = 1;
-export const AVALANCHE = 43114;
 export const AVALANCHE_FUJI = 43113;
 export const BASE = 84531;
 export const ARBITRUM_TESTNET = 421611;
@@ -16,7 +15,7 @@ export const FEES_HIGH_BPS = 50;
 export const DEFAULT_CHAIN_ID = BASE;
 export const CHAIN_ID = DEFAULT_CHAIN_ID;
 
-export const SUPPORTED_CHAIN_IDS = [BASE, AVALANCHE];
+export const SUPPORTED_CHAIN_IDS = [BASE];
 
 if (isDevelopment()) {
   SUPPORTED_CHAIN_IDS.push(ARBITRUM_TESTNET, AVALANCHE_FUJI);
@@ -24,28 +23,23 @@ if (isDevelopment()) {
 
 export const IS_NETWORK_DISABLED = {
   [BASE]: false,
-  [AVALANCHE]: false,
 };
 
 export const CHAIN_NAMES_MAP = {
   [ARBITRUM_TESTNET]: "ArbRinkeby",
   [BASE]: "Base",
-  [AVALANCHE]: "Avalanche",
   [AVALANCHE_FUJI]: "Avalanche Fuji",
 };
 
 export const GAS_PRICE_ADJUSTMENT_MAP = {
   [BASE]: "51000000000",
-  [AVALANCHE]: "3000000000", // 3 gwei
 };
 
 export const MAX_GAS_PRICE_MAP = {
-  [AVALANCHE]: "200000000000", // 200 gwei
 };
 
 export const HIGH_EXECUTION_FEES_MAP = {
   [BASE]: 3, // 3 USD
-  [AVALANCHE]: 3, // 3 USD
 };
 
 const constants = {
@@ -81,19 +75,7 @@ const constants = {
     // DECREASE_ORDER_EXECUTION_GAS_FEE: parseEther("0.000300001"),
   },
 
-  [AVALANCHE]: {
-    nativeTokenSymbol: "AVAX",
-    wrappedTokenSymbol: "WAVAX",
-    defaultCollateralSymbol: "USDC",
-    defaultFlagOrdersEnabled: true,
-    positionReaderPropsLength: 9,
-    v2: true,
 
-    SWAP_ORDER_EXECUTION_GAS_FEE: parseEther("0.01"),
-    INCREASE_ORDER_EXECUTION_GAS_FEE: parseEther("0.01"),
-    // contract requires that execution fee be strictly greater than instead of gte
-    DECREASE_ORDER_EXECUTION_GAS_FEE: parseEther("0.0100001"),
-  },
 
   [AVALANCHE_FUJI]: {
     nativeTokenSymbol: "AVAX",
@@ -116,13 +98,11 @@ export const RPC_PROVIDERS = {
   [ETH_MAINNET]: ["https://rpc.ankr.com/eth"],
   [BASE]: [getDefaultArbitrumRpcUrl()],
   [ARBITRUM_TESTNET]: ["https://rinkeby.arbitrum.io/rpc"],
-  [AVALANCHE]: ["https://api.avax.network/ext/bc/C/rpc"],
   [AVALANCHE_FUJI]: ["https://api.avax-test.network/ext/bc/C/rpc"],
 };
 
 export const FALLBACK_PROVIDERS = {
   [BASE]: [getAlchemyHttpUrl()],
-  [AVALANCHE]: ["https://avax-mainnet.gateway.pokt.network/v1/lb/626f37766c499d003aada23b"],
 };
 
 export const NETWORK_METADATA: { [chainId: number]: NetworkMetadata } = {
@@ -149,17 +129,7 @@ export const NETWORK_METADATA: { [chainId: number]: NetworkMetadata } = {
     rpcUrls: RPC_PROVIDERS[BASE],
     blockExplorerUrls: [getExplorerUrl(BASE)],
   },
-  [AVALANCHE]: {
-    chainId: "0x" + AVALANCHE.toString(16),
-    chainName: "Avalanche",
-    nativeCurrency: {
-      name: "AVAX",
-      symbol: "AVAX",
-      decimals: 18,
-    },
-    rpcUrls: RPC_PROVIDERS[AVALANCHE],
-    blockExplorerUrls: [getExplorerUrl(AVALANCHE)],
-  },
+
   [AVALANCHE_FUJI]: {
     chainId: "0x" + AVALANCHE_FUJI.toString(16),
     chainName: "Avalanche Fuji",
@@ -225,8 +195,6 @@ export function getExplorerUrl(chainId) {
     return "https://testnet.arbiscan.io/";
   } else if (chainId === BASE) {
     return "https://goerli.basescan.org/";
-  } else if (chainId === AVALANCHE) {
-    return "https://snowtrace.io/";
   } else if (chainId === AVALANCHE_FUJI) {
     return "https://testnet.snowtrace.io/";
   }

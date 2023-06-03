@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { SWRConfig } from "swr";
 import { ethers } from "ethers";
 import { Web3ReactProvider, useWeb3React } from "@web3-react/core";
@@ -20,7 +20,6 @@ import Home from "pages/Home/Home";
 import Dashboard from "pages/Dashboard/Dashboard";
 import Stats from "pages/Stats/Stats";
 import Ecosystem from "pages/Ecosystem/Ecosystem";
-import Stake from "pages/Stake/Stake";
 import { Exchange } from "pages/Exchange/Exchange";
 import Actions from "pages/Actions/Actions";
 import OrdersOverview from "pages/OrdersOverview/OrdersOverview";
@@ -70,7 +69,7 @@ import { I18nProvider } from "@lingui/react";
 import { Trans, t } from "@lingui/macro";
 import { defaultLocale, dynamicActivate } from "lib/i18n";
 import { Header } from "components/Header/Header";
-import { BASE, AVALANCHE, getAlchemyWsUrl, getExplorerUrl } from "config/chains";
+import { BASE, __DELETE, getAlchemyWsUrl, getExplorerUrl } from "config/chains";
 import { useLocalStorageSerializeKey } from "lib/localStorage";
 import { helperToast } from "lib/helperToast";
 import {
@@ -132,9 +131,6 @@ function getWsProvider(active, chainId) {
     return arbWsProvider;
   }
 
-  if (chainId === AVALANCHE) {
-    return avaxWsProvider;
-  }
 }
 
 function FullApp() {
@@ -487,9 +483,9 @@ function FullApp() {
               <Route exact path="/stats">
                 <Stats />
               </Route>
-              <Route exact path="/earn">
+              {/* <Route exact path="/earn">
                 <Stake setPendingTxns={setPendingTxns} connectWallet={connectWallet} />
-              </Route>
+              </Route> */}
               <Route exact path="/buy">
                 <Buy
                   savedSlippageAmount={savedSlippageAmount}

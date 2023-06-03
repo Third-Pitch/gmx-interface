@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import Token from "abis/Token.json";
 import * as MulticallLib from "ethereum-multicall";
 import * as rpcLib from "lib/rpc";
-import { BASE, AVALANCHE, FALLBACK_PROVIDERS } from "config/chains";
+import { BASE, FALLBACK_PROVIDERS } from "config/chains";
 import { executeMulticall, MAX_TIMEOUT } from "lib/multicall/utils";
 import { generateTestingUtils } from "eth-testing";
 import { sleep } from "lib/sleep";
@@ -156,7 +156,6 @@ describe("executeMulticall", () => {
   });
 
   it("should use requested chainId if chainId in the wallet is different", async () => {
-    const walletChainId = AVALANCHE;
     const requestChainId = BASE;
 
     let usedChainId;
@@ -173,7 +172,6 @@ describe("executeMulticall", () => {
       },
     }));
 
-    ethTesting.mockConnectedWallet([ethers.Wallet.createRandom().address], { chainId: walletChainId });
 
     testHook(() => {
       const { library, activate, deactivate } = useWeb3React();

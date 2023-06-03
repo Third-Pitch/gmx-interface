@@ -1,5 +1,5 @@
 import { EDDX_STATS_API_URL } from "config/backend";
-import { BASE, AVALANCHE } from "config/chains";
+import { BASE } from "config/chains";
 import { bigNumberify } from "lib/numbers";
 import useSWR from "swr";
 

@@ -4,7 +4,7 @@ import "./BuyEDDX.css";
 import { useWeb3React } from "@web3-react/core";
 import { Trans, t } from "@lingui/macro";
 import Button from "components/Button/Button";
-import { BASE, AVALANCHE, getChainName, getConstant } from "config/chains";
+import { BASE,  getChainName, getConstant } from "config/chains";
 import { switchNetwork } from "lib/wallets";
 import { useChainId } from "lib/chains";
 import Card from "components/Common/Card";
@@ -53,8 +53,8 @@ export default function BuyEDDX() {
               <Trans>Choose to buy from decentralized or centralized exchanges.</Trans>
               <br />
               <Trans>
-                To purchase EDDX on the {isArbitrum ? "Avalanche" : "Arbitrum"} blockchain, please{" "}
-                <span onClick={() => onNetworkSelect(isArbitrum ? AVALANCHE : BASE)}>change your network</span>.
+                To purchase EDDX on the {"BASE"} blockchain, please{" "}
+                <span onClick={() => onNetworkSelect( BASE)}>change your network</span>.
               </Trans>
             </div>
           </div>

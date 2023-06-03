@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import { getContract } from "./contracts";
-import { BASE, ARBITRUM_TESTNET, AVALANCHE, AVALANCHE_FUJI } from "./chains";
+import { BASE, ARBITRUM_TESTNET,  AVALANCHE_FUJI } from "./chains";
 import { Token } from "domain/tokens";
 
 export const TOKENS: { [chainId: number]: Token[] } = {
@@ -110,75 +110,6 @@ export const TOKENS: { [chainId: number]: Token[] } = {
       imageUrl: "https://assets.coingecko.com/coins/images/9956/thumb/4943.png?1636636734",
     },
   ],
-  [AVALANCHE]: [
-    {
-      name: "Avalanche",
-      symbol: "AVAX",
-      decimals: 18,
-      address: ethers.constants.AddressZero,
-      isNative: true,
-      isShortable: true,
-      imageUrl: "https://assets.coingecko.com/coins/images/12559/small/coin-round-red.png?1604021818",
-    },
-    {
-      name: "Wrapped AVAX",
-      symbol: "WAVAX",
-      decimals: 18,
-      address: "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
-      isWrapped: true,
-      baseSymbol: "AVAX",
-      imageUrl: "https://assets.coingecko.com/coins/images/12559/small/coin-round-red.png?1604021818",
-    },
-    {
-      name: "Ethereum (WETH.e)",
-      symbol: "ETH",
-      address: "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB",
-      decimals: 18,
-      isShortable: true,
-      imageUrl: "https://assets.coingecko.com/coins/images/279/small/ethereum.png?1595348880",
-    },
-    {
-      name: "Bitcoin (BTC.b)",
-      symbol: "BTC",
-      address: "0x152b9d0FdC40C096757F570A51E494bd4b943E50",
-      decimals: 8,
-      isShortable: true,
-      imageUrl: "https://assets.coingecko.com/coins/images/26115/thumb/btcb.png?1655921693",
-    },
-    {
-      name: "Bitcoin (WBTC.e)",
-      symbol: "WBTC",
-      address: "0x50b7545627a5162F82A992c33b87aDc75187B218",
-      decimals: 8,
-      isShortable: true,
-      imageUrl: "https://assets.coingecko.com/coins/images/7598/thumb/wrapped_bitcoin_wbtc.png?1548822744",
-    },
-    {
-      name: "USD Coin",
-      symbol: "USDC",
-      address: "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
-      decimals: 6,
-      isStable: true,
-      imageUrl: "https://assets.coingecko.com/coins/images/6319/thumb/USD_Coin_icon.png?1547042389",
-    },
-    {
-      name: "USD Coin (USDC.e)",
-      symbol: "USDC.e",
-      address: "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
-      decimals: 6,
-      isStable: true,
-      imageUrl: "https://assets.coingecko.com/coins/images/6319/thumb/USD_Coin_icon.png?1547042389",
-    },
-    {
-      name: "Magic Internet Money",
-      symbol: "MIM",
-      address: "0x130966628846BFd36ff31a822705796e8cb8C18D",
-      decimals: 18,
-      isStable: true,
-      isTempHidden: true,
-      imageUrl: "https://assets.coingecko.com/coins/images/16786/small/mimlogopng.png",
-    },
-  ],
   [AVALANCHE_FUJI]: [
     {
       name: "Avalanche",
@@ -239,29 +170,7 @@ export const ADDITIONAL_TOKENS: { [chainId: number]: Token[] } = {
       decimals: 18,
       imageUrl: "https://github.com/eddx-io/eddx-assets/blob/main/EDDX-Assets/PNG/ELP_LOGO%20ONLY.png?raw=true",
     },
-  ],
-  [AVALANCHE]: [
-    {
-      name: "EDDX",
-      symbol: "EDDX",
-      address: getContract(AVALANCHE, "EDDX"),
-      decimals: 18,
-      imageUrl: "https://assets.coingecko.com/coins/images/18323/small/arbit.png?1631532468",
-    },
-    {
-      name: "Escrowed EDDX",
-      symbol: "esEDDX",
-      address: getContract(AVALANCHE, "ES_EDDX"),
-      decimals: 18,
-    },
-    {
-      name: "EDDX LP",
-      symbol: "ELP",
-      address: getContract(BASE, "ELP"),
-      decimals: 18,
-      imageUrl: "https://github.com/eddx-io/eddx-assets/blob/main/EDDX-Assets/PNG/ELP_LOGO%20ONLY.png?raw=true",
-    },
-  ],
+  ]
 };
 
 export const PLATFORM_TOKENS: { [chainId: number]: { [symbol: string]: Token } } = {
@@ -280,24 +189,7 @@ export const PLATFORM_TOKENS: { [chainId: number]: { [symbol: string]: Token } }
       address: getContract(BASE, "StakedElpTracker"), // address of fsELP token because user only holds fsELP
       imageUrl: "https://github.com/eddx-io/eddx-assets/blob/main/EDDX-Assets/PNG/ELP_LOGO%20ONLY.png?raw=true",
     },
-  },
-  [AVALANCHE]: {
-    // avalanche
-    EDDX: {
-      name: "EDDX",
-      symbol: "EDDX",
-      decimals: 18,
-      address: getContract(AVALANCHE, "EDDX"),
-      imageUrl: "https://assets.coingecko.com/coins/images/18323/small/arbit.png?1631532468",
-    },
-    ELP: {
-      name: "EDDX LP",
-      symbol: "ELP",
-      decimals: 18,
-      address: getContract(AVALANCHE, "StakedElpTracker"), // address of fsELP token because user only holds fsELP
-      imageUrl: "https://github.com/eddx-io/eddx-assets/blob/main/EDDX-Assets/PNG/ELP_LOGO%20ONLY.png?raw=true",
-    },
-  },
+  }
 };
 
 export const ICONLINKS = {
@@ -343,51 +235,6 @@ export const ICONLINKS = {
       arbitrum: "https://arbiscan.io/address/0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
     },
   },
-  [AVALANCHE]: {
-    EDDX: {
-      coingecko: "https://www.coingecko.com/en/coins/eddx",
-      arbitrum: "https://arbiscan.io/address/0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a",
-    },
-    ELP: {
-      arbitrum: "https://arbiscan.io/token/0x1aDDD80E6039594eE970E5872D247bf0414C8903",
-      reserves: "https://portfolio.nansen.ai/dashboard/eddx?chain=ARBITRUM",
-    },
-    ETH: {
-      coingecko: "https://www.coingecko.com/en/coins/ethereum",
-    },
-    BTC: {
-      coingecko: "https://www.coingecko.com/en/coins/wrapped-bitcoin",
-      arbitrum: "https://arbiscan.io/address/0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f",
-    },
-    LINK: {
-      coingecko: "https://www.coingecko.com/en/coins/chainlink",
-      arbitrum: "https://arbiscan.io/address/0xf97f4df75117a78c1a5a0dbb814af92458539fb4",
-    },
-    UNI: {
-      coingecko: "https://www.coingecko.com/en/coins/uniswap",
-      arbitrum: "https://arbiscan.io/address/0xfa7f8980b0f1e64a2062791cc3b0871572f1f7f0",
-    },
-    USDC: {
-      coingecko: "https://www.coingecko.com/en/coins/usd-coin",
-      arbitrum: "https://arbiscan.io/address/0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
-    },
-    USDT: {
-      coingecko: "https://www.coingecko.com/en/coins/tether",
-      arbitrum: "https://arbiscan.io/address/0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-    },
-    DAI: {
-      coingecko: "https://www.coingecko.com/en/coins/dai",
-      arbitrum: "https://arbiscan.io/address/0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
-    },
-    MIM: {
-      coingecko: "https://www.coingecko.com/en/coins/magic-internet-money",
-      arbitrum: "https://arbiscan.io/address/0xfea7a6a0b346362bf88a9e4a88416b77a57d6c2a",
-    },
-    FRAX: {
-      coingecko: "https://www.coingecko.com/en/coins/frax",
-      arbitrum: "https://arbiscan.io/address/0x17fc002b466eec40dae837fc4be5c67993ddbd6f",
-    },
-  },
   [AVALANCHE_FUJI]: {
     AVAX: {
       coingecko: "https://www.coingecko.com/en/coins/avalanche",
@@ -423,7 +270,7 @@ export const TOKENS_BY_SYMBOL_MAP: { [chainId: number]: { [symbol: string]: Toke
 export const WRAPPED_TOKENS_MAP: { [chainId: number]: Token } = {};
 export const NATIVE_TOKENS_MAP: { [chainId: number]: Token } = {};
 
-const CHAIN_IDS = [BASE, ARBITRUM_TESTNET, AVALANCHE, AVALANCHE_FUJI];
+const CHAIN_IDS = [BASE, ARBITRUM_TESTNET,  AVALANCHE_FUJI];
 
 for (let j = 0; j < CHAIN_IDS.length; j++) {
   const chainId = CHAIN_IDS[j];
@@ -507,7 +354,6 @@ export function getNormalizedTokenSymbol(tokenSymbol) {
 
 const AVAILABLE_CHART_TOKENS = {
   [BASE]: ["ETH", "BTC", "LINK"],
-  [AVALANCHE]: ["AVAX", "ETH", "BTC"],
 };
 
 export function isChartAvailabeForToken(chainId: number, tokenSymbol: string) {

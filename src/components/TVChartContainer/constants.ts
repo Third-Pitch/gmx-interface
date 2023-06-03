@@ -1,4 +1,4 @@
-import { BASE, AVALANCHE } from "config/chains";
+import { BASE } from "config/chains";
 import { formatTVDate, formatTVTime } from "lib/dates";
 
 const RED = "#fa3c58";
@@ -86,4 +86,4 @@ export const defaultChartProps = {
   },
 };
 
-export const availableNetworksForChart = [BASE, AVALANCHE];
+export const availableNetworksForChart = [BASE];

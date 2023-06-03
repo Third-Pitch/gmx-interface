@@ -7,24 +7,22 @@ import ReferralStorage from "abis/ReferralStorage.json";
 import { MAX_REFERRAL_CODE_LENGTH, isAddressZero, isHashZero } from "lib/legacy";
 import { getContract } from "config/contracts";
 import { REGEX_VERIFY_BYTES32 } from "components/Referrals/referralsHelper";
-import { BASE, AVALANCHE } from "config/chains";
-import { arbitrumReferralsGraphClient, avalancheReferralsGraphClient } from "lib/subgraph/clients";
+import { BASE } from "config/chains";
+import { arbitrumReferralsGraphClient } from "lib/subgraph/clients";
 import { callContract, contractFetcher } from "lib/contracts";
 import { helperToast } from "lib/helperToast";
 import { REFERRAL_CODE_KEY } from "config/localStorage";
 import { getProvider } from "lib/rpc";
 import { bigNumberify } from "lib/numbers";
 
-const ACTIVE_CHAINS = [BASE, AVALANCHE];
+const ACTIVE_CHAINS = [BASE];
 const DISTRIBUTION_TYPE_REBATES = "1";
 const DISTRIBUTION_TYPE_DISCOUNT = "2";
 
 function getGraphClient(chainId) {
   if (chainId === BASE) {
     return arbitrumReferralsGraphClient;
-  } else if (chainId === AVALANCHE) {
-    return avalancheReferralsGraphClient;
-  }
+  } 
   throw new Error(`Unsupported chain ${chainId}`);
 }
 
@@ -102,8 +100,8 @@ export function useUserCodesOnAllChain(account) {
             });
         })
       );
-      const [codeOwnersOnAvax = [], codeOwnersOnArbitrum = []] = await Promise.all([
-        getCodeOwnersData(AVALANCHE, account, arbitrumCodes),
+      // TODO 这里可能是写反了
+      const [codeOwnersOnAvax = []] = await Promise.all([
         getCodeOwnersData(BASE, account, avalancheCodes),
       ]);
 
@@ -112,10 +110,7 @@ export function useUserCodesOnAllChain(account) {
           acc[cv.code] = cv;
           return acc;
         }, {} as any),
-        [AVALANCHE]: codeOwnersOnArbitrum.reduce((acc, cv) => {
-          acc[cv.code] = cv;
-          return acc;
-        }, {} as any),
+
       });
     }
 

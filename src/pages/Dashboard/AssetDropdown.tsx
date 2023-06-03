@@ -12,10 +12,9 @@ import { ICONLINKS, PLATFORM_TOKENS } from "config/tokens";
 import { addTokenToMetamask } from "lib/wallets";
 import { useChainId } from "lib/chains";
 import { Token } from "domain/tokens";
-import { BASE, AVALANCHE } from "config/chains";
+import { BASE } from "config/chains";
 import { getIcon } from "config/icons";
 
-const avalancheIcon = getIcon(AVALANCHE, "network");
 const arbitrumIcon = getIcon(BASE, "network");
 
 type Props = {
@@ -26,7 +25,7 @@ type Props = {
 function AssetDropdown({ assetSymbol, assetInfo }: Props) {
   const { active } = useWeb3React();
   const { chainId } = useChainId();
-  let { coingecko, arbitrum, avalanche, reserves } = ICONLINKS[chainId][assetSymbol] || {};
+  let { coingecko, arbitrum, reserves } = ICONLINKS[chainId][assetSymbol] || {};
   const unavailableTokenSymbols =
     {
       42161: ["ETH"],
@@ -68,14 +67,6 @@ function AssetDropdown({ assetSymbol, assetInfo }: Props) {
             {arbitrum && (
               <ExternalLink href={arbitrum} className="asset-item">
                 <img className="asset-item-icon" src={arbitrumIcon} alt="Open in explorer" />
-                <p>
-                  <Trans>Open in Explorer</Trans>
-                </p>
-              </ExternalLink>
-            )}
-            {avalanche && (
-              <ExternalLink href={avalanche} className="asset-item">
-                <img className="asset-item-icon" src={avalancheIcon} alt="Open in explorer" />
                 <p>
                   <Trans>Open in Explorer</Trans>
                 </p>

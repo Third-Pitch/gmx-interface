@@ -6,7 +6,7 @@ import {
   REFERRAL_CODE_QUERY_PARAM,
 } from "lib/legacy";
 import { encodeReferralCode, getReferralCodeOwner } from "domain/referrals";
-import { BASE, AVALANCHE } from "config/chains";
+import { BASE } from "config/chains";
 import { bigNumberify, formatAmount } from "lib/numbers";
 import { t } from "@lingui/macro";
 import { getRootUrl } from "lib/url";

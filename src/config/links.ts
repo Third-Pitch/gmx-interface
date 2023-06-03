@@ -1,15 +1,11 @@
-import { BASE, AVALANCHE } from "config/chains";
+import { BASE } from "config/chains";
 import { TOKENS_BY_SYMBOL_MAP } from "./tokens";
 
 const oneInchTokensMap = {
   [BASE]: {
     BTC: "WBTC",
   },
-  [AVALANCHE]: {
-    BTC: "BTC.b",
-    ETH: "WETH.e",
-    WBTC: "WBTC.e",
-  },
+ 
 };
 
 export function get1InchSwapUrl(chainId: number, from?: string, to?: string) {
@@ -27,9 +23,6 @@ export function get1InchSwapUrl(chainId: number, from?: string, to?: string) {
 export function getLeaderboardLink(chainId) {
   if (chainId === BASE) {
     return "https://www.eddx.house/arbitrum/leaderboard";
-  }
-  if (chainId === AVALANCHE) {
-    return "https://www.eddx.house/avalanche/leaderboard";
   }
   return "https://www.eddx.house";
 }

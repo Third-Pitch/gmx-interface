@@ -35,7 +35,7 @@ import ExternalLink from "components/ExternalLink/ExternalLink";
 import SEO from "components/Common/SEO";
 import { useTotalVolume, useVolumeInfo, useFeesSummary } from "domain/stats";
 import StatsTooltipRow from "components/StatsTooltip/StatsTooltipRow";
-import { BASE, AVALANCHE, getChainName } from "config/chains";
+import { BASE,  getChainName } from "config/chains";
 import { getServerUrl } from "config/backend";
 import { contractFetcher } from "lib/contracts";
 import { useInfoTokens } from "domain/tokens";
@@ -147,10 +147,9 @@ export default function DashboardV2() {
 
   const { infoTokens } = useInfoTokens(library, chainId, active, undefined, undefined);
   const { infoTokens: infoTokensArbitrum } = useInfoTokens(null, BASE, active, undefined, undefined);
-  const { infoTokens: infoTokensAvax } = useInfoTokens(null, AVALANCHE, active, undefined, undefined);
 
   const { data: currentFees } = useSWR(
-    infoTokensArbitrum[AddressZero].contractMinPrice && infoTokensAvax[AddressZero].contractMinPrice
+    infoTokensArbitrum[AddressZero].contractMinPrice
       ? "Dashboard:currentFees"
       : null,
     {
@@ -171,7 +170,7 @@ export default function DashboardV2() {
               const feeUSD = getCurrentFeesUsd(
                 getWhitelistedTokenAddresses(ACTIVE_CHAIN_IDS[i]),
                 cv,
-                ACTIVE_CHAIN_IDS[i] === BASE ? infoTokensArbitrum : infoTokensAvax
+                infoTokensArbitrum
               );
               acc[ACTIVE_CHAIN_IDS[i]] = feeUSD;
               acc.total = acc.total.add(feeUSD);
@@ -390,7 +389,7 @@ export default function DashboardV2() {
     },
   ];
 
-  const totalStatsStartDate = chainId === AVALANCHE ? t`06 Jan 2022` : t`01 Sep 2021`;
+  const totalStatsStartDate =  t`01 Sep 2021`;
 
   let stableElp = 0;
   let totalElp = 0;
@@ -475,9 +474,6 @@ export default function DashboardV2() {
                 {chainName} Total Stats start from {totalStatsStartDate}.<br /> For detailed stats:
               </Trans>{" "}
               {chainId === BASE && <ExternalLink href="https://stats.eddx.io">https://stats.eddx.io</ExternalLink>}
-              {chainId === AVALANCHE && (
-                <ExternalLink href="https://stats.eddx.io/avalanche">https://stats.eddx.io/avalanche</ExternalLink>
-              )}
               .
             </div>
           </div>

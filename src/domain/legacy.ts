@@ -15,7 +15,7 @@ import Token from "abis/Token.json";
 import PositionRouter from "abis/PositionRouter.json";
 
 import { getContract } from "config/contracts";
-import { BASE, ARBITRUM_TESTNET, AVALANCHE, getConstant, getHighExecutionFee } from "config/chains";
+import { BASE, ARBITRUM_TESTNET,  getConstant, getHighExecutionFee } from "config/chains";
 import { DECREASE, getOrderKey, INCREASE, SWAP, USD_DECIMALS } from "lib/legacy";
 
 import { groupBy } from "lodash";
@@ -386,10 +386,7 @@ export function useExecutionFee(library, active, chainId, infoTokens) {
     multiplier = 2150000;
   }
 
-  // multiplier for Avalanche is just the average gas usage
-  if (chainId === AVALANCHE) {
-    multiplier = 700000;
-  }
+
 
   let finalExecutionFee = minExecutionFee;
 
@@ -424,24 +421,16 @@ export function useStakedEddxSupply(library, active) {
     }
   );
 
-  const eddxAddressAvax = getContract(AVALANCHE, "EDDX");
-  const stakedEddxTrackerAddressAvax = getContract(AVALANCHE, "StakedEddxTracker");
 
-  const { data: avaxData, mutate: avaxMutate } = useSWR(
-    [`StakeV2:stakedEddxSupply:${active}`, AVALANCHE, eddxAddressAvax, "balanceOf", stakedEddxTrackerAddressAvax],
-    {
-      fetcher: contractFetcher(undefined, Token),
-    }
-  );
+ 
 
   let data;
-  if (arbData && avaxData) {
-    data = arbData.add(avaxData);
+  if (arbData ) {
+    data = arbData;
   }
 
   const mutate = () => {
     arbMutate();
-    avaxMutate();
   };
 
   return { data, mutate };
@@ -521,7 +510,6 @@ export function useTotalEddxStaked() {
 
 export function useTotalEddxInLiquidity() {
   let poolAddressArbitrum = getContract(BASE, "UniswapEddxEthPool");
-  let poolAddressAvax = getContract(AVALANCHE, "TraderJoeEddxAvaxPool");
   let totalEDDX = useRef(bigNumberify(0));
 
   const { data: eddxInLiquidityOnArbitrum, mutate: mutateEDDXInLiquidityOnArbitrum } = useSWR<any>(
@@ -530,23 +518,16 @@ export function useTotalEddxInLiquidity() {
       fetcher: contractFetcher(undefined, Token),
     }
   );
-  const { data: eddxInLiquidityOnAvax, mutate: mutateEDDXInLiquidityOnAvax } = useSWR<any>(
-    [`StakeV2:eddxInLiquidity:${AVALANCHE}`, AVALANCHE, getContract(AVALANCHE, "EDDX"), "balanceOf", poolAddressAvax],
-    {
-      fetcher: contractFetcher(undefined, Token),
-    }
-  );
+  
   const mutate = useCallback(() => {
     mutateEDDXInLiquidityOnArbitrum();
-    mutateEDDXInLiquidityOnAvax();
-  }, [mutateEDDXInLiquidityOnArbitrum, mutateEDDXInLiquidityOnAvax]);
+  }, [mutateEDDXInLiquidityOnArbitrum]);
 
-  if (eddxInLiquidityOnAvax && eddxInLiquidityOnArbitrum) {
-    let total = bigNumberify(eddxInLiquidityOnArbitrum)!.add(eddxInLiquidityOnAvax);
+  if ( eddxInLiquidityOnArbitrum) {
+    let total = bigNumberify(eddxInLiquidityOnArbitrum);
     totalEDDX.current = total;
   }
   return {
-    avax: eddxInLiquidityOnAvax,
     arbitrum: eddxInLiquidityOnArbitrum,
     total: totalEDDX.current,
     mutate,

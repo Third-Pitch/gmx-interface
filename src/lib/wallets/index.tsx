@@ -3,7 +3,6 @@ import { InjectedConnector } from "@web3-react/injected-connector";
 import {
   BASE,
   ARBITRUM_TESTNET,
-  AVALANCHE,
   AVALANCHE_FUJI,
   DEFAULT_CHAIN_ID,
   getChainName,
@@ -92,7 +91,6 @@ export const getWalletConnectConnector = () => {
 
   return new WalletConnectConnector({
     rpc: {
-      [AVALANCHE]: getRpcUrl(AVALANCHE)!,
       [BASE]: getRpcUrl(BASE)!,
       [ARBITRUM_TESTNET]: getRpcUrl(ARBITRUM_TESTNET)!,
       [AVALANCHE_FUJI]: getRpcUrl(AVALANCHE_FUJI)!,

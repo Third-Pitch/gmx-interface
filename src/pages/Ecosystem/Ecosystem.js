@@ -7,18 +7,16 @@ import { getPageTitle } from "lib/legacy";
 
 import "./Ecosystem.css";
 import ExternalLink from "components/ExternalLink/ExternalLink";
-import { BASE, AVALANCHE } from "config/chains";
+import { BASE } from "config/chains";
 import { t } from "@lingui/macro";
 import { getIcon } from "config/icons";
 
 const NETWORK_ICONS = {
   [BASE]: getIcon(BASE, "network"),
-  [AVALANCHE]: getIcon(AVALANCHE, "network"),
 };
 
 const NETWORK_ICON_ALTS = {
   [BASE]: "Arbitrum Icon",
-  [AVALANCHE]: "Avalanche Icon",
 };
 
 export default function Ecosystem() {
@@ -28,28 +26,28 @@ export default function Ecosystem() {
       link: "https://gov.eddx.io/",
       linkLabel: "gov.eddx.io",
       about: t`EDDX Governance Page`,
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "EDDX Stats",
       link: "https://stats.eddx.io/",
       linkLabel: "stats.eddx.io",
       about: t`EDDX Stats Page`,
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "EDDX Proposals",
       link: "https://snapshot.org/#/eddx.eth",
       linkLabel: "snapshot.org",
       about: t`EDDX Proposals Voting page`,
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "EDDX Announcements",
       link: "https://t.me/EDDX_Announcements",
       linkLabel: "t.me",
       about: t`EDDX Announcements and Updates`,
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
   ];
 
@@ -70,7 +68,7 @@ export default function Ecosystem() {
       about: t`Leaderboard for EDDX traders`,
       creatorLabel: "@Itburnz",
       creatorLink: "https://t.me/Itburnz",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "EDDX Positions Bot",
@@ -79,7 +77,7 @@ export default function Ecosystem() {
       about: t`Telegram bot for EDDX position updates`,
       creatorLabel: "@zhongfu",
       creatorLink: "https://t.me/zhongfu",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "Blueberry Pulse",
@@ -88,7 +86,7 @@ export default function Ecosystem() {
       about: t`EDDX Weekly Updates`,
       creatorLabel: "@puroscohiba",
       creatorLink: "https://t.me/puroscohiba",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "DegenClip",
@@ -97,7 +95,7 @@ export default function Ecosystem() {
       about: t`Community curated tweet collection`,
       creatorLabel: "@ox21l",
       creatorLink: "https://t.me/ox21l",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "EDDX Yield Simulator",
@@ -106,7 +104,7 @@ export default function Ecosystem() {
       about: t`Yield simulator for EDDX`,
       creatorLabel: "@kyzoeth",
       creatorLink: "https://twitter.com/kyzoeth",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "EDDX Returns Calculator",
@@ -115,7 +113,7 @@ export default function Ecosystem() {
       about: t`Returns calculator for EDDX and ELP`,
       creatorLabel: "@AStoicTrader1",
       creatorLink: "https://twitter.com/AStoicTrader1",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "EDDX Trading Stats",
@@ -124,7 +122,7 @@ export default function Ecosystem() {
       about: t`Telegram bot for Open Interest on EDDX`,
       creatorLabel: "@SniperMonke01",
       creatorLink: "https://twitter.com/SniperMonke01",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "EDDX Staking Bot",
@@ -133,7 +131,7 @@ export default function Ecosystem() {
       about: t`EDDX staking rewards updates and insights`,
       creatorLabel: "@EDDX_Staking_bot",
       creatorLink: "https://twitter.com/EDDX_Staking_bot",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "EDDX Staking Calculator",
@@ -142,7 +140,7 @@ export default function Ecosystem() {
       about: t`EDDX staking calculator`,
       creatorLabel: "@n1njawtf",
       creatorLink: "https://t.me/n1njawtf",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "EDDX Hedging Simulator",
@@ -160,7 +158,7 @@ export default function Ecosystem() {
       about: t`Telegram bot for EDDX Swaps monitoring`,
       creatorLabel: "@snipermonke01",
       creatorLink: "https://twitter.com/snipermonke01",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "EDDX Position Calculator",
@@ -169,7 +167,7 @@ export default function Ecosystem() {
       about: t`Spreadsheet for position calculations`,
       creatorLabel: "@barryfried1",
       creatorLink: "https://twitter.com/barryfried1",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
   ];
 
@@ -181,7 +179,7 @@ export default function Ecosystem() {
       about: t`Dashboard for EDDX referral stats`,
       creatorLabel: "@kyzoeth",
       creatorLink: "https://twitter.com/kyzoeth",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "EDDX Terminal",
@@ -199,7 +197,7 @@ export default function Ecosystem() {
       about: t`Financial reports and protocol analytics`,
       creatorLabel: "@CryptoMessiah",
       creatorLink: "https://t.me/LarpCapital",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "TokenTerminal",
@@ -208,7 +206,7 @@ export default function Ecosystem() {
       about: t`EDDX fundamentals`,
       creatorLabel: "@tokenterminal",
       creatorLink: "https://twitter.com/tokenterminal",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "CryptoFees",
@@ -217,7 +215,7 @@ export default function Ecosystem() {
       about: t`Fees generated by EDDX`,
       creatorLabel: "@CryptoFeesInfo",
       creatorLink: "https://twitter.com/CryptoFeesInfo",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "Shogun Dashboard (Dune Arbitrum)",
@@ -235,7 +233,7 @@ export default function Ecosystem() {
       about: t`Protocol analytics`,
       creatorLabel: "@JamesCliffyz",
       creatorLink: "https://twitter.com/JamesCliffyz",
-      chainIds: [AVALANCHE],
+      chainIds: [],
     },
     {
       title: "EDDX Perpetuals Data",
@@ -262,7 +260,7 @@ export default function Ecosystem() {
       about: t`Open trades ranking and stats`,
       creatorLabel: "@hansolar21",
       creatorLink: "https://twitter.com/hansolar21",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "EDDX Everything Dashboard",
@@ -271,7 +269,7 @@ export default function Ecosystem() {
       about: t`Overall protocol analytics`,
       creatorLabel: "@eddxtrader",
       creatorLink: "https://twitter.com/eddxtrader",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
   ];
 
@@ -283,7 +281,7 @@ export default function Ecosystem() {
       about: t`DeFi Portfolio Tracker`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/EDDX_IO/status/1439711532884152324",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "Defi Llama",
@@ -292,7 +290,7 @@ export default function Ecosystem() {
       about: t`Decentralized Finance Dashboard`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/EDDX_IO/status/1438124768033660938",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "Dopex",
@@ -301,7 +299,7 @@ export default function Ecosystem() {
       about: t`Decentralized Options Protocol`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/EDDX_IO/status/1482445801523716099",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "Rook",
@@ -310,7 +308,7 @@ export default function Ecosystem() {
       about: t`MEV Optimizer`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/Rook/status/1509613786600116251",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "Jones DAO",
@@ -328,7 +326,7 @@ export default function Ecosystem() {
       about: t`Yield Optimizer on Avalanche`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/EDDX_IO/status/1484601407378378754",
-      chainIds: [AVALANCHE],
+      chainIds: [],
     },
     {
       title: "Vovo Finance",
@@ -355,7 +353,7 @@ export default function Ecosystem() {
       about: t`Decentralized Trading Protocol`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/EDDX_IO/status/1438899138549145605",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "Open Ocean",
@@ -364,7 +362,7 @@ export default function Ecosystem() {
       about: t`DEX Aggregator`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/EDDX_IO/status/1495780826016989191",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "Paraswap",
@@ -373,7 +371,7 @@ export default function Ecosystem() {
       about: t`DEX Aggregator`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/paraswap/status/1546869879336222728",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "1inch",
@@ -382,7 +380,7 @@ export default function Ecosystem() {
       about: t`DEX Aggregator`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/EDDX_IO/status/1522247451410845696",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
     {
       title: "Firebird Finance",
@@ -391,7 +389,7 @@ export default function Ecosystem() {
       about: t`DEX Aggregator`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/financefirebird/status/1561767094064238595",
-      chainIds: [AVALANCHE],
+      chainIds: [],
     },
     {
       title: "Yield Yak Swap",
@@ -400,7 +398,7 @@ export default function Ecosystem() {
       about: t`DEX Aggregator`,
       announcementLabel: "twitter.com",
       announcementLink: "https://twitter.com/yieldyak_/status/1484458884827947008",
-      chainIds: [AVALANCHE],
+      chainIds: [],
     },
     {
       title: "Plutus",
@@ -418,7 +416,7 @@ export default function Ecosystem() {
       about: t`ELP and EDDX autocompounding vaults`,
       announcementLabel: "beefy.com",
       announcementLink: "https://beefy.com/articles/earn-elp-with-beefy-s-new-elp-strategy-and-vaults/",
-      chainIds: [BASE, AVALANCHE],
+      chainIds: [BASE],
     },
   ];
 

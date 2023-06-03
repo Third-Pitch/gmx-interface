@@ -1,4 +1,4 @@
-import { BASE, ARBITRUM_TESTNET, AVALANCHE, AVALANCHE_FUJI } from "config/chains";
+import { BASE, ARBITRUM_TESTNET,  AVALANCHE_FUJI } from "config/chains";
 import arbitrum from "img/ic_arbitrum_24.svg";
 import avalanche from "img/ic_avalanche_24.svg";
 import avalancheTestnet from "img/ic_avalanche_testnet_24.svg";
@@ -16,11 +16,7 @@ const ICONS = {
     eddx: eddxArbitrum,
     elp: elpArbitrum,
   },
-  [AVALANCHE]: {
-    network: avalanche,
-    eddx: eddxAvax,
-    elp: elpAvax,
-  },
+  
   [ARBITRUM_TESTNET]: {
     network: arbitrum,
   },

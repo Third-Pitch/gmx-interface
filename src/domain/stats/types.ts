@@ -1,9 +1,8 @@
-import { BASE, AVALANCHE } from "config/chains";
+import { BASE } from "config/chains";
 import { BigNumber } from "ethers";
 
 export type VolumeInfo = {
   totalVolume: BigNumber;
-  [AVALANCHE]: { totalVolume: BigNumber };
   [BASE]: { totalVolume: BigNumber };
 };
 

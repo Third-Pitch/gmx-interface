@@ -1,6 +1,6 @@
 import useSWR from "swr";
 import { arrayURLFetcher } from "lib/legacy";
-import { BASE, AVALANCHE } from "config/chains";
+import { BASE } from "config/chains";
 import { getServerUrl } from "config/backend";
 const ACTIVE_CHAIN_IDS = [BASE];
 
