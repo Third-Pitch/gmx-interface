@@ -388,7 +388,6 @@ export const ADDITIONAL_TOKENS: { [chainId: number]: Token[] } = {
 
 export const PLATFORM_TOKENS: { [chainId: number]: { [symbol: string]: Token } } = {
   [BASE]: {
-    // arbitrum
     EDDX: {
       name: "EDDX",
       symbol: "EDDX",
@@ -629,7 +628,7 @@ export function getNormalizedTokenSymbol(tokenSymbol) {
 }
 
 const AVAILABLE_CHART_TOKENS = {
-  [BASE]: ["ETH", "BTC", "LINK", "UNI"],
+  [BASE]: ["ETH", "BTC", "LINK"],
   [AVALANCHE]: ["AVAX", "ETH", "BTC"],
 };
 

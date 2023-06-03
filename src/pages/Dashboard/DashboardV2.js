@@ -208,7 +208,6 @@ export default function DashboardV2() {
       },
       { total: 0 }
     );
-console.log((totalFees?.[chainId]).toString(10))
   const { eddxPrice } = useEddxPrice(
     chainId,
     { arbitrum: chainId === BASE ? library : undefined },
