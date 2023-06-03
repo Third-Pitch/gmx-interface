@@ -3472,6 +3472,41 @@ msgstr ""
 msgid "Unstaking..."
 msgstr "Unstaken..."
 
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "years"
+msgstr "years"
+
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "months"
+msgstr "months"
+
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "days"
+msgstr "days"
+
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "hours"
+msgstr "hours"
+
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "minutes"
+msgstr "minutes"
+
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "seconds"
+msgstr "seconds"
+
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "You can unstake after {0}."
+msgstr "You can unstake after {0}."
+
 #: src/lib/wallets/index.tsx
 msgid "Unsupported chain. Switch to Arbitrum network on your wallet and try again"
 msgstr "Nicht unterstützte Chain. Wechsle auf deiner Wallet zum Arbitrum-Netzwerk und versuche es erneut"

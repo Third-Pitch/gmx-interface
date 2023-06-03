@@ -3435,6 +3435,42 @@ msgstr "UTILIZATION"
 msgid "Unstake"
 msgstr "Unstake"
 
+
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "years"
+msgstr "years"
+
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "months"
+msgstr "months"
+
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "days"
+msgstr "days"
+
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "hours"
+msgstr "hours"
+
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "minutes"
+msgstr "minutes"
+
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "seconds"
+msgstr "seconds"
+
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "You can unstake after {0}."
+msgstr "You can unstake after {0}."
+
 #: src/pages/Stake/StakeV2.js
 msgid "Unstake EDDX"
 msgstr "Unstake EDDX"

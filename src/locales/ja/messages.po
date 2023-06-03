@@ -3472,6 +3472,41 @@ msgstr ""
 msgid "Unstaking..."
 msgstr "アンステーク中..."
 
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "years"
+msgstr "年"
+
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "months"
+msgstr "月"
+
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "days"
+msgstr "日"
+
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "hours"
+msgstr "時間"
+
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "minutes"
+msgstr "分"
+
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "seconds"
+msgstr "秒"
+
+#: src/pages/Stake/StakeV1.js
+#: src/pages/Stake/StakeV2.js
+msgid "You can unstake after {0}."
+msgstr "{0}後に撤回できます。"
+
 #: src/lib/wallets/index.tsx
 msgid "Unsupported chain. Switch to Arbitrum network on your wallet and try again"
 msgstr "サポートされていないチェーンです。ウォレットをArbitrumネットワークに切り替えて再試行してください"
