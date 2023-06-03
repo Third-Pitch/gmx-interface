@@ -1,14 +1,10 @@
-import { BASE, ARBITRUM_TESTNET,  AVALANCHE_FUJI } from "config/chains";
+import { BASE } from "config/chains";
 import arbitrum from "img/ic_arbitrum_24.svg";
-import avalanche from "img/ic_avalanche_24.svg";
-import avalancheTestnet from "img/ic_avalanche_testnet_24.svg";
 
 import eddxIcon from "img/ic_eddx_40.svg";
 import elpIcon from "img/ic_elp_40.svg";
 import eddxArbitrum from "img/ic_eddx_arbitrum.svg";
-import eddxAvax from "img/ic_eddx_avax.svg";
 import elpArbitrum from "img/ic_elp_arbitrum.svg";
-import elpAvax from "img/ic_elp_avax.svg";
 
 const ICONS = {
   [BASE]: {
@@ -17,12 +13,8 @@ const ICONS = {
     elp: elpArbitrum,
   },
   
-  [ARBITRUM_TESTNET]: {
-    network: arbitrum,
-  },
-  [AVALANCHE_FUJI]: {
-    network: avalancheTestnet,
-  },
+
+ 
   common: {
     eddx: eddxIcon,
     elp: elpIcon,

@@ -11,10 +11,9 @@ import cx from "classnames";
 import { Trans } from "@lingui/macro";
 import NetworkDropdown from "../NetworkDropdown/NetworkDropdown";
 import LanguagePopupHome from "../NetworkDropdown/LanguagePopupHome";
-import { BASE, ARBITRUM_TESTNET, getChainName } from "config/chains";
+import { BASE, getChainName } from "config/chains";
 import { switchNetwork } from "lib/wallets";
 import { useChainId } from "lib/chains";
-import { isDevelopment } from "config/env";
 import { getIcon } from "config/icons";
 
 type Props = {
@@ -34,15 +33,6 @@ const NETWORK_OPTIONS = [
     color: "#264f79",
   },
 ];
-
-if (isDevelopment()) {
-  NETWORK_OPTIONS.push({
-    label: getChainName(ARBITRUM_TESTNET),
-    value: ARBITRUM_TESTNET,
-    icon: getIcon(ARBITRUM_TESTNET, "network"),
-    color: "#264f79",
-  });
-}
 
 export function AppHeaderUser({
   openSettings,

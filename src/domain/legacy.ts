@@ -15,7 +15,7 @@ import Token from "abis/Token.json";
 import PositionRouter from "abis/PositionRouter.json";
 
 import { getContract } from "config/contracts";
-import { BASE, ARBITRUM_TESTNET,  getConstant, getHighExecutionFee } from "config/chains";
+import { BASE, getConstant, getHighExecutionFee } from "config/chains";
 import { DECREASE, getOrderKey, INCREASE, SWAP, USD_DECIMALS } from "lib/legacy";
 
 import { groupBy } from "lodash";
@@ -382,7 +382,7 @@ export function useExecutionFee(library, active, chainId, infoTokens) {
 
   let multiplier;
 
-  if (chainId === BASE || chainId === ARBITRUM_TESTNET) {
+  if (chainId === BASE) {
     multiplier = 2150000;
   }
 
@@ -422,10 +422,10 @@ export function useStakedEddxSupply(library, active) {
   );
 
 
- 
 
-  let data;
-  if (arbData ) {
+
+  let data: any;
+  if (arbData) {
     data = arbData;
   }
 
@@ -518,12 +518,12 @@ export function useTotalEddxInLiquidity() {
       fetcher: contractFetcher(undefined, Token),
     }
   );
-  
+
   const mutate = useCallback(() => {
     mutateEDDXInLiquidityOnArbitrum();
   }, [mutateEDDXInLiquidityOnArbitrum]);
 
-  if ( eddxInLiquidityOnArbitrum) {
+  if (eddxInLiquidityOnArbitrum) {
     let total = bigNumberify(eddxInLiquidityOnArbitrum);
     totalEDDX.current = total;
   }
