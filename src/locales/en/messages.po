@@ -18,10 +18,6 @@ msgid "01 Sep 2021"
 msgstr "01 Sep 2021"
 
 #: src/pages/Dashboard/DashboardV2.js
-msgid "06 Jan 2022"
-msgstr "06 Jan 2022"
-
-#: src/pages/Dashboard/DashboardV2.js
 msgid "24h Volume"
 msgstr "24h Volume"
 
@@ -2161,7 +2157,6 @@ msgid "Open in Coingecko"
 msgstr "Open in Coingecko"
 
 #: src/pages/Dashboard/AssetDropdown.tsx
-#: src/pages/Dashboard/AssetDropdown.tsx
 msgid "Open in Explorer"
 msgstr "Open in Explorer"
 
@@ -3142,12 +3137,12 @@ msgid "There may not be sufficient liquidity to execute your order when the pric
 msgstr "There may not be sufficient liquidity to execute your order when the price conditions are met"
 
 #: src/components/Referrals/AffiliatesStats.js
-msgid "This code has been taken by someone else on {0}, you will not receive rebates from traders using this code on {1}."
-msgstr "This code has been taken by someone else on {0}, you will not receive rebates from traders using this code on {1}."
+msgid "This code has been taken by someone else on BASE, you will not receive rebates from traders using this code on BASE ."
+msgstr "This code has been taken by someone else on BASE, you will not receive rebates from traders using this code on BASE ."
 
 #: src/components/Referrals/AffiliatesStats.js
-msgid "This code is not yet registered on {0}, you will not receive rebates there.<0/><1/>Switch your network to create this code on {1}."
-msgstr "This code is not yet registered on {0}, you will not receive rebates there.<0/><1/>Switch your network to create this code on {1}."
+msgid "This code is not yet registered on BASE, you will not receive rebates there.<0/><1/>Switch your network to create this code on BASE."
+msgstr "This code is not yet registered on BASE, you will not receive rebates there.<0/><1/>Switch your network to create this code on BASE."
 
 #: src/components/Exchange/PositionSeller.js
 msgid "This order will forfeit a <0>profit</0> of {deltaStr}. <1/>"
@@ -3174,8 +3169,8 @@ msgid "To complete the transfer, you must switch your connected account to {rece
 msgstr "To complete the transfer, you must switch your connected account to {receiver}."
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "To purchase EDDX on the {0} blockchain, please <0>change your network</0>."
-msgstr "To purchase EDDX on the {0} blockchain, please <0>change your network</0>."
+msgid "To purchase EDDX on the BASE blockchain, please <0>change your network</0>."
+msgstr "To purchase EDDX on the BASE blockchain, please <0>change your network</0>."
 
 #: src/components/Elp/ElpSwap.js
 msgid "To reduce fees, select a different asset to pay with."
@@ -3434,42 +3429,6 @@ msgstr "UTILIZATION"
 #: src/pages/Stake/StakeV2.js
 msgid "Unstake"
 msgstr "Unstake"
-
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "years"
-msgstr "years"
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "months"
-msgstr "months"
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "days"
-msgstr "days"
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "hours"
-msgstr "hours"
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "minutes"
-msgstr "minutes"
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "seconds"
-msgstr "seconds"
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "You can unstake after {0}."
-msgstr "You can unstake after {0}."
 
 #: src/pages/Stake/StakeV2.js
 msgid "Unstake EDDX"
@@ -3800,6 +3759,10 @@ msgstr "You can transfer AVAX from other networks to Avalanche using any of the 
 msgid "You can transfer ETH from other networks to Arbitrum using any of the below options:"
 msgstr "You can transfer ETH from other networks to Arbitrum using any of the below options:"
 
+#: src/pages/Stake/StakeV2.js
+msgid "You can unstake after {0}."
+msgstr "You can unstake after {0}."
+
 #: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
 msgid "You have a <0>pending transfer</0> to {pendingReceiver}."
 msgstr "You have a <0>pending transfer</0> to {pendingReceiver}."
@@ -3881,6 +3844,10 @@ msgstr "account"
 msgid "collateral"
 msgstr "collateral"
 
+#: src/pages/Stake/StakeV2.js
+msgid "days"
+msgstr "days"
+
 #: src/pages/PositionsOverview/PositionsOverview.js
 msgid "fee"
 msgstr "fee"
@@ -3889,9 +3856,17 @@ msgstr "fee"
 msgid "hide"
 msgstr "hide"
 
+#: src/pages/Stake/StakeV2.js
+msgid "hours"
+msgstr "hours"
+
 #: src/pages/Dashboard/DashboardV2.js
 msgid "in liquidity"
 msgstr "in liquidity"
+
+#: src/pages/Stake/StakeV2.js
+msgid "minutes"
+msgstr "minutes"
 
 #: src/pages/Dashboard/DashboardV2.js
 msgid "not staked"

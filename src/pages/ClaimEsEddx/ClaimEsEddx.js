@@ -14,7 +14,6 @@ import Checkbox from "components/Checkbox/Checkbox";
 import "./ClaimEsEddx.css";
 
 import arbitrumIcon from "img/ic_arbitrum_96.svg";
-import avaIcon from "img/ic_avalanche_96.svg";
 
 import { Trans, t } from "@lingui/macro";
 import { BASE } from "config/chains";
@@ -350,22 +349,6 @@ export default function ClaimEsEddx({ setPendingTxns }) {
               >
                 <Trans>Vest with ELP on Arbitrum</Trans>
                 <img src={arbitrumIcon} alt="Arbitrum" />
-              </Checkbox>
-              <Checkbox
-                className="avalanche vest-option"
-                isChecked={selectedOption === VEST_WITH_EDDX_AVAX}
-                setIsChecked={() => setSelectedOption(VEST_WITH_EDDX_AVAX)}
-              >
-                <Trans>Vest with EDDX on Avalanche</Trans>
-                <img src={avaIcon} alt="Avalanche" />
-              </Checkbox>
-              <Checkbox
-                className="avalanche vest-option"
-                isChecked={selectedOption === VEST_WITH_ELP_AVAX}
-                setIsChecked={() => setSelectedOption(VEST_WITH_ELP_AVAX)}
-              >
-                <Trans>Vest with ELP on Avalanche</Trans>
-                <img src={avaIcon} alt="Avalanche" />
               </Checkbox>
             </div>
             <br />
