@@ -2034,6 +2034,18 @@ msgstr ""
 msgid "Minimum received"
 msgstr ""
 
+#: src/pages/Stake/StakeV2.js
+msgid "Month"
+msgstr ""
+
+#: src/pages/Stake/StakeV2.js
+msgid "Select a month"
+msgstr ""
+
+#: src/pages/Stake/StakeV2.js
+msgid "Stake period"
+msgstr ""
+
 #: src/components/Exchange/SwapBox.js
 #: src/pages/Dashboard/DashboardV2.js
 msgid "More Info"

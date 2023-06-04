@@ -408,6 +408,8 @@ function VesterDepositModal(props) {
     maxReserveAmount,
     vesterAddress,
     setPendingTxns,
+    month,
+    setMonth
   } = props;
   const [isDepositing, setIsDepositing] = useState(false);
 
@@ -429,11 +431,15 @@ function VesterDepositModal(props) {
   }
 
   const getError = () => {
+
     if (!amount || amount.eq(0)) {
       return t`Enter an amount`;
     }
     if (maxAmount && amount.gt(maxAmount)) {
       return t`Max amount exceeded`;
+    }
+    if (![...Array(12).keys()].includes(month)) {
+      return t`Select a month`;
     }
     if (nextReserveAmount.gt(maxReserveAmount)) {
       return t`Insufficient staked tokens`;
@@ -443,8 +449,7 @@ function VesterDepositModal(props) {
   const onClickPrimary = () => {
     setIsDepositing(true);
     const contract = new ethers.Contract(vesterAddress, Vester.abi, library.getSigner());
-    // todo 修改页面，增加vest的月份参数，值范围>=0 <=12
-    const months = 1;
+    const months = month;
     callContract(chainId, contract, "deposit", [amount, months], {
       sentMsg: t`Deposit submitted!`,
       failMsg: t`Deposit failed!`,
@@ -510,6 +515,43 @@ function VesterDepositModal(props) {
                 />
               </div>
               <div className="PositionEditor-token-symbol">esEDDX</div>
+            </div>
+          </div>
+          <div className="Exchange-swap-section">
+            <div className="Exchange-swap-section-top">
+              <div className="muted">
+                <div className="Exchange-swap-usd">
+                  <Trans>Stake period</Trans>
+                </div>
+              </div>
+              <div
+                className="muted align-right clickable"
+                onClick={() => setMonth(12)}
+              >
+                Max: 12
+              </div>
+            </div>
+            <div className="Exchange-swap-section-bottom">
+              <div>
+                <input
+                  disabled={true}
+                  type="number"
+                  placeholder="0.0"
+                  className="Exchange-swap-input"
+                  value={month}
+                />
+              </div>
+              <div className="PositionEditor-token-symbol"><Trans>Month</Trans></div>
+            </div>
+            <div className="Exchange-swap-section-model" >
+              {[...Array(13).keys()].map(p => (
+                <div key={p} onClick={() => {
+                  setMonth(p);
+                }} className="Exchange-swap-section-model-item" >
+                  <label style={{ width: 20 }} >{p}</label>
+                  <label><Trans>Month</Trans></label>
+                </div>
+              ))}
             </div>
           </div>
           <div className="VesterDepositModal-info-rows">
@@ -1001,6 +1043,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
   const [vesterDepositAverageStakedAmount, setVesterDepositAverageStakedAmount] = useState("");
   const [vesterDepositMaxVestableAmount, setVesterDepositMaxVestableAmount] = useState("");
   const [vesterDepositValue, setVesterDepositValue] = useState("");
+  const [vesterDepositMonth, setVesterDepositMonth] = useState("");
   const [vesterDepositReserveAmount, setVesterDepositReserveAmount] = useState("");
   const [vesterDepositMaxReserveAmount, setVesterDepositMaxReserveAmount] = useState("");
   const [vesterDepositAddress, setVesterDepositAddress] = useState("");
@@ -1471,6 +1514,8 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
         maxReserveAmount={vesterDepositMaxReserveAmount}
         value={vesterDepositValue}
         setValue={setVesterDepositValue}
+        month={vesterDepositMonth}
+        setMonth={setVesterDepositMonth}
         library={library}
         vesterAddress={vesterDepositAddress}
         setPendingTxns={setPendingTxns}

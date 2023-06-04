@@ -149,6 +149,7 @@ export function getExchangeRateDisplay(rate, tokenA, tokenB, opts: { omitSymbols
     rate = PRECISION.mul(PRECISION).div(rate);
   }
   const rateValue = formatAmount(rate, USD_DECIMALS, tokenA.isStable || tokenA.isUsdg ? 2 : 4, true);
+  console.log("rateValue", rateValue);
   if (opts.omitSymbols) {
     return rateValue;
   }

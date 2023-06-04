@@ -2037,6 +2037,18 @@ msgstr "最低受け取り額"
 msgid "Minimum received"
 msgstr "最低受け取り済"
 
+#: src/pages/Stake/StakeV2.js
+msgid "Month"
+msgstr "月"
+
+#: src/pages/Stake/StakeV2.js
+msgid "Select a month"
+msgstr "月を選択"
+
+#: src/pages/Stake/StakeV2.js
+msgid "Stake period"
+msgstr "ステーク期間"
+
 #: src/components/Exchange/SwapBox.js
 #: src/pages/Dashboard/DashboardV2.js
 msgid "More Info"

@@ -182,7 +182,6 @@ function getInfoTokens(
 
     infoTokens[token.address] = token;
   }
-
   return infoTokens;
 }
 

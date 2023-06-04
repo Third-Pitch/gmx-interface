@@ -2037,6 +2037,18 @@ msgstr "Min. Empfangen"
 msgid "Minimum received"
 msgstr "Min. Empfangen"
 
+#: src/pages/Stake/StakeV2.js
+msgid "Month"
+msgstr "Month"
+
+#: src/pages/Stake/StakeV2.js
+msgid "Select a month"
+msgstr "Select a month"
+
+#: src/pages/Stake/StakeV2.js
+msgid "Stake period"
+msgstr "Stake period"
+
 #: src/components/Exchange/SwapBox.js
 #: src/pages/Dashboard/DashboardV2.js
 msgid "More Info"
@@ -2666,6 +2678,8 @@ msgstr "Sprache auswählen"
 msgid "Select Market"
 msgstr "Markt wählen"
 
+
+
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
 msgid "Select an option"
 msgstr "Option wählen"
@@ -2854,6 +2868,8 @@ msgstr "Staken fehlgeschlagen"
 #: src/pages/Stake/StakeV2.js
 msgid "Stake failed."
 msgstr "Staken fehlgeschlagen."
+
+
 
 #: src/pages/Stake/StakeV2.js
 msgid "Stake submitted!"
@@ -3527,16 +3543,8 @@ msgid "Vest with EDDX on Arbitrum"
 msgstr "Vesting mit EDDX auf Arbitrum"
 
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with EDDX on Avalanche"
-msgstr "Vesting mit EDDX auf Avalanche"
-
-#: src/pages/ClaimEsEddx/ClaimEsEddx.js
 msgid "Vest with ELP on Arbitrum"
 msgstr "Vesting mit ELP auf Arbitrum"
-
-#: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with ELP on Avalanche"
-msgstr "Vesting mit ELP auf Avalanche"
 
 #: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
 msgid "Vested EDDX not withdrawn"

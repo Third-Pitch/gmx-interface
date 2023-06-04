@@ -9,6 +9,49 @@
   justify-content: space-between;
 }
 
+.Exchange-swap-section {
+  position: relative;
+}
+
+.Exchange-swap-section:hover .Exchange-swap-section-model {
+  bottom: -100px;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.Exchange-swap-section-model {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  width: 120px;
+  height: 40px;
+  left: 80px;
+  bottom: -90px;
+  background-color: #372d2d;
+  height: 180px;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8);
+  overflow-y: scroll;
+}
+
+.Exchange-swap-section-model-item {
+  padding: 12px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.Exchange-swap-section-model-item label {
+  cursor: pointer;
+}
+
+.Exchange-swap-section-model-item:hover {
+  background-color: #564f4f;
+}
+
 .buy-input .TokenSelector-box {
   display: flex;
   align-items: center;
@@ -20,6 +63,7 @@
   line-height: 2.5rem;
   justify-content: flex-end;
 }
+
 .buy-input .TokenSelector-box:hover {
   color: #7885ff;
 }

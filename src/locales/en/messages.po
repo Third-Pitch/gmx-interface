@@ -2037,6 +2037,18 @@ msgstr "Min. Receive"
 msgid "Minimum received"
 msgstr "Minimum received"
 
+#: src/pages/Stake/StakeV2.js
+msgid "Month"
+msgstr "Month"
+
+#: src/pages/Stake/StakeV2.js
+msgid "Select a month"
+msgstr "Select a month"
+
+#: src/pages/Stake/StakeV2.js
+msgid "Stake period"
+msgstr "Stake period"
+
 #: src/components/Exchange/SwapBox.js
 #: src/pages/Dashboard/DashboardV2.js
 msgid "More Info"
@@ -2855,6 +2867,7 @@ msgstr "Stake failed"
 msgid "Stake failed."
 msgstr "Stake failed."
 
+
 #: src/pages/Stake/StakeV2.js
 msgid "Stake submitted!"
 msgstr "Stake submitted!"
@@ -3527,16 +3540,8 @@ msgid "Vest with EDDX on Arbitrum"
 msgstr "Vest with EDDX on Arbitrum"
 
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with EDDX on Avalanche"
-msgstr "Vest with EDDX on Avalanche"
-
-#: src/pages/ClaimEsEddx/ClaimEsEddx.js
 msgid "Vest with ELP on Arbitrum"
 msgstr "Vest with ELP on Arbitrum"
-
-#: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with ELP on Avalanche"
-msgstr "Vest with ELP on Avalanche"
 
 #: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
 msgid "Vested EDDX not withdrawn"

@@ -2037,6 +2037,18 @@ msgstr "최소 수취량"
 msgid "Minimum received"
 msgstr "최소량 수치 완료"
 
+#: src/pages/Stake/StakeV2.js
+msgid "Month"
+msgstr "월"
+
+#: src/pages/Stake/StakeV2.js
+msgid "Select a month"
+msgstr "월 선택"
+
+#: src/pages/Stake/StakeV2.js
+msgid "Stake period"
+msgstr "스테이크 기간"
+
 #: src/components/Exchange/SwapBox.js
 #: src/pages/Dashboard/DashboardV2.js
 msgid "More Info"

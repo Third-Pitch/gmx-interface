@@ -2037,6 +2037,18 @@ msgstr "最低接收"
 msgid "Minimum received"
 msgstr "最低已接收"
 
+#: src/pages/Stake/StakeV2.js
+msgid "Month"
+msgstr "月"
+
+#: src/pages/Stake/StakeV2.js
+msgid "Select a month"
+msgstr "选择一个月份"
+
+#: src/pages/Stake/StakeV2.js
+msgid "Stake period"
+msgstr "质押期"
+
 #: src/components/Exchange/SwapBox.js
 #: src/pages/Dashboard/DashboardV2.js
 msgid "More Info"
@@ -3527,16 +3539,8 @@ msgid "Vest with EDDX on Arbitrum"
 msgstr "在Arbitrum上授权EDDX"
 
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with EDDX on Avalanche"
-msgstr "在Avalanche上授权EDDX"
-
-#: src/pages/ClaimEsEddx/ClaimEsEddx.js
 msgid "Vest with ELP on Arbitrum"
 msgstr "在Arbitrum上授权ELP"
-
-#: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with ELP on Avalanche"
-msgstr "在Avalanche上授权ELP"
 
 #: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
 msgid "Vested EDDX not withdrawn"
