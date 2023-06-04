@@ -42,7 +42,7 @@
   background: rgba(41, 160, 240, 0.2);
 }
 
-.ClaimEsEddx-vesting-options .Checkbox.btn-lg.selected.avalanche {
+.ClaimEsEddx-vesting-options .Checkbox.btn-lg.selected.__DELETE {
   background: rgba(232, 65, 65, 0.2);
 }
 
@@ -58,7 +58,7 @@
   color: #29a0f0;
 }
 
-.ClaimEsEddx-vesting-options .Checkbox.avalanche .Checkbox-icon.active {
+.ClaimEsEddx-vesting-options .Checkbox.__DELETE .Checkbox-icon.active {
   color: #e84141;
 }
 

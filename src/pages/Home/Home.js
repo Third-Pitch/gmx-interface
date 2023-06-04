@@ -127,7 +127,7 @@ export default function Home({ showRedirectModal, redirectPopupTimestamp }) {
             </div>
             <div className="Home-description">
               <Trans>
-                Trade BTC, ETH, AVAX and other top cryptocurrencies with up to 50x leverage directly from your wallet
+                Trade BTC, ETH and other top cryptocurrencies with up to 50x leverage directly from your wallet
               </Trans>
             </div>
             <LaunchExchangeButton />
@@ -216,7 +216,7 @@ export default function Home({ showRedirectModal, redirectPopupTimestamp }) {
               <Trans>Available on your preferred network</Trans>
             </div>
             <div className="Home-cta-info__description">
-              <Trans>EDDX is currently live on Base and Avalanche.</Trans>
+              <Trans>EDDX is currently live on Base.</Trans>
             </div>
           </div>
           <div className="Home-cta-options">

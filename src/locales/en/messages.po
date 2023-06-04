@@ -404,8 +404,8 @@ msgid "Buy / Sell ELP"
 msgstr "Buy / Sell ELP"
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy AVAX directly to Avalanche or transfer it there."
-msgstr "Buy AVAX directly to Avalanche or transfer it there."
+msgid "Buy __DELETE directly to __DELETE or transfer it there."
+msgstr "Buy __DELETE directly to __DELETE or transfer it there."
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
 msgid "Buy EDDX from Traderjoe:"
@@ -472,8 +472,8 @@ msgid "Buy on Goerli"
 msgstr "Buy on Goerli"
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy or Transfer AVAX to Avalanche"
-msgstr "Buy or Transfer AVAX to Avalanche"
+msgid "Buy or Transfer __DELETE to __DELETE"
+msgstr "Buy or Transfer __DELETE to __DELETE"
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
 msgid "Buy or Transfer ETH to Base"
@@ -1128,8 +1128,8 @@ msgid "EDDX fundamentals"
 msgstr "EDDX fundamentals"
 
 #: src/pages/Home/Home.js
-msgid "EDDX is currently live on Base and Avalanche."
-msgstr "EDDX is currently live on Base and Avalanche."
+msgid "EDDX is currently live on Base and __DELETE."
+msgstr "EDDX is currently live on Base and __DELETE."
 
 #: src/pages/Jobs/Jobs.js
 msgid "EDDX is not actively looking for new hires at the moment. However, if you think you can contribute to the project, please email <0>jobs@eddx.io</0>."
@@ -3290,8 +3290,8 @@ msgid "Trade"
 msgstr "Trade"
 
 #: src/pages/Home/Home.js
-msgid "Trade BTC, ETH, AVAX and other top cryptocurrencies with up to 50x leverage directly from your wallet"
-msgstr "Trade BTC, ETH, AVAX and other top cryptocurrencies with up to 50x leverage directly from your wallet"
+msgid "Trade BTC, ETH, __DELETE and other top cryptocurrencies with up to 50x leverage directly from your wallet"
+msgstr "Trade BTC, ETH, __DELETE and other top cryptocurrencies with up to 50x leverage directly from your wallet"
 
 #: src/components/Exchange/ExchangeBanner.js
 msgid "Trade on EDDX and win <0>$250.000</0> in prizes! Live until November 30th, <1>click here</1> to learn more."
@@ -3708,8 +3708,8 @@ msgid "Withdrew {0} USD from {tokenSymbol} {longOrShortText}."
 msgstr "Withdrew {0} USD from {tokenSymbol} {longOrShortText}."
 
 #: src/pages/Ecosystem/Ecosystem.js
-msgid "Yield Optimizer on Avalanche"
-msgstr "Yield Optimizer on Avalanche"
+msgid "Yield Optimizer on __DELETE"
+msgstr "Yield Optimizer on __DELETE"
 
 #: src/pages/Ecosystem/Ecosystem.js
 msgid "Yield Vaults"
@@ -3732,8 +3732,8 @@ msgid "You are leaving EDDX.io and will be redirected to a third party, independ
 msgstr "You are leaving EDDX.io and will be redirected to a third party, independent website."
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "You can buy AVAX directly on <0>Avalanche</0> using these options:"
-msgstr "You can buy AVAX directly on <0>Avalanche</0> using these options:"
+msgid "You can buy __DELETE directly on <0>__DELETE</0> using these options:"
+msgstr "You can buy __DELETE directly on <0>__DELETE</0> using these options:"
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
 msgid "You can buy ETH directly on <0>Base</0> using these options:"
@@ -3757,8 +3757,8 @@ msgid "You can currently vest a maximum of {0} esEDDX tokens at a ratio of {1} {
 msgstr "You can currently vest a maximum of {0} esEDDX tokens at a ratio of {1} {stakingToken} to 1 esEDDX."
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "You can transfer AVAX from other networks to Avalanche using any of the below options:"
-msgstr "You can transfer AVAX from other networks to Avalanche using any of the below options:"
+msgid "You can transfer __DELETE from other networks to __DELETE using any of the below options:"
+msgstr "You can transfer __DELETE from other networks to __DELETE using any of the below options:"
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
 msgid "You can transfer ETH from other networks to Base using any of the below options:"

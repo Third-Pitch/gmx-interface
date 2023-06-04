@@ -226,15 +226,7 @@ export default function Ecosystem() {
       creatorLink: "https://twitter.com/JamesCliffyz",
       chainIds: [BASE],
     },
-    {
-      title: "Shogun Dashboard (Dune Avalanche)",
-      link: "https://dune.com/shogun/eddx-analytics-avalanche",
-      linkLabel: "dune.com",
-      about: t`Protocol analytics`,
-      creatorLabel: "@JamesCliffyz",
-      creatorLink: "https://twitter.com/JamesCliffyz",
-      chainIds: [],
-    },
+
     {
       title: "EDDX Perpetuals Data",
       link: "https://app.laevitas.ch/altsderivs/EDDX/perpetualswaps",
@@ -319,15 +311,7 @@ export default function Ecosystem() {
       announcementLink: "https://twitter.com/EDDX_IO/status/1482788805635678212",
       chainIds: [BASE],
     },
-    {
-      title: "Yield Yak Optimizer",
-      link: "https://yieldyak.com/",
-      linkLabel: "yieldyak.com",
-      about: t`Yield Optimizer on Avalanche`,
-      announcementLabel: "twitter.com",
-      announcementLink: "https://twitter.com/EDDX_IO/status/1484601407378378754",
-      chainIds: [],
-    },
+
     {
       title: "Vovo Finance",
       link: "https://vovo.finance/",

@@ -158,7 +158,6 @@ export const ELP_POOL_COLORS = {
   FRAX: "#000",
   DAI: "#FAC044",
   UNI: "#E9167C",
-  AVAX: "#E84142",
   LINK: "#3256D6",
 };
 

@@ -404,7 +404,7 @@ msgid "Buy / Sell ELP"
 msgstr "购买/出售ELP"
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy AVAX directly to Avalanche or transfer it there."
+msgid "Buy __DELETE directly to __DELETE or transfer it there."
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
@@ -472,7 +472,7 @@ msgid "Buy on Goerli"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy or Transfer AVAX to Avalanche"
+msgid "Buy or Transfer __DELETE to __DELETE"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
@@ -1128,8 +1128,8 @@ msgid "EDDX fundamentals"
 msgstr "EDDX基础"
 
 #: src/pages/Home/Home.js
-msgid "EDDX is currently live on Base and Avalanche."
-msgstr "EDDX目前在Base和Avalanche上线"
+msgid "EDDX is currently live on Base."
+msgstr "EDDX目前在Base上线"
 
 #: src/pages/Jobs/Jobs.js
 msgid "EDDX is not actively looking for new hires at the moment. However, if you think you can contribute to the project, please email <0>jobs@eddx.io</0>."
@@ -3290,7 +3290,7 @@ msgid "Trade"
 msgstr "交易"
 
 #: src/pages/Home/Home.js
-msgid "Trade BTC, ETH, AVAX and other top cryptocurrencies with up to 50x leverage directly from your wallet"
+msgid "Trade BTC, ETH and other top cryptocurrencies with up to 50x leverage directly from your wallet"
 msgstr ""
 
 #: src/components/Exchange/ExchangeBanner.js
@@ -3708,8 +3708,8 @@ msgid "Withdrew {0} USD from {tokenSymbol} {longOrShortText}."
 msgstr "从{tokenSymbol}{longOrShortText}提取了{0}美元"
 
 #: src/pages/Ecosystem/Ecosystem.js
-msgid "Yield Optimizer on Avalanche"
-msgstr "Avalanche上的产量优化器"
+msgid "Yield Optimizer on __DELETE"
+msgstr "__DELETE上的产量优化器"
 
 #: src/pages/Ecosystem/Ecosystem.js
 msgid "Yield Vaults"
@@ -3732,7 +3732,7 @@ msgid "You are leaving EDDX.io and will be redirected to a third party, independ
 msgstr "您正要离开EDDX.io，并且将被重新导向到第三方独立网站"
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "You can buy AVAX directly on <0>Avalanche</0> using these options:"
+msgid "You can buy __DELETE directly on <0>__DELETE</0> using these options:"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
@@ -3757,7 +3757,7 @@ msgid "You can currently vest a maximum of {0} esEDDX tokens at a ratio of {1} {
 msgstr "目前，您最多可以授权{0}个esEDDX代币，比例为{1}个esEDDX。 {stakingToken}对1esEDDX"
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "You can transfer AVAX from other networks to Avalanche using any of the below options:"
+msgid "You can transfer __DELETE from other networks to __DELETE using any of the below options:"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx

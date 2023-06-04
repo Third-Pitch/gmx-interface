@@ -3,7 +3,7 @@ import { arrayURLFetcher, getTotalVolumeSum } from "lib/legacy";
 import { BASE } from "config/chains";
 import { getServerUrl } from "config/backend";
 import { bigNumberify } from "lib/numbers";
-// const ACTIVE_CHAIN_IDS = [BASE, AVALANCHE];
+
 const ACTIVE_CHAIN_IDS = [BASE];
 
 export function useTotalVolume() {

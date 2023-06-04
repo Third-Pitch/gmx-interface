@@ -25,8 +25,6 @@ import Button from "components/Button/Button";
 
 const VEST_WITH_EDDX_BASE = "VEST_WITH_EDDX_BASE";
 const VEST_WITH_ELP_BASE = "VEST_WITH_ELP_BASE";
-const VEST_WITH_EDDX_AVAX = "VEST_WITH_EDDX_AVAX";
-const VEST_WITH_ELP_AVAX = "VEST_WITH_ELP_AVAX";
 
 export function getVestingDataV2(vestingInfo) {
   if (!vestingInfo || vestingInfo.length === 0) {
@@ -264,14 +262,6 @@ export default function ClaimEsEddx({ setPendingTxns }) {
 
     if (selectedOption === VEST_WITH_ELP_BASE) {
       receiver = "0x9d8f6f6eE45275A5Ca3C6f6269c5622b1F9ED515";
-    }
-
-    if (selectedOption === VEST_WITH_EDDX_AVAX) {
-      receiver = "0x171a321A78dAE0CDC0Ba3409194df955DEEcA746";
-    }
-
-    if (selectedOption === VEST_WITH_ELP_AVAX) {
-      receiver = "0x28863Dd19fb52DF38A9f2C6dfed40eeB996e3818";
     }
 
     const contract = new ethers.Contract(esEddxIouAddress, Token.abi, library.getSigner());

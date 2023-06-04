@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import Footer from "components/Footer/Footer";
 import "./BuyEDDX.css";
 import { useWeb3React } from "@web3-react/core";
@@ -13,7 +13,6 @@ import ExternalLink from "components/ExternalLink/ExternalLink";
 
 import bondProtocolIcon from "img/ic_bondprotocol_base.svg";
 import uniswapBaseIcon from "img/ic_uni_base.svg";
-import traderjoeIcon from "img/ic_traderjoe_avax.png";
 import {
   BUY_NATIVE_TOKENS,
   CENTRALISED_EXCHANGES,
@@ -64,8 +63,7 @@ export default function BuyEDDX() {
           <CentralisedExchanges chainId={chainId} />
         </div>
 
-        {isBase ? (
-          <div className="section-title-block mt-top">
+        <div className="section-title-block mt-top">
             <div className="section-title-content">
               <div className="Page-title">
                 <Trans>Buy or Transfer ETH to Base</Trans>
@@ -75,34 +73,15 @@ export default function BuyEDDX() {
               </div>
             </div>
           </div>
-        ) : (
-          <div className="section-title-block mt-top">
-            <div className="section-title-content">
-              <div className="Page-title">
-                <Trans>Buy or Transfer AVAX to Avalanche</Trans>
-              </div>
-              <div className="Page-description">
-                <Trans>Buy AVAX directly to Avalanche or transfer it there.</Trans>
-              </div>
-            </div>
-          </div>
-        )}
 
         <div className="cards-row">
           <Card title={t`Buy ${nativeTokenSymbol}`}>
             <div className="App-card-content">
               <div className="BuyEDDXELP-description">
-                {isBase ? (
-                  <Trans>
+              <Trans>
                     You can buy ETH directly on{" "}
                     <ExternalLink href={externalLinks.networkWebsite}>Base</ExternalLink> using these options:
                   </Trans>
-                ) : (
-                  <Trans>
-                    You can buy AVAX directly on{" "}
-                    <ExternalLink href={externalLinks.networkWebsite}>Avalanche</ExternalLink> using these options:
-                  </Trans>
-                )}
               </div>
               <div className="buttons-group">
                 {BUY_NATIVE_TOKENS.filter((e) => chainId in e.links).map((exchange) => {
@@ -125,15 +104,9 @@ export default function BuyEDDX() {
           </Card>
           <Card title={t`Transfer ${nativeTokenSymbol}`}>
             <div className="App-card-content">
-              {isBase ? (
-                <div className="BuyEDDXELP-description">
+            <div className="BuyEDDXELP-description">
                   <Trans>You can transfer ETH from other networks to Base using any of the below options:</Trans>
                 </div>
-              ) : (
-                <div className="BuyEDDXELP-description">
-                  <Trans>You can transfer AVAX from other networks to Avalanche using any of the below options:</Trans>
-                </div>
-              )}
               <div className="buttons-group">
                 {TRANSFER_EXCHANGES.filter((e) => chainId in e.links).map((exchange) => {
                   const icon = importImage(exchange.icon) || "";
@@ -165,7 +138,7 @@ function DecentralisedExchanges({ chainId, externalLinks }) {
   return (
     <Card title={t`Buy EDDX from a Decentralized Exchange`}>
       <div className="App-card-content">
-        {isBase ? (
+      (
           <div className="exchange-info-group">
             <div className="BuyEDDXELP-description">
               <Trans>Buy EDDX from Uniswap (make sure to select Base):</Trans>
@@ -181,23 +154,7 @@ function DecentralisedExchanges({ chainId, externalLinks }) {
               </Button>
             </div>
           </div>
-        ) : (
-          <div className="exchange-info-group">
-            <div className="BuyEDDXELP-description">
-              <Trans>Buy EDDX from Traderjoe:</Trans>
-            </div>
-            <div className="buttons-group col-1">
-              <Button
-                variant="clear"
-                to={externalLinks.buyEddx.traderjoe}
-                imgInfo={{ src: traderjoeIcon, alt: "Traderjoe" }}
-                newTab
-              >
-                TraderJoe
-              </Button>
-            </div>
-          </div>
-        )}
+        )
         <div className="exchange-info-group">
           <div className="BuyEDDXELP-description">
             <Trans>Buy EDDX using Decentralized Exchange Aggregators:</Trans>

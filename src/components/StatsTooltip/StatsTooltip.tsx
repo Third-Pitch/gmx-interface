@@ -7,7 +7,6 @@ import { formatAmount } from "lib/numbers";
 type Props = {
   title: string;
   total?: BigNumber;
-  avaxValue?: BigNumber;
   baseValue?: BigNumber;
   showDollar?: boolean;
   decimalsForConversion: number;
@@ -17,7 +16,6 @@ type Props = {
 export default function StatsTooltip({
   title,
   total,
-  avaxValue,
   baseValue,
   showDollar = true,
   decimalsForConversion = USD_DECIMALS,

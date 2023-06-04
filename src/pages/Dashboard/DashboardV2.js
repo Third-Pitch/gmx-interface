@@ -44,7 +44,7 @@ import { bigNumberify, expandDecimals, formatAmount, formatKeyAmount, numberWith
 import { useChainId } from "lib/chains";
 import { formatDate } from "lib/dates";
 import { getIcons } from "config/icons";
-// const ACTIVE_CHAIN_IDS = [BASE, AVALANCHE];
+
 const ACTIVE_CHAIN_IDS = [BASE];
 
 const { AddressZero } = ethers.constants;

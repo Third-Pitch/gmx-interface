@@ -463,7 +463,7 @@ export function useEddxPrice(_, libraries, active) {
   };
 }
 
-// use only the supply endpoint on base, it includes the supply on avalanche
+// use only the supply endpoint on base, it includes the supply on AVAX
 export function useTotalEddxSupply() {
   const eddxSupplyUrlBase = getServerUrl(BASE, "/eddx_supply");
 

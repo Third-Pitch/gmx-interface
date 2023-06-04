@@ -404,7 +404,7 @@ msgid "Buy / Sell ELP"
 msgstr "Купить / Продать ELP"
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy AVAX directly to Avalanche or transfer it there."
+msgid "Buy __DELETE directly to __DELETE or transfer it there."
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
@@ -472,7 +472,7 @@ msgid "Buy on Goerli"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy or Transfer AVAX to Avalanche"
+msgid "Buy or Transfer __DELETE to __DELETE"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
@@ -1128,8 +1128,8 @@ msgid "EDDX fundamentals"
 msgstr "Фундаментальные показатели EDDX"
 
 #: src/pages/Home/Home.js
-msgid "EDDX is currently live on Base and Avalanche."
-msgstr "В настоящее время EDDX работает на Base и Avalanche."
+msgid "EDDX is currently live on Base."
+msgstr "В настоящее время EDDX работает на Base."
 
 #: src/pages/Jobs/Jobs.js
 msgid "EDDX is not actively looking for new hires at the moment. However, if you think you can contribute to the project, please email <0>jobs@eddx.io</0>."
@@ -3290,8 +3290,8 @@ msgid "Trade"
 msgstr "Торговля"
 
 #: src/pages/Home/Home.js
-msgid "Trade BTC, ETH, AVAX and other top cryptocurrencies with up to 50x leverage directly from your wallet"
-msgstr "Торгуйте BTC, ETH, AVAX и другими популярными криптовалютами с кредитным плечом до 50x прямо из вашего кошелька."
+msgid "Trade BTC, ETH and other top cryptocurrencies with up to 50x leverage directly from your wallet"
+msgstr "Торгуйте BTC, ETH и другими популярными криптовалютами с кредитным плечом до 50x прямо из вашего кошелька."
 
 #: src/components/Exchange/ExchangeBanner.js
 msgid "Trade on EDDX and win <0>$250.000</0> in prizes! Live until November 30th, <1>click here</1> to learn more."
@@ -3708,8 +3708,8 @@ msgid "Withdrew {0} USD from {tokenSymbol} {longOrShortText}."
 msgstr "Снял {0} USD с {tokenSymbol} {longOrShortText}."
 
 #: src/pages/Ecosystem/Ecosystem.js
-msgid "Yield Optimizer on Avalanche"
-msgstr "Оптимизатор доходности xранилища на Avalanche"
+msgid "Yield Optimizer on __DELETE"
+msgstr "Оптимизатор доходности xранилища на __DELETE"
 
 #: src/pages/Ecosystem/Ecosystem.js
 msgid "Yield Vaults"
@@ -3732,7 +3732,7 @@ msgid "You are leaving EDDX.io and will be redirected to a third party, independ
 msgstr "Вы покидаете сайт EDDX.io и будете перенаправлены на сторонний, независимый сайт."
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "You can buy AVAX directly on <0>Avalanche</0> using these options:"
+msgid "You can buy __DELETE directly on <0>__DELETE</0> using these options:"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
@@ -3757,7 +3757,7 @@ msgid "You can currently vest a maximum of {0} esEDDX tokens at a ratio of {1} {
 msgstr "В настоящее время вы можете вестить максимум {0} токенов esEDDX в соотношении {1} {stakingToken} к 1 esEDDX."
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "You can transfer AVAX from other networks to Avalanche using any of the below options:"
+msgid "You can transfer __DELETE from other networks to __DELETE using any of the below options:"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx

@@ -9,7 +9,6 @@ const BACKEND_URLS = {
   // [MAINNET]: "https://gambit-server-staging.uc.r.appspot.com",
   // [BASE_TESTNET]: "https://gambit-server-devnet.uc.r.appspot.com",
   [BASE]: "http://192.168.1.117:3123/api",
-  // [AVALANCHE]: "https://gmx-avax-server.uc.r.appspot.com",
 };
 
 export function getServerBaseUrl(chainId: number) {
