@@ -536,7 +536,7 @@ function VesterDepositModal(props) {
                 <input
                   disabled={true}
                   type="number"
-                  placeholder="0.0"
+                  placeholder="0"
                   className="Exchange-swap-input"
                   value={month}
                 />
