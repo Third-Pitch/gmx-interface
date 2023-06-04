@@ -17,7 +17,6 @@ import { USD_DECIMALS, getTotalVolumeSum } from "lib/legacy";
 import { useUserStat } from "domain/legacy";
 
 import arbitrumIcon from "img/ic_arbitrum_96.svg";
-import avaxIcon from "img/ic_avalanche_96.svg";
 
 import TokenCard from "components/TokenCard/TokenCard";
 import { Trans } from "@lingui/macro";
@@ -227,17 +226,6 @@ export default function Home({ showRedirectModal, redirectPopupTimestamp }) {
               </div>
               <div className="Home-cta-option-info">
                 <div className="Home-cta-option-title">Arbitrum</div>
-                <div className="Home-cta-option-action">
-                  <LaunchExchangeButton />
-                </div>
-              </div>
-            </div>
-            <div className="Home-cta-option Home-cta-option-ava">
-              <div className="Home-cta-option-icon">
-                <img src={avaxIcon} width="96" alt="Avalanche Icon" />
-              </div>
-              <div className="Home-cta-option-info">
-                <div className="Home-cta-option-title">Avalanche</div>
                 <div className="Home-cta-option-action">
                   <LaunchExchangeButton />
                 </div>

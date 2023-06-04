@@ -18,10 +18,6 @@ msgid "01 Sep 2021"
 msgstr "2021년 9월 1일"
 
 #: src/pages/Dashboard/DashboardV2.js
-msgid "06 Jan 2022"
-msgstr "2022년 1월 6일"
-
-#: src/pages/Dashboard/DashboardV2.js
 msgid "24h Volume"
 msgstr "24시간 거래량"
 
@@ -2161,7 +2157,6 @@ msgid "Open in Coingecko"
 msgstr "Coingecko에서 보기"
 
 #: src/pages/Dashboard/AssetDropdown.tsx
-#: src/pages/Dashboard/AssetDropdown.tsx
 msgid "Open in Explorer"
 msgstr "Explorer에서 보기"
 
@@ -3142,12 +3137,12 @@ msgid "There may not be sufficient liquidity to execute your order when the pric
 msgstr "가격 조건이 충족되었을 때 귀하의 주문을 실행할 수 있는 충분한 유동성이 존재하지 않을 수 있습니다"
 
 #: src/components/Referrals/AffiliatesStats.js
-msgid "This code has been taken by someone else on {0}, you will not receive rebates from traders using this code on {1}."
-msgstr "해당 코드는 {0}에서 다른 사용자에 의해 이미 사용되었습니다. {1}에서는 해당 코드를 통해 트레이더로부터의 소개 보수는 받을 수 없습니다."
+msgid "This code has been taken by someone else on BASE, you will not receive rebates from traders using this code on BASE ."
+msgstr ""
 
 #: src/components/Referrals/AffiliatesStats.js
-msgid "This code is not yet registered on {0}, you will not receive rebates there.<0/><1/>Switch your network to create this code on {1}."
-msgstr "해당 코드는 {0}에 아직 등록되지 않았기때문에, 소개 보수를 받을 수 없습니다.<0/><1/>네트워크를 변경후 해당 코드를 {1}상에서 생성하세요."
+msgid "This code is not yet registered on BASE, you will not receive rebates there.<0/><1/>Switch your network to create this code on BASE."
+msgstr ""
 
 #: src/components/Exchange/PositionSeller.js
 msgid "This order will forfeit a <0>profit</0> of {deltaStr}. <1/>"
@@ -3174,7 +3169,7 @@ msgid "To complete the transfer, you must switch your connected account to {rece
 msgstr "전송을 완료하려면 {receiver} 계정에 다시 연결해야 합니다."
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "To purchase EDDX on the {0} blockchain, please <0>change your network</0>."
+msgid "To purchase EDDX on the BASE blockchain, please <0>change your network</0>."
 msgstr ""
 
 #: src/components/Elp/ElpSwap.js
@@ -3472,42 +3467,6 @@ msgstr ""
 msgid "Unstaking..."
 msgstr "언스테이킹중..."
 
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "years"
-msgstr " 년"
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "months"
-msgstr " 월"
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "days"
-msgstr " 일"
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "hours"
-msgstr " 시간"
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "minutes"
-msgstr " 분"
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "seconds"
-msgstr " 초"
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "You can unstake after {0}."
-msgstr "{0}뒤에 촬영 취소해도 돼요."
-
 #: src/lib/wallets/index.tsx
 msgid "Unsupported chain. Switch to Arbitrum network on your wallet and try again"
 msgstr "지원하지 않는 체인입니다. 지갑을 Arbitrum 네트워크로 변경하여 다시 시도해주세요"
@@ -3800,6 +3759,10 @@ msgstr ""
 msgid "You can transfer ETH from other networks to Arbitrum using any of the below options:"
 msgstr "아래의 옵션중 하나를 사용해, ETH를 Arbitrum에 보낼 수 있습니다."
 
+#: src/pages/Stake/StakeV2.js
+msgid "You can unstake after {0}."
+msgstr "{0}뒤에 촬영 취소해도 돼요."
+
 #: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
 msgid "You have a <0>pending transfer</0> to {pendingReceiver}."
 msgstr "{pendingReceiver}로 <0>전송 보류중</0>"
@@ -3881,6 +3844,10 @@ msgstr "게정"
 msgid "collateral"
 msgstr "담보"
 
+#: src/pages/Stake/StakeV2.js
+msgid "days"
+msgstr " 일"
+
 #: src/pages/PositionsOverview/PositionsOverview.js
 msgid "fee"
 msgstr "수수료"
@@ -3889,9 +3856,17 @@ msgstr "수수료"
 msgid "hide"
 msgstr "숨기기"
 
+#: src/pages/Stake/StakeV2.js
+msgid "hours"
+msgstr " 시간"
+
 #: src/pages/Dashboard/DashboardV2.js
 msgid "in liquidity"
 msgstr "유동성"
+
+#: src/pages/Stake/StakeV2.js
+msgid "minutes"
+msgstr " 분"
 
 #: src/pages/Dashboard/DashboardV2.js
 msgid "not staked"

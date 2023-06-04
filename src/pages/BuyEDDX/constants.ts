@@ -116,12 +116,6 @@ export const TRANSFER_EXCHANGES: Exchange[] = [
     },
   },
   {
-    name: "Avalanche",
-    icon: "ic_avax_30.svg",
-    links: {
-    },
-  },
-  {
     name: "Hop",
     icon: "ic_hop.svg",
     links: { [BASE]: "https://app.hop.exchange/send?token=ETH&sourceNetwork=ethereum&destNetwork=arbitrum" },

@@ -18,10 +18,6 @@ msgid "01 Sep 2021"
 msgstr "01 Сен 2021"
 
 #: src/pages/Dashboard/DashboardV2.js
-msgid "06 Jan 2022"
-msgstr "6 Янв 2022"
-
-#: src/pages/Dashboard/DashboardV2.js
 msgid "24h Volume"
 msgstr "24ч Объём"
 
@@ -2161,7 +2157,6 @@ msgid "Open in Coingecko"
 msgstr "Открыть на Coingecko"
 
 #: src/pages/Dashboard/AssetDropdown.tsx
-#: src/pages/Dashboard/AssetDropdown.tsx
 msgid "Open in Explorer"
 msgstr "Открыть в Explorer"
 
@@ -3142,12 +3137,12 @@ msgid "There may not be sufficient liquidity to execute your order when the pric
 msgstr "Может не хватить ликвидности для выполнения вашего ордера при соблюдении ценовых условий"
 
 #: src/components/Referrals/AffiliatesStats.js
-msgid "This code has been taken by someone else on {0}, you will not receive rebates from traders using this code on {1}."
-msgstr "Этот код был взят кем-то другим на {0}, вы не будете получать рибейты от трейдеров, использующих этот код на {1}."
+msgid "This code has been taken by someone else on BASE, you will not receive rebates from traders using this code on BASE ."
+msgstr ""
 
 #: src/components/Referrals/AffiliatesStats.js
-msgid "This code is not yet registered on {0}, you will not receive rebates there.<0/><1/>Switch your network to create this code on {1}."
-msgstr "Этот код еще не зарегистрирован на {0}, вы не будете получать рибейты там.<0/><1/>Переключите свою сеть, чтобы создать этот код на {1}."
+msgid "This code is not yet registered on BASE, you will not receive rebates there.<0/><1/>Switch your network to create this code on BASE."
+msgstr ""
 
 #: src/components/Exchange/PositionSeller.js
 msgid "This order will forfeit a <0>profit</0> of {deltaStr}. <1/>"
@@ -3174,8 +3169,8 @@ msgid "To complete the transfer, you must switch your connected account to {rece
 msgstr "Для завершения перевода необходимо переключить подключенный аккаунт на {receiver}."
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "To purchase EDDX on the {0} blockchain, please <0>change your network</0>."
-msgstr "msgstr"
+msgid "To purchase EDDX on the BASE blockchain, please <0>change your network</0>."
+msgstr ""
 
 #: src/components/Elp/ElpSwap.js
 msgid "To reduce fees, select a different asset to pay with."
@@ -3472,42 +3467,6 @@ msgstr ""
 msgid "Unstaking..."
 msgstr "Снятие стакинга..."
 
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "years"
-msgstr " Год"
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "months"
-msgstr " Месяц"
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "days"
-msgstr " День"
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "hours"
-msgstr " Время"
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "minutes"
-msgstr " Б"
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "seconds"
-msgstr " Секунда"
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "You can unstake after {0}."
-msgstr "Ты можешь остаться после {0}."
-
 #: src/lib/wallets/index.tsx
 msgid "Unsupported chain. Switch to Arbitrum network on your wallet and try again"
 msgstr "Неподдерживаемая цепочка. Переключитесь на сеть Arbitrum на вашем кошельке и повторите попытку"
@@ -3800,6 +3759,10 @@ msgstr ""
 msgid "You can transfer ETH from other networks to Arbitrum using any of the below options:"
 msgstr "Вы можете перевести ETH в Arbitrum, используя любой из приведенных ниже вариантов."
 
+#: src/pages/Stake/StakeV2.js
+msgid "You can unstake after {0}."
+msgstr "Ты можешь остаться после {0}."
+
 #: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
 msgid "You have a <0>pending transfer</0> to {pendingReceiver}."
 msgstr "У вас есть <0>ожидающий переводах</0> на {pendingReceiver}."
@@ -3881,6 +3844,10 @@ msgstr "счёт"
 msgid "collateral"
 msgstr "залог"
 
+#: src/pages/Stake/StakeV2.js
+msgid "days"
+msgstr " День"
+
 #: src/pages/PositionsOverview/PositionsOverview.js
 msgid "fee"
 msgstr "комиссия"
@@ -3889,9 +3856,17 @@ msgstr "комиссия"
 msgid "hide"
 msgstr "скрыть"
 
+#: src/pages/Stake/StakeV2.js
+msgid "hours"
+msgstr " Время"
+
 #: src/pages/Dashboard/DashboardV2.js
 msgid "in liquidity"
 msgstr "используется для обеспечения ликвидности"
+
+#: src/pages/Stake/StakeV2.js
+msgid "minutes"
+msgstr " Б"
 
 #: src/pages/Dashboard/DashboardV2.js
 msgid "not staked"

@@ -18,10 +18,6 @@ msgid "01 Sep 2021"
 msgstr ""
 
 #: src/pages/Dashboard/DashboardV2.js
-msgid "06 Jan 2022"
-msgstr ""
-
-#: src/pages/Dashboard/DashboardV2.js
 msgid "24h Volume"
 msgstr ""
 
@@ -2158,7 +2154,6 @@ msgid "Open in Coingecko"
 msgstr ""
 
 #: src/pages/Dashboard/AssetDropdown.tsx
-#: src/pages/Dashboard/AssetDropdown.tsx
 msgid "Open in Explorer"
 msgstr ""
 
@@ -3139,11 +3134,11 @@ msgid "There may not be sufficient liquidity to execute your order when the pric
 msgstr ""
 
 #: src/components/Referrals/AffiliatesStats.js
-msgid "This code has been taken by someone else on {0}, you will not receive rebates from traders using this code on {1}."
+msgid "This code has been taken by someone else on BASE, you will not receive rebates from traders using this code on BASE ."
 msgstr ""
 
 #: src/components/Referrals/AffiliatesStats.js
-msgid "This code is not yet registered on {0}, you will not receive rebates there.<0/><1/>Switch your network to create this code on {1}."
+msgid "This code is not yet registered on BASE, you will not receive rebates there.<0/><1/>Switch your network to create this code on BASE."
 msgstr ""
 
 #: src/components/Exchange/PositionSeller.js
@@ -3171,7 +3166,7 @@ msgid "To complete the transfer, you must switch your connected account to {rece
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "To purchase EDDX on the {0} blockchain, please <0>change your network</0>."
+msgid "To purchase EDDX on the BASE blockchain, please <0>change your network</0>."
 msgstr ""
 
 #: src/components/Elp/ElpSwap.js
@@ -3469,42 +3464,6 @@ msgstr ""
 msgid "Unstaking..."
 msgstr ""
 
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "years"
-msgstr ""
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "months"
-msgstr ""
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "days"
-msgstr ""
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "hours"
-msgstr ""
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "minutes"
-msgstr ""
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "seconds"
-msgstr ""
-
-#: src/pages/Stake/StakeV1.js
-#: src/pages/Stake/StakeV2.js
-msgid "You can unstake after {0}."
-msgstr ""
-
 #: src/lib/wallets/index.tsx
 msgid "Unsupported chain. Switch to Arbitrum network on your wallet and try again"
 msgstr ""
@@ -3797,6 +3756,10 @@ msgstr ""
 msgid "You can transfer ETH from other networks to Arbitrum using any of the below options:"
 msgstr ""
 
+#: src/pages/Stake/StakeV2.js
+msgid "You can unstake after {0}."
+msgstr ""
+
 #: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
 msgid "You have a <0>pending transfer</0> to {pendingReceiver}."
 msgstr ""
@@ -3878,6 +3841,10 @@ msgstr ""
 msgid "collateral"
 msgstr ""
 
+#: src/pages/Stake/StakeV2.js
+msgid "days"
+msgstr ""
+
 #: src/pages/PositionsOverview/PositionsOverview.js
 msgid "fee"
 msgstr ""
@@ -3886,8 +3853,16 @@ msgstr ""
 msgid "hide"
 msgstr ""
 
+#: src/pages/Stake/StakeV2.js
+msgid "hours"
+msgstr ""
+
 #: src/pages/Dashboard/DashboardV2.js
 msgid "in liquidity"
+msgstr ""
+
+#: src/pages/Stake/StakeV2.js
+msgid "minutes"
 msgstr ""
 
 #: src/pages/Dashboard/DashboardV2.js
