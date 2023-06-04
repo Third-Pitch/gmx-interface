@@ -93,7 +93,7 @@ export default function TokenCard({ showRedirectModal, redirectPopupTimestamp })
             <Trans>ELP is the liquidity provider token. Accrues 70% of the platform's generated fees.</Trans>
           </div>
           <div className="Home-token-card-option-apr">
-            <Trans>APR:</Trans> <APRLabel chainId={BASE} label="elpAprTotal" key="ARBITRUM" />,{" "}
+            <Trans>APR:</Trans> <APRLabel chainId={BASE} label="elpAprTotal" key="BASE" />,{" "}
           </div>
           <div className="Home-token-card-option-action">
             <div className="buy">

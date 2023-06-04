@@ -8,7 +8,7 @@ type Props = {
   title: string;
   total?: BigNumber;
   avaxValue?: BigNumber;
-  arbitrumValue?: BigNumber;
+  baseValue?: BigNumber;
   showDollar?: boolean;
   decimalsForConversion: number;
   symbol: string;
@@ -18,7 +18,7 @@ export default function StatsTooltip({
   title,
   total,
   avaxValue,
-  arbitrumValue,
+  baseValue,
   showDollar = true,
   decimalsForConversion = USD_DECIMALS,
   symbol,

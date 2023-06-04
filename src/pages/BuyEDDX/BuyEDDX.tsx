@@ -11,8 +11,8 @@ import Card from "components/Common/Card";
 import { importImage } from "lib/legacy";
 import ExternalLink from "components/ExternalLink/ExternalLink";
 
-import bondProtocolIcon from "img/ic_bondprotocol_arbitrum.svg";
-import uniswapArbitrumIcon from "img/ic_uni_arbitrum.svg";
+import bondProtocolIcon from "img/ic_bondprotocol_base.svg";
+import uniswapBaseIcon from "img/ic_uni_base.svg";
 import traderjoeIcon from "img/ic_traderjoe_avax.png";
 import {
   BUY_NATIVE_TOKENS,
@@ -26,7 +26,7 @@ import {
 
 export default function BuyEDDX() {
   const { chainId } = useChainId();
-  const isArbitrum = chainId === BASE;
+  const isBase = chainId === BASE;
   const { active } = useWeb3React();
   const nativeTokenSymbol = getConstant(chainId, "nativeTokenSymbol");
   const externalLinks = EXTERNAL_LINKS[chainId];
@@ -64,14 +64,14 @@ export default function BuyEDDX() {
           <CentralisedExchanges chainId={chainId} />
         </div>
 
-        {isArbitrum ? (
+        {isBase ? (
           <div className="section-title-block mt-top">
             <div className="section-title-content">
               <div className="Page-title">
-                <Trans>Buy or Transfer ETH to Arbitrum</Trans>
+                <Trans>Buy or Transfer ETH to Base</Trans>
               </div>
               <div className="Page-description">
-                <Trans>Buy ETH directly to Arbitrum or transfer it there.</Trans>
+                <Trans>Buy ETH directly to Base or transfer it there.</Trans>
               </div>
             </div>
           </div>
@@ -92,10 +92,10 @@ export default function BuyEDDX() {
           <Card title={t`Buy ${nativeTokenSymbol}`}>
             <div className="App-card-content">
               <div className="BuyEDDXELP-description">
-                {isArbitrum ? (
+                {isBase ? (
                   <Trans>
                     You can buy ETH directly on{" "}
-                    <ExternalLink href={externalLinks.networkWebsite}>Arbitrum</ExternalLink> using these options:
+                    <ExternalLink href={externalLinks.networkWebsite}>Base</ExternalLink> using these options:
                   </Trans>
                 ) : (
                   <Trans>
@@ -125,9 +125,9 @@ export default function BuyEDDX() {
           </Card>
           <Card title={t`Transfer ${nativeTokenSymbol}`}>
             <div className="App-card-content">
-              {isArbitrum ? (
+              {isBase ? (
                 <div className="BuyEDDXELP-description">
-                  <Trans>You can transfer ETH from other networks to Arbitrum using any of the below options:</Trans>
+                  <Trans>You can transfer ETH from other networks to Base using any of the below options:</Trans>
                 </div>
               ) : (
                 <div className="BuyEDDXELP-description">
@@ -161,19 +161,19 @@ export default function BuyEDDX() {
 }
 
 function DecentralisedExchanges({ chainId, externalLinks }) {
-  const isArbitrum = chainId === BASE;
+  const isBase = chainId === BASE;
   return (
     <Card title={t`Buy EDDX from a Decentralized Exchange`}>
       <div className="App-card-content">
-        {isArbitrum ? (
+        {isBase ? (
           <div className="exchange-info-group">
             <div className="BuyEDDXELP-description">
-              <Trans>Buy EDDX from Uniswap (make sure to select Arbitrum):</Trans>
+              <Trans>Buy EDDX from Uniswap (make sure to select Base):</Trans>
             </div>
             <div className="buttons-group col-1">
               <Button
                 variant="clear"
-                imgInfo={{ src: uniswapArbitrumIcon, alt: "Uniswap" }}
+                imgInfo={{ src: uniswapBaseIcon, alt: "Uniswap" }}
                 to={externalLinks.buyEddx.uniswap}
                 newTab
               >
@@ -242,7 +242,7 @@ function DecentralisedExchanges({ chainId, externalLinks }) {
             })}
           </div>
         </div>
-        {isArbitrum && (
+        {isBase && (
           <div className="exchange-info-group">
             <div className="BuyEDDXELP-description">
               <Trans>EDDX bonds can be bought on Bond Protocol with a discount and a small vesting period:</Trans>

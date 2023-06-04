@@ -412,7 +412,7 @@ msgid "Buy EDDX from Traderjoe:"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy EDDX from Uniswap (make sure to select Arbitrum):"
+msgid "Buy EDDX from Uniswap (make sure to select Base):"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
@@ -455,7 +455,7 @@ msgid "Buy ELP"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy ETH directly to Arbitrum or transfer it there."
+msgid "Buy ETH directly to Base or transfer it there."
 msgstr ""
 
 #: src/components/Elp/ElpSwap.js
@@ -476,7 +476,7 @@ msgid "Buy or Transfer AVAX to Avalanche"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy or Transfer ETH to Arbitrum"
+msgid "Buy or Transfer ETH to Base"
 msgstr ""
 
 #: src/components/Elp/ElpSwap.js
@@ -1128,7 +1128,7 @@ msgid "EDDX fundamentals"
 msgstr ""
 
 #: src/pages/Home/Home.js
-msgid "EDDX is currently live on Arbitrum and Avalanche."
+msgid "EDDX is currently live on Base and Avalanche."
 msgstr ""
 
 #: src/pages/Jobs/Jobs.js
@@ -2035,15 +2035,8 @@ msgid "Minimum received"
 msgstr ""
 
 #: src/pages/Stake/StakeV2.js
+#: src/pages/Stake/StakeV2.js
 msgid "Month"
-msgstr ""
-
-#: src/pages/Stake/StakeV2.js
-msgid "Select a month"
-msgstr ""
-
-#: src/pages/Stake/StakeV2.js
-msgid "Stake period"
 msgstr ""
 
 #: src/components/Exchange/SwapBox.js
@@ -2330,7 +2323,7 @@ msgid "Please only use this for full account transfers.<0/>This will transfer al
 msgstr ""
 
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Please switch your network to Arbitrum."
+msgid "Please switch your network to Base."
 msgstr ""
 
 #: src/components/Exchange/NetValueTooltip.tsx
@@ -2675,6 +2668,10 @@ msgstr ""
 msgid "Select Market"
 msgstr ""
 
+#: src/pages/Stake/StakeV2.js
+msgid "Select a month"
+msgstr ""
+
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
 msgid "Select an option"
 msgstr ""
@@ -2862,6 +2859,10 @@ msgstr ""
 
 #: src/pages/Stake/StakeV2.js
 msgid "Stake failed."
+msgstr ""
+
+#: src/pages/Stake/StakeV2.js
+msgid "Stake period"
 msgstr ""
 
 #: src/pages/Stake/StakeV2.js
@@ -3134,7 +3135,7 @@ msgstr ""
 
 #: src/domain/tokens/approveTokens.tsx
 #: src/lib/contracts/callContract.tsx
-msgid "There is not enough ETH in your account on Arbitrum to send this transaction.<0/><1/><2>Bridge ETH to Arbitrum</2>"
+msgid "There is not enough ETH in your account on Base to send this transaction.<0/><1/><2>Bridge ETH to Base</2>"
 msgstr ""
 
 #: src/components/Elp/SwapErrorModal.tsx
@@ -3477,7 +3478,7 @@ msgid "Unstaking..."
 msgstr ""
 
 #: src/lib/wallets/index.tsx
-msgid "Unsupported chain. Switch to Arbitrum network on your wallet and try again"
+msgid "Unsupported chain. Switch to Base network on your wallet and try again"
 msgstr ""
 
 #: src/components/Exchange/TradeHistory.js
@@ -3532,19 +3533,11 @@ msgid "Vest"
 msgstr ""
 
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with EDDX on Arbitrum"
+msgid "Vest with EDDX on Base"
 msgstr ""
 
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with EDDX on Avalanche"
-msgstr ""
-
-#: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with ELP on Arbitrum"
-msgstr ""
-
-#: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with ELP on Avalanche"
+msgid "Vest with ELP on Base"
 msgstr ""
 
 #: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
@@ -3740,7 +3733,7 @@ msgid "You can buy AVAX directly on <0>Avalanche</0> using these options:"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "You can buy ETH directly on <0>Arbitrum</0> using these options:"
+msgid "You can buy ETH directly on <0>Base</0> using these options:"
 msgstr ""
 
 #: src/components/Exchange/SwapBox.js
@@ -3765,7 +3758,7 @@ msgid "You can transfer AVAX from other networks to Avalanche using any of the b
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "You can transfer ETH from other networks to Arbitrum using any of the below options:"
+msgid "You can transfer ETH from other networks to Base using any of the below options:"
 msgstr ""
 
 #: src/pages/Stake/StakeV2.js

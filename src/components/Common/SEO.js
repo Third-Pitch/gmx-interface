@@ -5,7 +5,7 @@ function SEO(props) {
   const meta = {
     title: "EDDX | Decentralized Perpetual Exchange",
     description:
-      "Trade spot or perpetual BTC, ETH, AVAX and other top cryptocurrencies with up to 50x leverage directly from your wallet on Arbitrum and Avalanche.",
+      "Trade spot or perpetual BTC, ETH, AVAX and other top cryptocurrencies with up to 50x leverage directly from your wallet on Base and Avalanche.",
     image: "https://eddx.io/og.png",
     type: "exchange",
     ...customMeta,

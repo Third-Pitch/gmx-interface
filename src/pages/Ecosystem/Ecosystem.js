@@ -16,7 +16,7 @@ const NETWORK_ICONS = {
 };
 
 const NETWORK_ICON_ALTS = {
-  [BASE]: "Arbitrum Icon",
+  [BASE]: "Base Icon",
 };
 
 export default function Ecosystem() {
@@ -218,8 +218,8 @@ export default function Ecosystem() {
       chainIds: [BASE],
     },
     {
-      title: "Shogun Dashboard (Dune Arbitrum)",
-      link: "https://dune.com/shogun/eddx-analytics-arbitrum",
+      title: "Shogun Dashboard (Dune Base)",
+      link: "https://dune.com/shogun/eddx-analytics-base",
       linkLabel: "dune.com",
       about: t`Protocol analytics`,
       creatorLabel: "@JamesCliffyz",

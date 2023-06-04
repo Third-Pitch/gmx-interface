@@ -6,9 +6,9 @@ const SUBGRAPH_URLS = {
   [BASE]: {
     stats: "https://api.studio.thegraph.com/query/45535/test-stats/version/latest",
     referrals: "https://api.studio.thegraph.com/query/45535/test-referrals/version/latest",
-    // // stats: "https://api.thegraph.com/subgraphs/name/gdev8317/gmx-arbitrum-stats
+    // // stats: "https://api.thegraph.com/subgraphs/name/gdev8317/gmx-base-stats
     // stats: "https://api.thegraph.com/subgraphs/name/gmx-io/gmx-stats",
-    // referrals: "https://api.thegraph.com/subgraphs/name/gmx-io/gmx-arbitrum-referrals",
+    // referrals: "https://api.thegraph.com/subgraphs/name/gmx-io/gmx-base-referrals",
     // nissohVault: "https://api.thegraph.com/subgraphs/name/nissoh/gmx-vault",
   },
 

@@ -264,7 +264,7 @@ export const getWalletConnectHandler = (
     setActivatingConnector(walletConnect);
     activate(walletConnect, (ex) => {
       if (ex instanceof UnsupportedChainIdError) {
-        helperToast.error(t`Unsupported chain. Switch to Arbitrum network on your wallet and try again`);
+        helperToast.error(t`Unsupported chain. Switch to Base network on your wallet and try again`);
         // eslint-disable-next-line no-console
         console.warn(ex);
       } else if (!(ex instanceof UserRejectedRequestErrorWalletConnect)) {

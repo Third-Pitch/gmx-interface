@@ -412,8 +412,8 @@ msgid "Buy EDDX from Traderjoe:"
 msgstr "Buy EDDX from Traderjoe:"
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy EDDX from Uniswap (make sure to select Arbitrum):"
-msgstr "Buy EDDX from Uniswap (make sure to select Arbitrum):"
+msgid "Buy EDDX from Uniswap (make sure to select Base):"
+msgstr "Buy EDDX from Uniswap (make sure to select Base):"
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
 msgid "Buy EDDX from a Decentralized Exchange"
@@ -455,8 +455,8 @@ msgid "Buy ELP"
 msgstr "Buy ELP"
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy ETH directly to Arbitrum or transfer it there."
-msgstr "Buy ETH directly to Arbitrum or transfer it there."
+msgid "Buy ETH directly to Base or transfer it there."
+msgstr "Buy ETH directly to Base or transfer it there."
 
 #: src/components/Elp/ElpSwap.js
 msgid "Buy failed."
@@ -476,8 +476,8 @@ msgid "Buy or Transfer AVAX to Avalanche"
 msgstr "Buy or Transfer AVAX to Avalanche"
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy or Transfer ETH to Arbitrum"
-msgstr "Buy or Transfer ETH to Arbitrum"
+msgid "Buy or Transfer ETH to Base"
+msgstr "Buy or Transfer ETH to Base"
 
 #: src/components/Elp/ElpSwap.js
 msgid "Buy submitted."
@@ -1128,8 +1128,8 @@ msgid "EDDX fundamentals"
 msgstr "EDDX fundamentals"
 
 #: src/pages/Home/Home.js
-msgid "EDDX is currently live on Arbitrum and Avalanche."
-msgstr "EDDX is currently live on Arbitrum and Avalanche."
+msgid "EDDX is currently live on Base and Avalanche."
+msgstr "EDDX is currently live on Base and Avalanche."
 
 #: src/pages/Jobs/Jobs.js
 msgid "EDDX is not actively looking for new hires at the moment. However, if you think you can contribute to the project, please email <0>jobs@eddx.io</0>."
@@ -2038,16 +2038,9 @@ msgid "Minimum received"
 msgstr "Minimum received"
 
 #: src/pages/Stake/StakeV2.js
+#: src/pages/Stake/StakeV2.js
 msgid "Month"
 msgstr "Month"
-
-#: src/pages/Stake/StakeV2.js
-msgid "Select a month"
-msgstr "Select a month"
-
-#: src/pages/Stake/StakeV2.js
-msgid "Stake period"
-msgstr "Stake period"
 
 #: src/components/Exchange/SwapBox.js
 #: src/pages/Dashboard/DashboardV2.js
@@ -2333,8 +2326,8 @@ msgid "Please only use this for full account transfers.<0/>This will transfer al
 msgstr "Please only use this for full account transfers.<0/>This will transfer all your EDDX, esEDDX, ELP and Multiplier Points to your new account.<1/>Transfers are only supported if the receiving account has not staked EDDX or ELP tokens before.<2/>Transfers are one-way, you will not be able to transfer staked tokens back to the sending account."
 
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Please switch your network to Arbitrum."
-msgstr "Please switch your network to Arbitrum."
+msgid "Please switch your network to Base."
+msgstr "Please switch your network to Base."
 
 #: src/components/Exchange/NetValueTooltip.tsx
 #: src/components/Exchange/PositionSeller.js
@@ -2678,6 +2671,10 @@ msgstr "Select Language"
 msgid "Select Market"
 msgstr "Select Market"
 
+#: src/pages/Stake/StakeV2.js
+msgid "Select a month"
+msgstr "Select a month"
+
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
 msgid "Select an option"
 msgstr "Select an option"
@@ -2867,6 +2864,9 @@ msgstr "Stake failed"
 msgid "Stake failed."
 msgstr "Stake failed."
 
+#: src/pages/Stake/StakeV2.js
+msgid "Stake period"
+msgstr "Stake period"
 
 #: src/pages/Stake/StakeV2.js
 msgid "Stake submitted!"
@@ -3138,8 +3138,8 @@ msgstr "There are more shorts than longs, borrow fees for longing is currently z
 
 #: src/domain/tokens/approveTokens.tsx
 #: src/lib/contracts/callContract.tsx
-msgid "There is not enough ETH in your account on Arbitrum to send this transaction.<0/><1/><2>Bridge ETH to Arbitrum</2>"
-msgstr "There is not enough ETH in your account on Arbitrum to send this transaction.<0/><1/><2>Bridge ETH to Arbitrum</2>"
+msgid "There is not enough ETH in your account on Base to send this transaction.<0/><1/><2>Bridge ETH to Base</2>"
+msgstr "There is not enough ETH in your account on Base to send this transaction.<0/><1/><2>Bridge ETH to Base</2>"
 
 #: src/components/Elp/SwapErrorModal.tsx
 msgid "There is not enough liquidity in a single token for your size. Please check the Save on Fees section and consider splitting your order into several different ones"
@@ -3481,8 +3481,8 @@ msgid "Unstaking..."
 msgstr "Unstaking..."
 
 #: src/lib/wallets/index.tsx
-msgid "Unsupported chain. Switch to Arbitrum network on your wallet and try again"
-msgstr "Unsupported chain. Switch to Arbitrum network on your wallet and try again"
+msgid "Unsupported chain. Switch to Base network on your wallet and try again"
+msgstr "Unsupported chain. Switch to Base network on your wallet and try again"
 
 #: src/components/Exchange/TradeHistory.js
 #: src/components/Referrals/JoinReferralCode.js
@@ -3536,12 +3536,12 @@ msgid "Vest"
 msgstr "Vest"
 
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with EDDX on Arbitrum"
-msgstr "Vest with EDDX on Arbitrum"
+msgid "Vest with EDDX on Base"
+msgstr "Vest with EDDX on Base"
 
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with ELP on Arbitrum"
-msgstr "Vest with ELP on Arbitrum"
+msgid "Vest with ELP on Base"
+msgstr "Vest with ELP on Base"
 
 #: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
 msgid "Vested EDDX not withdrawn"
@@ -3736,8 +3736,8 @@ msgid "You can buy AVAX directly on <0>Avalanche</0> using these options:"
 msgstr "You can buy AVAX directly on <0>Avalanche</0> using these options:"
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "You can buy ETH directly on <0>Arbitrum</0> using these options:"
-msgstr "You can buy ETH directly on <0>Arbitrum</0> using these options:"
+msgid "You can buy ETH directly on <0>Base</0> using these options:"
+msgstr "You can buy ETH directly on <0>Base</0> using these options:"
 
 #: src/components/Exchange/SwapBox.js
 msgid "You can change the \"Collateral In\" token above to find lower fees"
@@ -3761,8 +3761,8 @@ msgid "You can transfer AVAX from other networks to Avalanche using any of the b
 msgstr "You can transfer AVAX from other networks to Avalanche using any of the below options:"
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "You can transfer ETH from other networks to Arbitrum using any of the below options:"
-msgstr "You can transfer ETH from other networks to Arbitrum using any of the below options:"
+msgid "You can transfer ETH from other networks to Base using any of the below options:"
+msgstr "You can transfer ETH from other networks to Base using any of the below options:"
 
 #: src/pages/Stake/StakeV2.js
 msgid "You can unstake after {0}."

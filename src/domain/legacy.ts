@@ -454,8 +454,8 @@ export function useHasOutdatedUi() {
 }
 
 export function useEddxPrice(_, libraries, active) {
-  const arbitrumLibrary = libraries && libraries.arbitrum ? libraries.arbitrum : undefined;
-  const { data, mutate } = useEddxPriceFromArbitrum(arbitrumLibrary, active);
+  const baseLibrary = libraries && libraries.base ? libraries.base : undefined;
+  const { data, mutate } = useEddxPriceFromBase(baseLibrary, active);
 
   return {
     eddxPrice: data,
@@ -463,11 +463,11 @@ export function useEddxPrice(_, libraries, active) {
   };
 }
 
-// use only the supply endpoint on arbitrum, it includes the supply on avalanche
+// use only the supply endpoint on base, it includes the supply on avalanche
 export function useTotalEddxSupply() {
-  const eddxSupplyUrlArbitrum = getServerUrl(BASE, "/eddx_supply");
+  const eddxSupplyUrlBase = getServerUrl(BASE, "/eddx_supply");
 
-  const { data: eddxSupply, mutate: updateEddxSupply } = useSWR([eddxSupplyUrlArbitrum], {
+  const { data: eddxSupply, mutate: updateEddxSupply } = useSWR([eddxSupplyUrlBase], {
     // @ts-ignore
     fetcher: (...args) => fetch(...args).then((res) => res.text()),
   });
@@ -510,32 +510,32 @@ export function useTotalEddxStaked() {
 }
 
 export function useTotalEddxInLiquidity() {
-  let poolAddressArbitrum = getContract(BASE, "UniswapEddxEthPool");
+  let poolAddressBase = getContract(BASE, "UniswapEddxEthPool");
   let totalEDDX = useRef(bigNumberify(0));
 
-  const { data: eddxInLiquidityOnArbitrum, mutate: mutateEDDXInLiquidityOnArbitrum } = useSWR<any>(
-    [`StakeV2:eddxInLiquidity:${BASE}`, BASE, getContract(BASE, "EDDX"), "balanceOf", poolAddressArbitrum],
+  const { data: eddxInLiquidityOnBase, mutate: mutateEDDXInLiquidityOnBase } = useSWR<any>(
+    [`StakeV2:eddxInLiquidity:${BASE}`, BASE, getContract(BASE, "EDDX"), "balanceOf", poolAddressBase],
     {
       fetcher: contractFetcher(undefined, Token),
     }
   );
 
   const mutate = useCallback(() => {
-    mutateEDDXInLiquidityOnArbitrum();
-  }, [mutateEDDXInLiquidityOnArbitrum]);
+    mutateEDDXInLiquidityOnBase();
+  }, [mutateEDDXInLiquidityOnBase]);
 
-  if (eddxInLiquidityOnArbitrum) {
-    let total = bigNumberify(eddxInLiquidityOnArbitrum);
+  if (eddxInLiquidityOnBase) {
+    let total = bigNumberify(eddxInLiquidityOnBase);
     totalEDDX.current = total;
   }
   return {
-    arbitrum: eddxInLiquidityOnArbitrum,
+    base: eddxInLiquidityOnBase,
     total: totalEDDX.current,
     mutate,
   };
 }
 
-function useEddxPriceFromArbitrum(library, active) {
+function useEddxPriceFromBase(library, active) {
   const poolAddress = getContract(BASE, "UniswapEddxEthPool");
   const { data: uniPoolSlot0, mutate: updateUniPoolSlot0 } = useSWR<any>(
     [`StakeV2:uniPoolSlot0:${active}`, BASE, poolAddress, "slot0"],

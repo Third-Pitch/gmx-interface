@@ -412,7 +412,7 @@ msgid "Buy EDDX from Traderjoe:"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy EDDX from Uniswap (make sure to select Arbitrum):"
+msgid "Buy EDDX from Uniswap (make sure to select Base):"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
@@ -455,7 +455,7 @@ msgid "Buy ELP"
 msgstr "ELP 구매"
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy ETH directly to Arbitrum or transfer it there."
+msgid "Buy ETH directly to Base or transfer it there."
 msgstr ""
 
 #: src/components/Elp/ElpSwap.js
@@ -476,7 +476,7 @@ msgid "Buy or Transfer AVAX to Avalanche"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy or Transfer ETH to Arbitrum"
+msgid "Buy or Transfer ETH to Base"
 msgstr ""
 
 #: src/components/Elp/ElpSwap.js
@@ -1128,8 +1128,8 @@ msgid "EDDX fundamentals"
 msgstr "EDDX 펀더멘탈"
 
 #: src/pages/Home/Home.js
-msgid "EDDX is currently live on Arbitrum and Avalanche."
-msgstr "EDDX는 현재 Arbitrum과 Avalanche에서 이용할 수 있습니다."
+msgid "EDDX is currently live on Base and Avalanche."
+msgstr "EDDX는 현재 Base과 Avalanche에서 이용할 수 있습니다."
 
 #: src/pages/Jobs/Jobs.js
 msgid "EDDX is not actively looking for new hires at the moment. However, if you think you can contribute to the project, please email <0>jobs@eddx.io</0>."
@@ -2038,16 +2038,9 @@ msgid "Minimum received"
 msgstr "최소량 수치 완료"
 
 #: src/pages/Stake/StakeV2.js
+#: src/pages/Stake/StakeV2.js
 msgid "Month"
 msgstr "월"
-
-#: src/pages/Stake/StakeV2.js
-msgid "Select a month"
-msgstr "월 선택"
-
-#: src/pages/Stake/StakeV2.js
-msgid "Stake period"
-msgstr "스테이크 기간"
 
 #: src/components/Exchange/SwapBox.js
 #: src/pages/Dashboard/DashboardV2.js
@@ -2333,8 +2326,8 @@ msgid "Please only use this for full account transfers.<0/>This will transfer al
 msgstr "계정 전체 이전을 위해서만 해당 기능을 사용해주세요.<0/>이 기능은, 귀하의 EDDX, esEDDX, ELP 및 멀티플라이어 포인트 전부를 새로운 계정으로 전송합니다.<1/>이전은 수취 게정이 이전에 EDDX, ELP를 스테이킹한 적이 없는 경우에만 지원됩니다.<2/>이전은 단방향이며, 발송 계정으로 다시 이전하는 것이 불가능합니다."
 
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Please switch your network to Arbitrum."
-msgstr "네트워크를 Arbitrum으로 변경해주세요."
+msgid "Please switch your network to Base."
+msgstr "네트워크를 Base으로 변경해주세요."
 
 #: src/components/Exchange/NetValueTooltip.tsx
 #: src/components/Exchange/PositionSeller.js
@@ -2678,6 +2671,10 @@ msgstr "언어 선택"
 msgid "Select Market"
 msgstr "마켓 선택"
 
+#: src/pages/Stake/StakeV2.js
+msgid "Select a month"
+msgstr "월 선택"
+
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
 msgid "Select an option"
 msgstr "옵션 선택"
@@ -2866,6 +2863,10 @@ msgstr "스테이킹 실패됨"
 #: src/pages/Stake/StakeV2.js
 msgid "Stake failed."
 msgstr "스테이킹 실패됨."
+
+#: src/pages/Stake/StakeV2.js
+msgid "Stake period"
+msgstr "스테이크 기간"
 
 #: src/pages/Stake/StakeV2.js
 msgid "Stake submitted!"
@@ -3137,7 +3138,7 @@ msgstr "롱 포지션보다 숏 포지션이 더 많이 열려있기 때문에, 
 
 #: src/domain/tokens/approveTokens.tsx
 #: src/lib/contracts/callContract.tsx
-msgid "There is not enough ETH in your account on Arbitrum to send this transaction.<0/><1/><2>Bridge ETH to Arbitrum</2>"
+msgid "There is not enough ETH in your account on Base to send this transaction.<0/><1/><2>Bridge ETH to Base</2>"
 msgstr "해당 트랜잭션을 처리하기위한 충분한 ETH가 귀하의 Abritrum 계정에 존재하지 않습니다.<0/><1/><2>Abritrum으로 ETH를 브릿징하세요</2>"
 
 #: src/components/Elp/SwapErrorModal.tsx
@@ -3480,8 +3481,8 @@ msgid "Unstaking..."
 msgstr "언스테이킹중..."
 
 #: src/lib/wallets/index.tsx
-msgid "Unsupported chain. Switch to Arbitrum network on your wallet and try again"
-msgstr "지원하지 않는 체인입니다. 지갑을 Arbitrum 네트워크로 변경하여 다시 시도해주세요"
+msgid "Unsupported chain. Switch to Base network on your wallet and try again"
+msgstr "지원하지 않는 체인입니다. 지갑을 Base 네트워크로 변경하여 다시 시도해주세요"
 
 #: src/components/Exchange/TradeHistory.js
 #: src/components/Referrals/JoinReferralCode.js
@@ -3535,20 +3536,12 @@ msgid "Vest"
 msgstr "베스팅"
 
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with EDDX on Arbitrum"
-msgstr "Arbitrum에서 EDDX로 베스팅하기"
+msgid "Vest with EDDX on Base"
+msgstr "Base에서 EDDX로 베스팅하기"
 
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with EDDX on Avalanche"
-msgstr "Avalanche에서 EDDX로 베스팅하기"
-
-#: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with ELP on Arbitrum"
-msgstr "Arbitrum에서 ELP로 베스팅하기"
-
-#: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with ELP on Avalanche"
-msgstr "Avalanche에서 EDDX로 베스팅하기"
+msgid "Vest with ELP on Base"
+msgstr "Base에서 ELP로 베스팅하기"
 
 #: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
 msgid "Vested EDDX not withdrawn"
@@ -3743,7 +3736,7 @@ msgid "You can buy AVAX directly on <0>Avalanche</0> using these options:"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "You can buy ETH directly on <0>Arbitrum</0> using these options:"
+msgid "You can buy ETH directly on <0>Base</0> using these options:"
 msgstr ""
 
 #: src/components/Exchange/SwapBox.js
@@ -3768,8 +3761,8 @@ msgid "You can transfer AVAX from other networks to Avalanche using any of the b
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "You can transfer ETH from other networks to Arbitrum using any of the below options:"
-msgstr "아래의 옵션중 하나를 사용해, ETH를 Arbitrum에 보낼 수 있습니다."
+msgid "You can transfer ETH from other networks to Base using any of the below options:"
+msgstr "아래의 옵션중 하나를 사용해, ETH를 Base에 보낼 수 있습니다."
 
 #: src/pages/Stake/StakeV2.js
 msgid "You can unstake after {0}."

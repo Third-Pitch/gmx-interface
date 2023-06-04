@@ -16,7 +16,7 @@ import { USD_DECIMALS, getTotalVolumeSum } from "lib/legacy";
 
 import { useUserStat } from "domain/legacy";
 
-import arbitrumIcon from "img/ic_arbitrum_96.svg";
+import baseIcon from "img/ic_base_96.svg";
 
 import TokenCard from "components/TokenCard/TokenCard";
 import { Trans } from "@lingui/macro";
@@ -53,15 +53,15 @@ export default function Home({ showRedirectModal, redirectPopupTimestamp }) {
   //   }
   // }
 
-  // ARBITRUM
+  // BASE
 
-  const arbitrumPositionStatsUrl = getServerUrl(BASE, "/position_stats");
-  const { data: arbitrumPositionStats } = useSWR([arbitrumPositionStatsUrl], {
+  const basePositionStatsUrl = getServerUrl(BASE, "/position_stats");
+  const { data: basePositionStats } = useSWR([basePositionStatsUrl], {
     fetcher: (...args) => fetch(...args).then((res) => res.json()),
   });
 
-  const arbitrumTotalVolumeUrl = getServerUrl(BASE, "/total_volume");
-  const { data: arbitrumTotalVolume } = useSWR([arbitrumTotalVolumeUrl], {
+  const baseTotalVolumeUrl = getServerUrl(BASE, "/total_volume");
+  const { data: baseTotalVolume } = useSWR([baseTotalVolumeUrl], {
     fetcher: (...args) => fetch(...args).then((res) => res.json()),
   });
 
@@ -69,33 +69,33 @@ export default function Home({ showRedirectModal, redirectPopupTimestamp }) {
 
   // Total Volume
 
-  const arbitrumTotalVolumeSum = getTotalVolumeSum(arbitrumTotalVolume);
+  const baseTotalVolumeSum = getTotalVolumeSum(baseTotalVolume);
 
   let totalVolumeSum = bigNumberify(0);
-  if (arbitrumTotalVolumeSum ) {
-    totalVolumeSum = totalVolumeSum.add(arbitrumTotalVolumeSum);
+  if (baseTotalVolumeSum ) {
+    totalVolumeSum = totalVolumeSum.add(baseTotalVolumeSum);
   }
 
   // Open Interest
 
   let openInterest = bigNumberify(0);
   if (
-    arbitrumPositionStats &&
-    arbitrumPositionStats.totalLongPositionSizes &&
-    arbitrumPositionStats.totalShortPositionSizes
+    basePositionStats &&
+    basePositionStats.totalLongPositionSizes &&
+    basePositionStats.totalShortPositionSizes
   ) {
-    openInterest = openInterest.add(arbitrumPositionStats.totalLongPositionSizes);
-    openInterest = openInterest.add(arbitrumPositionStats.totalShortPositionSizes);
+    openInterest = openInterest.add(basePositionStats.totalLongPositionSizes);
+    openInterest = openInterest.add(basePositionStats.totalShortPositionSizes);
   }
 
 
 
   // user stat
-  const arbitrumUserStats = useUserStat(BASE);
+  const baseUserStats = useUserStat(BASE);
   let totalUsers = 0;
 
-  if (arbitrumUserStats && arbitrumUserStats.uniqueCount) {
-    totalUsers += arbitrumUserStats.uniqueCount;
+  if (baseUserStats && baseUserStats.uniqueCount) {
+    totalUsers += baseUserStats.uniqueCount;
   }
 
  
@@ -216,16 +216,16 @@ export default function Home({ showRedirectModal, redirectPopupTimestamp }) {
               <Trans>Available on your preferred network</Trans>
             </div>
             <div className="Home-cta-info__description">
-              <Trans>EDDX is currently live on Arbitrum and Avalanche.</Trans>
+              <Trans>EDDX is currently live on Base and Avalanche.</Trans>
             </div>
           </div>
           <div className="Home-cta-options">
-            <div className="Home-cta-option Home-cta-option-arbitrum">
+            <div className="Home-cta-option Home-cta-option-base">
               <div className="Home-cta-option-icon">
-                <img src={arbitrumIcon} width="96" alt="Arbitrum Icon" />
+                <img src={baseIcon} width="96" alt="Base Icon" />
               </div>
               <div className="Home-cta-option-info">
-                <div className="Home-cta-option-title">Arbitrum</div>
+                <div className="Home-cta-option-title">Base</div>
                 <div className="Home-cta-option-action">
                   <LaunchExchangeButton />
                 </div>

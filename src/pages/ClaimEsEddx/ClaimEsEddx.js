@@ -13,7 +13,7 @@ import Checkbox from "components/Checkbox/Checkbox";
 
 import "./ClaimEsEddx.css";
 
-import arbitrumIcon from "img/ic_arbitrum_96.svg";
+import baseIcon from "img/ic_base_96.svg";
 
 import { Trans, t } from "@lingui/macro";
 import { BASE } from "config/chains";
@@ -23,8 +23,8 @@ import { useChainId } from "lib/chains";
 import ExternalLink from "components/ExternalLink/ExternalLink";
 import Button from "components/Button/Button";
 
-const VEST_WITH_EDDX_ARB = "VEST_WITH_EDDX_ARB";
-const VEST_WITH_ELP_ARB = "VEST_WITH_ELP_ARB";
+const VEST_WITH_EDDX_BASE = "VEST_WITH_EDDX_BASE";
+const VEST_WITH_ELP_BASE = "VEST_WITH_ELP_BASE";
 const VEST_WITH_EDDX_AVAX = "VEST_WITH_EDDX_AVAX";
 const VEST_WITH_ELP_AVAX = "VEST_WITH_ELP_AVAX";
 
@@ -132,12 +132,12 @@ export default function ClaimEsEddx({ setPendingTxns }) {
   const [isClaiming, setIsClaiming] = useState(false);
   const [value, setValue] = useState("");
 
-  const isArbitrum = chainId === BASE;
+  const isBase = chainId === BASE;
 
   const esEddxIouAddress = getContract(chainId, "ES_EDDX_IOU");
 
   const { data: esEddxIouBalance } = useSWR(
-    isArbitrum && [
+    isBase && [
       `ClaimEsEddx:esEddxIouBalance:${active}`,
       chainId,
       esEddxIouAddress,
@@ -149,26 +149,26 @@ export default function ClaimEsEddx({ setPendingTxns }) {
     }
   );
 
-  const arbRewardReaderAddress = getContract(BASE, "RewardReader");
+  const baseRewardReaderAddress = getContract(BASE, "RewardReader");
 
-  const arbVesterAdddresses = [getContract(BASE, "EddxVester"), getContract(BASE, "ElpVester")];
+  const baseVesterAdddresses = [getContract(BASE, "EddxVester"), getContract(BASE, "ElpVester")];
 
-  const { data: arbVestingInfo } = useSWR(
+  const { data: baseVestingInfo } = useSWR(
     [
       `StakeV2:vestingInfo:${active}`,
       BASE,
-      arbRewardReaderAddress,
+      baseRewardReaderAddress,
       "getVestingInfoV2",
       account || PLACEHOLDER_ACCOUNT,
     ],
     {
-      fetcher: contractFetcher(undefined, RewardReader, [arbVesterAdddresses]),
+      fetcher: contractFetcher(undefined, RewardReader, [baseVesterAdddresses]),
     }
   );
 
 
 
-  const arbVestingData = getVestingDataV2(arbVestingInfo);
+  const baseVestingData = getVestingDataV2(baseVestingInfo);
 
   let amount = parseValue(value, 18);
 
@@ -185,11 +185,11 @@ export default function ClaimEsEddx({ setPendingTxns }) {
 
   const shouldShowStakingAmounts = false;
 
-  if (selectedOption === VEST_WITH_EDDX_ARB && arbVestingData) {
+  if (selectedOption === VEST_WITH_EDDX_BASE && baseVestingData) {
     const result = getVestingValues({
       minRatio: bigNumberify(4),
       amount,
-      vestingDataItem: arbVestingData.eddxVester,
+      vestingDataItem: baseVestingData.eddxVester,
     });
 
     if (result) {
@@ -198,11 +198,11 @@ export default function ClaimEsEddx({ setPendingTxns }) {
     }
   }
 
-  if (selectedOption === VEST_WITH_ELP_ARB && arbVestingData) {
+  if (selectedOption === VEST_WITH_ELP_BASE && baseVestingData) {
     const result = getVestingValues({
       minRatio: bigNumberify(320),
       amount,
-      vestingDataItem: arbVestingData.elpVester,
+      vestingDataItem: baseVestingData.elpVester,
     });
 
     if (result) {
@@ -258,11 +258,11 @@ export default function ClaimEsEddx({ setPendingTxns }) {
 
     let receiver;
 
-    if (selectedOption === VEST_WITH_EDDX_ARB) {
+    if (selectedOption === VEST_WITH_EDDX_BASE) {
       receiver = "0x544a6ec142Aa9A7F75235fE111F61eF2EbdC250a";
     }
 
-    if (selectedOption === VEST_WITH_ELP_ARB) {
+    if (selectedOption === VEST_WITH_ELP_BASE) {
       receiver = "0x9d8f6f6eE45275A5Ca3C6f6269c5622b1F9ED515";
     }
 
@@ -293,13 +293,13 @@ export default function ClaimEsEddx({ setPendingTxns }) {
         <div className="Page-title">
           <Trans>Claim esEDDX</Trans>
         </div>
-        {!isArbitrum && (
+        {!isBase && (
           <div className="Page-description">
             <br />
-            <Trans>Please switch your network to Arbitrum.</Trans>
+            <Trans>Please switch your network to Base.</Trans>
           </div>
         )}
-        {isArbitrum && (
+        {isBase && (
           <div>
             <div className="Page-description">
               <br />
@@ -335,20 +335,20 @@ export default function ClaimEsEddx({ setPendingTxns }) {
             <br />
             <div className="ClaimEsEddx-vesting-options">
               <Checkbox
-                className="arbitrum vest-option"
-                isChecked={selectedOption === VEST_WITH_EDDX_ARB}
-                setIsChecked={() => setSelectedOption(VEST_WITH_EDDX_ARB)}
+                className="base vest-option"
+                isChecked={selectedOption === VEST_WITH_EDDX_BASE}
+                setIsChecked={() => setSelectedOption(VEST_WITH_EDDX_BASE)}
               >
-                <Trans>Vest with EDDX on Arbitrum</Trans>
-                <img src={arbitrumIcon} alt="Arbitrum" />
+                <Trans>Vest with EDDX on Base</Trans>
+                <img src={baseIcon} alt="Base" />
               </Checkbox>
               <Checkbox
-                className="arbitrum vest-option"
-                isChecked={selectedOption === VEST_WITH_ELP_ARB}
-                setIsChecked={() => setSelectedOption(VEST_WITH_ELP_ARB)}
+                className="base vest-option"
+                isChecked={selectedOption === VEST_WITH_ELP_BASE}
+                setIsChecked={() => setSelectedOption(VEST_WITH_ELP_BASE)}
               >
-                <Trans>Vest with ELP on Arbitrum</Trans>
-                <img src={arbitrumIcon} alt="Arbitrum" />
+                <Trans>Vest with ELP on Base</Trans>
+                <img src={baseIcon} alt="Base" />
               </Checkbox>
             </div>
             <br />

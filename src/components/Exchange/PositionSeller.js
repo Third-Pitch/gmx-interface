@@ -812,8 +812,8 @@ export default function PositionSeller(props) {
       successMsg,
       failMsg: t`Close failed.`,
       setPendingTxns,
-      // for Arbitrum, sometimes the successMsg shows after the position has already been executed
-      // hide the success message for Arbitrum as a workaround
+      // for Base, sometimes the successMsg shows after the position has already been executed
+      // hide the success message for Base as a workaround
       hideSuccessMsg: chainId === BASE,
     })
       .then(async (res) => {

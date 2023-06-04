@@ -412,7 +412,7 @@ msgid "Buy EDDX from Traderjoe:"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy EDDX from Uniswap (make sure to select Arbitrum):"
+msgid "Buy EDDX from Uniswap (make sure to select Base):"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
@@ -455,7 +455,7 @@ msgid "Buy ELP"
 msgstr "Купить ELP"
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy ETH directly to Arbitrum or transfer it there."
+msgid "Buy ETH directly to Base or transfer it there."
 msgstr ""
 
 #: src/components/Elp/ElpSwap.js
@@ -476,7 +476,7 @@ msgid "Buy or Transfer AVAX to Avalanche"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy or Transfer ETH to Arbitrum"
+msgid "Buy or Transfer ETH to Base"
 msgstr ""
 
 #: src/components/Elp/ElpSwap.js
@@ -1128,8 +1128,8 @@ msgid "EDDX fundamentals"
 msgstr "Фундаментальные показатели EDDX"
 
 #: src/pages/Home/Home.js
-msgid "EDDX is currently live on Arbitrum and Avalanche."
-msgstr "В настоящее время EDDX работает на Arbitrum и Avalanche."
+msgid "EDDX is currently live on Base and Avalanche."
+msgstr "В настоящее время EDDX работает на Base и Avalanche."
 
 #: src/pages/Jobs/Jobs.js
 msgid "EDDX is not actively looking for new hires at the moment. However, if you think you can contribute to the project, please email <0>jobs@eddx.io</0>."
@@ -2038,16 +2038,9 @@ msgid "Minimum received"
 msgstr "Минимум получен"
 
 #: src/pages/Stake/StakeV2.js
+#: src/pages/Stake/StakeV2.js
 msgid "Month"
 msgstr "месяц"
-
-#: src/pages/Stake/StakeV2.js
-msgid "Select a month"
-msgstr "Выберите месяц"
-
-#: src/pages/Stake/StakeV2.js
-msgid "Stake period"
-msgstr "Период стейкинга"
 
 #: src/components/Exchange/SwapBox.js
 #: src/pages/Dashboard/DashboardV2.js
@@ -2333,8 +2326,8 @@ msgid "Please only use this for full account transfers.<0/>This will transfer al
 msgstr "Пожалуйста, используйте это только для полного перевода аккаунта.<0/>Это переведет все ваши EDDX, esEDDX, ELP и Множительные Баллы на новый аккаунт.<1/>Переводы поддерживаются только в том случае, если принимающий аккаунт не размещал токены EDDX или ELP ранее.<2/>Переводы являются односторонними, вы не сможете перевести размещенные токены обратно на отправляющий аккаунт."
 
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Please switch your network to Arbitrum."
-msgstr "Пожалуйста, переключите свою сеть на Arbitrum."
+msgid "Please switch your network to Base."
+msgstr "Пожалуйста, переключите свою сеть на Base."
 
 #: src/components/Exchange/NetValueTooltip.tsx
 #: src/components/Exchange/PositionSeller.js
@@ -2678,6 +2671,10 @@ msgstr "Выбрать Язык"
 msgid "Select Market"
 msgstr "Выбрать Рынок"
 
+#: src/pages/Stake/StakeV2.js
+msgid "Select a month"
+msgstr "Выберите месяц"
+
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
 msgid "Select an option"
 msgstr "Выбрать опцию"
@@ -2866,6 +2863,10 @@ msgstr "Стакинг не прошла"
 #: src/pages/Stake/StakeV2.js
 msgid "Stake failed."
 msgstr "Стакинг не прошла."
+
+#: src/pages/Stake/StakeV2.js
+msgid "Stake period"
+msgstr "Период стейкинга"
 
 #: src/pages/Stake/StakeV2.js
 msgid "Stake submitted!"
@@ -3137,8 +3138,8 @@ msgstr "Шортов больше, чем лонгов, комиссия за л
 
 #: src/domain/tokens/approveTokens.tsx
 #: src/lib/contracts/callContract.tsx
-msgid "There is not enough ETH in your account on Arbitrum to send this transaction.<0/><1/><2>Bridge ETH to Arbitrum</2>"
-msgstr "На вашем счету на Arbitrum недостаточно ETH для отправки этой транзакции.<0/><1/><2>Перевести ETH на Arbitrum</2>"
+msgid "There is not enough ETH in your account on Base to send this transaction.<0/><1/><2>Bridge ETH to Base</2>"
+msgstr "На вашем счету на Base недостаточно ETH для отправки этой транзакции.<0/><1/><2>Перевести ETH на Base</2>"
 
 #: src/components/Elp/SwapErrorModal.tsx
 msgid "There is not enough liquidity in a single token for your size. Please check the Save on Fees section and consider splitting your order into several different ones"
@@ -3480,8 +3481,8 @@ msgid "Unstaking..."
 msgstr "Снятие стакинга..."
 
 #: src/lib/wallets/index.tsx
-msgid "Unsupported chain. Switch to Arbitrum network on your wallet and try again"
-msgstr "Неподдерживаемая цепочка. Переключитесь на сеть Arbitrum на вашем кошельке и повторите попытку"
+msgid "Unsupported chain. Switch to Base network on your wallet and try again"
+msgstr "Неподдерживаемая цепочка. Переключитесь на сеть Base на вашем кошельке и повторите попытку"
 
 #: src/components/Exchange/TradeHistory.js
 #: src/components/Referrals/JoinReferralCode.js
@@ -3535,20 +3536,12 @@ msgid "Vest"
 msgstr "Вестинг"
 
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with EDDX on Arbitrum"
-msgstr "Вестинг EDDX на Arbitrum"
+msgid "Vest with EDDX on Base"
+msgstr "Вестинг EDDX на Base"
 
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with EDDX on Avalanche"
-msgstr "Вестинг EDDX на Avalanche"
-
-#: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with ELP on Arbitrum"
-msgstr "Вестинг ELP на Arbitrum"
-
-#: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with ELP on Avalanche"
-msgstr "Вестинг ELP на Avalanche"
+msgid "Vest with ELP on Base"
+msgstr "Вестинг ELP на Base"
 
 #: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
 msgid "Vested EDDX not withdrawn"
@@ -3743,7 +3736,7 @@ msgid "You can buy AVAX directly on <0>Avalanche</0> using these options:"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "You can buy ETH directly on <0>Arbitrum</0> using these options:"
+msgid "You can buy ETH directly on <0>Base</0> using these options:"
 msgstr ""
 
 #: src/components/Exchange/SwapBox.js
@@ -3768,8 +3761,8 @@ msgid "You can transfer AVAX from other networks to Avalanche using any of the b
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "You can transfer ETH from other networks to Arbitrum using any of the below options:"
-msgstr "Вы можете перевести ETH в Arbitrum, используя любой из приведенных ниже вариантов."
+msgid "You can transfer ETH from other networks to Base using any of the below options:"
+msgstr "Вы можете перевести ETH в Base, используя любой из приведенных ниже вариантов."
 
 #: src/pages/Stake/StakeV2.js
 msgid "You can unstake after {0}."

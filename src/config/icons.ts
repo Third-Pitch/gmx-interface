@@ -1,16 +1,16 @@
 import { BASE } from "config/chains";
-import arbitrum from "img/ic_arbitrum_24.svg";
+import base from "img/ic_base_24.svg";
 
 import eddxIcon from "img/ic_eddx_40.svg";
 import elpIcon from "img/ic_elp_40.svg";
-import eddxArbitrum from "img/ic_eddx_arbitrum.svg";
-import elpArbitrum from "img/ic_elp_arbitrum.svg";
+import eddxBase from "img/ic_eddx_base.svg";
+import elpBase from "img/ic_elp_base.svg";
 
 const ICONS = {
   [BASE]: {
-    network: arbitrum,
-    eddx: eddxArbitrum,
-    elp: elpArbitrum,
+    network: base,
+    eddx: eddxBase,
+    elp: elpBase,
   },
   
 

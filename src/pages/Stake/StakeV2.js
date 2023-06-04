@@ -1180,7 +1180,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
 
   const { eddxPrice } = useEddxPrice(
     chainId,
-    { arbitrum: chainId === BASE ? library : undefined },
+    { base: chainId === BASE ? library : undefined },
     active
   );
 

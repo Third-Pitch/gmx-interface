@@ -146,10 +146,10 @@ export default function DashboardV2() {
   );
 
   const { infoTokens } = useInfoTokens(library, chainId, active, undefined, undefined);
-  const { infoTokens: infoTokensArbitrum } = useInfoTokens(null, BASE, active, undefined, undefined);
+  const { infoTokens: infoTokensBase } = useInfoTokens(null, BASE, active, undefined, undefined);
 
   const { data: currentFees } = useSWR(
-    infoTokensArbitrum[AddressZero].contractMinPrice
+    infoTokensBase[AddressZero].contractMinPrice
       ? "Dashboard:currentFees"
       : null,
     {
@@ -170,7 +170,7 @@ export default function DashboardV2() {
               const feeUSD = getCurrentFeesUsd(
                 getWhitelistedTokenAddresses(ACTIVE_CHAIN_IDS[i]),
                 cv,
-                infoTokensArbitrum
+                infoTokensBase
               );
               acc[ACTIVE_CHAIN_IDS[i]] = feeUSD;
               acc.total = acc.total.add(feeUSD);
@@ -209,7 +209,7 @@ export default function DashboardV2() {
     );
   const { eddxPrice } = useEddxPrice(
     chainId,
-    { arbitrum: chainId === BASE ? library : undefined },
+    { base: chainId === BASE ? library : undefined },
     active
   );
 

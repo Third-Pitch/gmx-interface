@@ -10,7 +10,7 @@ export const XGMT_EXCLUDED_ACCOUNTS = [
 
 const CONTRACTS = {
   [BASE]: {
-    // arbitrum mainnet
+    // base mainnet
     Vault: "0x74cCDFcff6CbE68ecD1eb21a23243D217601F4C0",
     Router: "0xf925098c0fb905D7256a61FfA388940f8E8Be853",
     VaultReader: "0xf8B108D0765b6Da8B217eb3495bbE784BA249947",

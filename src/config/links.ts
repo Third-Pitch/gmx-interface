@@ -22,7 +22,7 @@ export function get1InchSwapUrl(chainId: number, from?: string, to?: string) {
 
 export function getLeaderboardLink(chainId) {
   if (chainId === BASE) {
-    return "https://www.eddx.house/arbitrum/leaderboard";
+    return "https://www.eddx.house/base/leaderboard";
   }
   return "https://www.eddx.house";
 }

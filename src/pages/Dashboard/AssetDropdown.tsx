@@ -15,7 +15,7 @@ import { Token } from "domain/tokens";
 import { BASE } from "config/chains";
 import { getIcon } from "config/icons";
 
-const arbitrumIcon = getIcon(BASE, "network");
+const baseIcon = getIcon(BASE, "network");
 
 type Props = {
   assetSymbol: string;
@@ -25,7 +25,7 @@ type Props = {
 function AssetDropdown({ assetSymbol, assetInfo }: Props) {
   const { active } = useWeb3React();
   const { chainId } = useChainId();
-  let { coingecko, arbitrum, reserves } = ICONLINKS[chainId][assetSymbol] || {};
+  let { coingecko, base, reserves } = ICONLINKS[chainId][assetSymbol] || {};
   const unavailableTokenSymbols =
     {
       42161: ["ETH"],
@@ -64,9 +64,9 @@ function AssetDropdown({ assetSymbol, assetInfo }: Props) {
         </Menu.Item>
         <Menu.Item>
           <>
-            {arbitrum && (
-              <ExternalLink href={arbitrum} className="asset-item">
-                <img className="asset-item-icon" src={arbitrumIcon} alt="Open in explorer" />
+            {base && (
+              <ExternalLink href={base} className="asset-item">
+                <img className="asset-item-icon" src={baseIcon} alt="Open in explorer" />
                 <p>
                   <Trans>Open in Explorer</Trans>
                 </p>

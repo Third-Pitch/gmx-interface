@@ -130,7 +130,7 @@ export function AffiliateCodeForm({
     }
 
     if (takenStatus === "none" || takenStatus === "other") {
-      const ownerOnOtherNetwork = takenInfo[chainId === BASE ? "ownerAvax" : "ownerArbitrum"];
+      const ownerOnOtherNetwork = takenInfo[chainId === BASE ? "ownerAvax" : "ownerBase"];
       try {
         const tx = await handleCreateReferralCode(referralCode);
         if (callAfterSuccess) {

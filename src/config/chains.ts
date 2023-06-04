@@ -66,7 +66,7 @@ const ALCHEMY_WHITELISTED_DOMAINS = ["eddx.io", "app.eddx.io"];
 
 export const RPC_PROVIDERS = {
   [ETH_MAINNET]: ["https://rpc.ankr.com/eth"],
-  [BASE]: [getDefaultArbitrumRpcUrl()],
+  [BASE]: [getDefaultBaseRpcUrl()],
 };
 
 export const FALLBACK_PROVIDERS = {
@@ -107,9 +107,9 @@ export function getChainName(chainId: number) {
   return CHAIN_NAMES_MAP[chainId];
 }
 
-export function getDefaultArbitrumRpcUrl() {
+export function getDefaultBaseRpcUrl() {
   return "https://goerli.base.org";
-  // return "https://arb1.arbitrum.io/rpc";
+  // return "https://arb1.base.io/rpc";
 }
 
 export function getRpcUrl(chainId: number): string | undefined {

@@ -1,7 +1,7 @@
 import { BASE } from "config/chains";
 import { getContract } from "config/contracts";
 
-const ARBITRUM_EDDX = getContract(BASE, "EDDX").toLowerCase();
+const BASE_EDDX = getContract(BASE, "EDDX").toLowerCase();
 
 type Exchange = {
   name: string;
@@ -11,9 +11,9 @@ type Exchange = {
 
 export const EXTERNAL_LINKS = {
   [BASE]: {
-    networkWebsite: "https://arbitrum.io/",
+    networkWebsite: "https://base.io/",
     buyEddx: {
-      uniswap: `https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=${ARBITRUM_EDDX}`,
+      uniswap: `https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=${BASE_EDDX}`,
     },
   },
 };
@@ -30,7 +30,7 @@ export const FIAT_GATEWAYS: Exchange[] = [
     name: "Banxa",
     icon: "ic_banxa.svg",
     links: {
-      [BASE]: "https://eddx.banxa.com/?coinType=EDDX&fiatType=USD&fiatAmount=500&blockchain=arbitrum",
+      [BASE]: "https://eddx.banxa.com/?coinType=EDDX&fiatType=USD&fiatAmount=500&blockchain=base",
     },
   },
   {
@@ -38,7 +38,7 @@ export const FIAT_GATEWAYS: Exchange[] = [
     icon: "ic_tansak.svg",
     links: {
       [BASE]:
-        "https://global.transak.com/?apiKey=28a15a9b-d94e-4944-99cc-6aa35b45cc74&networks=arbitrum&defaultCryptoCurrency=EDDX&isAutoFillUserData=true&hideMenu=true&isFeeCalculationHidden=true",
+        "https://global.transak.com/?apiKey=28a15a9b-d94e-4944-99cc-6aa35b45cc74&networks=base&defaultCryptoCurrency=EDDX&isAutoFillUserData=true&hideMenu=true&isFeeCalculationHidden=true",
     },
   },
 ];
@@ -48,14 +48,14 @@ export const EDDX_FROM_ANY_NETWORKS: Exchange[] = [
     name: "Bungee",
     icon: "ic_bungee.png",
     links: {
-      [BASE]: `https://multitx.bungee.exchange/?toChainId=42161&toTokenAddress=${ARBITRUM_EDDX}`,
+      [BASE]: `https://multitx.bungee.exchange/?toChainId=42161&toTokenAddress=${BASE_EDDX}`,
     },
   },
   {
     name: "O3",
     icon: "ic_o3.png",
     links: {
-      [BASE]: `https://o3swap.com/swap?dst_chain=42161&dst_token_hash=${ARBITRUM_EDDX}`,
+      [BASE]: `https://o3swap.com/swap?dst_chain=42161&dst_token_hash=${BASE_EDDX}`,
     },
   },
 ];
@@ -80,7 +80,7 @@ export const BUY_NATIVE_TOKENS: Exchange[] = [
     name: "Banxa",
     icon: "ic_banxa.svg",
     links: {
-      [BASE]: "https://eddx.banxa.com/?coinType=ETH&fiatType=USD&fiatAmount=500&blockchain=arbitrum",
+      [BASE]: "https://eddx.banxa.com/?coinType=ETH&fiatType=USD&fiatAmount=500&blockchain=base",
     },
   },
   {
@@ -88,7 +88,7 @@ export const BUY_NATIVE_TOKENS: Exchange[] = [
     icon: "ic_tansak.svg",
     links: {
       [BASE]:
-        "https://global.transak.com/?apiKey=28a15a9b-d94e-4944-99cc-6aa35b45cc74&networks=arbitrum&isAutoFillUserData=true&hideMenu=true&isFeeCalculationHidden=true",
+        "https://global.transak.com/?apiKey=28a15a9b-d94e-4944-99cc-6aa35b45cc74&networks=base&isAutoFillUserData=true&hideMenu=true&isFeeCalculationHidden=true",
     },
   },
 ];
@@ -109,16 +109,16 @@ export const TRANSFER_EXCHANGES: Exchange[] = [
     },
   },
   {
-    name: "Arbitrum",
-    icon: "ic_arbitrum_24.svg",
+    name: "Base",
+    icon: "ic_base_24.svg",
     links: {
-      [BASE]: "https://bridge.arbitrum.io/",
+      [BASE]: "https://bridge.base.io/",
     },
   },
   {
     name: "Hop",
     icon: "ic_hop.svg",
-    links: { [BASE]: "https://app.hop.exchange/send?token=ETH&sourceNetwork=ethereum&destNetwork=arbitrum" },
+    links: { [BASE]: "https://app.hop.exchange/send?token=ETH&sourceNetwork=ethereum&destNetwork=base" },
   },
   {
     name: "Bungee",
@@ -193,41 +193,41 @@ export const DECENTRALISED_AGGRIGATORS: Exchange[] = [
     name: "Matcha",
     icon: "ic_matcha.png",
     links: {
-      [BASE]: `https://www.matcha.xyz/markets/42161/${ARBITRUM_EDDX}`,
+      [BASE]: `https://www.matcha.xyz/markets/42161/${BASE_EDDX}`,
     },
   },
   {
     name: "Paraswap",
     icon: "ic_paraswap.svg",
     links: {
-      [BASE]: `https://app.paraswap.io/#/${ARBITRUM_EDDX}?network=arbitrum`,
+      [BASE]: `https://app.paraswap.io/#/${BASE_EDDX}?network=base`,
     },
   },
   {
     name: "KyberSwap",
     icon: "ic_kyberswap.svg",
     links: {
-      [BASE]: "https://kyberswap.com/swap/arbitrum/eth-to-eddx",
+      [BASE]: "https://kyberswap.com/swap/base/eth-to-eddx",
     },
   },
   {
     name: "OpenOcean",
     icon: "ic_openocean.svg",
     links: {
-      [BASE]: "https://app.openocean.finance/CLASSIC#/ARBITRUM/ETH/EDDX",
+      [BASE]: "https://app.openocean.finance/CLASSIC#/BASE/ETH/EDDX",
     },
   },
   {
     name: "DODO",
     icon: "ic_dodo.svg",
     links: {
-      [BASE]: `https://app.dodoex.io/?from=ETH&to=${ARBITRUM_EDDX}&network=arbitrum`,
+      [BASE]: `https://app.dodoex.io/?from=ETH&to=${BASE_EDDX}&network=base`,
     },
   },
   {
     name: "Slingshot",
     icon: "ic_slingshot.svg",
-    links: { [BASE]: "https://app.slingshot.finance/swap/ETH?network=arbitrum" },
+    links: { [BASE]: "https://app.slingshot.finance/swap/ETH?network=base" },
   },
   {
     name: "Yieldyak",

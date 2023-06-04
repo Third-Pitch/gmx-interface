@@ -109,7 +109,7 @@ msgstr "APR(実質年利)"
 #: src/components/TokenCard/TokenCard.js
 #: src/components/TokenCard/TokenCard.js
 msgid "APR:"
-msgstr "ArbitrumのAPR(実質年利)"
+msgstr "BaseのAPR(実質年利)"
 
 #: src/components/Stake/EDDXAprTooltip.tsx
 msgid "APRs are updated weekly on Wednesday and will depend on the fees collected for the week."
@@ -412,7 +412,7 @@ msgid "Buy EDDX from Traderjoe:"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy EDDX from Uniswap (make sure to select Arbitrum):"
+msgid "Buy EDDX from Uniswap (make sure to select Base):"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
@@ -455,7 +455,7 @@ msgid "Buy ELP"
 msgstr "ELPを購入"
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy ETH directly to Arbitrum or transfer it there."
+msgid "Buy ETH directly to Base or transfer it there."
 msgstr ""
 
 #: src/components/Elp/ElpSwap.js
@@ -476,7 +476,7 @@ msgid "Buy or Transfer AVAX to Avalanche"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "Buy or Transfer ETH to Arbitrum"
+msgid "Buy or Transfer ETH to Base"
 msgstr ""
 
 #: src/components/Elp/ElpSwap.js
@@ -1128,8 +1128,8 @@ msgid "EDDX fundamentals"
 msgstr "EDDXの基本"
 
 #: src/pages/Home/Home.js
-msgid "EDDX is currently live on Arbitrum and Avalanche."
-msgstr "EDDXは現在ArbitrumとAvalancheで稼働中です。"
+msgid "EDDX is currently live on Base and Avalanche."
+msgstr "EDDXは現在BaseとAvalancheで稼働中です。"
 
 #: src/pages/Jobs/Jobs.js
 msgid "EDDX is not actively looking for new hires at the moment. However, if you think you can contribute to the project, please email <0>jobs@eddx.io</0>."
@@ -2038,16 +2038,9 @@ msgid "Minimum received"
 msgstr "最低受け取り済"
 
 #: src/pages/Stake/StakeV2.js
+#: src/pages/Stake/StakeV2.js
 msgid "Month"
 msgstr "月"
-
-#: src/pages/Stake/StakeV2.js
-msgid "Select a month"
-msgstr "月を選択"
-
-#: src/pages/Stake/StakeV2.js
-msgid "Stake period"
-msgstr "ステーク期間"
 
 #: src/components/Exchange/SwapBox.js
 #: src/pages/Dashboard/DashboardV2.js
@@ -2333,8 +2326,8 @@ msgid "Please only use this for full account transfers.<0/>This will transfer al
 msgstr "アカウント全体を移行する場合だけこの機能を利用してください。<0/>この機能は、あなたのすべてのEDDX、esEDDX、ELP、マルチプライヤーポイントを新たなアカウントに移行します<1/>移行は、受け取り側のアカウントが過去にEDDXトークンとELPトークンを一度もステークしたことがない場合にのみ可能になります。<2/>移行は一方通行であり、いったん移行が完了すると、ステークされているトークンを元のアカウントに戻すことはできなくなります。"
 
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Please switch your network to Arbitrum."
-msgstr "ネットワークをArbitrumに切り替えてください。"
+msgid "Please switch your network to Base."
+msgstr "ネットワークをBaseに切り替えてください。"
 
 #: src/components/Exchange/NetValueTooltip.tsx
 #: src/components/Exchange/PositionSeller.js
@@ -2678,6 +2671,10 @@ msgstr "言語選択"
 msgid "Select Market"
 msgstr "マーケット選択"
 
+#: src/pages/Stake/StakeV2.js
+msgid "Select a month"
+msgstr "月を選択"
+
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
 msgid "Select an option"
 msgstr "選択肢を選ぶ"
@@ -2866,6 +2863,10 @@ msgstr "ステークできませんでした"
 #: src/pages/Stake/StakeV2.js
 msgid "Stake failed."
 msgstr "ステークできませんでした。"
+
+#: src/pages/Stake/StakeV2.js
+msgid "Stake period"
+msgstr "ステーク期間"
 
 #: src/pages/Stake/StakeV2.js
 msgid "Stake submitted!"
@@ -3137,8 +3138,8 @@ msgstr "ロングよりショートが多いため、ロングの借入手数料
 
 #: src/domain/tokens/approveTokens.tsx
 #: src/lib/contracts/callContract.tsx
-msgid "There is not enough ETH in your account on Arbitrum to send this transaction.<0/><1/><2>Bridge ETH to Arbitrum</2>"
-msgstr "Arbitrum上のあなたのアカウントにはこの取引に必要なETHが不足しています。<0/><1/><2>ETHをArbitrumへブリッジする</2>"
+msgid "There is not enough ETH in your account on Base to send this transaction.<0/><1/><2>Bridge ETH to Base</2>"
+msgstr "Base上のあなたのアカウントにはこの取引に必要なETHが不足しています。<0/><1/><2>ETHをBaseへブリッジする</2>"
 
 #: src/components/Elp/SwapErrorModal.tsx
 msgid "There is not enough liquidity in a single token for your size. Please check the Save on Fees section and consider splitting your order into several different ones"
@@ -3480,8 +3481,8 @@ msgid "Unstaking..."
 msgstr "アンステーク中..."
 
 #: src/lib/wallets/index.tsx
-msgid "Unsupported chain. Switch to Arbitrum network on your wallet and try again"
-msgstr "サポートされていないチェーンです。ウォレットをArbitrumネットワークに切り替えて再試行してください"
+msgid "Unsupported chain. Switch to Base network on your wallet and try again"
+msgstr "サポートされていないチェーンです。ウォレットをBaseネットワークに切り替えて再試行してください"
 
 #: src/components/Exchange/TradeHistory.js
 #: src/components/Referrals/JoinReferralCode.js
@@ -3535,20 +3536,12 @@ msgid "Vest"
 msgstr "べスティング"
 
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with EDDX on Arbitrum"
-msgstr "ArbitrumでEDDXを使ってべスティングする"
+msgid "Vest with EDDX on Base"
+msgstr "BaseでEDDXを使ってべスティングする"
 
 #: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with EDDX on Avalanche"
-msgstr "AvalancheでEDDXを使ってべスティングする"
-
-#: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with ELP on Arbitrum"
-msgstr "ArbitrumでELPを使ってべスティングする"
-
-#: src/pages/ClaimEsEddx/ClaimEsEddx.js
-msgid "Vest with ELP on Avalanche"
-msgstr "AvalancheでELPを使ってべスティングする"
+msgid "Vest with ELP on Base"
+msgstr "BaseでELPを使ってべスティングする"
 
 #: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
 msgid "Vested EDDX not withdrawn"
@@ -3743,7 +3736,7 @@ msgid "You can buy AVAX directly on <0>Avalanche</0> using these options:"
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "You can buy ETH directly on <0>Arbitrum</0> using these options:"
+msgid "You can buy ETH directly on <0>Base</0> using these options:"
 msgstr ""
 
 #: src/components/Exchange/SwapBox.js
@@ -3768,8 +3761,8 @@ msgid "You can transfer AVAX from other networks to Avalanche using any of the b
 msgstr ""
 
 #: src/pages/BuyEDDX/BuyEDDX.tsx
-msgid "You can transfer ETH from other networks to Arbitrum using any of the below options:"
-msgstr "以下の選択肢のいずれかを使い、ETHを他のネットワークからArbitrumへ送ることができます。"
+msgid "You can transfer ETH from other networks to Base using any of the below options:"
+msgstr "以下の選択肢のいずれかを使い、ETHを他のネットワークからBaseへ送ることができます。"
 
 #: src/pages/Stake/StakeV2.js
 msgid "You can unstake after {0}."

@@ -8,7 +8,7 @@ import { MAX_REFERRAL_CODE_LENGTH, isAddressZero, isHashZero } from "lib/legacy"
 import { getContract } from "config/contracts";
 import { REGEX_VERIFY_BYTES32 } from "components/Referrals/referralsHelper";
 import { BASE } from "config/chains";
-import { arbitrumReferralsGraphClient } from "lib/subgraph/clients";
+import { baseReferralsGraphClient } from "lib/subgraph/clients";
 import { callContract, contractFetcher } from "lib/contracts";
 import { helperToast } from "lib/helperToast";
 import { REFERRAL_CODE_KEY } from "config/localStorage";
@@ -20,7 +20,7 @@ const DISTRIBUTION_TYPE_DISCOUNT = "2";
 
 function getGraphClient(chainId) {
   if (chainId === BASE) {
-    return arbitrumReferralsGraphClient;
+    return baseReferralsGraphClient;
   }
   throw new Error(`Unsupported chain ${chainId}`);
 }
@@ -90,13 +90,13 @@ export function useUserCodesOnAllChain(account) {
   `;
   useEffect(() => {
     async function main() {
-      const arbitrumCodes = await arbitrumReferralsGraphClient
+      const baseCodes = await baseReferralsGraphClient
         .query({ query, variables: { account: (account || "").toLowerCase() } })
         .then(({ data }) => {
           return data.referralCodes.map((c) => c.code);
         })
       // TODO 这里可能是写反了
-      const codeOwners = await getCodeOwnersData(BASE, account, arbitrumCodes);
+      const codeOwners = await getCodeOwnersData(BASE, account, baseCodes);
 
       setData({
         [BASE]: (codeOwners || []).reduce((acc, cv) => {

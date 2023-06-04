@@ -38,7 +38,7 @@
   padding-top: 0.465rem;
 }
 
-.ClaimEsEddx-vesting-options .Checkbox.btn-lg.selected.arbitrum {
+.ClaimEsEddx-vesting-options .Checkbox.btn-lg.selected.base {
   background: rgba(41, 160, 240, 0.2);
 }
 
@@ -54,7 +54,7 @@
   opacity: 1;
 }
 
-.ClaimEsEddx-vesting-options .Checkbox.arbitrum .Checkbox-icon.active {
+.ClaimEsEddx-vesting-options .Checkbox.base .Checkbox-icon.active {
   color: #29a0f0;
 }
 

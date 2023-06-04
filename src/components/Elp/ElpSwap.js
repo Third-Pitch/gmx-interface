@@ -206,7 +206,7 @@ export default function ElpSwap(props) {
     }
   );
 
-  const { eddxPrice } = useEddxPrice(chainId, { arbitrum: chainId === BASE ? library : undefined }, active);
+  const { eddxPrice } = useEddxPrice(chainId, { base: chainId === BASE ? library : undefined }, active);
 
   const rewardTrackersForStakingInfo = [stakedElpTrackerAddress, feeElpTrackerAddress];
   const { data: stakingInfo } = useSWR(
